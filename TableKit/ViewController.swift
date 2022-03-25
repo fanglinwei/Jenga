@@ -28,7 +28,41 @@ class TableViewController: UIViewController, DSLAutoTable {
     
     var id: Int = 0
         
-    @TableBuilder var tableContents: [Sectionable] {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setup()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
+            self?.isOn = false
+        }
+    }
+    
+    private func setup() {
+        view.backgroundColor = .white
+        navigationItem.title = "设置"
+    }
+}
+
+// DSL
+extension TableViewController {
+    
+    @TableBuilder
+    var tableContents: [Sectionable] {
+        
+        TableSection {
+            
+            TableRow<BannerCell>("banner_image")
+            
+            SeparatorRow(10)
+            
+            TableRow<BannerCell>()
+                .data("banner_image")
+                .customize { (cell, value) in
+                    print(cell, value)
+                }
+        }
+        .headerHeight(20)
+        
         TableSection {
             NavigationRow("用户协议")
                 .onTap {
@@ -39,6 +73,7 @@ class TableViewController: UIViewController, DSLAutoTable {
         .headerHeight(20)
         
         TableSection {
+            
             NavigationRow("用户协议")
                 .onTap {
                     
@@ -53,20 +88,5 @@ class TableViewController: UIViewController, DSLAutoTable {
         }
         .rowHeight(52)
         .headerHeight(20)
-    }
-    let bind = Binding.constant("123")
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setup()
-        print(bind)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
-            self?.isOn = false
-        }
-    }
-    
-    private func setup() {
-        view.backgroundColor = .white
-        navigationItem.title = "设置"
     }
 }

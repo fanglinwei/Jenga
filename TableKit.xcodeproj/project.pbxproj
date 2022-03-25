@@ -55,6 +55,7 @@
 		B3478B0927EDCC0F00A30695 /* NSMethodSignature+CCAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = B3478B0227EDCC0F00A30695 /* NSMethodSignature+CCAdd.m */; };
 		B3478B0A27EDCC0F00A30695 /* UITableViewCell+InsetGrouped.m in Sources */ = {isa = PBXBuildFile; fileRef = B3478B0527EDCC0F00A30695 /* UITableViewCell+InsetGrouped.m */; };
 		B3478B0B27EDCC0F00A30695 /* UITableView+InsetGrouped.m in Sources */ = {isa = PBXBuildFile; fileRef = B3478B0627EDCC0F00A30695 /* UITableView+InsetGrouped.m */; };
+		B3478B1127EDCDD100A30695 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478B1027EDCDD100A30695 /* BannerCell.swift */; };
 		B3E7C23A27DB8BFC0036BC9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E7C23927DB8BFC0036BC9D /* AppDelegate.swift */; };
 		B3E7C23C27DB8BFC0036BC9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E7C23B27DB8BFC0036BC9D /* SceneDelegate.swift */; };
 		B3E7C23E27DB8BFC0036BC9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E7C23D27DB8BFC0036BC9D /* ViewController.swift */; };
@@ -120,6 +121,7 @@
 		B3478B0527EDCC0F00A30695 /* UITableViewCell+InsetGrouped.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+InsetGrouped.m"; sourceTree = "<group>"; };
 		B3478B0627EDCC0F00A30695 /* UITableView+InsetGrouped.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+InsetGrouped.m"; sourceTree = "<group>"; };
 		B3478B0F27EDCC4100A30695 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		B3478B1027EDCDD100A30695 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 		B3E7C23627DB8BFC0036BC9D /* TableKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E7C23927DB8BFC0036BC9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3E7C23B27DB8BFC0036BC9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 				B3E7C23927DB8BFC0036BC9D /* AppDelegate.swift */,
 				B3E7C23B27DB8BFC0036BC9D /* SceneDelegate.swift */,
 				B3E7C23D27DB8BFC0036BC9D /* ViewController.swift */,
+				B3478B1027EDCDD100A30695 /* BannerCell.swift */,
 				B3478B0F27EDCC4100A30695 /* Bridging-Header.h */,
 				B3E7C23F27DB8BFC0036BC9D /* Main.storyboard */,
 				B3E7C24227DB8BFC0036BC9D /* Assets.xcassets */,
@@ -538,6 +541,7 @@
 				B3478AED27EDC67000A30695 /* DSLTable.swift in Sources */,
 				B3478AC927EDC67000A30695 /* Binding.swift in Sources */,
 				B3478ADD27EDC67000A30695 /* BasicRow.swift in Sources */,
+				B3478B1127EDCDD100A30695 /* BannerCell.swift in Sources */,
 				B3478AE927EDC67000A30695 /* Icon.AsyncImage.swift in Sources */,
 				B3478ACC27EDC67000A30695 /* BindingExtension.swift in Sources */,
 				B3478AE227EDC67000A30695 /* RowCompatible.swift in Sources */,
