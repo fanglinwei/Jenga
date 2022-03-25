@@ -8,42 +8,6 @@
 import UIKit
 import Kingfisher
 
-extension DSLTableManager {
-    
-    public static var isEnabledLog = true
-    
-    public static func setup()  {
-        UIViewController.swizzled
-        
-    }
-    
-    // 全局样式配置 不配置使用系统样式
-    public typealias DefaultCellHandle = (UITableViewCell, _ style: RowSystemable) -> Void
-    
-    internal static var defaultHandle: DefaultCellHandle?
-    
-    public static func `default`(block: @escaping DefaultCellHandle) {
-        self.defaultHandle = block
-    }
-}
-
-extension DSLTableManager {
-        
-    static func view(frame: CGRect) -> UITableView {
-        let tableView: UITableView
-        if #available(iOS 13.0, *) {
-            tableView = UITableView(frame: frame, style: .insetGrouped)
-        } else {
-            tableView = UITableView(frame: frame, style: .grouped)
-//            tableView.cc_isInsetGrouped = true
-//            tableView.cc_insetGroupedHorizontalInset = 16
-//            tableView.cc_cornerRadius = 8
-        }
-        tableView.separatorStyle = .none
-        return tableView
-    }
-}
-
 //extension DSLAutoTable where Self: ViewControllerable {
 //
 //    func didLayoutTable() {
@@ -104,6 +68,7 @@ extension DSLTableManager {
 //}
 
 
+// 工具依赖
 extension UIView {
 
     func fillToSuperview() {
@@ -342,6 +307,4 @@ extension UILabel {
             swizzled_method(originalSelector, swizzledSelector)
         }
     } ()
-    
-
 }

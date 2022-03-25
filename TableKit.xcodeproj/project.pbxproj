@@ -47,6 +47,14 @@
 		B3478AED27EDC67000A30695 /* DSLTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478AC627EDC66F00A30695 /* DSLTable.swift */; };
 		B3478AEE27EDC67000A30695 /* TableDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478AC727EDC66F00A30695 /* TableDirector.swift */; };
 		B3478AEF27EDC67000A30695 /* DSLAutoTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478AC827EDC66F00A30695 /* DSLAutoTable.swift */; };
+		B3478AF627EDCADB00A30695 /* NavigationRow2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478AF227EDCADB00A30695 /* NavigationRow2.swift */; };
+		B3478AF727EDCADB00A30695 /* NavigationBadgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478AF427EDCADB00A30695 /* NavigationBadgeCell.swift */; };
+		B3478AF827EDCADB00A30695 /* NavigationBadgeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478AF527EDCADB00A30695 /* NavigationBadgeRow.swift */; };
+		B3478B0727EDCC0F00A30695 /* NSObject+InsetGrouped.m in Sources */ = {isa = PBXBuildFile; fileRef = B3478AFE27EDCC0F00A30695 /* NSObject+InsetGrouped.m */; };
+		B3478B0827EDCC0F00A30695 /* CALayer+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = B3478AFF27EDCC0F00A30695 /* CALayer+CornerRadius.m */; };
+		B3478B0927EDCC0F00A30695 /* NSMethodSignature+CCAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = B3478B0227EDCC0F00A30695 /* NSMethodSignature+CCAdd.m */; };
+		B3478B0A27EDCC0F00A30695 /* UITableViewCell+InsetGrouped.m in Sources */ = {isa = PBXBuildFile; fileRef = B3478B0527EDCC0F00A30695 /* UITableViewCell+InsetGrouped.m */; };
+		B3478B0B27EDCC0F00A30695 /* UITableView+InsetGrouped.m in Sources */ = {isa = PBXBuildFile; fileRef = B3478B0627EDCC0F00A30695 /* UITableView+InsetGrouped.m */; };
 		B3E7C23A27DB8BFC0036BC9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E7C23927DB8BFC0036BC9D /* AppDelegate.swift */; };
 		B3E7C23C27DB8BFC0036BC9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E7C23B27DB8BFC0036BC9D /* SceneDelegate.swift */; };
 		B3E7C23E27DB8BFC0036BC9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E7C23D27DB8BFC0036BC9D /* ViewController.swift */; };
@@ -97,6 +105,21 @@
 		B3478AC627EDC66F00A30695 /* DSLTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSLTable.swift; sourceTree = "<group>"; };
 		B3478AC727EDC66F00A30695 /* TableDirector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDirector.swift; sourceTree = "<group>"; };
 		B3478AC827EDC66F00A30695 /* DSLAutoTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSLAutoTable.swift; sourceTree = "<group>"; };
+		B3478AF227EDCADB00A30695 /* NavigationRow2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationRow2.swift; sourceTree = "<group>"; };
+		B3478AF427EDCADB00A30695 /* NavigationBadgeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBadgeCell.swift; sourceTree = "<group>"; };
+		B3478AF527EDCADB00A30695 /* NavigationBadgeRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBadgeRow.swift; sourceTree = "<group>"; };
+		B3478AFA27EDCC0F00A30695 /* UITableViewCell+InsetGrouped.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+InsetGrouped.h"; sourceTree = "<group>"; };
+		B3478AFC27EDCC0F00A30695 /* NSObject+InsetGrouped.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+InsetGrouped.h"; sourceTree = "<group>"; };
+		B3478AFD27EDCC0F00A30695 /* CALayer+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+CornerRadius.h"; sourceTree = "<group>"; };
+		B3478AFE27EDCC0F00A30695 /* NSObject+InsetGrouped.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+InsetGrouped.m"; sourceTree = "<group>"; };
+		B3478AFF27EDCC0F00A30695 /* CALayer+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+CornerRadius.m"; sourceTree = "<group>"; };
+		B3478B0127EDCC0F00A30695 /* NSMethodSignature+CCAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMethodSignature+CCAdd.h"; sourceTree = "<group>"; };
+		B3478B0227EDCC0F00A30695 /* NSMethodSignature+CCAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMethodSignature+CCAdd.m"; sourceTree = "<group>"; };
+		B3478B0327EDCC0F00A30695 /* CCRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRuntime.h; sourceTree = "<group>"; };
+		B3478B0427EDCC0F00A30695 /* UITableView+InsetGrouped.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+InsetGrouped.h"; sourceTree = "<group>"; };
+		B3478B0527EDCC0F00A30695 /* UITableViewCell+InsetGrouped.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+InsetGrouped.m"; sourceTree = "<group>"; };
+		B3478B0627EDCC0F00A30695 /* UITableView+InsetGrouped.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+InsetGrouped.m"; sourceTree = "<group>"; };
+		B3478B0F27EDCC4100A30695 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		B3E7C23627DB8BFC0036BC9D /* TableKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E7C23927DB8BFC0036BC9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3E7C23B27DB8BFC0036BC9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -255,6 +278,66 @@
 			path = Icon;
 			sourceTree = "<group>";
 		};
+		B3478AF027EDCADB00A30695 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B3478AF127EDCADB00A30695 /* Navigation */,
+				B3478AF327EDCADB00A30695 /* Badge */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		B3478AF127EDCADB00A30695 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				B3478AF227EDCADB00A30695 /* NavigationRow2.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		B3478AF327EDCADB00A30695 /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				B3478AF427EDCADB00A30695 /* NavigationBadgeCell.swift */,
+				B3478AF527EDCADB00A30695 /* NavigationBadgeRow.swift */,
+			);
+			path = Badge;
+			sourceTree = "<group>";
+		};
+		B3478AF927EDCC0F00A30695 /* InsetGrouped */ = {
+			isa = PBXGroup;
+			children = (
+				B3478AFA27EDCC0F00A30695 /* UITableViewCell+InsetGrouped.h */,
+				B3478AFB27EDCC0F00A30695 /* Extenison */,
+				B3478B0027EDCC0F00A30695 /* Runtime */,
+				B3478B0427EDCC0F00A30695 /* UITableView+InsetGrouped.h */,
+				B3478B0527EDCC0F00A30695 /* UITableViewCell+InsetGrouped.m */,
+				B3478B0627EDCC0F00A30695 /* UITableView+InsetGrouped.m */,
+			);
+			path = InsetGrouped;
+			sourceTree = "<group>";
+		};
+		B3478AFB27EDCC0F00A30695 /* Extenison */ = {
+			isa = PBXGroup;
+			children = (
+				B3478AFC27EDCC0F00A30695 /* NSObject+InsetGrouped.h */,
+				B3478AFD27EDCC0F00A30695 /* CALayer+CornerRadius.h */,
+				B3478AFE27EDCC0F00A30695 /* NSObject+InsetGrouped.m */,
+				B3478AFF27EDCC0F00A30695 /* CALayer+CornerRadius.m */,
+			);
+			path = Extenison;
+			sourceTree = "<group>";
+		};
+		B3478B0027EDCC0F00A30695 /* Runtime */ = {
+			isa = PBXGroup;
+			children = (
+				B3478B0127EDCC0F00A30695 /* NSMethodSignature+CCAdd.h */,
+				B3478B0227EDCC0F00A30695 /* NSMethodSignature+CCAdd.m */,
+				B3478B0327EDCC0F00A30695 /* CCRuntime.h */,
+			);
+			path = Runtime;
+			sourceTree = "<group>";
+		};
 		B3E7C22D27DB8BFC0036BC9D = {
 			isa = PBXGroup;
 			children = (
@@ -276,10 +359,13 @@
 		B3E7C23827DB8BFC0036BC9D /* TableKit */ = {
 			isa = PBXGroup;
 			children = (
+				B3478AF927EDCC0F00A30695 /* InsetGrouped */,
+				B3478AF027EDCADB00A30695 /* Extension */,
 				B3FB54E727EACCE30014AC6E /* Sourse */,
 				B3E7C23927DB8BFC0036BC9D /* AppDelegate.swift */,
 				B3E7C23B27DB8BFC0036BC9D /* SceneDelegate.swift */,
 				B3E7C23D27DB8BFC0036BC9D /* ViewController.swift */,
+				B3478B0F27EDCC4100A30695 /* Bridging-Header.h */,
 				B3E7C23F27DB8BFC0036BC9D /* Main.storyboard */,
 				B3E7C24227DB8BFC0036BC9D /* Assets.xcassets */,
 				B3E7C24427DB8BFC0036BC9D /* LaunchScreen.storyboard */,
@@ -413,7 +499,9 @@
 			files = (
 				B3478AEE27EDC67000A30695 /* TableDirector.swift in Sources */,
 				B3478AEF27EDC67000A30695 /* DSLAutoTable.swift in Sources */,
+				B3478B0927EDCC0F00A30695 /* NSMethodSignature+CCAdd.m in Sources */,
 				B3E7C23E27DB8BFC0036BC9D /* ViewController.swift in Sources */,
+				B3478AF827EDCADB00A30695 /* NavigationBadgeRow.swift in Sources */,
 				B3478AD927EDC67000A30695 /* TableCellHeightCalculator.swift in Sources */,
 				B3478AE327EDC67000A30695 /* SeparatorRow.swift in Sources */,
 				B3478AD827EDC67000A30695 /* TableKit.Log.swift in Sources */,
@@ -428,18 +516,24 @@
 				B3478ACA27EDC67000A30695 /* AnyLocation.swift in Sources */,
 				B3478AD627EDC67000A30695 /* TableSection.swift in Sources */,
 				B3478ADA27EDC67000A30695 /* TableCellRegisterer.swift in Sources */,
+				B3478B0A27EDCC0F00A30695 /* UITableViewCell+InsetGrouped.m in Sources */,
+				B3478B0727EDCC0F00A30695 /* NSObject+InsetGrouped.m in Sources */,
 				B3478ADE27EDC67000A30695 /* Configurable.swift in Sources */,
 				B3478AE127EDC67000A30695 /* Row.swift in Sources */,
 				B3478AD227EDC67000A30695 /* ToggleCell.swift in Sources */,
 				B3478AD427EDC67000A30695 /* BacicSection.swift in Sources */,
+				B3478B0827EDCC0F00A30695 /* CALayer+CornerRadius.m in Sources */,
 				B3478ACD27EDC67000A30695 /* ResultBuilder.swift in Sources */,
 				B3478ADC27EDC67000A30695 /* TableRow.swift in Sources */,
+				B3478AF727EDCADB00A30695 /* NavigationBadgeCell.swift in Sources */,
 				B3478AE727EDC67000A30695 /* ToggleRow.swift in Sources */,
+				B3478B0B27EDCC0F00A30695 /* UITableView+InsetGrouped.m in Sources */,
 				B3478AD027EDC67000A30695 /* DSLTableManager.Extension.swift in Sources */,
 				B3478ACF27EDC67000A30695 /* BindingConvertible.swift in Sources */,
 				B3478AE827EDC67000A30695 /* Icon.swift in Sources */,
 				B3478AD727EDC67000A30695 /* Sectionable.swift in Sources */,
 				B3478AD327EDC67000A30695 /* DSLTableManager.swift in Sources */,
+				B3478AF627EDCADB00A30695 /* NavigationRow2.swift in Sources */,
 				B3478AEC27EDC67000A30695 /* DetailText.swift in Sources */,
 				B3478AED27EDC67000A30695 /* DSLTable.swift in Sources */,
 				B3478AC927EDC67000A30695 /* Binding.swift in Sources */,
@@ -619,6 +713,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fun.TableKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "TableKit/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -648,6 +743,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fun.TableKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "TableKit/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

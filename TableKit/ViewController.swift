@@ -20,7 +20,7 @@ class ViewController: UIViewController {
 
 class TableViewController: UIViewController, DSLAutoTable {
     
-    deinit { print("deinit:\t\(classForCoder)") }
+    deinit { print("deinit", classForCoder) }
     
     @State var text = ""
     
