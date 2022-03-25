@@ -22,7 +22,9 @@ class TableViewController: UIViewController, DSLAutoTable {
     
     deinit { print("deinit", classForCoder) }
     
-    @State var text = ""
+    @State var text = "OC"
+    
+    @State var detailText = "+86"
     
     @State var isOn = true
     
@@ -33,7 +35,8 @@ class TableViewController: UIViewController, DSLAutoTable {
         setup()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
-            self?.isOn = false
+            self?.text = "Swift"
+            self?.detailText = "17878787878"
         }
     }
     
@@ -52,10 +55,12 @@ extension TableViewController {
         TableSection {
             
             TableRow<BannerCell>("banner_image")
+                .height(120)
             
             SeparatorRow(10)
             
             TableRow<BannerCell>()
+                .height(120)
                 .data("banner_image")
                 .customize { (cell, value) in
                     print(cell, value)
@@ -68,23 +73,31 @@ extension TableViewController {
                 .onTap {
                     
                 }
+            
+            ToggleRow("开关", isOn: $isOn)
+                .onTap(on: self) { (self, isOn) in
+                    print(isOn)
+                    print(self.isOn)
+                    self.reloadTable()
+                }
+            
+            // binding
+            NavigationRow($text)
+            
+            NavigationRow("手机号")
+                .detailText($detailText)
         }
         .rowHeight(52)
         .headerHeight(20)
         
+        
+        // 测试复用
         TableSection {
+            NavigationRow("🤣")
             
-            NavigationRow("用户协议")
-                .onTap {
-                    
-                }
-            
-            ToggleRow("开关", isOn: $isOn)
-                .onTap(on: self) { (self, isOn) in
-                    print(self.id)
-                    print(isOn)
-                    print(self.isOn)
-                }
+            if isOn {
+                NavigationRow("😃")
+            }
         }
         .rowHeight(52)
         .headerHeight(20)
