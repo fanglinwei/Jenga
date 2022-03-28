@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		51EF6F93CF8632C33FED24BA /* Pods_TableKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28594BBE2932A34CCC4426B /* Pods_TableKit.framework */; };
+		9B4D8F2C27F1B5F2005D1263 /* SeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4D8F2B27F1B5F2005D1263 /* SeparatorCell.swift */; };
 		B3478AC927EDC67000A30695 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478A9A27EDC66F00A30695 /* Binding.swift */; };
 		B3478ACA27EDC67000A30695 /* AnyLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478A9B27EDC66F00A30695 /* AnyLocation.swift */; };
 		B3478ACB27EDC67000A30695 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478A9C27EDC66F00A30695 /* State.swift */; };
@@ -66,6 +67,7 @@
 
 /* Begin PBXFileReference section */
 		905AEC9F2BBA4AB8A08C04BD /* Pods-TableKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableKit.debug.xcconfig"; path = "Target Support Files/Pods-TableKit/Pods-TableKit.debug.xcconfig"; sourceTree = "<group>"; };
+		9B4D8F2B27F1B5F2005D1263 /* SeparatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorCell.swift; sourceTree = "<group>"; };
 		B28594BBE2932A34CCC4426B /* Pods_TableKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3478A9A27EDC66F00A30695 /* Binding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
 		B3478A9B27EDC66F00A30695 /* AnyLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyLocation.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 			children = (
 				B3478AA327EDC66F00A30695 /* TapActionCell.swift */,
 				B3478AA427EDC66F00A30695 /* ToggleCell.swift */,
+				9B4D8F2B27F1B5F2005D1263 /* SeparatorCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				B3478ADD27EDC67000A30695 /* BasicRow.swift in Sources */,
 				B3478B1127EDCDD100A30695 /* BannerCell.swift in Sources */,
 				B3478AE927EDC67000A30695 /* Icon.AsyncImage.swift in Sources */,
+				9B4D8F2C27F1B5F2005D1263 /* SeparatorCell.swift in Sources */,
 				B3478ACC27EDC67000A30695 /* BindingExtension.swift in Sources */,
 				B3478AE227EDC67000A30695 /* RowCompatible.swift in Sources */,
 				B3478AE427EDC67000A30695 /* OptionRow.swift in Sources */,
