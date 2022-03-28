@@ -94,6 +94,7 @@ extension TableViewController {
         // 测试复用
         TableSection {
             NavigationRow("🤣")
+            NavigationRow("😄")
             
             if isOn {
                 NavigationRow("😃")

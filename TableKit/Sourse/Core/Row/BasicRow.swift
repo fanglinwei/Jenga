@@ -63,13 +63,78 @@ open class BasicRow<T: UITableViewCell>: RowSystemable, RowConfigurable {
     public var customize: ((T) -> Void)?
     
     open func configure(_ cell: UITableViewCell) {
+        // 先清理内容 (样式也需要还原 最好扩展一套默认样式的配置 每次赋值前还原到默认样式)
+        cell.textLabel?.text = nil
+        cell.textLabel?.attributedText = nil
+        cell.detailTextLabel?.text = nil
+        cell.detailTextLabel?.attributedText = nil
+        cell.imageView?.image = nil
+        cell.imageView?.highlightedImage = nil
+        // 再设置内容
         DSLTableManager.defaultHandle?(cell, self)
-        cell.defaultSetUp(with: self)
+        defaultSetup(with: cell)
         guard let cell = cell as? T else { return }
         customize?(cell)
     }
     
     deinit { log("deinit", "SystemRow", cellType, text.string.wrappedValue ?? text.attributedString.wrappedValue?.string ?? "") }
+}
+
+extension BasicRow {
+    
+    internal func defaultSetup(with cell: UITableViewCell) {
+        // 绑定标题
+        text.addObserver(target: cell) { [weak cell] change in
+            guard let cell = cell else { return }
+            let text = change.new
+
+            text.string.map { cell.textLabel?.text = $0 }
+            text.attributedString.map { cell.textLabel?.attributedText = $0 }
+            text.color.map { cell.textLabel?.textColor = $0 }
+            text.font.map { cell.textLabel?.font = $0 }
+            cell.textLabel?.edgeInsets = text.edgeInsets
+        }
+        
+        // 绑定子标题
+        detailText.addObserver(target: cell) { [weak cell] change in
+            guard let cell = cell else { return }
+            
+            switch change.new.type {
+            case .none:
+                cell.detailTextLabel?.text = nil
+
+            case .subtitle, .value1, .value2:
+                change.new.text.string.map { cell.detailTextLabel?.text = $0 }
+                change.new.text.attributedString.map { cell.detailTextLabel?.attributedText = $0 }
+                change.new.text.color.map { cell.detailTextLabel?.textColor = $0 }
+                change.new.text.font.map { cell.detailTextLabel?.font = $0 }
+                cell.detailTextLabel?.edgeInsets = change.new.text.edgeInsets
+            }
+        }
+        
+        // 关联图片
+        icon?.addObserver(target: cell) { [weak cell] changed in
+            guard let cell = cell else { return }
+            switch changed.new {
+            case .image(let value):
+                cell.imageView?.image = value.image
+                cell.imageView?.highlightedImage = value.highlightedImage
+
+            case .async(let value):
+                cell.imageView?.kf.setImage(
+                    with: value.source,
+                    placeholder: value.placeholder,
+                    options: value.options
+                ) { [weak cell] _ in
+                    // https://www.cnblogs.com/lisa090818/p/3508390.html
+                    cell?.setNeedsLayout()
+                }
+            }
+        }
+        
+        cell.accessoryView = nil
+        cell.accessoryType = accessoryType
+    }
 }
 
 extension BasicRow {
