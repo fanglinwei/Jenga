@@ -8,7 +8,7 @@
 import UIKit
 
 /// A class that represents a row that triggers certain navigation when selected.
-open class SeparatorRow<T: UITableViewCell>: Row {
+open class SeparatorRow<T: SeparatorCell>: Row {
     
     let color: UIColor
     
