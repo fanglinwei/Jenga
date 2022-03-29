@@ -15,7 +15,7 @@ open class TableSection: BacicSection {
     
     public init<T>(binding: Binding<[T]>, content: @escaping (Binding<T>) -> Row) {
         super.init()
-        binding.add(observer: self) { [weak self] changed in
+        binding.append(observer: self) { [weak self] changed in
             guard let self = self else { return }
             self.rows = changed.new.map { content(.constant($0)) }
             self.didUpdate?(self)
@@ -24,7 +24,7 @@ open class TableSection: BacicSection {
     
     public init<T, S: AnyObject>(binding: Binding<[T]>, on target: S, builder: @escaping (S, Binding<T>) -> Row) {
         super.init()
-        binding.add(observer: self) { [weak self, weak target] changed in
+        binding.append(observer: self) { [weak self, weak target] changed in
             guard let self = self else { return }
             guard let target = target else { return }
             self.rows = changed.new.map { builder(target, .constant($0)) }
@@ -34,7 +34,7 @@ open class TableSection: BacicSection {
     
     public init<T>(binding: Binding<T>, @RowBuilder builder: @escaping (T) -> [Row]) {
         super.init()
-        binding.add(observer: self) { [weak self] changed in
+        binding.append(observer: self) { [weak self] changed in
             guard let self = self else { return }
             self.rows = builder(changed.new)
             self.didUpdate?(self)
@@ -43,7 +43,7 @@ open class TableSection: BacicSection {
     
     public init<T, S>(binding: Binding<T>, on target: S, @RowBuilder builder: @escaping (S, T) -> [Row]) where S: AnyObject {
         super.init()
-        binding.add(observer: self) { [weak self, weak target] changed in
+        binding.append(observer: self) { [weak self, weak target] changed in
             guard let self = self else { return }
             guard let target = target else { return }
             self.rows = builder(target, changed.new)
@@ -53,7 +53,7 @@ open class TableSection: BacicSection {
     
     public init<T, S>(binding: Binding<T>, on target: S, @RowBuilder builder: @escaping (S, Binding<T>) -> [Row]) where S: AnyObject {
         super.init()
-        binding.add(observer: self) { [weak self, weak target] changed in
+        binding.append(observer: self) { [weak self, weak target] changed in
             guard let self = self else { return }
             guard let target = target else { return }
             self.rows = builder(target, .constant(changed.new))
@@ -63,7 +63,7 @@ open class TableSection: BacicSection {
     
     public init<T>(binding: Binding<EnumeratedSequence<[T]>>, content: @escaping (Binding<EnumeratedSequence<[T]>.Iterator.Element>) -> Row) {
         super.init()
-        binding.add(observer: self) { [weak self] changed in
+        binding.append(observer: self) { [weak self] changed in
             guard let self = self else { return }
             self.rows = changed.new.map { content(.constant($0)) }
             self.didUpdate?(self)
@@ -72,7 +72,7 @@ open class TableSection: BacicSection {
     
     public init<T, S>(binding: Binding<EnumeratedSequence<[T]>>, on target: S, content: @escaping (S, Binding<EnumeratedSequence<[T]>.Iterator.Element>) -> Row) where S: AnyObject {
         super.init()
-        binding.add(observer: self) { [weak self, weak target] changed in
+        binding.append(observer: self) { [weak self, weak target] changed in
             guard let self = self else { return }
             guard let target = target else { return }
             self.rows = changed.new.map { content(target, .constant($0)) }

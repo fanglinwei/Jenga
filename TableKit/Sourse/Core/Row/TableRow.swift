@@ -39,12 +39,16 @@ open class TableRow<Cell: ConfigurableCell>: Row, RowConfigurable {
     
     open func configure(_ cell: UITableViewCell) {
         guard let item = item else { return }
-        item.add(observer: self) { [weak cell] changed in
+        item.append(observer: self) { [weak cell] changed in
             (cell as? Cell)?.configure(with: changed.new)
         }
         
         guard let cell = cell as? Cell else { return }
         customize?(cell, item.wrappedValue)
+    }
+    
+    open func recovery(_ cell: UITableViewCell) {
+        item?.remove(observer: self)
     }
     
     deinit { log("deinit", "TableRow", cellType) }
