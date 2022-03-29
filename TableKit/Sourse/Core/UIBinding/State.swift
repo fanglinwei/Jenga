@@ -24,13 +24,17 @@ public struct State<Value>: BindingConvertible {
     private let observer = ObserverTargetActions()
     
     public var projectedValue: Binding<Value> {
-        Binding(get: { location.value }, set: { location.value = $0 }, appendObserver: addObserver)
+        Binding(get: { location.value }, set: { location.value = $0 }, appendObserver: add)
     }
     
-    public func addObserver(target: AnyObject?, observer: @escaping Changed<Value>.ObserverHandler) {
+    public func add(observer target: AnyObject?, changeHandler: @escaping Changed<Value>.Handler) {
         let value = location.value
         let changed = Changed(old: value, new: value)
-        self.observer.addObserver(changed, target: target, observer: observer)
+        self.observer.add(observer: changed, target: target, changeHandler: changeHandler)
+    }
+    
+    public func remove(observer target: AnyObject?) {
+        observer.remove(observer: target)
     }
 }
 
@@ -38,26 +42,36 @@ extension State {
     
     class ObserverTargetActions {
         
-        private class Action {
-            weak var target: AnyObject? 
-            var action: Changed<Value>.ObserverHandler
-            init(target: AnyObject, action: @escaping Changed<Value>.ObserverHandler) {
+        private class Action: CustomStringConvertible, CustomDebugStringConvertible {
+            weak var target: AnyObject?
+            var action: Changed<Value>.Handler
+            init(target: AnyObject, action: @escaping Changed<Value>.Handler) {
                 self.target = target
                 self.action = action
+            }
+            
+            var description: String {
+                return target.flatMap { "\($0)" } ?? ""
+            }
+            
+            var debugDescription: String {
+                return target.flatMap { "\($0)" } ?? ""
             }
         }
         
         private var observers: [Action] = []
         
-        func addObserver(_ changed: Changed<Value>, target: AnyObject?, observer: @escaping Changed<Value>.ObserverHandler) {
-            removeAnyExpiredObservers()
+        func add(observer changed: Changed<Value>, target: AnyObject?, changeHandler: @escaping Changed<Value>.Handler) {
+            observers = observers.filter { $0.target.isSome }
             guard let target = target else { return }
-            observers.append(.init(target: target, action: observer))
-            observer(changed)
+            observers.append(.init(target: target, action: changeHandler))
+            changeHandler(changed)
         }
         
         func send(_ changed: Changed<Value>) {
             // filter && call
+            print("==================")
+            print(observers)
             observers = observers.filter { tarObj in
                 if tarObj.target == nil {
                     return false
@@ -67,9 +81,9 @@ extension State {
             }
         }
         
-        private func removeAnyExpiredObservers() {
-            // filter
-            observers = observers.filter { $0.target.isSome }
+        func remove(observer target: AnyObject?) {
+            guard let target = target else { return }
+            observers.removeAll { $0 === target }
         }
     }
 }
@@ -88,5 +102,5 @@ public struct Changed<T> {
         _oldGetter = old
         _newGetter = new
     }
-    public typealias ObserverHandler = (Changed) -> Void
+    public typealias Handler = (Changed) -> Void
 }

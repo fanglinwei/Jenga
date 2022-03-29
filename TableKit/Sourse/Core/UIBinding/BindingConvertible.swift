@@ -17,7 +17,8 @@ public protocol BindingConvertible {
     
     var projectedValue : Binding<Self.Value> { get }
     
-    func addObserver(target: AnyObject?, observer: @escaping Changed<Value>.ObserverHandler)
+    func add(observer target: AnyObject?, changeHandler: @escaping Changed<Value>.Handler)
+    func remove(observer target: AnyObject?)
     
     subscript<Subject>(dynamicMember path: WritableKeyPath<Self.Value, Subject>) -> Binding<Subject> { get }
     subscript<Subject>(dynamicMember path: KeyPath<Self.Value, Subject>) -> Binding<Subject> { get }
@@ -29,7 +30,7 @@ public extension BindingConvertible {
         return Binding<Subject>(
             get: { projectedValue.wrappedValue[keyPath: path] },
             set: { projectedValue.wrappedValue[keyPath: path] = $0 } ) { target, observer in
-                addObserver(target: target) { changed in
+                add(observer: target) { changed in
                     observer(Changed<Subject>(old: changed.old[keyPath: path], new: changed.new[keyPath: path]))
                 }
             }
@@ -39,7 +40,7 @@ public extension BindingConvertible {
         return Binding<Subject>(
             get: { projectedValue.wrappedValue[keyPath: path] },
             set: { _ in } ) { target, observer in
-                addObserver(target: target) { changed in
+                add(observer: target) { changed in
                     observer(Changed<Subject>(old: changed.old[keyPath: path], new: changed.new[keyPath: path]))
                 }
             }
@@ -65,11 +66,11 @@ public extension BindingConvertible {
                 let changed = Changed<(Value, T.Value)>(old: (_c1.old, _c2.old), new: (_c1.new, _c2.new))
                 observer(changed)
             }
-            projectedValue.addObserver(target: target) { changed in
+            projectedValue.add(observer: target) { changed in
                 c1 = changed
                 perform()
             }
-            rhs.projectedValue.addObserver(target: target) { changed in
+            rhs.projectedValue.add(observer: target) { changed in
                 c2 = changed
                 perform()
             }
@@ -80,7 +81,7 @@ public extension BindingConvertible {
         return Binding<T>(
             get: { transform(projectedValue.wrappedValue) },
             set: { _ in }) { target, observer in
-                addObserver(target: target) { changed in
+                add(observer: target) { changed in
                     observer(Changed<T>(old: transform(changed.old), new: transform(changed.new)))
                 }
             }
@@ -91,7 +92,7 @@ public extension BindingConvertible {
             get: { transform(projectedValue.wrappedValue) },
             set: { projectedValue.wrappedValue = back($0) }
         ) { target, observer in
-            addObserver(target: target) { changed in
+            add(observer: target) { changed in
                 observer(Changed<T>(old: transform(changed.old), new: transform(changed.new)))
             }
         }
@@ -116,11 +117,11 @@ public extension BindingConvertible {
                 let changed = Changed<(Value, T)>(old: (c1.old, c2.old), new: (c1.new, c2.new))
                 observer(changed)
             }
-            addObserver(target: target) { change in
+            add(observer: target) { change in
                 c1 = change
                 perform()
             }
-            rhs.addObserver(target: target) { change in
+            rhs.add(observer: target) { change in
                 c2 = change
                 perform()
             }
