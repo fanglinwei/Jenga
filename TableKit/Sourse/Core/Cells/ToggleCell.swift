@@ -16,7 +16,7 @@ open class ToggleCell: UITableViewCell, ConfigurableCell {
     }
     
     open func configure(with data: (isOn: Binding<Bool>, onTap: ((Bool) -> Void)?)) {
-        switchControl.isOn(binding: data.isOn) { isOn in
+        switchControl.binding.isOn(binding: data.isOn) { isOn in
             data.onTap?(isOn)
         }
         accessoryView = switchControl

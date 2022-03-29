@@ -1,38 +1,55 @@
 import Foundation
 import UIKit
 
-///
-///
-///摘抄了一些常用属性，修改后返回self，达到链式调用的效果
-///
-///
-///
-
-public protocol KeyPathBinding { }
-
-extension UIView: KeyPathBinding {
+public struct BindingWrapper<Base> {
+    public let base: Base
+    public init(_ base: Base) {
+        self.base = base
+    }
 }
 
-public extension KeyPathBinding where Self: UIView {
+public protocol BindingCompatible: AnyObject { }
+
+public protocol BindingCompatibleValue {}
+extension UISwitch: BindingCompatible { }
+extension UILabel: BindingCompatible { }
+extension UITextField: BindingCompatible { }
+
+extension BindingCompatible {
+    
+    public var binding: BindingWrapper<Self> {
+        get { BindingWrapper(self) }
+        set { }
+    }
+}
+
+extension BindingCompatibleValue {
+    /// Gets a namespace holder for Kingfisher compatible types.
+    public var binding: BindingWrapper<Self> {
+        get { return BindingWrapper(self) }
+        set { }
+    }
+}
+
+public extension BindingWrapper where Base: UIView {
     
     @discardableResult
-    func with<Value>(_ keyPath: WritableKeyPath<Self, Value>, binding: Binding<Value>?) -> Self {
-        binding?.append(observer: self) { [weak self] change in
-            self?[keyPath: keyPath] = change.new
+    func with<Value>(_ keyPath: WritableKeyPath<Base, Value>, binding: Binding<Value>?) -> Self {
+        binding?.append(observer: base) { [weak base] change in
+            base?[keyPath: keyPath] = change.new
         }
         return self
     }
     
     @discardableResult
-    func with<Value>(_ keyPath: WritableKeyPath<Self, Value>, value newValue: Value) -> Self {
-        // self[keyPath: keyPath] = newValue
-        // 收到警告？？？Cannot assign through subscript: 'self' is immutable
-        var weakself = self as Self?
-        weakself?[keyPath: keyPath] = newValue
+    func with<Value>(_ keyPath: WritableKeyPath<Base, Value>, value newValue: Value) -> Self {
+        var weakBase = base as Base?
+        weakBase?[keyPath: keyPath] = newValue
         return self
     }
 }
 
+/// UIControl.Event
 fileprivate extension UIControl {
     
     typealias ActionBlock = () -> Void
@@ -64,26 +81,7 @@ fileprivate extension UIControl {
     }
 }
 
-public extension UIScrollView {
-    
-//    func contentOffsetObserve(handler: @escaping (CGPoint) -> Void) -> Self {
-//        zk_scrollViewDelegate.scrollDidScrollHandler = handler
-//        delegate = zk_scrollViewDelegate
-//        return self
-//    }
-//
-//    func pageObserve(handler: @escaping (CGFloat) -> Void) -> Self {
-//        return contentOffsetObserve { [weak self] point in
-//            if let size = self?.frame.size.width, size > 0 {
-//                let page = point.x / size
-//                handler(page)
-//            }
-//        }
-//    }
-}
-// MARK: State Observing
-
-public extension UILabel {
+public extension BindingWrapper where Base: UILabel {
     
     @discardableResult
     func text(binding stateText: Binding<String>?) -> Self {
@@ -102,7 +100,7 @@ public extension UILabel {
     }
 }
 
-public extension UIButton {
+public extension BindingWrapper where Base: UIButton {
     
     @discardableResult
     func text(binding stateText: Binding<String>?, for state: UIControl.State = .normal) -> Self {
@@ -132,38 +130,46 @@ public extension UITextField {
     }
     
     @objc
-    private func selfTextDidChanged() {
+    func selfTextDidChanged() {
         zk_textBlock?(text ?? "")
     }
     
+    func editingChanged(change: @escaping (String) -> Void) {
+        self.addTarget(self, action: #selector(selfTextDidChanged), for: .editingChanged)
+        zk_textBlock = change
+    }
+}
+
+public extension BindingWrapper where Base: UITextField {
+    
     @discardableResult
-    func text(binding text: Binding<String>?, changed: @escaping (String) -> Void) -> Self {
-        addTarget(self, action: #selector(selfTextDidChanged), for: .editingChanged)
+    func text(binding: Binding<String>?, changed: @escaping (String) -> Void) -> Self {
         var shouldObserve = true
-        zk_textBlock = { newText in
+        base.editingChanged { new in
             shouldObserve = false
-            changed(newText)
+            changed(new)
             shouldObserve = true
         }
-        text?.append(observer: self) { [weak self] changed in
-            if shouldObserve {
-                self?.text = changed.new
-            }
+        binding?.append(observer: base) { [weak base] changed in
+            guard shouldObserve else { return }
+            base?.text = changed.new
+            binding?.wrappedValue = changed.new
         }
         return self
     }
 }
 
-public extension UISwitch {
+extension BindingWrapper where Base: UISwitch {
     
     @discardableResult
     func isOn(binding: Binding<Bool>?, toggle: @escaping (Bool) -> Void) -> Self {
-        binding?.append(observer: self) { [weak self] changed in
-            self?.isOn = changed.new
+        binding?.append(observer: base) { [weak base] changed in
+            base?.isOn = changed.new
+            print("UISwitch=======", self)
         }
-        let _ = self.action(for: .valueChanged) { [weak self] in
-            binding?.wrappedValue = self?.isOn ?? false
-            toggle(self?.isOn ?? false)
+        let _ = base.action(for: .valueChanged) { [weak base] in
+            binding?.wrappedValue = base?.isOn ?? false
+            toggle(base?.isOn ?? false)
         }
         return self
     }
