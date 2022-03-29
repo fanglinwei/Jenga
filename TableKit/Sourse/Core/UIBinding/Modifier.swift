@@ -1,38 +1,59 @@
 import Foundation
 import UIKit
 
-///
-///
-///摘抄了一些常用属性，修改后返回self，达到链式调用的效果
-///
-///
-///
-
-public protocol KeyPathBinding { }
-
-extension UIView: KeyPathBinding {
+public struct BindingWrapper<Base> {
+    public let base: Base
+    public init(_ base: Base) {
+        self.base = base
+    }
 }
 
-public extension KeyPathBinding where Self: UIView {
+public protocol BindingCompatible: AnyObject { }
+
+public protocol BindingCompatibleValue {}
+extension UISwitch: BindingCompatible { }
+extension UILabel: BindingCompatible { }
+extension UITextField: BindingCompatible { }
+
+extension BindingCompatible {
+    
+    public var binding: BindingWrapper<Self> {
+        get { BindingWrapper(self) }
+        set { }
+    }
+}
+
+extension BindingCompatibleValue {
+    /// Gets a namespace holder for Kingfisher compatible types.
+    public var binding: BindingWrapper<Self> {
+        get { return BindingWrapper(self) }
+        set { }
+    }
+}
+
+public extension BindingWrapper where Base: UIView {
     
     @discardableResult
-    func with<Value>(_ keyPath: WritableKeyPath<Self, Value>, binding: Binding<Value>?) -> Self {
-        binding?.add(observer: self) { [weak self] change in
-            self?[keyPath: keyPath] = change.new
+    func with<Value>(_ keyPath: WritableKeyPath<Base, Value>, binding: Binding<Value>?) -> Self {
+        var mutatingSelf = self
+        let issuedIdentifier = Identifier.next()
+        mutatingSelf.taskIdentifier = issuedIdentifier
+        binding?.add(observer: base) { [weak base] change in
+            guard issuedIdentifier == self.taskIdentifier else { return }
+            base?[keyPath: keyPath] = change.new
         }
         return self
     }
     
     @discardableResult
-    func with<Value>(_ keyPath: WritableKeyPath<Self, Value>, value newValue: Value) -> Self {
-        // self[keyPath: keyPath] = newValue
-        // 收到警告？？？Cannot assign through subscript: 'self' is immutable
-        var weakself = self as Self?
-        weakself?[keyPath: keyPath] = newValue
+    func with<Value>(_ keyPath: WritableKeyPath<Base, Value>, value newValue: Value) -> Self {
+        var weakBase = base as Base?
+        weakBase?[keyPath: keyPath] = newValue
         return self
     }
 }
 
+/// UIControl.Event
 fileprivate extension UIControl {
     
     typealias ActionBlock = () -> Void
@@ -64,50 +85,44 @@ fileprivate extension UIControl {
     }
 }
 
-public extension UIScrollView {
-    
-//    func contentOffsetObserve(handler: @escaping (CGPoint) -> Void) -> Self {
-//        zk_scrollViewDelegate.scrollDidScrollHandler = handler
-//        delegate = zk_scrollViewDelegate
-//        return self
-//    }
-//
-//    func pageObserve(handler: @escaping (CGFloat) -> Void) -> Self {
-//        return contentOffsetObserve { [weak self] point in
-//            if let size = self?.frame.size.width, size > 0 {
-//                let page = point.x / size
-//                handler(page)
-//            }
-//        }
-//    }
-}
-// MARK: State Observing
-
-public extension UILabel {
+public extension BindingWrapper where Base: UILabel {
     
     @discardableResult
     func text(binding stateText: Binding<String>?) -> Self {
-        stateText?.add(observer: self) { [weak self] changed in
-            self?.text = changed.new
+        var mutatingSelf = self
+        let issuedIdentifier = Identifier.next()
+        mutatingSelf.taskIdentifier = issuedIdentifier
+        stateText?.add(observer: base) { [weak base] changed in
+            guard issuedIdentifier == self.taskIdentifier else { return }
+            base?.text = changed.new
         }
         return self
     }
     
     @discardableResult
     func text(binding stateText: Binding<String?>?) -> Self {
-        stateText?.add(observer: self) { [weak self] changed in
-            self?.text = changed.new
+        var mutatingSelf = self
+        let issuedIdentifier = Identifier.next()
+        mutatingSelf.taskIdentifier = issuedIdentifier
+        stateText?.add(observer: base) { [weak base] changed in
+            guard issuedIdentifier == self.taskIdentifier else { return }
+            base?.text = changed.new
         }
         return self
     }
 }
 
-public extension UIButton {
+public extension BindingWrapper where Base: UIButton {
     
     @discardableResult
     func text(binding stateText: Binding<String>?, for state: UIControl.State = .normal) -> Self {
-        stateText?.add(observer: self) { [weak self] changed in
-            self?.setTitle(changed.new, for: state)
+        var mutatingSelf = self
+        let issuedIdentifier = Identifier.next()
+        mutatingSelf.taskIdentifier = issuedIdentifier
+        
+        stateText?.add(observer: base) { [weak base] changed in
+            guard issuedIdentifier == self.taskIdentifier else { return }
+            base?.setTitle(changed.new, for: state)
         }
         return self
     }
@@ -132,39 +147,90 @@ public extension UITextField {
     }
     
     @objc
-    private func selfTextDidChanged() {
+    func selfTextDidChanged() {
         zk_textBlock?(text ?? "")
     }
     
+    func editingChanged(change: @escaping (String) -> Void) {
+        self.addTarget(self, action: #selector(selfTextDidChanged), for: .editingChanged)
+        zk_textBlock = change
+    }
+}
+
+public extension BindingWrapper where Base: UITextField {
+    
     @discardableResult
     func text(binding text: Binding<String>?, changed: @escaping (String) -> Void) -> Self {
-        addTarget(self, action: #selector(selfTextDidChanged), for: .editingChanged)
+        var mutatingSelf = self
+        let issuedIdentifier = Identifier.next()
+        mutatingSelf.taskIdentifier = issuedIdentifier
+        
         var shouldObserve = true
-        zk_textBlock = { newText in
+        base.editingChanged { new in
+            guard issuedIdentifier == self.taskIdentifier else { return }
+            
             shouldObserve = false
-            changed(newText)
+            changed(new)
             shouldObserve = true
         }
-        text?.add(observer: self) { [weak self] changed in
+        text?.add(observer: base) { [weak base] changed in
             if shouldObserve {
-                self?.text = changed.new
+                base?.text = changed.new
             }
         }
         return self
     }
 }
 
-public extension UISwitch {
+extension BindingWrapper where Base: UISwitch {
     
     @discardableResult
     func isOn(binding: Binding<Bool>?, toggle: @escaping (Bool) -> Void) -> Self {
-        binding?.add(observer: self) { [weak self] changed in
-            self?.isOn = changed.new
+        var mutatingSelf = self
+        let issuedIdentifier = Identifier.next()
+        mutatingSelf.taskIdentifier = issuedIdentifier
+        binding?.add(observer: base) { [weak base] changed in
+            guard issuedIdentifier == self.taskIdentifier else { return }
+            base?.isOn = changed.new
         }
-        let _ = self.action(for: .valueChanged) { [weak self] in
-            binding?.wrappedValue = self?.isOn ?? false
-            toggle(self?.isOn ?? false)
+        let _ = base.action(for: .valueChanged) { [weak base] in
+            binding?.wrappedValue = base?.isOn ?? false
+            toggle(base?.isOn ?? false)
         }
         return self
+    }
+}
+
+private var taskIdentifierKey: Void?
+extension BindingWrapper where Base: UIView {
+    
+    public private(set) var taskIdentifier: Identifier.Value? {
+        get {
+            let box: Box<Identifier.Value>? = base.associated.get(&taskIdentifierKey)
+            return box?.value
+        }
+        set {
+            let box = newValue.map { Box($0) }
+            base.associated.set(retain: &taskIdentifierKey, box)
+        }
+    }
+}
+
+class Box<T> {
+    var value: T
+    
+    init(_ value: T) {
+        self.value = value
+    }
+}
+
+public enum Identifier {
+
+    /// The underlying value type of source identifier.
+    public typealias Value = UInt
+    static var current: Value = 0
+    static func next() -> Value {
+        current += 1
+        return current
     }
 }

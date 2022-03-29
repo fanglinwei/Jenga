@@ -79,6 +79,10 @@ extension TableViewController {
                     print(isOn)
                     print(self.isOn)
                     self.reloadTable()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        self.isOn = isOn
+                    }
                 }
             
             // binding
