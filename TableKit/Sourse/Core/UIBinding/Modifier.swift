@@ -160,7 +160,7 @@ public extension UITextField {
 public extension BindingWrapper where Base: UITextField {
     
     @discardableResult
-    func text(binding text: Binding<String>?, changed: @escaping (String) -> Void) -> Self {
+    func text(binding: Binding<String>?, changed: @escaping (String) -> Void) -> Self {
         var mutatingSelf = self
         let issuedIdentifier = Identifier.next()
         mutatingSelf.taskIdentifier = issuedIdentifier
@@ -173,9 +173,10 @@ public extension BindingWrapper where Base: UITextField {
             changed(new)
             shouldObserve = true
         }
-        text?.add(observer: base) { [weak base] changed in
+        binding?.add(observer: base) { [weak base] changed in
             guard shouldObserve else { return }
             base?.text = changed.new
+            binding?.wrappedValue = changed.new
         }
         return self
     }
