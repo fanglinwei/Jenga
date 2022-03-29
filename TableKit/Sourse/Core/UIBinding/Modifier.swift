@@ -174,9 +174,8 @@ public extension BindingWrapper where Base: UITextField {
             shouldObserve = true
         }
         text?.add(observer: base) { [weak base] changed in
-            if shouldObserve {
-                base?.text = changed.new
-            }
+            guard shouldObserve else { return }
+            base?.text = changed.new
         }
         return self
     }
