@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		51EF6F93CF8632C33FED24BA /* Pods_TableKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28594BBE2932A34CCC4426B /* Pods_TableKit.framework */; };
 		9B4D8F2C27F1B5F2005D1263 /* SeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4D8F2B27F1B5F2005D1263 /* SeparatorCell.swift */; };
+		B319409D27F3346A00EE3D28 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B319409C27F3346900EE3D28 /* SettingViewController.swift */; };
+		B319409F27F3347400EE3D28 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B319409E27F3347400EE3D28 /* TableViewController.swift */; };
+		B31940A127F334C200EE3D28 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31940A027F334C200EE3D28 /* CustomViewController.swift */; };
 		B3478AC927EDC67000A30695 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478A9A27EDC66F00A30695 /* Binding.swift */; };
 		B3478ACA27EDC67000A30695 /* AnyLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478A9B27EDC66F00A30695 /* AnyLocation.swift */; };
 		B3478ACB27EDC67000A30695 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478A9C27EDC66F00A30695 /* State.swift */; };
@@ -69,6 +72,9 @@
 		905AEC9F2BBA4AB8A08C04BD /* Pods-TableKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableKit.debug.xcconfig"; path = "Target Support Files/Pods-TableKit/Pods-TableKit.debug.xcconfig"; sourceTree = "<group>"; };
 		9B4D8F2B27F1B5F2005D1263 /* SeparatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorCell.swift; sourceTree = "<group>"; };
 		B28594BBE2932A34CCC4426B /* Pods_TableKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B319409C27F3346900EE3D28 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		B319409E27F3347400EE3D28 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		B31940A027F334C200EE3D28 /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		B3478A9A27EDC66F00A30695 /* Binding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
 		B3478A9B27EDC66F00A30695 /* AnyLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyLocation.swift; sourceTree = "<group>"; };
 		B3478A9C27EDC66F00A30695 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
@@ -168,7 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				B3478A9927EDC66F00A30695 /* UIBinding */,
-				B3478AA127EDC66F00A30695 /* DSLTableManager.Extension.swift */,
 				B3478AA227EDC66F00A30695 /* Cells */,
 				B3478AA527EDC66F00A30695 /* DSLTableManager.swift */,
 				B3478AA627EDC66F00A30695 /* Section */,
@@ -370,6 +375,9 @@
 				B3E7C23927DB8BFC0036BC9D /* AppDelegate.swift */,
 				B3E7C23B27DB8BFC0036BC9D /* SceneDelegate.swift */,
 				B3E7C23D27DB8BFC0036BC9D /* ViewController.swift */,
+				B319409C27F3346900EE3D28 /* SettingViewController.swift */,
+				B31940A027F334C200EE3D28 /* CustomViewController.swift */,
+				B319409E27F3347400EE3D28 /* TableViewController.swift */,
 				B3478B1027EDCDD100A30695 /* BannerCell.swift */,
 				B3478B0F27EDCC4100A30695 /* Bridging-Header.h */,
 				B3E7C23F27DB8BFC0036BC9D /* Main.storyboard */,
@@ -383,6 +391,7 @@
 		B3FB54E727EACCE30014AC6E /* Sourse */ = {
 			isa = PBXGroup;
 			children = (
+				B3478AA127EDC66F00A30695 /* DSLTableManager.Extension.swift */,
 				B3478A9827EDC66F00A30695 /* Core */,
 			);
 			path = Sourse;
@@ -510,6 +519,7 @@
 				B3478AF827EDCADB00A30695 /* NavigationBadgeRow.swift in Sources */,
 				B3478AD927EDC67000A30695 /* TableCellHeightCalculator.swift in Sources */,
 				B3478AE327EDC67000A30695 /* SeparatorRow.swift in Sources */,
+				B31940A127F334C200EE3D28 /* CustomViewController.swift in Sources */,
 				B3478AD827EDC67000A30695 /* TableKit.Log.swift in Sources */,
 				B3478AD527EDC67000A30695 /* RadioSection.swift in Sources */,
 				B3E7C23A27DB8BFC0036BC9D /* AppDelegate.swift in Sources */,
@@ -528,6 +538,7 @@
 				B3478AE127EDC67000A30695 /* Row.swift in Sources */,
 				B3478AD227EDC67000A30695 /* ToggleCell.swift in Sources */,
 				B3478AD427EDC67000A30695 /* BacicSection.swift in Sources */,
+				B319409F27F3347400EE3D28 /* TableViewController.swift in Sources */,
 				B3478B0827EDCC0F00A30695 /* CALayer+CornerRadius.m in Sources */,
 				B3478ACD27EDC67000A30695 /* ResultBuilder.swift in Sources */,
 				B3478ADC27EDC67000A30695 /* TableRow.swift in Sources */,
@@ -544,6 +555,7 @@
 				B3478AED27EDC67000A30695 /* DSLTable.swift in Sources */,
 				B3478AC927EDC67000A30695 /* Binding.swift in Sources */,
 				B3478ADD27EDC67000A30695 /* BasicRow.swift in Sources */,
+				B319409D27F3346A00EE3D28 /* SettingViewController.swift in Sources */,
 				B3478B1127EDCDD100A30695 /* BannerCell.swift in Sources */,
 				B3478AE927EDC67000A30695 /* Icon.AsyncImage.swift in Sources */,
 				9B4D8F2C27F1B5F2005D1263 /* SeparatorCell.swift in Sources */,
