@@ -85,16 +85,16 @@ public extension BindingWrapper where Base: UILabel {
     
     @discardableResult
     func text(binding stateText: Binding<String>?) -> Self {
-        stateText?.append(observer: self) { [weak self] changed in
-            self?.text = changed.new
+        stateText?.append(observer: base) { [weak base] changed in
+            base?.text = changed.new
         }
         return self
     }
     
     @discardableResult
     func text(binding stateText: Binding<String?>?) -> Self {
-        stateText?.append(observer: self) { [weak self] changed in
-            self?.text = changed.new
+        stateText?.append(observer: base) { [weak base] changed in
+            base?.text = changed.new
         }
         return self
     }
@@ -104,8 +104,8 @@ public extension BindingWrapper where Base: UIButton {
     
     @discardableResult
     func text(binding stateText: Binding<String>?, for state: UIControl.State = .normal) -> Self {
-        stateText?.append(observer: self) { [weak self] changed in
-            self?.setTitle(changed.new, for: state)
+        stateText?.append(observer: base) { [weak base] changed in
+            base?.setTitle(changed.new, for: state)
         }
         return self
     }
