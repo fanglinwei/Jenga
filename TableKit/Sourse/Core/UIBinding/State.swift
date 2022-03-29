@@ -62,19 +62,14 @@ extension State {
             guard let target = target else { return }
             observers.append(.init(target: target, action: changeHandler))
             changeHandler(changed)
+            
+            print("==================")
+            print(observers, self)
         }
         
         func send(_ changed: Changed<Value>) {
-            // filter && call
-            print("==================")
-            print(observers)
-            observers = observers.filter { tarObj in
-                if tarObj.target == nil {
-                    return false
-                }
-                tarObj.action(changed)
-                return true
-            }
+            observers = observers.filter { $0.target != nil }
+            observers.forEach { $0.action(changed) }
         }
     }
 }
