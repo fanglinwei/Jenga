@@ -85,7 +85,7 @@ extension BasicRow {
     
     internal func defaultSetup(with cell: UITableViewCell) {
         // 绑定标题
-        text.add(observer: cell) { [weak cell] change in
+        text.add(observer: self) { [weak cell] change in
             guard let cell = cell else { return }
             let text = change.new
 
@@ -97,7 +97,7 @@ extension BasicRow {
         }
         
         // 绑定子标题
-        detailText.add(observer: cell) { [weak cell] change in
+        detailText.add(observer: self) { [weak cell] change in
             guard let cell = cell else { return }
             
             switch change.new.type {
@@ -114,7 +114,7 @@ extension BasicRow {
         }
         
         // 关联图片
-        icon?.add(observer: cell) { [weak cell] changed in
+        icon?.add(observer: self) { [weak cell] changed in
             guard let cell = cell else { return }
             switch changed.new {
             case .image(let value):
