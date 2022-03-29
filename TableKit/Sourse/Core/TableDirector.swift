@@ -145,7 +145,8 @@ extension TableDirector: UITableViewDataSource {
 extension TableDirector: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let row = sections[indexPath.section].rows[indexPath.row]
+        print("didEndDisplaying", indexPath)
+        let row = sections[safe: indexPath.section]?.rows[safe: indexPath.row]
         (row as? RowConfigurable)?.recovery(cell)
     }
     

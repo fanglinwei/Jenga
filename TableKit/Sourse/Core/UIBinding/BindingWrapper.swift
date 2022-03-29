@@ -35,6 +35,7 @@ public extension BindingWrapper where Base: UIView {
     
     @discardableResult
     func with<Value>(_ keyPath: WritableKeyPath<Base, Value>, binding: Binding<Value>?) -> Self {
+        binding?.remove(observer: base)
         binding?.append(observer: base) { [weak base] change in
             base?[keyPath: keyPath] = change.new
         }
@@ -84,16 +85,18 @@ fileprivate extension UIControl {
 public extension BindingWrapper where Base: UILabel {
     
     @discardableResult
-    func text(binding stateText: Binding<String>?) -> Self {
-        stateText?.append(observer: base) { [weak base] changed in
+    func text(binding: Binding<String>?) -> Self {
+        binding?.remove(observer: base)
+        binding?.append(observer: base) { [weak base] changed in
             base?.text = changed.new
         }
         return self
     }
     
     @discardableResult
-    func text(binding stateText: Binding<String?>?) -> Self {
-        stateText?.append(observer: base) { [weak base] changed in
+    func text(binding: Binding<String?>?) -> Self {
+        binding?.remove(observer: base)
+        binding?.append(observer: base) { [weak base] changed in
             base?.text = changed.new
         }
         return self
@@ -103,8 +106,9 @@ public extension BindingWrapper where Base: UILabel {
 public extension BindingWrapper where Base: UIButton {
     
     @discardableResult
-    func text(binding stateText: Binding<String>?, for state: UIControl.State = .normal) -> Self {
-        stateText?.append(observer: base) { [weak base] changed in
+    func text(binding: Binding<String>?, for state: UIControl.State = .normal) -> Self {
+        binding?.remove(observer: base)
+        binding?.append(observer: base) { [weak base] changed in
             base?.setTitle(changed.new, for: state)
         }
         return self
@@ -150,6 +154,7 @@ public extension BindingWrapper where Base: UITextField {
             changed(new)
             shouldObserve = true
         }
+        binding?.remove(observer: base)
         binding?.append(observer: base) { [weak base] changed in
             guard shouldObserve else { return }
             base?.text = changed.new
@@ -163,6 +168,7 @@ extension BindingWrapper where Base: UISwitch {
     
     @discardableResult
     func isOn(binding: Binding<Bool>?, toggle: @escaping (Bool) -> Void) -> Self {
+        binding?.remove(observer: base)
         binding?.append(observer: base) { [weak base] changed in
             base?.isOn = changed.new
             print("UISwitch=======", self)

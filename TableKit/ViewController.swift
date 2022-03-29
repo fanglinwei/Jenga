@@ -142,11 +142,18 @@ extension TableViewController {
             NavigationRow("😄")
             
             if isOn {
-                NavigationRow("😃")
+                NavigationRow("🐶")
             }
         }
         .rowHeight(52)
         .headerHeight(20)
+        
+        if isOn {
+            TableSection {
+                NavigationRow("🐶")
+            }
+            .headerHeight(20)
+        }
         
         TableSection {
             
@@ -156,5 +163,6 @@ extension TableViewController {
                     self.reloadTable()
                 }
         }
+        .headerHeight(20)
     }
 }

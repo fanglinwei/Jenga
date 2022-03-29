@@ -14,7 +14,7 @@
 		B3478ACB27EDC67000A30695 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478A9C27EDC66F00A30695 /* State.swift */; };
 		B3478ACC27EDC67000A30695 /* BindingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478A9D27EDC66F00A30695 /* BindingExtension.swift */; };
 		B3478ACD27EDC67000A30695 /* ResultBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478A9E27EDC66F00A30695 /* ResultBuilder.swift */; };
-		B3478ACE27EDC67000A30695 /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478A9F27EDC66F00A30695 /* Modifier.swift */; };
+		B3478ACE27EDC67000A30695 /* BindingWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478A9F27EDC66F00A30695 /* BindingWrapper.swift */; };
 		B3478ACF27EDC67000A30695 /* BindingConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478AA027EDC66F00A30695 /* BindingConvertible.swift */; };
 		B3478AD027EDC67000A30695 /* DSLTableManager.Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478AA127EDC66F00A30695 /* DSLTableManager.Extension.swift */; };
 		B3478AD127EDC67000A30695 /* TapActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478AA327EDC66F00A30695 /* TapActionCell.swift */; };
@@ -74,7 +74,7 @@
 		B3478A9C27EDC66F00A30695 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		B3478A9D27EDC66F00A30695 /* BindingExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindingExtension.swift; sourceTree = "<group>"; };
 		B3478A9E27EDC66F00A30695 /* ResultBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultBuilder.swift; sourceTree = "<group>"; };
-		B3478A9F27EDC66F00A30695 /* Modifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
+		B3478A9F27EDC66F00A30695 /* BindingWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindingWrapper.swift; sourceTree = "<group>"; };
 		B3478AA027EDC66F00A30695 /* BindingConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindingConvertible.swift; sourceTree = "<group>"; };
 		B3478AA127EDC66F00A30695 /* DSLTableManager.Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSLTableManager.Extension.swift; sourceTree = "<group>"; };
 		B3478AA327EDC66F00A30695 /* TapActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapActionCell.swift; sourceTree = "<group>"; };
@@ -190,7 +190,7 @@
 				B3478A9C27EDC66F00A30695 /* State.swift */,
 				B3478A9D27EDC66F00A30695 /* BindingExtension.swift */,
 				B3478A9E27EDC66F00A30695 /* ResultBuilder.swift */,
-				B3478A9F27EDC66F00A30695 /* Modifier.swift */,
+				B3478A9F27EDC66F00A30695 /* BindingWrapper.swift */,
 				B3478AA027EDC66F00A30695 /* BindingConvertible.swift */,
 			);
 			path = UIBinding;
@@ -552,7 +552,7 @@
 				B3478AE427EDC67000A30695 /* OptionRow.swift in Sources */,
 				B3478AD127EDC67000A30695 /* TapActionCell.swift in Sources */,
 				B3478ACB27EDC67000A30695 /* State.swift in Sources */,
-				B3478ACE27EDC67000A30695 /* Modifier.swift in Sources */,
+				B3478ACE27EDC67000A30695 /* BindingWrapper.swift in Sources */,
 				B3478AEA27EDC67000A30695 /* Icon.Image.swift in Sources */,
 				B3478AE027EDC67000A30695 /* RowSystemable.swift in Sources */,
 			);
