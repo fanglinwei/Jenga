@@ -57,6 +57,18 @@ extension TableViewController {
             TableRow<BannerCell>("banner_image")
                 .height(120)
             
+            TableRow<BannerCell>("banner_image")
+                .height(120)
+            
+            TableRow<BannerCell>("banner_image")
+                .height(120)
+            
+            TableRow<BannerCell>("banner_image")
+                .height(120)
+            
+            TableRow<BannerCell>("banner_image")
+                .height(120)
+            
             SeparatorRow(10)
             
             TableRow<BannerCell>()
@@ -74,15 +86,16 @@ extension TableViewController {
                     
                 }
             
-            ToggleRow("开关", isOn: $isOn)
+            ToggleRow("开关1", isOn: $isOn)
                 .onTap(on: self) { (self, isOn) in
                     print(isOn)
                     print(self.isOn)
-                    self.reloadTable()
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        self.isOn = isOn
-                    }
+                }
+            
+            ToggleRow("开关2", isOn: $isOn)
+                .onTap(on: self) { (self, isOn) in
+                    print(isOn)
+                    print(self.isOn)
                 }
             
             // binding
@@ -106,5 +119,14 @@ extension TableViewController {
         }
         .rowHeight(52)
         .headerHeight(20)
+        
+        TableSection {
+            
+            TapActionRow("切换开关")
+                .onTap(on: self) { (self) in
+                    self.isOn.toggle()
+                    self.reloadTable()
+                }
+        }
     }
 }
