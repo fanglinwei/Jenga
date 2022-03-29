@@ -9,11 +9,13 @@ import Foundation
 
 public struct Binding<Value>: BindingConvertible {
     public typealias AppendObserver = (_ target: AnyObject?, _ changeHandler: @escaping Changed<Value>.Handler) -> Void
+    public typealias RemoveObserver = (AnyObject) -> Void
     
     internal var location: AnyLocation<Value>
 
-    private var setter : ( Value ) -> Void
+    private var setter: (Value) -> Void
     private let appendObserver: AppendObserver?
+    private let removeObserver: RemoveObserver?
     
     public var wrappedValue: Value {
         get { location.value  }
@@ -25,24 +27,26 @@ public struct Binding<Value>: BindingConvertible {
     
     public var projectedValue: Binding<Value> { self }
     
-    public init(get: @escaping () -> Value, set: @escaping (Value) -> Void, appendObserver: AppendObserver? = nil) {
+    public init(get: @escaping () -> Value,
+                set: @escaping (Value) -> Void,
+                appendObserver: AppendObserver? = nil,
+                removeObserver: RemoveObserver? = nil) {
         self.location = .init(value: get())
-//        self.getter = get
         self.setter = set
         self.appendObserver = appendObserver
+        self.removeObserver = removeObserver
     }
     
-    public func add(observer target: AnyObject?, changeHandler: @escaping Changed<Value>.Handler) {
+    public func append(observer target: AnyObject?, changeHandler: @escaping Changed<Value>.Handler) {
         appendObserver?(target, changeHandler)
     }
     
-    public func remove(observer target: AnyObject?) {
-        
+    public func remove(observer target: AnyObject) {
+        removeObserver?(target)
     }
     
     public static func constant(_ value: Value) -> Binding<Value> {
 //        return State(wrappedValue: value).projectedValue
-        
         return Binding<Value>(get: { value },
                               set: {_ in }) { target, observer in
             observer(Changed(old: value, new: value))
@@ -87,7 +91,7 @@ extension Binding: Collection where Value: MutableCollection, Value.Index: Hasha
       return Binding<Value.Element>(
           get: { wrappedValue[index] },
           set: { wrappedValue[index] = $0 } ) { target, observer in
-              add(observer: target) { changed in
+              append(observer: target) { changed in
                   observer(Changed<Value.Element>(old: changed.old[index], new: changed.new[index]))
               }
           }

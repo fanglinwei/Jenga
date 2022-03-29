@@ -17,8 +17,8 @@ public protocol BindingConvertible {
     
     var projectedValue : Binding<Self.Value> { get }
     
-    func add(observer target: AnyObject?, changeHandler: @escaping Changed<Value>.Handler)
-    func remove(observer target: AnyObject?)
+    func append(observer target: AnyObject?, changeHandler: @escaping Changed<Value>.Handler)
+    func remove(observer target: AnyObject)
     
     subscript<Subject>(dynamicMember path: WritableKeyPath<Self.Value, Subject>) -> Binding<Subject> { get }
     subscript<Subject>(dynamicMember path: KeyPath<Self.Value, Subject>) -> Binding<Subject> { get }
@@ -29,21 +29,31 @@ public extension BindingConvertible {
     subscript<Subject>(dynamicMember path: WritableKeyPath<Self.Value, Subject>) -> Binding<Subject> {
         return Binding<Subject>(
             get: { projectedValue.wrappedValue[keyPath: path] },
-            set: { projectedValue.wrappedValue[keyPath: path] = $0 } ) { target, observer in
-                add(observer: target) { changed in
+            set: { projectedValue.wrappedValue[keyPath: path] = $0 },
+            appendObserver: { target, observer in
+                append(observer: target) { changed in
                     observer(Changed<Subject>(old: changed.old[keyPath: path], new: changed.new[keyPath: path]))
                 }
+            },
+            removeObserver: { target in
+                remove(observer: target)
             }
+        )
     }
     
     subscript<Subject>(dynamicMember path: KeyPath<Self.Value, Subject>) -> Binding<Subject> {
         return Binding<Subject>(
             get: { projectedValue.wrappedValue[keyPath: path] },
-            set: { _ in } ) { target, observer in
-                add(observer: target) { changed in
+            set: { _ in },
+            appendObserver: { target, observer in
+                append(observer: target) { changed in
                     observer(Changed<Subject>(old: changed.old[keyPath: path], new: changed.new[keyPath: path]))
                 }
+            },
+            removeObserver: { target in
+                remove(observer: target)
             }
+        )
     }
 }
 
@@ -55,47 +65,60 @@ public extension BindingConvertible {
             set: {
                 projectedValue.wrappedValue = $0
                 rhs.projectedValue.wrappedValue = $1
+            },
+            appendObserver: { target, observer in
+                var c1: Changed<Value>?
+                var c2: Changed<T.Value>?
+                func perform() {
+                    guard let _c1 = c1, let _c2 = c2 else { return }
+                    c1 = nil
+                    c2 = nil
+                    let changed = Changed<(Value, T.Value)>(old: (_c1.old, _c2.old), new: (_c1.new, _c2.new))
+                    observer(changed)
+                }
+                projectedValue.append(observer: target) { changed in
+                    c1 = changed
+                    perform()
+                }
+                rhs.projectedValue.append(observer: target) { changed in
+                    c2 = changed
+                    perform()
+                }
+            },
+            removeObserver: { target in
+                remove(observer: target)
             }
-        ) { target, observer in
-            var c1: Changed<Value>?
-            var c2: Changed<T.Value>?
-            func perform() {
-                guard let _c1 = c1, let _c2 = c2 else { return }
-                c1 = nil
-                c2 = nil
-                let changed = Changed<(Value, T.Value)>(old: (_c1.old, _c2.old), new: (_c1.new, _c2.new))
-                observer(changed)
-            }
-            projectedValue.add(observer: target) { changed in
-                c1 = changed
-                perform()
-            }
-            rhs.projectedValue.add(observer: target) { changed in
-                c2 = changed
-                perform()
-            }
-        }
+        )
     }
     
     func map<T>(_ transform: @escaping (Value) -> T) -> Binding<T> {
         return Binding<T>(
             get: { transform(projectedValue.wrappedValue) },
-            set: { _ in }) { target, observer in
-                add(observer: target) { changed in
+            set: { _ in },
+            appendObserver: { target, observer in
+                append(observer: target) { changed in
                     observer(Changed<T>(old: transform(changed.old), new: transform(changed.new)))
                 }
+            },
+            removeObserver: { target in
+                remove(observer: target)
             }
+        )
     }
     
     func map<T>(_ transform: @escaping (Value) -> T, _ back: @escaping (T) -> Value) -> Binding<T> {
         return Binding<T>(
             get: { transform(projectedValue.wrappedValue) },
-            set: { projectedValue.wrappedValue = back($0) }
-        ) { target, observer in
-            add(observer: target) { changed in
-                observer(Changed<T>(old: transform(changed.old), new: transform(changed.new)))
+            set: { projectedValue.wrappedValue = back($0) },
+            appendObserver: { target, observer in
+                append(observer: target) { changed in
+                    observer(Changed<T>(old: transform(changed.old), new: transform(changed.new)))
+                }
+            },
+            removeObserver: { target in
+                remove(observer: target)
             }
-        }
+        )
     }
     
     func map<T, R>(_ rhs: T, transform: @escaping (Value, T) -> R) -> Binding<R> {
@@ -108,24 +131,28 @@ public extension BindingConvertible {
             set: {
                 projectedValue.wrappedValue = $0
                 rhs.projectedValue.wrappedValue = $1
+            },
+            appendObserver: { target, observer in
+                var c1: Changed<Value>?
+                var c2: Changed<T>?
+                func perform() {
+                    guard let c1 = c1, let c2 = c2 else { return }
+                    let changed = Changed<(Value, T)>(old: (c1.old, c2.old), new: (c1.new, c2.new))
+                    observer(changed)
+                }
+                append(observer: target) { change in
+                    c1 = change
+                    perform()
+                }
+                rhs.append(observer: target) { change in
+                    c2 = change
+                    perform()
+                }
+            },
+            removeObserver: { target in
+                remove(observer: target)
             }
-        ) { target, observer in
-            var c1: Changed<Value>?
-            var c2: Changed<T>?
-            func perform() {
-                guard let c1 = c1, let c2 = c2 else { return }
-                let changed = Changed<(Value, T)>(old: (c1.old, c2.old), new: (c1.new, c2.new))
-                observer(changed)
-            }
-            add(observer: target) { change in
-                c1 = change
-                perform()
-            }
-            rhs.add(observer: target) { change in
-                c2 = change
-                perform()
-            }
-        }
+        )
     }
     
     

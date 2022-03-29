@@ -34,7 +34,7 @@ class TableViewController: UIViewController, DSLAutoTable {
         super.viewDidLoad()
         setup()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6) { [weak self] in
             self?.text = "Swift"
             self?.detailText = "17878787878"
         }
@@ -93,6 +93,34 @@ extension TableViewController {
         
         // 测试复用
         TableSection {
+            NavigationRow("🤣")
+            NavigationRow("😄")
+            NavigationRow("🤣")
+            NavigationRow("😄")
+            NavigationRow("🤣")
+            NavigationRow("😄")
+            NavigationRow("🤣")
+            NavigationRow("😄")
+            NavigationRow("🤣")
+            NavigationRow("😄")
+            NavigationRow("🤣")
+            NavigationRow("😄")
+            NavigationRow("🤣")
+            NavigationRow("😄")
+            NavigationRow("🤣")
+            NavigationRow("😄")
+            // binding
+            NavigationRow($text)
+            NavigationRow("🤣")
+            NavigationRow("😄")
+            NavigationRow("🤣")
+            NavigationRow("😄")
+            NavigationRow("🤣")
+            NavigationRow("😄")
+            NavigationRow("🤣")
+            NavigationRow("😄")
+            NavigationRow("🤣")
+            NavigationRow("😄")
             NavigationRow("🤣")
             NavigationRow("😄")
             

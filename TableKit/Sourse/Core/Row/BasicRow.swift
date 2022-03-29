@@ -78,6 +78,12 @@ open class BasicRow<T: UITableViewCell>: RowSystemable, RowConfigurable {
         customize?(cell)
     }
     
+    open func recovery(_ cell: UITableViewCell) {
+        text.remove(observer: self)
+        detailText.remove(observer: self)
+        icon?.remove(observer: self)
+    }
+    
     deinit { log("deinit", "SystemRow", cellType, text.string.wrappedValue ?? text.attributedString.wrappedValue?.string ?? "") }
 }
 
@@ -85,7 +91,7 @@ extension BasicRow {
     
     internal func defaultSetup(with cell: UITableViewCell) {
         // 绑定标题
-        text.add(observer: self) { [weak cell] change in
+        text.append(observer: self) { [weak cell] change in
             guard let cell = cell else { return }
             let text = change.new
 
@@ -97,7 +103,7 @@ extension BasicRow {
         }
         
         // 绑定子标题
-        detailText.add(observer: self) { [weak cell] change in
+        detailText.append(observer: self) { [weak cell] change in
             guard let cell = cell else { return }
             
             switch change.new.type {
@@ -114,7 +120,7 @@ extension BasicRow {
         }
         
         // 关联图片
-        icon?.add(observer: self) { [weak cell] changed in
+        icon?.append(observer: self) { [weak cell] changed in
             guard let cell = cell else { return }
             switch changed.new {
             case .image(let value):

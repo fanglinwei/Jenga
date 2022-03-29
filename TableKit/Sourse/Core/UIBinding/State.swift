@@ -2,6 +2,7 @@ import Foundation
 
 @propertyWrapper
 public struct State<Value>: BindingConvertible {
+    
     internal var location: AnyLocation<Value>
     
     public init(wrappedValue value: Value) {
@@ -24,16 +25,21 @@ public struct State<Value>: BindingConvertible {
     private let observer = ObserverTargetActions()
     
     public var projectedValue: Binding<Value> {
-        Binding(get: { location.value }, set: { location.value = $0 }, appendObserver: add)
+        Binding(
+            get: { location.value },
+            set: { location.value = $0 },
+            appendObserver: append,
+            removeObserver: remove
+        )
     }
     
-    public func add(observer target: AnyObject?, changeHandler: @escaping Changed<Value>.Handler) {
+    public func append(observer target: AnyObject?, changeHandler: @escaping Changed<Value>.Handler) {
         let value = location.value
         let changed = Changed(old: value, new: value)
-        self.observer.add(observer: changed, target: target, changeHandler: changeHandler)
+        observer.append(observer: changed, target: target, changeHandler: changeHandler)
     }
     
-    public func remove(observer target: AnyObject?) {
+    public func remove(observer target: AnyObject) {
         observer.remove(observer: target)
     }
 }
@@ -61,7 +67,7 @@ extension State {
         
         private var observers: [Action] = []
         
-        func add(observer changed: Changed<Value>, target: AnyObject?, changeHandler: @escaping Changed<Value>.Handler) {
+        func append(observer changed: Changed<Value>, target: AnyObject?, changeHandler: @escaping Changed<Value>.Handler) {
             observers = observers.filter { $0.target.isSome }
             guard let target = target else { return }
             observers.append(.init(target: target, action: changeHandler))
@@ -83,7 +89,7 @@ extension State {
         
         func remove(observer target: AnyObject?) {
             guard let target = target else { return }
-            observers.removeAll { $0 === target }
+            observers.removeAll { $0.target === target }
         }
     }
 }

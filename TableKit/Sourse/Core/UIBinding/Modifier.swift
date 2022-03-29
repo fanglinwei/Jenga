@@ -17,7 +17,7 @@ public extension KeyPathBinding where Self: UIView {
     
     @discardableResult
     func with<Value>(_ keyPath: WritableKeyPath<Self, Value>, binding: Binding<Value>?) -> Self {
-        binding?.add(observer: self) { [weak self] change in
+        binding?.append(observer: self) { [weak self] change in
             self?[keyPath: keyPath] = change.new
         }
         return self
@@ -87,7 +87,7 @@ public extension UILabel {
     
     @discardableResult
     func text(binding stateText: Binding<String>?) -> Self {
-        stateText?.add(observer: self) { [weak self] changed in
+        stateText?.append(observer: self) { [weak self] changed in
             self?.text = changed.new
         }
         return self
@@ -95,7 +95,7 @@ public extension UILabel {
     
     @discardableResult
     func text(binding stateText: Binding<String?>?) -> Self {
-        stateText?.add(observer: self) { [weak self] changed in
+        stateText?.append(observer: self) { [weak self] changed in
             self?.text = changed.new
         }
         return self
@@ -106,7 +106,7 @@ public extension UIButton {
     
     @discardableResult
     func text(binding stateText: Binding<String>?, for state: UIControl.State = .normal) -> Self {
-        stateText?.add(observer: self) { [weak self] changed in
+        stateText?.append(observer: self) { [weak self] changed in
             self?.setTitle(changed.new, for: state)
         }
         return self
@@ -145,7 +145,7 @@ public extension UITextField {
             changed(newText)
             shouldObserve = true
         }
-        text?.add(observer: self) { [weak self] changed in
+        text?.append(observer: self) { [weak self] changed in
             if shouldObserve {
                 self?.text = changed.new
             }
@@ -158,7 +158,7 @@ public extension UISwitch {
     
     @discardableResult
     func isOn(binding: Binding<Bool>?, toggle: @escaping (Bool) -> Void) -> Self {
-        binding?.add(observer: self) { [weak self] changed in
+        binding?.append(observer: self) { [weak self] changed in
             self?.isOn = changed.new
         }
         let _ = self.action(for: .valueChanged) { [weak self] in
