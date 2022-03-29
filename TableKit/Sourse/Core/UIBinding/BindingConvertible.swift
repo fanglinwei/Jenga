@@ -18,7 +18,6 @@ public protocol BindingConvertible {
     var projectedValue : Binding<Self.Value> { get }
     
     func add(observer target: AnyObject?, changeHandler: @escaping Changed<Value>.Handler)
-    func remove(observer target: AnyObject?)
     
     subscript<Subject>(dynamicMember path: WritableKeyPath<Self.Value, Subject>) -> Binding<Subject> { get }
     subscript<Subject>(dynamicMember path: KeyPath<Self.Value, Subject>) -> Binding<Subject> { get }

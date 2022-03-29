@@ -32,10 +32,6 @@ public struct State<Value>: BindingConvertible {
         let changed = Changed(old: value, new: value)
         self.observer.add(observer: changed, target: target, changeHandler: changeHandler)
     }
-    
-    public func remove(observer target: AnyObject?) {
-        observer.remove(observer: target)
-    }
 }
 
 extension State {

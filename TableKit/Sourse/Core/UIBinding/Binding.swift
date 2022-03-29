@@ -36,10 +36,6 @@ public struct Binding<Value>: BindingConvertible {
         appendObserver?(target, changeHandler)
     }
     
-    public func remove(observer target: AnyObject?) {
-        
-    }
-    
     public static func constant(_ value: Value) -> Binding<Value> {
 //        return State(wrappedValue: value).projectedValue
         
