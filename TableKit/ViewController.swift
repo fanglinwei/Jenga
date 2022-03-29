@@ -57,18 +57,6 @@ extension TableViewController {
             TableRow<BannerCell>("banner_image")
                 .height(120)
             
-            TableRow<BannerCell>("banner_image")
-                .height(120)
-            
-            TableRow<BannerCell>("banner_image")
-                .height(120)
-            
-            TableRow<BannerCell>("banner_image")
-                .height(120)
-            
-            TableRow<BannerCell>("banner_image")
-                .height(120)
-            
             SeparatorRow(10)
             
             TableRow<BannerCell>()
@@ -162,6 +150,8 @@ extension TableViewController {
                     self.isOn.toggle()
                     self.reloadTable()
                 }
+            
+            SeparatorRow(30)
             
             TapActionRow("切换开关, reload isOn binding")
                 .onTap(on: self) { (self) in

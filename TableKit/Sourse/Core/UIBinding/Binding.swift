@@ -90,10 +90,11 @@ extension Binding: Collection where Value: MutableCollection, Value.Index: Hasha
   public subscript(_ index: Value.Index) -> Binding<Value.Element> {
       return Binding<Value.Element>(
           get: { wrappedValue[index] },
-          set: { wrappedValue[index] = $0 } ) { target, observer in
+          set: { wrappedValue[index] = $0 }, appendObserver: { target, observer in
               append(observer: target) { changed in
                   observer(Changed<Value.Element>(old: changed.old[index], new: changed.new[index]))
               }
-          }
+          },
+          removeObserver: remove)
   }
 }

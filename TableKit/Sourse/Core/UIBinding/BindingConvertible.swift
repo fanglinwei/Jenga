@@ -35,9 +35,7 @@ public extension BindingConvertible {
                     observer(Changed<Subject>(old: changed.old[keyPath: path], new: changed.new[keyPath: path]))
                 }
             },
-            removeObserver: { target in
-                remove(observer: target)
-            }
+            removeObserver: remove
         )
     }
     
@@ -50,9 +48,7 @@ public extension BindingConvertible {
                     observer(Changed<Subject>(old: changed.old[keyPath: path], new: changed.new[keyPath: path]))
                 }
             },
-            removeObserver: { target in
-                remove(observer: target)
-            }
+            removeObserver: remove
         )
     }
 }
@@ -85,9 +81,7 @@ public extension BindingConvertible {
                     perform()
                 }
             },
-            removeObserver: { target in
-                remove(observer: target)
-            }
+            removeObserver: remove
         )
     }
     
@@ -115,9 +109,7 @@ public extension BindingConvertible {
                     observer(Changed<T>(old: transform(changed.old), new: transform(changed.new)))
                 }
             },
-            removeObserver: { target in
-                remove(observer: target)
-            }
+            removeObserver: remove
         )
     }
     
@@ -149,9 +141,7 @@ public extension BindingConvertible {
                     perform()
                 }
             },
-            removeObserver: { target in
-                remove(observer: target)
-            }
+            removeObserver: remove
         )
     }
     
