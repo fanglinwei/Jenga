@@ -148,19 +148,24 @@ extension TableViewController {
         .rowHeight(52)
         .headerHeight(20)
         
-        if isOn {
-            TableSection {
+        TableSection(binding: $isOn) { isOn in
+            if isOn {
                 NavigationRow("🐶")
             }
-            .headerHeight(20)
         }
+        .headerHeight(20)
         
         TableSection {
             
-            TapActionRow("切换开关")
+            TapActionRow("切换开关, reloadTable")
                 .onTap(on: self) { (self) in
                     self.isOn.toggle()
                     self.reloadTable()
+                }
+            
+            TapActionRow("切换开关, reload isOn binding")
+                .onTap(on: self) { (self) in
+                    self.isOn.toggle()
                 }
         }
         .headerHeight(20)
