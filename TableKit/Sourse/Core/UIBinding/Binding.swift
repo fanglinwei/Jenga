@@ -8,7 +8,7 @@
 import Foundation
 
 public struct Binding<Value>: BindingConvertible {
-    public typealias AppendObserver = (_ target: AnyObject?, _ observer: @escaping Changed<Value>.ObserverHandler) -> Void
+    public typealias AppendObserver = (_ target: AnyObject?, _ changeHandler: @escaping Changed<Value>.Handler) -> Void
     
     internal var location: AnyLocation<Value>
 
@@ -32,8 +32,12 @@ public struct Binding<Value>: BindingConvertible {
         self.appendObserver = appendObserver
     }
     
-    public func addObserver(target: AnyObject?, observer: @escaping Changed<Value>.ObserverHandler) {
-        appendObserver?(target, observer)
+    public func add(observer target: AnyObject?, changeHandler: @escaping Changed<Value>.Handler) {
+        appendObserver?(target, changeHandler)
+    }
+    
+    public func remove(observer target: AnyObject?) {
+        
     }
     
     public static func constant(_ value: Value) -> Binding<Value> {
@@ -83,7 +87,7 @@ extension Binding: Collection where Value: MutableCollection, Value.Index: Hasha
       return Binding<Value.Element>(
           get: { wrappedValue[index] },
           set: { wrappedValue[index] = $0 } ) { target, observer in
-              addObserver(target: target) { changed in
+              add(observer: target) { changed in
                   observer(Changed<Value.Element>(old: changed.old[index], new: changed.new[index]))
               }
           }

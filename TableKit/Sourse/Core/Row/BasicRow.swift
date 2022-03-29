@@ -72,6 +72,7 @@ open class BasicRow<T: UITableViewCell>: RowSystemable, RowConfigurable {
         cell.imageView?.highlightedImage = nil
         // 再设置内容
         DSLTableManager.defaultHandle?(cell, self)
+        
         defaultSetup(with: cell)
         guard let cell = cell as? T else { return }
         customize?(cell)
@@ -84,7 +85,7 @@ extension BasicRow {
     
     internal func defaultSetup(with cell: UITableViewCell) {
         // 绑定标题
-        text.addObserver(target: cell) { [weak cell] change in
+        text.add(observer: cell) { [weak cell] change in
             guard let cell = cell else { return }
             let text = change.new
 
@@ -96,7 +97,7 @@ extension BasicRow {
         }
         
         // 绑定子标题
-        detailText.addObserver(target: cell) { [weak cell] change in
+        detailText.add(observer: cell) { [weak cell] change in
             guard let cell = cell else { return }
             
             switch change.new.type {
@@ -113,7 +114,7 @@ extension BasicRow {
         }
         
         // 关联图片
-        icon?.addObserver(target: cell) { [weak cell] changed in
+        icon?.add(observer: cell) { [weak cell] changed in
             guard let cell = cell else { return }
             switch changed.new {
             case .image(let value):
