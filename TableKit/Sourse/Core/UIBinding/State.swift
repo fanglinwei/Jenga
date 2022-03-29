@@ -76,11 +76,6 @@ extension State {
                 return true
             }
         }
-        
-        func remove(observer target: AnyObject?) {
-            guard let target = target else { return }
-            observers.removeAll { $0 === target }
-        }
     }
 }
 
