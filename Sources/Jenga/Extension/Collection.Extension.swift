@@ -8,14 +8,14 @@
 
 import Foundation
 
-extension Collection {
+internal extension Collection {
     
     subscript(safe index: Index) -> Element? {
         return indices.contains(index) ? self[index] : nil
     }
 }
 
-public extension Optional where Wrapped: Collection {
+internal extension Optional where Wrapped: Collection {
 
     /// SwifterSwift: Check if optional is nil or empty collection.
     var isNilOrEmpty: Bool {
