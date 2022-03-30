@@ -7,100 +7,100 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B37BD4ED27F4607D009C2244 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4B627F4607D009C2244 /* Binding.swift */; };
-		B37BD4EE27F4607D009C2244 /* AnyLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4B727F4607D009C2244 /* AnyLocation.swift */; };
-		B37BD4EF27F4607D009C2244 /* BindingWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4B827F4607D009C2244 /* BindingWrapper.swift */; };
-		B37BD4F027F4607D009C2244 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4B927F4607D009C2244 /* State.swift */; };
-		B37BD4F127F4607D009C2244 /* BindingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4BA27F4607D009C2244 /* BindingExtension.swift */; };
-		B37BD4F227F4607D009C2244 /* ResultBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4BB27F4607D009C2244 /* ResultBuilder.swift */; };
-		B37BD4F327F4607D009C2244 /* BindingConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4BC27F4607D009C2244 /* BindingConvertible.swift */; };
-		B37BD4F427F4607D009C2244 /* TapActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4BE27F4607D009C2244 /* TapActionCell.swift */; };
-		B37BD4F527F4607D009C2244 /* SeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4BF27F4607D009C2244 /* SeparatorCell.swift */; };
-		B37BD4F627F4607D009C2244 /* ToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4C027F4607D009C2244 /* ToggleCell.swift */; };
-		B37BD4F727F4607D009C2244 /* DSLTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4C127F4607D009C2244 /* DSLTableManager.swift */; };
-		B37BD4F827F4607D009C2244 /* BacicSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4C327F4607D009C2244 /* BacicSection.swift */; };
-		B37BD4F927F4607D009C2244 /* RadioSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4C427F4607D009C2244 /* RadioSection.swift */; };
-		B37BD4FA27F4607D009C2244 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4C527F4607D009C2244 /* TableSection.swift */; };
-		B37BD4FB27F4607D009C2244 /* Sectionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4C627F4607D009C2244 /* Sectionable.swift */; };
-		B37BD4FC27F4607D009C2244 /* UIView.Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4C827F4607D009C2244 /* UIView.Extension.swift */; };
-		B37BD4FD27F4607D009C2244 /* Collection.Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4C927F4607D009C2244 /* Collection.Extension.swift */; };
-		B37BD4FE27F4607D009C2244 /* NSObject.Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4CA27F4607D009C2244 /* NSObject.Runtime.swift */; };
-		B37BD4FF27F4607D009C2244 /* UILabel.Inset.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4CB27F4607D009C2244 /* UILabel.Inset.swift */; };
-		B37BD50027F4607D009C2244 /* TableKit.Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4CD27F4607D009C2244 /* TableKit.Log.swift */; };
-		B37BD50127F4607D009C2244 /* TableCellHeightCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4CE27F4607D009C2244 /* TableCellHeightCalculator.swift */; };
-		B37BD50227F4607D009C2244 /* TableCellRegisterer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4CF27F4607D009C2244 /* TableCellRegisterer.swift */; };
-		B37BD50327F4607D009C2244 /* TableRowAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4D027F4607D009C2244 /* TableRowAction.swift */; };
-		B37BD50427F4607D009C2244 /* TableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4D227F4607D009C2244 /* TableRow.swift */; };
-		B37BD50527F4607D009C2244 /* BasicRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4D327F4607D009C2244 /* BasicRow.swift */; };
-		B37BD50627F4607D009C2244 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4D427F4607D009C2244 /* Configurable.swift */; };
-		B37BD50727F4607D009C2244 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4D527F4607D009C2244 /* Reusable.swift */; };
-		B37BD50827F4607D009C2244 /* RowSystemable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4D727F4607D009C2244 /* RowSystemable.swift */; };
-		B37BD50927F4607D009C2244 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4D827F4607D009C2244 /* Row.swift */; };
-		B37BD50A27F4607D009C2244 /* RowCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4D927F4607D009C2244 /* RowCompatible.swift */; };
-		B37BD50B27F4607D009C2244 /* SeparatorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4DB27F4607D009C2244 /* SeparatorRow.swift */; };
-		B37BD50C27F4607D009C2244 /* OptionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4DC27F4607D009C2244 /* OptionRow.swift */; };
-		B37BD50D27F4607D009C2244 /* TapActionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4DD27F4607D009C2244 /* TapActionRow.swift */; };
-		B37BD50E27F4607D009C2244 /* NavigationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4DE27F4607D009C2244 /* NavigationRow.swift */; };
-		B37BD50F27F4607D009C2244 /* ToggleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4DF27F4607D009C2244 /* ToggleRow.swift */; };
-		B37BD51027F4607D009C2244 /* Jenga.docc in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4E127F4607D009C2244 /* Jenga.docc */; };
-		B37BD51127F4607D009C2244 /* Jenga.h in Headers */ = {isa = PBXBuildFile; fileRef = B37BD4E227F4607D009C2244 /* Jenga.h */; };
-		B37BD51227F4607D009C2244 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4E527F4607D009C2244 /* Icon.swift */; };
-		B37BD51327F4607D009C2244 /* Icon.AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4E627F4607D009C2244 /* Icon.AsyncImage.swift */; };
-		B37BD51427F4607D009C2244 /* Icon.Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4E727F4607D009C2244 /* Icon.Image.swift */; };
-		B37BD51527F4607D009C2244 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4E827F4607D009C2244 /* Text.swift */; };
-		B37BD51627F4607D009C2244 /* DetailText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4E927F4607D009C2244 /* DetailText.swift */; };
-		B37BD51727F4607D009C2244 /* DSLTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4EA27F4607D009C2244 /* DSLTable.swift */; };
-		B37BD51827F4607D009C2244 /* TableDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4EB27F4607D009C2244 /* TableDirector.swift */; };
-		B37BD51927F4607D009C2244 /* DSLAutoTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD4EC27F4607D009C2244 /* DSLAutoTable.swift */; };
+		B37BD58A27F473EB009C2244 /* TableKit.Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD55327F473EB009C2244 /* TableKit.Log.swift */; };
+		B37BD58B27F473EB009C2244 /* TableCellHeightCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD55427F473EB009C2244 /* TableCellHeightCalculator.swift */; };
+		B37BD58C27F473EB009C2244 /* TableCellRegisterer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD55527F473EB009C2244 /* TableCellRegisterer.swift */; };
+		B37BD58D27F473EB009C2244 /* TableRowAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD55627F473EB009C2244 /* TableRowAction.swift */; };
+		B37BD58E27F473EB009C2244 /* DSLTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD55727F473EB009C2244 /* DSLTableManager.swift */; };
+		B37BD58F27F473EB009C2244 /* DSLAutoTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD55827F473EB009C2244 /* DSLAutoTable.swift */; };
+		B37BD59027F473EB009C2244 /* TapActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD55A27F473EB009C2244 /* TapActionCell.swift */; };
+		B37BD59127F473EB009C2244 /* SeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD55B27F473EB009C2244 /* SeparatorCell.swift */; };
+		B37BD59227F473EB009C2244 /* ToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD55C27F473EB009C2244 /* ToggleCell.swift */; };
+		B37BD59327F473EB009C2244 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD55F27F473EB009C2244 /* Icon.swift */; };
+		B37BD59427F473EB009C2244 /* Icon.AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD56027F473EB009C2244 /* Icon.AsyncImage.swift */; };
+		B37BD59527F473EB009C2244 /* Icon.Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD56127F473EB009C2244 /* Icon.Image.swift */; };
+		B37BD59627F473EB009C2244 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD56227F473EB009C2244 /* Text.swift */; };
+		B37BD59727F473EB009C2244 /* DetailText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD56327F473EB009C2244 /* DetailText.swift */; };
+		B37BD59827F473EB009C2244 /* TableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD56527F473EB009C2244 /* TableRow.swift */; };
+		B37BD59927F473EB009C2244 /* BasicRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD56627F473EB009C2244 /* BasicRow.swift */; };
+		B37BD59A27F473EB009C2244 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD56727F473EB009C2244 /* Configurable.swift */; };
+		B37BD59B27F473EB009C2244 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD56827F473EB009C2244 /* Reusable.swift */; };
+		B37BD59C27F473EB009C2244 /* RowSystemable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD56A27F473EB009C2244 /* RowSystemable.swift */; };
+		B37BD59D27F473EB009C2244 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD56B27F473EB009C2244 /* Row.swift */; };
+		B37BD59E27F473EB009C2244 /* RowCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD56C27F473EB009C2244 /* RowCompatible.swift */; };
+		B37BD59F27F473EB009C2244 /* SeparatorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD56E27F473EB009C2244 /* SeparatorRow.swift */; };
+		B37BD5A027F473EB009C2244 /* OptionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD56F27F473EB009C2244 /* OptionRow.swift */; };
+		B37BD5A127F473EB009C2244 /* TapActionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD57027F473EB009C2244 /* TapActionRow.swift */; };
+		B37BD5A227F473EB009C2244 /* NavigationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD57127F473EB009C2244 /* NavigationRow.swift */; };
+		B37BD5A327F473EB009C2244 /* ToggleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD57227F473EB009C2244 /* ToggleRow.swift */; };
+		B37BD5A427F473EB009C2244 /* UIView.Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD57427F473EB009C2244 /* UIView.Extension.swift */; };
+		B37BD5A527F473EB009C2244 /* Collection.Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD57527F473EB009C2244 /* Collection.Extension.swift */; };
+		B37BD5A627F473EB009C2244 /* NSObject.Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD57627F473EB009C2244 /* NSObject.Runtime.swift */; };
+		B37BD5A727F473EB009C2244 /* UILabel.Inset.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD57727F473EB009C2244 /* UILabel.Inset.swift */; };
+		B37BD5A827F473EB009C2244 /* TableDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD57827F473EB009C2244 /* TableDirector.swift */; };
+		B37BD5A927F473EB009C2244 /* BacicSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD57A27F473EB009C2244 /* BacicSection.swift */; };
+		B37BD5AA27F473EB009C2244 /* RadioSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD57B27F473EB009C2244 /* RadioSection.swift */; };
+		B37BD5AB27F473EB009C2244 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD57C27F473EB009C2244 /* TableSection.swift */; };
+		B37BD5AC27F473EB009C2244 /* Sectionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD57D27F473EB009C2244 /* Sectionable.swift */; };
+		B37BD5AD27F473EB009C2244 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD57F27F473EB009C2244 /* Binding.swift */; };
+		B37BD5AE27F473EB009C2244 /* AnyLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD58027F473EB009C2244 /* AnyLocation.swift */; };
+		B37BD5AF27F473EB009C2244 /* BindingWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD58127F473EB009C2244 /* BindingWrapper.swift */; };
+		B37BD5B027F473EB009C2244 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD58227F473EB009C2244 /* State.swift */; };
+		B37BD5B127F473EB009C2244 /* BindingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD58327F473EB009C2244 /* BindingExtension.swift */; };
+		B37BD5B227F473EB009C2244 /* ResultBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD58427F473EB009C2244 /* ResultBuilder.swift */; };
+		B37BD5B327F473EB009C2244 /* BindingConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD58527F473EB009C2244 /* BindingConvertible.swift */; };
+		B37BD5B427F473EB009C2244 /* Jenga.docc in Sources */ = {isa = PBXBuildFile; fileRef = B37BD58727F473EB009C2244 /* Jenga.docc */; };
+		B37BD5B527F473EB009C2244 /* Jenga.h in Headers */ = {isa = PBXBuildFile; fileRef = B37BD58827F473EB009C2244 /* Jenga.h */; };
+		B37BD5B627F473EB009C2244 /* DSLTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD58927F473EB009C2244 /* DSLTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B37BD4A927F4606B009C2244 /* Jenga.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Jenga.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B37BD4B627F4607D009C2244 /* Binding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
-		B37BD4B727F4607D009C2244 /* AnyLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyLocation.swift; sourceTree = "<group>"; };
-		B37BD4B827F4607D009C2244 /* BindingWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindingWrapper.swift; sourceTree = "<group>"; };
-		B37BD4B927F4607D009C2244 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
-		B37BD4BA27F4607D009C2244 /* BindingExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindingExtension.swift; sourceTree = "<group>"; };
-		B37BD4BB27F4607D009C2244 /* ResultBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultBuilder.swift; sourceTree = "<group>"; };
-		B37BD4BC27F4607D009C2244 /* BindingConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindingConvertible.swift; sourceTree = "<group>"; };
-		B37BD4BE27F4607D009C2244 /* TapActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapActionCell.swift; sourceTree = "<group>"; };
-		B37BD4BF27F4607D009C2244 /* SeparatorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorCell.swift; sourceTree = "<group>"; };
-		B37BD4C027F4607D009C2244 /* ToggleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleCell.swift; sourceTree = "<group>"; };
-		B37BD4C127F4607D009C2244 /* DSLTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSLTableManager.swift; sourceTree = "<group>"; };
-		B37BD4C327F4607D009C2244 /* BacicSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BacicSection.swift; sourceTree = "<group>"; };
-		B37BD4C427F4607D009C2244 /* RadioSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioSection.swift; sourceTree = "<group>"; };
-		B37BD4C527F4607D009C2244 /* TableSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
-		B37BD4C627F4607D009C2244 /* Sectionable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sectionable.swift; sourceTree = "<group>"; };
-		B37BD4C827F4607D009C2244 /* UIView.Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.Extension.swift; sourceTree = "<group>"; };
-		B37BD4C927F4607D009C2244 /* Collection.Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.Extension.swift; sourceTree = "<group>"; };
-		B37BD4CA27F4607D009C2244 /* NSObject.Runtime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject.Runtime.swift; sourceTree = "<group>"; };
-		B37BD4CB27F4607D009C2244 /* UILabel.Inset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.Inset.swift; sourceTree = "<group>"; };
-		B37BD4CD27F4607D009C2244 /* TableKit.Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableKit.Log.swift; sourceTree = "<group>"; };
-		B37BD4CE27F4607D009C2244 /* TableCellHeightCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellHeightCalculator.swift; sourceTree = "<group>"; };
-		B37BD4CF27F4607D009C2244 /* TableCellRegisterer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellRegisterer.swift; sourceTree = "<group>"; };
-		B37BD4D027F4607D009C2244 /* TableRowAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRowAction.swift; sourceTree = "<group>"; };
-		B37BD4D227F4607D009C2244 /* TableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRow.swift; sourceTree = "<group>"; };
-		B37BD4D327F4607D009C2244 /* BasicRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicRow.swift; sourceTree = "<group>"; };
-		B37BD4D427F4607D009C2244 /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
-		B37BD4D527F4607D009C2244 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
-		B37BD4D727F4607D009C2244 /* RowSystemable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowSystemable.swift; sourceTree = "<group>"; };
-		B37BD4D827F4607D009C2244 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
-		B37BD4D927F4607D009C2244 /* RowCompatible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowCompatible.swift; sourceTree = "<group>"; };
-		B37BD4DB27F4607D009C2244 /* SeparatorRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorRow.swift; sourceTree = "<group>"; };
-		B37BD4DC27F4607D009C2244 /* OptionRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionRow.swift; sourceTree = "<group>"; };
-		B37BD4DD27F4607D009C2244 /* TapActionRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapActionRow.swift; sourceTree = "<group>"; };
-		B37BD4DE27F4607D009C2244 /* NavigationRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationRow.swift; sourceTree = "<group>"; };
-		B37BD4DF27F4607D009C2244 /* ToggleRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleRow.swift; sourceTree = "<group>"; };
-		B37BD4E127F4607D009C2244 /* Jenga.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Jenga.docc; sourceTree = "<group>"; };
-		B37BD4E227F4607D009C2244 /* Jenga.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jenga.h; sourceTree = "<group>"; };
-		B37BD4E527F4607D009C2244 /* Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
-		B37BD4E627F4607D009C2244 /* Icon.AsyncImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.AsyncImage.swift; sourceTree = "<group>"; };
-		B37BD4E727F4607D009C2244 /* Icon.Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.Image.swift; sourceTree = "<group>"; };
-		B37BD4E827F4607D009C2244 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
-		B37BD4E927F4607D009C2244 /* DetailText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailText.swift; sourceTree = "<group>"; };
-		B37BD4EA27F4607D009C2244 /* DSLTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSLTable.swift; sourceTree = "<group>"; };
-		B37BD4EB27F4607D009C2244 /* TableDirector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDirector.swift; sourceTree = "<group>"; };
-		B37BD4EC27F4607D009C2244 /* DSLAutoTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSLAutoTable.swift; sourceTree = "<group>"; };
+		B37BD55327F473EB009C2244 /* TableKit.Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableKit.Log.swift; sourceTree = "<group>"; };
+		B37BD55427F473EB009C2244 /* TableCellHeightCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellHeightCalculator.swift; sourceTree = "<group>"; };
+		B37BD55527F473EB009C2244 /* TableCellRegisterer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellRegisterer.swift; sourceTree = "<group>"; };
+		B37BD55627F473EB009C2244 /* TableRowAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRowAction.swift; sourceTree = "<group>"; };
+		B37BD55727F473EB009C2244 /* DSLTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSLTableManager.swift; sourceTree = "<group>"; };
+		B37BD55827F473EB009C2244 /* DSLAutoTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSLAutoTable.swift; sourceTree = "<group>"; };
+		B37BD55A27F473EB009C2244 /* TapActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapActionCell.swift; sourceTree = "<group>"; };
+		B37BD55B27F473EB009C2244 /* SeparatorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorCell.swift; sourceTree = "<group>"; };
+		B37BD55C27F473EB009C2244 /* ToggleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleCell.swift; sourceTree = "<group>"; };
+		B37BD55F27F473EB009C2244 /* Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
+		B37BD56027F473EB009C2244 /* Icon.AsyncImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.AsyncImage.swift; sourceTree = "<group>"; };
+		B37BD56127F473EB009C2244 /* Icon.Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.Image.swift; sourceTree = "<group>"; };
+		B37BD56227F473EB009C2244 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		B37BD56327F473EB009C2244 /* DetailText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailText.swift; sourceTree = "<group>"; };
+		B37BD56527F473EB009C2244 /* TableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRow.swift; sourceTree = "<group>"; };
+		B37BD56627F473EB009C2244 /* BasicRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicRow.swift; sourceTree = "<group>"; };
+		B37BD56727F473EB009C2244 /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
+		B37BD56827F473EB009C2244 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		B37BD56A27F473EB009C2244 /* RowSystemable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowSystemable.swift; sourceTree = "<group>"; };
+		B37BD56B27F473EB009C2244 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
+		B37BD56C27F473EB009C2244 /* RowCompatible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowCompatible.swift; sourceTree = "<group>"; };
+		B37BD56E27F473EB009C2244 /* SeparatorRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorRow.swift; sourceTree = "<group>"; };
+		B37BD56F27F473EB009C2244 /* OptionRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionRow.swift; sourceTree = "<group>"; };
+		B37BD57027F473EB009C2244 /* TapActionRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapActionRow.swift; sourceTree = "<group>"; };
+		B37BD57127F473EB009C2244 /* NavigationRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationRow.swift; sourceTree = "<group>"; };
+		B37BD57227F473EB009C2244 /* ToggleRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleRow.swift; sourceTree = "<group>"; };
+		B37BD57427F473EB009C2244 /* UIView.Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.Extension.swift; sourceTree = "<group>"; };
+		B37BD57527F473EB009C2244 /* Collection.Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.Extension.swift; sourceTree = "<group>"; };
+		B37BD57627F473EB009C2244 /* NSObject.Runtime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject.Runtime.swift; sourceTree = "<group>"; };
+		B37BD57727F473EB009C2244 /* UILabel.Inset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.Inset.swift; sourceTree = "<group>"; };
+		B37BD57827F473EB009C2244 /* TableDirector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDirector.swift; sourceTree = "<group>"; };
+		B37BD57A27F473EB009C2244 /* BacicSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BacicSection.swift; sourceTree = "<group>"; };
+		B37BD57B27F473EB009C2244 /* RadioSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioSection.swift; sourceTree = "<group>"; };
+		B37BD57C27F473EB009C2244 /* TableSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
+		B37BD57D27F473EB009C2244 /* Sectionable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sectionable.swift; sourceTree = "<group>"; };
+		B37BD57F27F473EB009C2244 /* Binding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
+		B37BD58027F473EB009C2244 /* AnyLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyLocation.swift; sourceTree = "<group>"; };
+		B37BD58127F473EB009C2244 /* BindingWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindingWrapper.swift; sourceTree = "<group>"; };
+		B37BD58227F473EB009C2244 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		B37BD58327F473EB009C2244 /* BindingExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindingExtension.swift; sourceTree = "<group>"; };
+		B37BD58427F473EB009C2244 /* ResultBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultBuilder.swift; sourceTree = "<group>"; };
+		B37BD58527F473EB009C2244 /* BindingConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindingConvertible.swift; sourceTree = "<group>"; };
+		B37BD58727F473EB009C2244 /* Jenga.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Jenga.docc; sourceTree = "<group>"; };
+		B37BD58827F473EB009C2244 /* Jenga.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jenga.h; sourceTree = "<group>"; };
+		B37BD58927F473EB009C2244 /* DSLTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSLTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,149 +133,141 @@
 		B37BD4B327F4607D009C2244 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				B37BD4B427F4607D009C2244 /* Jenga */,
+				B37BD55927F473EB009C2244 /* Cells */,
+				B37BD55827F473EB009C2244 /* DSLAutoTable.swift */,
+				B37BD58927F473EB009C2244 /* DSLTable.swift */,
+				B37BD55727F473EB009C2244 /* DSLTableManager.swift */,
+				B37BD57327F473EB009C2244 /* Extension */,
+				B37BD58627F473EB009C2244 /* Jenga */,
+				B37BD55D27F473EB009C2244 /* Model */,
+				B37BD56427F473EB009C2244 /* Row */,
+				B37BD57927F473EB009C2244 /* Section */,
+				B37BD57827F473EB009C2244 /* TableDirector.swift */,
+				B37BD57E27F473EB009C2244 /* UIBinding */,
+				B37BD55227F473EB009C2244 /* Utils */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		B37BD4B427F4607D009C2244 /* Jenga */ = {
+		B37BD55227F473EB009C2244 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				B37BD4B527F4607D009C2244 /* UIBinding */,
-				B37BD4BD27F4607D009C2244 /* Cells */,
-				B37BD4C127F4607D009C2244 /* DSLTableManager.swift */,
-				B37BD4C227F4607D009C2244 /* Section */,
-				B37BD4C727F4607D009C2244 /* Extension */,
-				B37BD4CC27F4607D009C2244 /* Utils */,
-				B37BD4D127F4607D009C2244 /* Row */,
-				B37BD4E027F4607D009C2244 /* Jenga */,
-				B37BD4E327F4607D009C2244 /* Model */,
-				B37BD4EA27F4607D009C2244 /* DSLTable.swift */,
-				B37BD4EB27F4607D009C2244 /* TableDirector.swift */,
-				B37BD4EC27F4607D009C2244 /* DSLAutoTable.swift */,
-			);
-			path = Jenga;
-			sourceTree = "<group>";
-		};
-		B37BD4B527F4607D009C2244 /* UIBinding */ = {
-			isa = PBXGroup;
-			children = (
-				B37BD4B627F4607D009C2244 /* Binding.swift */,
-				B37BD4B727F4607D009C2244 /* AnyLocation.swift */,
-				B37BD4B827F4607D009C2244 /* BindingWrapper.swift */,
-				B37BD4B927F4607D009C2244 /* State.swift */,
-				B37BD4BA27F4607D009C2244 /* BindingExtension.swift */,
-				B37BD4BB27F4607D009C2244 /* ResultBuilder.swift */,
-				B37BD4BC27F4607D009C2244 /* BindingConvertible.swift */,
-			);
-			path = UIBinding;
-			sourceTree = "<group>";
-		};
-		B37BD4BD27F4607D009C2244 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				B37BD4BE27F4607D009C2244 /* TapActionCell.swift */,
-				B37BD4BF27F4607D009C2244 /* SeparatorCell.swift */,
-				B37BD4C027F4607D009C2244 /* ToggleCell.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		B37BD4C227F4607D009C2244 /* Section */ = {
-			isa = PBXGroup;
-			children = (
-				B37BD4C327F4607D009C2244 /* BacicSection.swift */,
-				B37BD4C427F4607D009C2244 /* RadioSection.swift */,
-				B37BD4C527F4607D009C2244 /* TableSection.swift */,
-				B37BD4C627F4607D009C2244 /* Sectionable.swift */,
-			);
-			path = Section;
-			sourceTree = "<group>";
-		};
-		B37BD4C727F4607D009C2244 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				B37BD4C827F4607D009C2244 /* UIView.Extension.swift */,
-				B37BD4C927F4607D009C2244 /* Collection.Extension.swift */,
-				B37BD4CA27F4607D009C2244 /* NSObject.Runtime.swift */,
-				B37BD4CB27F4607D009C2244 /* UILabel.Inset.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		B37BD4CC27F4607D009C2244 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				B37BD4CD27F4607D009C2244 /* TableKit.Log.swift */,
-				B37BD4CE27F4607D009C2244 /* TableCellHeightCalculator.swift */,
-				B37BD4CF27F4607D009C2244 /* TableCellRegisterer.swift */,
-				B37BD4D027F4607D009C2244 /* TableRowAction.swift */,
+				B37BD55327F473EB009C2244 /* TableKit.Log.swift */,
+				B37BD55427F473EB009C2244 /* TableCellHeightCalculator.swift */,
+				B37BD55527F473EB009C2244 /* TableCellRegisterer.swift */,
+				B37BD55627F473EB009C2244 /* TableRowAction.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		B37BD4D127F4607D009C2244 /* Row */ = {
+		B37BD55927F473EB009C2244 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				B37BD4D227F4607D009C2244 /* TableRow.swift */,
-				B37BD4D327F4607D009C2244 /* BasicRow.swift */,
-				B37BD4D427F4607D009C2244 /* Configurable.swift */,
-				B37BD4D527F4607D009C2244 /* Reusable.swift */,
-				B37BD4D627F4607D009C2244 /* Protocol */,
-				B37BD4DA27F4607D009C2244 /* System */,
+				B37BD55A27F473EB009C2244 /* TapActionCell.swift */,
+				B37BD55B27F473EB009C2244 /* SeparatorCell.swift */,
+				B37BD55C27F473EB009C2244 /* ToggleCell.swift */,
 			);
-			path = Row;
+			path = Cells;
 			sourceTree = "<group>";
 		};
-		B37BD4D627F4607D009C2244 /* Protocol */ = {
+		B37BD55D27F473EB009C2244 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B37BD4D727F4607D009C2244 /* RowSystemable.swift */,
-				B37BD4D827F4607D009C2244 /* Row.swift */,
-				B37BD4D927F4607D009C2244 /* RowCompatible.swift */,
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
-		B37BD4DA27F4607D009C2244 /* System */ = {
-			isa = PBXGroup;
-			children = (
-				B37BD4DB27F4607D009C2244 /* SeparatorRow.swift */,
-				B37BD4DC27F4607D009C2244 /* OptionRow.swift */,
-				B37BD4DD27F4607D009C2244 /* TapActionRow.swift */,
-				B37BD4DE27F4607D009C2244 /* NavigationRow.swift */,
-				B37BD4DF27F4607D009C2244 /* ToggleRow.swift */,
-			);
-			path = System;
-			sourceTree = "<group>";
-		};
-		B37BD4E027F4607D009C2244 /* Jenga */ = {
-			isa = PBXGroup;
-			children = (
-				B37BD4E127F4607D009C2244 /* Jenga.docc */,
-				B37BD4E227F4607D009C2244 /* Jenga.h */,
-			);
-			path = Jenga;
-			sourceTree = "<group>";
-		};
-		B37BD4E327F4607D009C2244 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B37BD4E427F4607D009C2244 /* Icon */,
-				B37BD4E827F4607D009C2244 /* Text.swift */,
-				B37BD4E927F4607D009C2244 /* DetailText.swift */,
+				B37BD55E27F473EB009C2244 /* Icon */,
+				B37BD56227F473EB009C2244 /* Text.swift */,
+				B37BD56327F473EB009C2244 /* DetailText.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		B37BD4E427F4607D009C2244 /* Icon */ = {
+		B37BD55E27F473EB009C2244 /* Icon */ = {
 			isa = PBXGroup;
 			children = (
-				B37BD4E527F4607D009C2244 /* Icon.swift */,
-				B37BD4E627F4607D009C2244 /* Icon.AsyncImage.swift */,
-				B37BD4E727F4607D009C2244 /* Icon.Image.swift */,
+				B37BD55F27F473EB009C2244 /* Icon.swift */,
+				B37BD56027F473EB009C2244 /* Icon.AsyncImage.swift */,
+				B37BD56127F473EB009C2244 /* Icon.Image.swift */,
 			);
 			path = Icon;
+			sourceTree = "<group>";
+		};
+		B37BD56427F473EB009C2244 /* Row */ = {
+			isa = PBXGroup;
+			children = (
+				B37BD56527F473EB009C2244 /* TableRow.swift */,
+				B37BD56627F473EB009C2244 /* BasicRow.swift */,
+				B37BD56727F473EB009C2244 /* Configurable.swift */,
+				B37BD56827F473EB009C2244 /* Reusable.swift */,
+				B37BD56927F473EB009C2244 /* Protocol */,
+				B37BD56D27F473EB009C2244 /* System */,
+			);
+			path = Row;
+			sourceTree = "<group>";
+		};
+		B37BD56927F473EB009C2244 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				B37BD56A27F473EB009C2244 /* RowSystemable.swift */,
+				B37BD56B27F473EB009C2244 /* Row.swift */,
+				B37BD56C27F473EB009C2244 /* RowCompatible.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		B37BD56D27F473EB009C2244 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				B37BD56E27F473EB009C2244 /* SeparatorRow.swift */,
+				B37BD56F27F473EB009C2244 /* OptionRow.swift */,
+				B37BD57027F473EB009C2244 /* TapActionRow.swift */,
+				B37BD57127F473EB009C2244 /* NavigationRow.swift */,
+				B37BD57227F473EB009C2244 /* ToggleRow.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		B37BD57327F473EB009C2244 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B37BD57427F473EB009C2244 /* UIView.Extension.swift */,
+				B37BD57527F473EB009C2244 /* Collection.Extension.swift */,
+				B37BD57627F473EB009C2244 /* NSObject.Runtime.swift */,
+				B37BD57727F473EB009C2244 /* UILabel.Inset.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		B37BD57927F473EB009C2244 /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				B37BD57A27F473EB009C2244 /* BacicSection.swift */,
+				B37BD57B27F473EB009C2244 /* RadioSection.swift */,
+				B37BD57C27F473EB009C2244 /* TableSection.swift */,
+				B37BD57D27F473EB009C2244 /* Sectionable.swift */,
+			);
+			path = Section;
+			sourceTree = "<group>";
+		};
+		B37BD57E27F473EB009C2244 /* UIBinding */ = {
+			isa = PBXGroup;
+			children = (
+				B37BD57F27F473EB009C2244 /* Binding.swift */,
+				B37BD58027F473EB009C2244 /* AnyLocation.swift */,
+				B37BD58127F473EB009C2244 /* BindingWrapper.swift */,
+				B37BD58227F473EB009C2244 /* State.swift */,
+				B37BD58327F473EB009C2244 /* BindingExtension.swift */,
+				B37BD58427F473EB009C2244 /* ResultBuilder.swift */,
+				B37BD58527F473EB009C2244 /* BindingConvertible.swift */,
+			);
+			path = UIBinding;
+			sourceTree = "<group>";
+		};
+		B37BD58627F473EB009C2244 /* Jenga */ = {
+			isa = PBXGroup;
+			children = (
+				B37BD58727F473EB009C2244 /* Jenga.docc */,
+				B37BD58827F473EB009C2244 /* Jenga.h */,
+			);
+			path = Jenga;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,7 +277,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B37BD51127F4607D009C2244 /* Jenga.h in Headers */,
+				B37BD5B527F473EB009C2244 /* Jenga.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +313,7 @@
 				TargetAttributes = {
 					B37BD4A827F4606B009C2244 = {
 						CreatedOnToolsVersion = 13.3;
+						LastSwiftMigration = 1330;
 					};
 				};
 			};
@@ -357,50 +350,50 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B37BD4FA27F4607D009C2244 /* TableSection.swift in Sources */,
-				B37BD4F327F4607D009C2244 /* BindingConvertible.swift in Sources */,
-				B37BD51027F4607D009C2244 /* Jenga.docc in Sources */,
-				B37BD50227F4607D009C2244 /* TableCellRegisterer.swift in Sources */,
-				B37BD50827F4607D009C2244 /* RowSystemable.swift in Sources */,
-				B37BD50E27F4607D009C2244 /* NavigationRow.swift in Sources */,
-				B37BD4F427F4607D009C2244 /* TapActionCell.swift in Sources */,
-				B37BD4F127F4607D009C2244 /* BindingExtension.swift in Sources */,
-				B37BD51627F4607D009C2244 /* DetailText.swift in Sources */,
-				B37BD4FD27F4607D009C2244 /* Collection.Extension.swift in Sources */,
-				B37BD50B27F4607D009C2244 /* SeparatorRow.swift in Sources */,
-				B37BD51427F4607D009C2244 /* Icon.Image.swift in Sources */,
-				B37BD51327F4607D009C2244 /* Icon.AsyncImage.swift in Sources */,
-				B37BD51927F4607D009C2244 /* DSLAutoTable.swift in Sources */,
-				B37BD51827F4607D009C2244 /* TableDirector.swift in Sources */,
-				B37BD50027F4607D009C2244 /* TableKit.Log.swift in Sources */,
-				B37BD4FE27F4607D009C2244 /* NSObject.Runtime.swift in Sources */,
-				B37BD50927F4607D009C2244 /* Row.swift in Sources */,
-				B37BD51227F4607D009C2244 /* Icon.swift in Sources */,
-				B37BD50627F4607D009C2244 /* Configurable.swift in Sources */,
-				B37BD4ED27F4607D009C2244 /* Binding.swift in Sources */,
-				B37BD50F27F4607D009C2244 /* ToggleRow.swift in Sources */,
-				B37BD51727F4607D009C2244 /* DSLTable.swift in Sources */,
-				B37BD4FC27F4607D009C2244 /* UIView.Extension.swift in Sources */,
-				B37BD50327F4607D009C2244 /* TableRowAction.swift in Sources */,
-				B37BD50727F4607D009C2244 /* Reusable.swift in Sources */,
-				B37BD4F927F4607D009C2244 /* RadioSection.swift in Sources */,
-				B37BD4F727F4607D009C2244 /* DSLTableManager.swift in Sources */,
-				B37BD4EE27F4607D009C2244 /* AnyLocation.swift in Sources */,
-				B37BD50D27F4607D009C2244 /* TapActionRow.swift in Sources */,
-				B37BD51527F4607D009C2244 /* Text.swift in Sources */,
-				B37BD50127F4607D009C2244 /* TableCellHeightCalculator.swift in Sources */,
-				B37BD50527F4607D009C2244 /* BasicRow.swift in Sources */,
-				B37BD50A27F4607D009C2244 /* RowCompatible.swift in Sources */,
-				B37BD4EF27F4607D009C2244 /* BindingWrapper.swift in Sources */,
-				B37BD4F527F4607D009C2244 /* SeparatorCell.swift in Sources */,
-				B37BD50427F4607D009C2244 /* TableRow.swift in Sources */,
-				B37BD4FF27F4607D009C2244 /* UILabel.Inset.swift in Sources */,
-				B37BD4F827F4607D009C2244 /* BacicSection.swift in Sources */,
-				B37BD50C27F4607D009C2244 /* OptionRow.swift in Sources */,
-				B37BD4FB27F4607D009C2244 /* Sectionable.swift in Sources */,
-				B37BD4F227F4607D009C2244 /* ResultBuilder.swift in Sources */,
-				B37BD4F027F4607D009C2244 /* State.swift in Sources */,
-				B37BD4F627F4607D009C2244 /* ToggleCell.swift in Sources */,
+				B37BD59F27F473EB009C2244 /* SeparatorRow.swift in Sources */,
+				B37BD58A27F473EB009C2244 /* TableKit.Log.swift in Sources */,
+				B37BD59527F473EB009C2244 /* Icon.Image.swift in Sources */,
+				B37BD59A27F473EB009C2244 /* Configurable.swift in Sources */,
+				B37BD59C27F473EB009C2244 /* RowSystemable.swift in Sources */,
+				B37BD59827F473EB009C2244 /* TableRow.swift in Sources */,
+				B37BD59927F473EB009C2244 /* BasicRow.swift in Sources */,
+				B37BD5B327F473EB009C2244 /* BindingConvertible.swift in Sources */,
+				B37BD59227F473EB009C2244 /* ToggleCell.swift in Sources */,
+				B37BD58F27F473EB009C2244 /* DSLAutoTable.swift in Sources */,
+				B37BD59D27F473EB009C2244 /* Row.swift in Sources */,
+				B37BD58D27F473EB009C2244 /* TableRowAction.swift in Sources */,
+				B37BD5A427F473EB009C2244 /* UIView.Extension.swift in Sources */,
+				B37BD5A527F473EB009C2244 /* Collection.Extension.swift in Sources */,
+				B37BD58B27F473EB009C2244 /* TableCellHeightCalculator.swift in Sources */,
+				B37BD58C27F473EB009C2244 /* TableCellRegisterer.swift in Sources */,
+				B37BD5B427F473EB009C2244 /* Jenga.docc in Sources */,
+				B37BD59727F473EB009C2244 /* DetailText.swift in Sources */,
+				B37BD5AC27F473EB009C2244 /* Sectionable.swift in Sources */,
+				B37BD58E27F473EB009C2244 /* DSLTableManager.swift in Sources */,
+				B37BD59B27F473EB009C2244 /* Reusable.swift in Sources */,
+				B37BD5A827F473EB009C2244 /* TableDirector.swift in Sources */,
+				B37BD5AA27F473EB009C2244 /* RadioSection.swift in Sources */,
+				B37BD5A127F473EB009C2244 /* TapActionRow.swift in Sources */,
+				B37BD5B627F473EB009C2244 /* DSLTable.swift in Sources */,
+				B37BD5A927F473EB009C2244 /* BacicSection.swift in Sources */,
+				B37BD5AB27F473EB009C2244 /* TableSection.swift in Sources */,
+				B37BD59627F473EB009C2244 /* Text.swift in Sources */,
+				B37BD5B127F473EB009C2244 /* BindingExtension.swift in Sources */,
+				B37BD5A327F473EB009C2244 /* ToggleRow.swift in Sources */,
+				B37BD5AE27F473EB009C2244 /* AnyLocation.swift in Sources */,
+				B37BD5A027F473EB009C2244 /* OptionRow.swift in Sources */,
+				B37BD5A227F473EB009C2244 /* NavigationRow.swift in Sources */,
+				B37BD59027F473EB009C2244 /* TapActionCell.swift in Sources */,
+				B37BD59E27F473EB009C2244 /* RowCompatible.swift in Sources */,
+				B37BD5A727F473EB009C2244 /* UILabel.Inset.swift in Sources */,
+				B37BD5AD27F473EB009C2244 /* Binding.swift in Sources */,
+				B37BD59327F473EB009C2244 /* Icon.swift in Sources */,
+				B37BD59127F473EB009C2244 /* SeparatorCell.swift in Sources */,
+				B37BD5B027F473EB009C2244 /* State.swift in Sources */,
+				B37BD5B227F473EB009C2244 /* ResultBuilder.swift in Sources */,
+				B37BD59427F473EB009C2244 /* Icon.AsyncImage.swift in Sources */,
+				B37BD5A627F473EB009C2244 /* NSObject.Runtime.swift in Sources */,
+				B37BD5AF27F473EB009C2244 /* BindingWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +523,7 @@
 		B37BD4B127F4606B009C2244 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -552,6 +546,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -560,6 +555,7 @@
 		B37BD4B227F4606B009C2244 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
