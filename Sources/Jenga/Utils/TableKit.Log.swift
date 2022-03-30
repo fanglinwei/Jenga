@@ -8,7 +8,7 @@
 import Foundation
 
 func log(_ items: Any..., separator: String = " ") {
-    guard DSLTableManager.isEnabledLog else { return }
+    guard JengaProvider.isEnabledLog else { return }
     
     let content = String(items.map { "\($0)" }.joined(separator: " "))
     Swift.print("[TableKit]", content , separator:separator, terminator: "\n")

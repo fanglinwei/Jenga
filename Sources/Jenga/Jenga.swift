@@ -7,9 +7,9 @@
 
 import UIKit
 
-public enum DSLTableManager { }
+public enum JengaProvider { }
 
-extension DSLTableManager {
+extension JengaProvider {
     
     public static var isEnabledLog = true
     
@@ -41,7 +41,7 @@ public protocol RowHeightCalculator {
     func invalidate()
 }
 
-extension DSLTableManager {
+extension JengaProvider {
         
     static func view(frame: CGRect) -> UITableView {
         let tableView: UITableView

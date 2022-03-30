@@ -9,5 +9,6 @@ import Foundation
 import UIKit
 
 public protocol AsyncImage {
+    
     func loadImage(with imageView: UIImageView?, _ completion: @escaping (Bool) -> Void)
 }

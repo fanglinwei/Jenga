@@ -71,7 +71,7 @@ open class BasicRow<T: UITableViewCell>: RowSystemable, RowConfigurable {
         cell.imageView?.image = nil
         cell.imageView?.highlightedImage = nil
         // 再设置内容
-        DSLTableManager.defaultHandle?(cell, self)
+        JengaProvider.defaultHandle?(cell, self)
         
         defaultSetup(with: cell)
         guard let cell = cell as? T else { return }

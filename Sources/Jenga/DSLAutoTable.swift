@@ -15,7 +15,7 @@ public extension DSLAutoTable where Self: UIViewController {
     var tableView: UITableView {
         get {
             guard let value: UITableView = associated.get(&TableViewKey) else {
-                let temp = DSLTableManager.autoTable(.zero)
+                let temp = JengaProvider.autoTable(.zero)
                 associated.set(retain: &TableViewKey, temp)
                 return temp
             }

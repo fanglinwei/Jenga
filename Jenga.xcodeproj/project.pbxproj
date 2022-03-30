@@ -19,7 +19,7 @@
 		B37BD5F827F47538009C2244 /* TapActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5C327F47538009C2244 /* TapActionCell.swift */; };
 		B37BD5F927F47538009C2244 /* SeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5C427F47538009C2244 /* SeparatorCell.swift */; };
 		B37BD5FA27F47538009C2244 /* ToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5C527F47538009C2244 /* ToggleCell.swift */; };
-		B37BD5FB27F47538009C2244 /* DSLTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5C627F47538009C2244 /* DSLTableManager.swift */; };
+		B37BD5FB27F47538009C2244 /* Jenga.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5C627F47538009C2244 /* Jenga.swift */; };
 		B37BD5FC27F47538009C2244 /* BacicSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5C827F47538009C2244 /* BacicSection.swift */; };
 		B37BD5FD27F47538009C2244 /* RadioSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5C927F47538009C2244 /* RadioSection.swift */; };
 		B37BD5FE27F47538009C2244 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5CA27F47538009C2244 /* TableSection.swift */; };
@@ -45,7 +45,7 @@
 		B37BD61227F47538009C2244 /* NavigationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5E327F47538009C2244 /* NavigationRow.swift */; };
 		B37BD61327F47538009C2244 /* ToggleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5E427F47538009C2244 /* ToggleRow.swift */; };
 		B37BD61427F47538009C2244 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5E727F47538009C2244 /* Icon.swift */; };
-		B37BD61527F47538009C2244 /* Icon.AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5E827F47538009C2244 /* Icon.AsyncImage.swift */; };
+		B37BD61527F47538009C2244 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5E827F47538009C2244 /* AsyncImage.swift */; };
 		B37BD61627F47538009C2244 /* Icon.Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5E927F47538009C2244 /* Icon.Image.swift */; };
 		B37BD61727F47538009C2244 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5EA27F47538009C2244 /* Text.swift */; };
 		B37BD61827F47538009C2244 /* DetailText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5EB27F47538009C2244 /* DetailText.swift */; };
@@ -68,7 +68,7 @@
 		B37BD5C327F47538009C2244 /* TapActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapActionCell.swift; sourceTree = "<group>"; };
 		B37BD5C427F47538009C2244 /* SeparatorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorCell.swift; sourceTree = "<group>"; };
 		B37BD5C527F47538009C2244 /* ToggleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleCell.swift; sourceTree = "<group>"; };
-		B37BD5C627F47538009C2244 /* DSLTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSLTableManager.swift; sourceTree = "<group>"; };
+		B37BD5C627F47538009C2244 /* Jenga.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Jenga.swift; sourceTree = "<group>"; };
 		B37BD5C827F47538009C2244 /* BacicSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BacicSection.swift; sourceTree = "<group>"; };
 		B37BD5C927F47538009C2244 /* RadioSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioSection.swift; sourceTree = "<group>"; };
 		B37BD5CA27F47538009C2244 /* TableSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 		B37BD5E327F47538009C2244 /* NavigationRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationRow.swift; sourceTree = "<group>"; };
 		B37BD5E427F47538009C2244 /* ToggleRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleRow.swift; sourceTree = "<group>"; };
 		B37BD5E727F47538009C2244 /* Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
-		B37BD5E827F47538009C2244 /* Icon.AsyncImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.AsyncImage.swift; sourceTree = "<group>"; };
+		B37BD5E827F47538009C2244 /* AsyncImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		B37BD5E927F47538009C2244 /* Icon.Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.Image.swift; sourceTree = "<group>"; };
 		B37BD5EA27F47538009C2244 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		B37BD5EB27F47538009C2244 /* DetailText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailText.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 			children = (
 				B37BD5BA27F47538009C2244 /* UIBinding */,
 				B37BD5C227F47538009C2244 /* Cells */,
-				B37BD5C627F47538009C2244 /* DSLTableManager.swift */,
+				B37BD5C627F47538009C2244 /* Jenga.swift */,
 				B37BD5C727F47538009C2244 /* Section */,
 				B37BD5CC27F47538009C2244 /* Extension */,
 				B37BD5D127F47538009C2244 /* Utils */,
@@ -254,7 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				B37BD5E727F47538009C2244 /* Icon.swift */,
-				B37BD5E827F47538009C2244 /* Icon.AsyncImage.swift */,
+				B37BD5E827F47538009C2244 /* AsyncImage.swift */,
 				B37BD5E927F47538009C2244 /* Icon.Image.swift */,
 				B37BD5EA27F47538009C2244 /* Text.swift */,
 				B37BD5EB27F47538009C2244 /* DetailText.swift */,
@@ -354,14 +354,14 @@
 				B37BD60A27F47538009C2244 /* Configurable.swift in Sources */,
 				B37BD5F227F47538009C2244 /* AnyLocation.swift in Sources */,
 				B37BD61627F47538009C2244 /* Icon.Image.swift in Sources */,
-				B37BD61527F47538009C2244 /* Icon.AsyncImage.swift in Sources */,
+				B37BD61527F47538009C2244 /* AsyncImage.swift in Sources */,
 				B37BD61B27F47538009C2244 /* DSLAutoTable.swift in Sources */,
 				B37BD61A27F47538009C2244 /* TableDirector.swift in Sources */,
 				B37BD60C27F47538009C2244 /* RowSystemable.swift in Sources */,
 				B37BD60927F47538009C2244 /* BasicRow.swift in Sources */,
 				B37BD60327F47538009C2244 /* UILabel.Inset.swift in Sources */,
 				B37BD61427F47538009C2244 /* Icon.swift in Sources */,
-				B37BD5FB27F47538009C2244 /* DSLTableManager.swift in Sources */,
+				B37BD5FB27F47538009C2244 /* Jenga.swift in Sources */,
 				B37BD5EF27F47538009C2244 /* Jenga.docc in Sources */,
 				B37BD5FF27F47538009C2244 /* Sectionable.swift in Sources */,
 				B37BD61927F47538009C2244 /* DSLTable.swift in Sources */,
