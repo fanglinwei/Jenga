@@ -13,6 +13,7 @@ open class TableSection: BacicSection {
         super.init(array.map { content(.constant($0)) })
     }
     
+    /// forEach
     public init<T>(binding: Binding<[T]>, content: @escaping (Binding<T>) -> Row) {
         super.init()
         binding.append(observer: self) { [weak self] changed in
@@ -22,6 +23,7 @@ open class TableSection: BacicSection {
         }
     }
     
+    /// forEach on target
     public init<T, S: AnyObject>(binding: Binding<[T]>, on target: S, builder: @escaping (S, Binding<T>) -> Row) {
         super.init()
         binding.append(observer: self) { [weak self, weak target] changed in
@@ -32,6 +34,7 @@ open class TableSection: BacicSection {
         }
     }
     
+    /// map T
     public init<T>(binding: Binding<T>, @RowBuilder builder: @escaping (T) -> [Row]) {
         super.init()
         binding.append(observer: self) { [weak self] changed in
@@ -41,6 +44,7 @@ open class TableSection: BacicSection {
         }
     }
     
+    /// map T on target
     public init<T, S>(binding: Binding<T>, on target: S, @RowBuilder builder: @escaping (S, T) -> [Row]) where S: AnyObject {
         super.init()
         binding.append(observer: self) { [weak self, weak target] changed in
@@ -51,6 +55,7 @@ open class TableSection: BacicSection {
         }
     }
     
+    /// map  binding on target
     public init<T, S>(binding: Binding<T>, on target: S, @RowBuilder builder: @escaping (S, Binding<T>) -> [Row]) where S: AnyObject {
         super.init()
         binding.append(observer: self) { [weak self, weak target] changed in
@@ -61,6 +66,7 @@ open class TableSection: BacicSection {
         }
     }
     
+    /// map  binding EnumeratedSequence
     public init<T>(binding: Binding<EnumeratedSequence<[T]>>, content: @escaping (Binding<EnumeratedSequence<[T]>.Iterator.Element>) -> Row) {
         super.init()
         binding.append(observer: self) { [weak self] changed in
@@ -70,6 +76,7 @@ open class TableSection: BacicSection {
         }
     }
     
+    /// map  binding EnumeratedSequence on target
     public init<T, S>(binding: Binding<EnumeratedSequence<[T]>>, on target: S, content: @escaping (S, Binding<EnumeratedSequence<[T]>.Iterator.Element>) -> Row) where S: AnyObject {
         super.init()
         binding.append(observer: self) { [weak self, weak target] changed in
