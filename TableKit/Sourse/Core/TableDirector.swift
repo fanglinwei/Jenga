@@ -115,7 +115,6 @@ extension TableDirector: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("cellForRowAt\(indexPath)")
         func cell(for row: Row) -> UITableViewCell {
             if let row = row as? RowSystemable {
                 let cell =
@@ -145,7 +144,6 @@ extension TableDirector: UITableViewDataSource {
 extension TableDirector: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        print("didEndDisplaying", indexPath)
         let row = sections[safe: indexPath.section]?.rows[safe: indexPath.row]
         (row as? RowConfigurable)?.recovery(cell)
     }

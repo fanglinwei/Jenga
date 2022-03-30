@@ -6,25 +6,16 @@
 //
 
 import Foundation
+import UIKit
 
 class CustomViewController: UIViewController, DSLAutoTable {
     
-    @State var text = "OC"
-    
-    @State var detailText = "+86"
-    
-    @State var isOn = true
-    
-    var id: Int = 0
+    @State var emojis: [String] = []
         
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 6) { [weak self] in
-            self?.text = "Swift"
-            self?.detailText = "17878787878"
-        }
+        loadData()
     }
     
     private func setup() {
@@ -43,18 +34,57 @@ extension CustomViewController {
         
         TableSection {
             
-            TableRow<BannerCell>("banner_image")
-                .height(120)
+            TableRow<BannerCell>("image1")
+                .height(1184 / 2256 * (UIScreen.main.bounds.width - 32))
             
             SeparatorRow(10)
             
             TableRow<BannerCell>()
-                .height(120)
-                .data("banner_image")
+                .height(1540 / 2078 * (UIScreen.main.bounds.width - 32))
+                .data("image2")
                 .customize { (cell, value) in
                     print(cell, value)
                 }
         }
         .headerHeight(20)
+        
+        TableSection(binding: $emojis) {
+            TableRow<EmojiCell>()
+                .data($0)
+                .height(44)
+        }
+        .headerHeight(UITableView.automaticDimension)
+        
+        TableSection {
+            TapActionRow("Random")
+                .onTap(on: self) { (self) in
+                    guard self.emojis.count > 3 else { return }
+                    self.emojis[2] = randomEmojis[Int.random(in: 0 ... 4)]
+                    self.emojis[3] = randomEmojis[Int.random(in: 0 ... 4)]
+                }
+            
+            TapActionRow("+")
+                .onTap(on: self) { (self) in
+                    self.emojis.append(randomEmojis[Int.random(in: 0 ... 4)])
+                }
+            
+            TapActionRow("-")
+                .onTap(on: self) { (self) in
+                    guard self.emojis.count > 0 else { return }
+                    _ = self.emojis.popLast()
+                }
+        }
+        .headerHeight(UITableView.automaticDimension)
     }
 }
+
+extension CustomViewController {
+    
+    func loadData() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
+            self?.emojis = ["🐶", "🐱", "🐭", "🦁", "🐼"]
+        }
+    }
+}
+
+let randomEmojis = ["🥕", "🍋", "🍉", "🍇", "🥑"]
