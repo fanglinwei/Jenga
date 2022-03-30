@@ -65,29 +65,23 @@ extension SettingViewController {
         
         TableSection {
             NavigationRow("青少年模式")
-                .accessoryType(.disclosureIndicator)
             
             NavigationRow("关怀模式")
-                .accessoryType(.disclosureIndicator)
         }
         .headerHeight(20)
         
         TableSection {
             NavigationRow("Value1")
                 .detailText("Value1")
-                .accessoryType(.disclosureIndicator)
             
             NavigationRow("Subtitle")
                 .detailText(.subtitle("Subtitle"))
-                .accessoryType(.disclosureIndicator)
             
             NavigationRow("Value2")
                 .detailText(.value2("Value2"))
-                .accessoryType(.disclosureIndicator)
             
             NavigationRow("数据绑定")
                 .detailText($detailText1.map { .value1($0)} )
-                .accessoryType(.disclosureIndicator)
             
             NavigationRow("修改样式")
                 .detailText(.subtitle("123123"))
