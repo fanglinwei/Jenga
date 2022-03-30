@@ -1,6 +1,4 @@
 import UIKit
-import Kingfisher
-
 /// A enum that represents the image used in a row.
 public enum Icon: Equatable {
 

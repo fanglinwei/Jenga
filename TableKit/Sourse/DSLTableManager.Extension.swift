@@ -50,22 +50,6 @@ import Kingfisher
 //        return temp
 //    }
 //}
-//
-import Kingfisher
-public extension Icon.AsyncImage {
-
-    func by(cornerRadius value: CGFloat? = nil) -> Self {
-        var temp = self
-        let radius: Radius = value != nil ? .point(value!) : .widthFraction(0.5)
-        temp.processor = RoundCornerImageProcessor(
-            radius: radius,
-            targetSize: processor.targetSize,
-            roundingCorners: processor.roundingCorners,
-            backgroundColor: processor.backgroundColor
-        )
-        return temp
-    }
-}
 
 
 // 工具依赖
