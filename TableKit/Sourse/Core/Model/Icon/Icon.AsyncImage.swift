@@ -62,6 +62,10 @@ public extension Icon.AsyncImage {
         return temp
     }
     
+    func by(const: CGFloat) -> Self {
+        by(size: CGSize.init(width: const, height: const))
+    }
+    
     func by(roundingCorners value: RectCorner) -> Self {
         var temp = self
         temp.processor = RoundCornerImageProcessor(

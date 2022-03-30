@@ -12,6 +12,7 @@
 		B319409D27F3346A00EE3D28 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B319409C27F3346900EE3D28 /* SettingViewController.swift */; };
 		B319409F27F3347400EE3D28 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B319409E27F3347400EE3D28 /* TableViewController.swift */; };
 		B31940A127F334C200EE3D28 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31940A027F334C200EE3D28 /* CustomViewController.swift */; };
+		B31940A327F3FF0100EE3D28 /* CustomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31940A227F3FF0100EE3D28 /* CustomTableViewController.swift */; };
 		B3478AC927EDC67000A30695 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478A9A27EDC66F00A30695 /* Binding.swift */; };
 		B3478ACA27EDC67000A30695 /* AnyLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478A9B27EDC66F00A30695 /* AnyLocation.swift */; };
 		B3478ACB27EDC67000A30695 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3478A9C27EDC66F00A30695 /* State.swift */; };
@@ -75,6 +76,7 @@
 		B319409C27F3346900EE3D28 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		B319409E27F3347400EE3D28 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		B31940A027F334C200EE3D28 /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
+		B31940A227F3FF0100EE3D28 /* CustomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewController.swift; sourceTree = "<group>"; };
 		B3478A9A27EDC66F00A30695 /* Binding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
 		B3478A9B27EDC66F00A30695 /* AnyLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyLocation.swift; sourceTree = "<group>"; };
 		B3478A9C27EDC66F00A30695 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 				B3E7C23D27DB8BFC0036BC9D /* ViewController.swift */,
 				B319409C27F3346900EE3D28 /* SettingViewController.swift */,
 				B31940A027F334C200EE3D28 /* CustomViewController.swift */,
+				B31940A227F3FF0100EE3D28 /* CustomTableViewController.swift */,
 				B319409E27F3347400EE3D28 /* TableViewController.swift */,
 				B3478B1027EDCDD100A30695 /* BannerCell.swift */,
 				B3478B0F27EDCC4100A30695 /* Bridging-Header.h */,
@@ -524,6 +527,7 @@
 				B3478AD527EDC67000A30695 /* RadioSection.swift in Sources */,
 				B3E7C23A27DB8BFC0036BC9D /* AppDelegate.swift in Sources */,
 				B3478AEB27EDC67000A30695 /* Text.swift in Sources */,
+				B31940A327F3FF0100EE3D28 /* CustomTableViewController.swift in Sources */,
 				B3478AE627EDC67000A30695 /* NavigationRow.swift in Sources */,
 				B3478ADB27EDC67000A30695 /* TableRowAction.swift in Sources */,
 				B3478ADF27EDC67000A30695 /* Reusable.swift in Sources */,

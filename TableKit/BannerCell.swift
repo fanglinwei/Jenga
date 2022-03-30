@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol BannerCellDelegate: NSObjectProtocol {
+    
+    func bannerOpenAction()
+}
+
 class BannerCell: UITableViewCell {
+    
+    weak var delegate: BannerCellDelegate?
     
     private lazy var coverImageView = UIImageView()
     
@@ -27,6 +34,14 @@ class BannerCell: UITableViewCell {
         
         coverImageView.layer.cornerRadius = 10
         coverImageView.layer.masksToBounds = true
+        
+        coverImageView.isUserInteractionEnabled = true
+        coverImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(coverAction)))
+    }
+    
+    @objc
+    private func coverAction() {
+        delegate?.bannerOpenAction()
     }
 }
 

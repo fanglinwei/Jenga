@@ -17,9 +17,14 @@ class ViewController: UIViewController, DSLAutoTable {
                     self.navigationController?.pushViewController(SettingViewController(), animated: true)
                 }
             
-            NavigationRow("自定义样式")
+            NavigationRow("自定义Cell")
                 .onTap(on: self) { (self) in
                     self.navigationController?.pushViewController(CustomViewController(), animated: true)
+                }
+            
+            NavigationRow("自定义TableView")
+                .onTap(on: self) { (self) in
+                    self.navigationController?.pushViewController(CustomTableViewController(), animated: true)
                 }
             
             NavigationRow("测试")

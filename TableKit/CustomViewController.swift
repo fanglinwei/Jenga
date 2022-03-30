@@ -36,6 +36,9 @@ extension CustomViewController {
             
             TableRow<BannerCell>("image1")
                 .height(1184 / 2256 * (UIScreen.main.bounds.width - 32))
+                .customize { [weak self] cell in
+                    cell.delegate = self
+                }
             
             SeparatorRow(10)
             
@@ -84,6 +87,13 @@ extension CustomViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
             self?.emojis = ["🐶", "🐱", "🐭", "🦁", "🐼"]
         }
+    }
+}
+
+extension CustomViewController: BannerCellDelegate {
+    
+    func bannerOpenAction() {
+        UIApplication.shared.open(URL(string: "https://github.com/fanglinwei/TableKit")!)
     }
 }
 
