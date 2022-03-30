@@ -21,6 +21,6 @@ s.ios.frameworks = "UIKit"
 
 s.ios.deployment_target = '11.0'
 
-s.source_files = 'Sources/Jenga/*.swift'
+s.source_files = 'Sources/*.swift'
 
 end
