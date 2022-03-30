@@ -154,13 +154,9 @@ extension SettingViewController {
         
         TableSection {
             NavigationRow("编辑").icon(.image(named: "编辑"))
-            
             NavigationRow("打卡").icon(.image(named: "打卡"))
-            
             NavigationRow("会员").icon(.image(named: "会员"))
-            
             NavigationRow("卡包").icon(.image(named: "卡包"))
-            
             NavigationRow("赞评").icon(.image(named: "赞评"))
                 .onTap { }
         }
