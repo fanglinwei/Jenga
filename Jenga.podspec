@@ -8,7 +8,7 @@ s.homepage     = "https://github.com/fanglinwei/Jenga"
 
 s.license      = { :type => "MIT", :file => "LICENSE" }
 
-s.author       = { "fanglinwei" => "lw_fun@163.com" }
+s.author       = { "fun" => "lw_fun@163.com" }
 
 s.source       = { :git => "https://github.com/fanglinwei/Jenga.git", :tag => s.version }
 
@@ -21,6 +21,6 @@ s.ios.frameworks = "UIKit"
 
 s.ios.deployment_target = '11.0'
 
-s.source_files  = ["Sources/*.swift"]
+s.source_files = 'Sources/Jenga/*.swift'
 
 end

@@ -15,7 +15,7 @@ extension Collection {
     }
 }
 
-public extension Optional where Wrapped: Collection {
+extension Optional where Wrapped: Collection {
 
     /// SwifterSwift: Check if optional is nil or empty collection.
     var isNilOrEmpty: Bool {
