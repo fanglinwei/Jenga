@@ -11,7 +11,7 @@ import Jenga
 class ViewController: UIViewController, DSLAutoTable {
 
     @TableBuilder
-    var tableContents: [Sectionable] {
+    var tableContents: [Section] {
         TableSection {
             NavigationRow("设置样式")
                 .onTap(on: self) { (self) in

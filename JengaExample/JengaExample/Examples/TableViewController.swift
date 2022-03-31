@@ -40,7 +40,7 @@ class TableViewController: UIViewController, DSLAutoTable {
 extension TableViewController {
     
     @TableBuilder
-    var tableContents: [Sectionable] {
+    var tableContents: [Section] {
         
         TableSection {
             NavigationRow("用户协议")
@@ -125,7 +125,7 @@ extension TableViewController {
                     self.reloadTable()
                 }
             
-            SeparatorRow(30)
+            SpacerRow(30)
             
             TapActionRow("切换开关, reload isOn binding")
                 .onTap(on: self) { (self) in

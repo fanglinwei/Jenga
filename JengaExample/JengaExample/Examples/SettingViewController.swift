@@ -52,7 +52,7 @@ class SettingViewController: UIViewController, DSLAutoTable {
 extension SettingViewController {
     
     @TableBuilder
-    var tableContents: [Sectionable] {
+    var tableContents: [Section] {
         TableSection {
             NavigationRow("账号与安全")
                 .onTap {

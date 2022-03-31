@@ -11,7 +11,7 @@ import Jenga
 class CustomViewController: UIViewController, DSLAutoTable {
     
     @State var emojis: [String] = []
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -30,7 +30,7 @@ class CustomViewController: UIViewController, DSLAutoTable {
 extension CustomViewController {
     
     @TableBuilder
-    var tableContents: [Sectionable] {
+    var tableContents: [Section] {
         
         TableSection {
             
@@ -40,7 +40,7 @@ extension CustomViewController {
                     cell.delegate = self
                 }
             
-            SeparatorRow(10)
+            SpacerRow(10)
             
             TableRow<BannerCell>()
                 .height(1540 / 2078 * (UIScreen.main.bounds.width - 32))
@@ -52,6 +52,25 @@ extension CustomViewController {
         .headerHeight(20)
         
         TableSection(binding: $emojis) {
+            TableRow<EmojiCell>()
+                .data($0)
+                .height(44)
+        }
+        .headerHeight(UITableView.automaticDimension)
+        
+        TableSection(binding: $emojis.bindEnumerated(), on: self) { (self, emoji) in
+            TableRow<EmojiCell>()
+                .data(emoji.map { "\($0.element) \($0.offset)"})
+                .onTap(on: self) { (self) in
+                    
+                }
+        }
+        .rowHeight(44)
+        .headerHeight(12)
+        .hiddenWithEmpty(true)
+        
+        TableSection(binding: $emojis) {
+            
             TableRow<EmojiCell>()
                 .data($0)
                 .height(44)

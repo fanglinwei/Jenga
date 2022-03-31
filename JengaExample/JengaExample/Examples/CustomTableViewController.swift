@@ -40,7 +40,7 @@ class CustomTableViewController: UIViewController, DSLTable {
 extension CustomTableViewController {
     
     @TableBuilder
-    var tableContents: [Sectionable] {
+    var tableContents: [Section] {
         
         TableSection(binding: $array) {
             TableRow<EmojiCell>()
