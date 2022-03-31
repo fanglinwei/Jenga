@@ -23,8 +23,8 @@ extension UILabel {
     }
     
     @objc
-    private func _textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
-        var rect = _textRect(forBounds: bounds.inset(by: edgeInsets), limitedToNumberOfLines: numberOfLines)
+    private func jenga_textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
+        var rect = jenga_textRect(forBounds: bounds.inset(by: edgeInsets), limitedToNumberOfLines: numberOfLines)
         // 根据edgeInsets, 修改绘制文字的bounds
         rect.origin.x -= edgeInsets.left
         rect.origin.y -= edgeInsets.top
@@ -34,8 +34,8 @@ extension UILabel {
     }
     
     @objc
-    private func _drawText(in rect: CGRect) {
-        _drawText(in: rect.inset(by: edgeInsets))
+    private func jenga_drawText(in rect: CGRect) {
+        jenga_drawText(in: rect.inset(by: edgeInsets))
     }
 }
 
@@ -54,14 +54,14 @@ extension UILabel {
     
     private static let swizzled: Void = {
         do {
-            let originalSelector = #selector(UILabel.textRect(forBounds:limitedToNumberOfLines:))
-            let swizzledSelector = #selector(UILabel._textRect(forBounds:limitedToNumberOfLines:))
+            let originalSelector = #selector(UILabel.textRect)
+            let swizzledSelector = #selector(UILabel.jenga_textRect)
             swizzled_method(originalSelector, swizzledSelector)
         }
         
         do {
-            let originalSelector = #selector(UILabel.drawText(in:))
-            let swizzledSelector = #selector(UILabel._drawText(in:))
+            let originalSelector = #selector(UILabel.drawText)
+            let swizzledSelector = #selector(UILabel.jenga_drawText)
             swizzled_method(originalSelector, swizzledSelector)
         }
     } ()

@@ -47,14 +47,14 @@ extension UIViewController {
     static let swizzled: Void = {
         do {
             let originalSelector = #selector(UIViewController.viewDidLoad)
-            let swizzledSelector = #selector(UIViewController._viewDidLoad)
+            let swizzledSelector = #selector(UIViewController.jenga_viewDidLoad)
             swizzled_method(originalSelector, swizzledSelector)
         }
     } ()
     
     @objc
-    private func _viewDidLoad() {
-        _viewDidLoad()
+    private func jenga_viewDidLoad() {
+        jenga_viewDidLoad()
         (self as? DSLAutoTable)?.didLayoutTable()
         (self as? DSLTable)?.reloadTable()
     }
