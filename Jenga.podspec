@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "Jenga"
-s.version      = "1.0.2"
+s.version      = "1.0.3"
 s.summary      = "在UIKit里像SwiftUI一样DSL形式搭建TableView"
 
 s.homepage     = "https://github.com/fanglinwei/Jenga"
