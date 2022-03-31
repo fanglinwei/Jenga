@@ -257,24 +257,32 @@ class ViewController: UIViewController, DSLAutoTable {
 
 如果你不想使用`DSLAutoTable`和`DSLTable`协议
 
-```swift
-// 1. 创建 TableDirector
-lazy var table = TableDirector(tableView, delegate: self)
-    
-// 2. DSL描述tableContents
-		@TableBuilder
-    var tableContents: [Section] {
-        
-        TableSection(binding: $array) {
-            TableRow<EmojiCell>()
-                .data($0)
-                .height(44)
-        }
-        .headerHeight(UITableView.automaticDimension)
-    }
-// 3. reloadTable
-table.set(sections: tableContents)
-```
+1. ###### 创建 TableDirector
+
+   ```swift
+   lazy var table = TableDirector(tableView, delegate: self
+   ```
+
+2. ###### 使用TableBuilder描述Contents
+
+   ```swift
+       @TableBuilder
+       var tableContents: [Section] {
+           
+           TableSection(binding: $array) {
+               TableRow<EmojiCell>()
+                   .data($0)
+                   .height(44)
+           }
+           .headerHeight(UITableView.automaticDimension)
+       }
+   ```
+
+3. ###### 刷新数据
+
+   ```swift
+   table.set(sections: tableContents)
+   ```
 
 好了 你的列表完成了
 
