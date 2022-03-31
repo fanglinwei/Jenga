@@ -308,4 +308,3 @@ table.set(sections: tableContents)
 ## 协议
 
 Jenga 使用 MIT 协议. 有关更多信息，请参阅[LICENSE](LICENSE)文件.
-

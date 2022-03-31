@@ -27,6 +27,15 @@ class ViewController: UIViewController, DSLAutoTable {
                 .onTap(on: self) { (self) in
                     self.navigationController?.pushViewController(CustomTableViewController(), animated: true)
                 }
+            
+            NavigationRow("Binding")
+                .onTap(on: self) { (self) in
+                    self.navigationController?.pushViewController(BindingViewController(), animated: true)
+                }
+            NavigationRow("Section Binding")
+                .onTap(on: self) { (self) in
+                    self.navigationController?.pushViewController(EmojiViewController(), animated: true)
+                }
 
             NavigationRow("测试")
                 .onTap(on: self) { (self) in

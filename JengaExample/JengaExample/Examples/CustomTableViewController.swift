@@ -29,7 +29,6 @@ class CustomTableViewController: UIViewController, DSLTable {
     private func setup() {
         view.backgroundColor = .white
         navigationItem.title = "设置"
-        
         view.addSubview(tableView)
     }
     
