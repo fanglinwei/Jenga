@@ -70,10 +70,6 @@ extension TableViewController {
         NavigationRow("手机号")
             .detailText($detailText)
         
-        TableFooter()
-        
-        TableSpacer(30)
-        
         // 测试复用
         TableHeader("测试")
             .rowHeight(52)
