@@ -14,7 +14,7 @@ class EmojiViewController: UIViewController, DSLAutoTable {
     
     // DSL
     @TableBuilder
-    var tableContents: [Section] {
+    var tableBody: [Table] {
         
         TableSection(binding: $emojis) {
             TableRow<EmojiCell>()

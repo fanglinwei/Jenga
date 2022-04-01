@@ -50,7 +50,7 @@ class SettingViewController: UIViewController, DSLAutoTable {
 extension SettingViewController {
     
     @TableBuilder
-    var tableContents: [Section] {
+    var tableBody: [Table] {
 
         TableSection {
             NavigationRow("青少年模式")

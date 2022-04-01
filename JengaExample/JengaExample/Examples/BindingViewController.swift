@@ -18,7 +18,7 @@ class BindingViewController: UIViewController, DSLAutoTable {
     
     // DSL
     @TableBuilder
-    var tableContents: [Section] {
+    var tableBody: [Table] {
         
         TableSection {
             NavigationRow($text)

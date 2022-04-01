@@ -7,37 +7,6 @@
 
 import UIKit
 
-public struct HeaderFooter {
-    
-    var height: CGFloat?
-    var content: Content?
-    
-    var title: String? {
-        switch content {
-        case .string(let value):    return value
-        case .view:                 return nil
-        case .none:                 return nil
-        }
-    }
-    
-    var view: UIView? {
-        switch content {
-        case .string:               return nil
-        case .view(let value):      return value
-        case .none:                 return nil
-        }
-    }
-    
-    enum Content {
-        case string(String?)
-        case view(UIView?)
-    }
-    
-    public init() {
-        self.height = nil
-        self.content = nil
-    }
-}
 
 public protocol Section: AnyObject {
     
@@ -111,3 +80,20 @@ public extension Section {
         return self
     }
 }
+
+
+public protocol Table {
+    
+}
+
+extension TableHeader: Table {
+    
+}
+
+extension TableFooter: Table {
+    
+}
+
+extension BasicRow: Table { }
+extension TableRow: Table { }
+extension BacicSection: Table {}

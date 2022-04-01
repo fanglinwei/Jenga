@@ -40,7 +40,7 @@ class TableViewController: UIViewController, DSLAutoTable {
 extension TableViewController {
     
     @TableBuilder
-    var tableContents: [Section] {
+    var tableBody: [Table] {
         
         TableSection {
             NavigationRow("用户协议")

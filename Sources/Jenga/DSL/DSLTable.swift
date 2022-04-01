@@ -11,7 +11,7 @@ public protocol DSLTable {
     
     var table: TableDirector { get }
     
-    var tableContents: [Section] { get }
+    var tableBody: [Table] { get }
     
     func reloadTable()
 }
@@ -19,6 +19,6 @@ public protocol DSLTable {
 public extension DSLTable {
     
     func reloadTable() {
-        table.set(sections: tableContents)
+        table.setup(tableBody)
     }
 }

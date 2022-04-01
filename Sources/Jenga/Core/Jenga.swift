@@ -8,7 +8,7 @@
 import UIKit
 
 public typealias RowBuilder = ArrayBuilder<Row>
-public typealias TableBuilder = ArrayBuilder<Section>
+public typealias TableBuilder = ArrayBuilder<Table>
 
 public enum JengaProvider { }
 

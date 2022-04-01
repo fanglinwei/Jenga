@@ -25,3 +25,14 @@ open class BacicSection: Section {
     
     deinit { log("deinit", "Section") }
 }
+
+class BrickSection: BacicSection {
+    
+    func append(_ row: Row) {
+        rows.append(row)
+    }
+    
+    func append(_ rows: [Row]) {
+        self.rows.append(contentsOf: rows)
+    }
+}

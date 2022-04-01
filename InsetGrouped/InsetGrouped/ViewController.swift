@@ -11,13 +11,19 @@ import Jenga
 class ViewController: UIViewController, DSLAutoTable {
 
     @TableBuilder
-    var tableContents: [Section] {
-        TableSection {
-            
-            NavigationRow("设置样式")
-            NavigationRow("自定义Cell")
-            NavigationRow("自定义TableView")
-            NavigationRow("测试")
-        }
+    var tableBody: [Table] {
+        
+        TableHeader("伟大的LEE")
+        
+        NavigationRow("设置样式")
+        NavigationRow("自定义Cell")
+        NavigationRow("自定义TableView")
+        
+        TableFooter("小逼崽子")
+        
+        TableHeader("LEE")
+            .height(100)
+        
+        NavigationRow("测试")
     }
 }

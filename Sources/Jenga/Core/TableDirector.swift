@@ -58,15 +58,16 @@ public class TableDirector: NSObject {
         )
     }
     
-    private var content: [Section]?
-    public func set(sections: [Section]) {
-        self.content = sections
-        self.sections = sections.filter { !($0.isEmpty && $0.hiddenWithEmpty) }
+    private var tableBody: [Table]?
+    public func setup(_ tableBody: [Table]) {
+        self.tableBody = tableBody
+        
+        self.sections = assemble(with: tableBody) .filter { !($0.isEmpty && $0.hiddenWithEmpty) }
         reload()
         
         weak var `self` = self
         func reloadAll() {
-            self?.set(sections: self?.content ?? [])
+            self?.setup(self?.tableBody ?? [])
         }
         
         func reloadSection(_ section: Section) {
@@ -100,6 +101,53 @@ public class TableDirector: NSObject {
     }
     
     deinit { log("deinit", classForCoder) }
+}
+
+extension TableDirector {
+    
+    private func assemble(with tableBody: [Table]) -> [Section] {
+        var result: [Section] = []
+        var section: BrickSection?
+        for (index, body) in tableBody.enumerated() {
+            switch body {
+            case let value as Section:
+                result.append(value)
+                
+            case let value as Header:
+                if let temp = section {
+                    result.append(temp)
+                    section = nil
+                }
+                
+                section = BrickSection()
+                section?.header = value.header
+                section?.rowHeight = value.rowHeight
+                section?.hiddenWithEmpty = value.hiddenWithEmpty
+                
+            case let value as Footer:
+                let temp = section ?? BrickSection()
+                temp.footer = value.footer
+                temp.rowHeight = value.rowHeight
+                temp.hiddenWithEmpty = value.hiddenWithEmpty
+                result.append(temp)
+                section = nil
+                
+            case let value as Row:
+                let temp = section ?? BrickSection()
+                temp.append(value)
+                section = temp
+                
+                if index == tableBody.count - 1 {
+                    result.append(temp)
+                    section = nil
+                }
+                
+            default:
+                break
+            }
+        }
+        return result
+    }
 }
 
 extension TableDirector: UITableViewDataSource {

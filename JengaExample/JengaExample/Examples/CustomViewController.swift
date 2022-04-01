@@ -27,7 +27,7 @@ class CustomViewController: UIViewController, DSLAutoTable {
 extension CustomViewController {
     
     @TableBuilder
-    var tableContents: [Section] {
+    var tableBody: [Table] {
         
         TableSection {
             

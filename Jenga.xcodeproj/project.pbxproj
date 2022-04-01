@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B32FAB2927F6DE86006A37BE /* HeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB2827F6DE86006A37BE /* HeaderFooter.swift */; };
 		B37BD5EF27F47538009C2244 /* Jenga.docc in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5B727F47538009C2244 /* Jenga.docc */; };
 		B37BD5F027F47538009C2244 /* Jenga.h in Headers */ = {isa = PBXBuildFile; fileRef = B37BD5B827F47538009C2244 /* Jenga.h */; };
 		B37BD5F127F47538009C2244 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5BB27F47538009C2244 /* Binding.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B32FAB2827F6DE86006A37BE /* HeaderFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFooter.swift; sourceTree = "<group>"; };
 		B37BD4A927F4606B009C2244 /* Jenga.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Jenga.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B37BD5B727F47538009C2244 /* Jenga.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Jenga.docc; sourceTree = "<group>"; };
 		B37BD5B827F47538009C2244 /* Jenga.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jenga.h; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				B37BD5C927F47538009C2244 /* RadioSection.swift */,
 				B37BD5CA27F47538009C2244 /* TableSection.swift */,
 				B37BD5CB27F47538009C2244 /* Section.swift */,
+				B32FAB2827F6DE86006A37BE /* HeaderFooter.swift */,
 			);
 			path = Section;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				B37BD61227F47538009C2244 /* NavigationRow.swift in Sources */,
 				B37BD5F427F47538009C2244 /* State.swift in Sources */,
 				B37BD5F327F47538009C2244 /* BindingWrapper.swift in Sources */,
+				B32FAB2927F6DE86006A37BE /* HeaderFooter.swift in Sources */,
 				B37BD60D27F47538009C2244 /* Row.swift in Sources */,
 				B37BD5F627F47538009C2244 /* ResultBuilder.swift in Sources */,
 			);
