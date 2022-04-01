@@ -311,9 +311,9 @@ class ViewController: UIViewController, DSLAutoTable {
 如果您自己扩展了Jenga的功能并希望其他人也使用它，请提交拉取请求。
 
 ## 借鉴思路来源
-[LazyFish](https://github.com/zjam9333/LazyFish)
-[QuickTableViewController](https://github.com/bcylin/QuickTableViewController)
-[TableKit](https://github.com/maxsokolov/TableKit)
+- [LazyFish](https://github.com/zjam9333/LazyFish)
+- [QuickTableViewController](https://github.com/bcylin/QuickTableViewController)
+- [TableKit](https://github.com/maxsokolov/TableKit)
 
 ## 协议
 
