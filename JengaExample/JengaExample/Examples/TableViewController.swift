@@ -42,42 +42,48 @@ extension TableViewController {
     @TableBuilder
     var tableBody: [Table] {
         
-        TableSection {
-            NavigationRow("用户协议")
-                .onTap {
-                    
-                }
-            
-            ToggleRow("开关1", isOn: $isOn)
-                .onTap(on: self) { (self, isOn) in
-                    print(isOn)
-                    print(self.isOn)
-                }
-            
-            ToggleRow("开关2", isOn: $isOn)
-                .onTap(on: self) { (self, isOn) in
-                    print(isOn)
-                    print(self.isOn)
-                }
-            
-            // binding
-            NavigationRow($text)
-            
-            NavigationRow("手机号")
-                .detailText($detailText)
-        }
-        .rowHeight(52)
-        .headerHeight(20)
+        // 测试复用
+        TableHeader()
+            .rowHeight(52)
+            .height(20)
         
+        NavigationRow("用户协议")
+            .onTap {
+                
+            }
+        
+        ToggleRow("开关1", isOn: $isOn)
+            .onTap(on: self) { (self, isOn) in
+                print(isOn)
+                print(self.isOn)
+            }
+        
+        ToggleRow("开关2", isOn: $isOn)
+            .onTap(on: self) { (self, isOn) in
+                print(isOn)
+                print(self.isOn)
+            }
+        
+        // binding
+        NavigationRow($text)
+        
+        NavigationRow("手机号")
+            .detailText($detailText)
+        
+        TableFooter()
+        
+        TableSpacer(30)
         
         // 测试复用
         TableHeader("测试")
             .rowHeight(52)
-            .height(20)
         
         NavigationRow("🤣")
         NavigationRow("😄")
         NavigationRow("🤣")
+        
+        TableSpacer(30)
+        
         NavigationRow("😄")
         NavigationRow("🤣")
         NavigationRow("😄")

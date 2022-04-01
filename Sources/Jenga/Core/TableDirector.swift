@@ -117,29 +117,35 @@ extension TableDirector {
         
         for (index, body) in tableBody.enumerated() {
             switch body {
-            case let value as Section:
+            case let body as Section:
                 close()
-                result.append(value)
+                result.append(body)
                 
-            case let value as Header:
+            case let body as Header:
                 close()
-                
                 section = BrickSection()
-                section?.header = value.header
-                section?.rowHeight = value.rowHeight
-                section?.hiddenWithEmpty = value.hiddenWithEmpty
+                section?.header = body.header
+                section?.rowHeight = body.rowHeight
+                section?.hiddenWithEmpty = body.hiddenWithEmpty
                 
-            case let value as Footer:
+            case let body as Footer:
                 section = section ?? BrickSection()
-                section?.footer = value.footer
-                section?.rowHeight = value.rowHeight
-                section?.hiddenWithEmpty = value.hiddenWithEmpty
+                section?.footer = body.footer
+                section?.rowHeight = body.rowHeight
+                section?.hiddenWithEmpty = body.hiddenWithEmpty
                 close()
                 
-            case let value as Row:
+            case let body as Row:
                 section = section ?? BrickSection()
-                section?.append(value)
+                section?.append(body)
                 
+                if index == tableBody.count - 1 {
+                    close()
+                }
+                
+            case let body as Spacer:
+                section = section ?? BrickSection()
+                section?.append(SpacerRow(body.height, color: body.color))
                 if index == tableBody.count - 1 {
                     close()
                 }

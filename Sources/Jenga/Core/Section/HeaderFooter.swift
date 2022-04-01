@@ -101,19 +101,19 @@ public extension Header {
     func height(_ value: @autoclosure () -> (CGFloat)) -> Self {
         var temp = self
         temp.header.height = value()
-        return self
+        return temp
     }
     
     func hiddenWithEmpty(_ value: Bool) -> Self {
         var temp = self
         temp.hiddenWithEmpty = value
-        return self
+        return temp
     }
     
     func rowHeight(_ value: @autoclosure () -> (RowHeight)) -> Self {
         var temp = self
         temp.rowHeight = value()
-        return self
+        return temp
     }
 }
 
@@ -122,18 +122,18 @@ public extension Footer {
     func height(_ value: @autoclosure () -> (CGFloat)) -> Self {
         var temp = self
         temp.footer.height = value()
-        return self
+        return temp
     }
     
     func hiddenWithEmpty(_ value: Bool) -> Self {
         var temp = self
         temp.hiddenWithEmpty = value
-        return self
+        return temp
     }
     
     func rowHeight(_ value: @autoclosure () -> (RowHeight)) -> Self {
         var temp = self
         temp.rowHeight = value()
-        return self
+        return temp
     }
 }

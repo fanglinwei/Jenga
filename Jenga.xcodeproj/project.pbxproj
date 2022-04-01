@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B32FAB2927F6DE86006A37BE /* HeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB2827F6DE86006A37BE /* HeaderFooter.swift */; };
+		B32FAB2B27F70095006A37BE /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB2A27F70095006A37BE /* Spacer.swift */; };
 		B37BD5EF27F47538009C2244 /* Jenga.docc in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5B727F47538009C2244 /* Jenga.docc */; };
 		B37BD5F027F47538009C2244 /* Jenga.h in Headers */ = {isa = PBXBuildFile; fileRef = B37BD5B827F47538009C2244 /* Jenga.h */; };
 		B37BD5F127F47538009C2244 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5BB27F47538009C2244 /* Binding.swift */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		B32FAB2827F6DE86006A37BE /* HeaderFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFooter.swift; sourceTree = "<group>"; };
+		B32FAB2A27F70095006A37BE /* Spacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
 		B37BD4A927F4606B009C2244 /* Jenga.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Jenga.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B37BD5B727F47538009C2244 /* Jenga.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Jenga.docc; sourceTree = "<group>"; };
 		B37BD5B827F47538009C2244 /* Jenga.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jenga.h; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				B37BD5CA27F47538009C2244 /* TableSection.swift */,
 				B37BD5CB27F47538009C2244 /* Section.swift */,
 				B32FAB2827F6DE86006A37BE /* HeaderFooter.swift */,
+				B32FAB2A27F70095006A37BE /* Spacer.swift */,
 			);
 			path = Section;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				B37BD60B27F47538009C2244 /* Reusable.swift in Sources */,
 				B37BD5FD27F47538009C2244 /* RadioSection.swift in Sources */,
 				B37BD5FA27F47538009C2244 /* ToggleCell.swift in Sources */,
+				B32FAB2B27F70095006A37BE /* Spacer.swift in Sources */,
 				B37BD5FE27F47538009C2244 /* TableSection.swift in Sources */,
 				B37BD61227F47538009C2244 /* NavigationRow.swift in Sources */,
 				B37BD5F427F47538009C2244 /* State.swift in Sources */,
