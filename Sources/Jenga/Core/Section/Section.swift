@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 public protocol Section: AnyObject {
     
     var rows: [Row] { get set }
@@ -39,7 +38,7 @@ public extension Section {
         header.content = .string(value())
         return self
     }
-
+    
     func header(_ value: @autoclosure () -> (UIView?)) -> Self {
         header.content = .view(value())
         return self
@@ -80,15 +79,3 @@ public extension Section {
         return self
     }
 }
-
-
-public protocol Table { }
-
-extension BacicSection: Table { }
-extension TableHeader: Table { }
-extension TableFooter: Table { }
-extension TableSpacer: Table { }
-
-extension BasicRow: Table { }
-extension TableRow: Table { }
-

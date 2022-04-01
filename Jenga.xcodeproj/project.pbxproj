@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B32FAB2927F6DE86006A37BE /* HeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB2827F6DE86006A37BE /* HeaderFooter.swift */; };
 		B32FAB2B27F70095006A37BE /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB2A27F70095006A37BE /* Spacer.swift */; };
+		B32FAB2D27F70CAD006A37BE /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB2C27F70CAD006A37BE /* Table.swift */; };
 		B37BD5EF27F47538009C2244 /* Jenga.docc in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5B727F47538009C2244 /* Jenga.docc */; };
 		B37BD5F027F47538009C2244 /* Jenga.h in Headers */ = {isa = PBXBuildFile; fileRef = B37BD5B827F47538009C2244 /* Jenga.h */; };
 		B37BD5F127F47538009C2244 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5BB27F47538009C2244 /* Binding.swift */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		B32FAB2827F6DE86006A37BE /* HeaderFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFooter.swift; sourceTree = "<group>"; };
 		B32FAB2A27F70095006A37BE /* Spacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
+		B32FAB2C27F70CAD006A37BE /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		B37BD4A927F4606B009C2244 /* Jenga.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Jenga.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B37BD5B727F47538009C2244 /* Jenga.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Jenga.docc; sourceTree = "<group>"; };
 		B37BD5B827F47538009C2244 /* Jenga.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jenga.h; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				B37BD5D627F47538009C2244 /* Row */,
 				B37BD5E527F47538009C2244 /* Model */,
 				B37BD5ED27F47538009C2244 /* TableDirector.swift */,
+				B32FAB2C27F70CAD006A37BE /* Table.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				B37BD61827F47538009C2244 /* DetailText.swift in Sources */,
 				B37BD60A27F47538009C2244 /* Configurable.swift in Sources */,
 				B37BD5F227F47538009C2244 /* AnyLocation.swift in Sources */,
+				B32FAB2D27F70CAD006A37BE /* Table.swift in Sources */,
 				B37BD61627F47538009C2244 /* Image.swift in Sources */,
 				B37BD61527F47538009C2244 /* AsyncImage.swift in Sources */,
 				B37BD61B27F47538009C2244 /* DSLAutoTable.swift in Sources */,
