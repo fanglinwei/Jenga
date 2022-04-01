@@ -175,12 +175,17 @@ class ViewController: UIViewController, DSLAutoTable {
         .header("Animal")
         .headerHeight(UITableView.automaticDimension)
     }
+```
 
-// after 3s 显示小猫
-        text = "Swift"
+更改状态
+
+```swift
+text = "Swift"
         detailText = "Jenga"
         isShowCat = true
 ```
+
+
 
 预览
 
