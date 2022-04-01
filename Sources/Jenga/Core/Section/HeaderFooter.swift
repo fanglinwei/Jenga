@@ -40,7 +40,7 @@ public struct HeaderFooter {
 }
 
 
-public protocol Header: AnyObject {
+public protocol Header {
     
     var header: HeaderFooter { get set }
     
@@ -49,7 +49,7 @@ public protocol Header: AnyObject {
     var hiddenWithEmpty: Bool { get set }
 }
 
-public protocol Footer: AnyObject {
+public protocol Footer {
     
     var footer: HeaderFooter { get set }
     
@@ -58,13 +58,13 @@ public protocol Footer: AnyObject {
     var hiddenWithEmpty: Bool { get set }
 }
 
-public class TableHeader: Header {
+public struct TableHeader: Header {
     
-    open var header = HeaderFooter()
+    public var header = HeaderFooter()
     
-    open var rowHeight: CGFloat?
+    public var rowHeight: CGFloat?
     
-    open var hiddenWithEmpty: Bool = false
+    public var hiddenWithEmpty: Bool = false
     
     public init() { }
     
@@ -77,13 +77,13 @@ public class TableHeader: Header {
     }
 }
 
-public class TableFooter: Footer {
+public struct TableFooter: Footer {
     
-    open var footer = HeaderFooter()
+    public var footer = HeaderFooter()
     
-    open var rowHeight: CGFloat?
+    public var rowHeight: CGFloat?
     
-    open var hiddenWithEmpty: Bool = false
+    public var hiddenWithEmpty: Bool = false
     
     public init() { }
     
@@ -99,17 +99,20 @@ public class TableFooter: Footer {
 public extension Header {
     
     func height(_ value: @autoclosure () -> (CGFloat)) -> Self {
-        header.height = value()
+        var temp = self
+        temp.header.height = value()
         return self
     }
     
     func hiddenWithEmpty(_ value: Bool) -> Self {
-        hiddenWithEmpty = value
+        var temp = self
+        temp.hiddenWithEmpty = value
         return self
     }
     
     func rowHeight(_ value: @autoclosure () -> (RowHeight)) -> Self {
-        rowHeight = value()
+        var temp = self
+        temp.rowHeight = value()
         return self
     }
 }
@@ -117,17 +120,20 @@ public extension Header {
 public extension Footer {
 
     func height(_ value: @autoclosure () -> (CGFloat)) -> Self {
-        footer.height = value()
+        var temp = self
+        temp.footer.height = value()
         return self
     }
     
     func hiddenWithEmpty(_ value: Bool) -> Self {
-        hiddenWithEmpty = value
+        var temp = self
+        temp.hiddenWithEmpty = value
         return self
     }
     
     func rowHeight(_ value: @autoclosure () -> (RowHeight)) -> Self {
-        rowHeight = value()
+        var temp = self
+        temp.rowHeight = value()
         return self
     }
 }
