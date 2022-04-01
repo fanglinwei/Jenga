@@ -181,8 +181,8 @@ class ViewController: UIViewController, DSLAutoTable {
 
 ```swift
 text = "Swift"
-        detailText = "Jenga"
-        isShowCat = true
+detailText = "Jenga"
+isShowCat = true
 ```
 
 
