@@ -82,18 +82,12 @@ public extension Section {
 }
 
 
-public protocol Table {
-    
-}
+public protocol Table { }
 
-extension TableHeader: Table {
-    
-}
-
-extension TableFooter: Table {
-    
-}
+extension BacicSection: Table {}
+extension TableHeader: Table { }
+extension TableFooter: Table { }
 
 extension BasicRow: Table { }
 extension TableRow: Table { }
-extension BacicSection: Table {}
+
