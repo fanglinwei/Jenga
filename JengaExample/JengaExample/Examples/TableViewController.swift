@@ -19,7 +19,7 @@ class TableViewController: UIViewController, DSLAutoTable {
     @State var isOn = true
     
     var id: Int = 0
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -71,44 +71,44 @@ extension TableViewController {
         
         
         // 测试复用
-        TableSection {
-            NavigationRow("🤣")
-            NavigationRow("😄")
-            NavigationRow("🤣")
-            NavigationRow("😄")
-            NavigationRow("🤣")
-            NavigationRow("😄")
-            NavigationRow("🤣")
-            NavigationRow("😄")
-            NavigationRow("🤣")
-            NavigationRow("😄")
-            NavigationRow("🤣")
-            NavigationRow("😄")
-            NavigationRow("🤣")
-            NavigationRow("😄")
-            NavigationRow("🤣")
-            NavigationRow("😄")
-            // binding
-            NavigationRow($text)
-            NavigationRow("🤣")
-            NavigationRow("😄")
-            NavigationRow("🤣")
-            NavigationRow("😄")
-            NavigationRow("🤣")
-            NavigationRow("😄")
-            NavigationRow("🤣")
-            NavigationRow("😄")
-            NavigationRow("🤣")
-            NavigationRow("😄")
-            NavigationRow("🤣")
-            NavigationRow("😄")
-            
-            if isOn {
-                NavigationRow("🐶")
-            }
+        TableHeader("测试")
+            .rowHeight(52)
+            .height(20)
+        
+        NavigationRow("🤣")
+        NavigationRow("😄")
+        NavigationRow("🤣")
+        NavigationRow("😄")
+        NavigationRow("🤣")
+        NavigationRow("😄")
+        NavigationRow("🤣")
+        NavigationRow("😄")
+        NavigationRow("🤣")
+        NavigationRow("😄")
+        NavigationRow("🤣")
+        NavigationRow("😄")
+        NavigationRow("🤣")
+        NavigationRow("😄")
+        NavigationRow("🤣")
+        NavigationRow("😄")
+        // binding
+        NavigationRow($text)
+        NavigationRow("🤣")
+        NavigationRow("😄")
+        NavigationRow("🤣")
+        NavigationRow("😄")
+        NavigationRow("🤣")
+        NavigationRow("😄")
+        NavigationRow("🤣")
+        NavigationRow("😄")
+        NavigationRow("🤣")
+        NavigationRow("😄")
+        NavigationRow("🤣")
+        NavigationRow("😄")
+        
+        if isOn {
+            NavigationRow("🐶")
         }
-        .rowHeight(52)
-        .headerHeight(20)
         
         TableSection(binding: $isOn) { isOn in
             if isOn {

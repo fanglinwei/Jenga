@@ -108,16 +108,21 @@ extension TableDirector {
     private func assemble(with tableBody: [Table]) -> [Section] {
         var result: [Section] = []
         var section: BrickSection?
+        
+        func close( ) {
+            guard let temp = section else { return }
+            result.append(temp)
+            section = nil
+        }
+        
         for (index, body) in tableBody.enumerated() {
             switch body {
             case let value as Section:
+                close()
                 result.append(value)
                 
             case let value as Header:
-                if let temp = section {
-                    result.append(temp)
-                    section = nil
-                }
+                close()
                 
                 section = BrickSection()
                 section?.header = value.header
@@ -125,21 +130,18 @@ extension TableDirector {
                 section?.hiddenWithEmpty = value.hiddenWithEmpty
                 
             case let value as Footer:
-                let temp = section ?? BrickSection()
-                temp.footer = value.footer
-                temp.rowHeight = value.rowHeight
-                temp.hiddenWithEmpty = value.hiddenWithEmpty
-                result.append(temp)
-                section = nil
+                section = section ?? BrickSection()
+                section?.footer = value.footer
+                section?.rowHeight = value.rowHeight
+                section?.hiddenWithEmpty = value.hiddenWithEmpty
+                close()
                 
             case let value as Row:
-                let temp = section ?? BrickSection()
-                temp.append(value)
-                section = temp
+                section = section ?? BrickSection()
+                section?.append(value)
                 
                 if index == tableBody.count - 1 {
-                    result.append(temp)
-                    section = nil
+                    close()
                 }
                 
             default:
