@@ -1,6 +1,6 @@
 import UIKit
 
-class TableCellRegisterer {
+struct TableCellRegisterer {
 
     private var registeredIds = Set<String>()
     private weak var tableView: UITableView?
@@ -9,7 +9,7 @@ class TableCellRegisterer {
         self.tableView = tableView
     }
     
-    func register(cellType: AnyClass, forCellReuseIdentifier reuseIdentifier: String) {
+    mutating func register(cellType: AnyClass, forCellReuseIdentifier reuseIdentifier: String) {
         guard !registeredIds.contains(reuseIdentifier) else {
             return
         }
