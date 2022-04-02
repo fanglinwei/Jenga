@@ -182,7 +182,7 @@ extension TableDirector: UITableViewDelegate {
             
             let isCalculator = row.estimatedHeight == UITableView.highAutomaticDimension
             || (row.estimatedHeight == nil && row.height == UITableView.highAutomaticDimension)
-            || (row.height == nil && section.rowHeight == UITableView.highAutomaticDimension)
+            || (row.estimatedHeight == nil && row.height == nil && section.rowHeight == UITableView.highAutomaticDimension)
             
             if isCalculator {
                 calculatorHeight = rowHeightCalculator.estimatedHeight(forRow: row, at: indexPath)
