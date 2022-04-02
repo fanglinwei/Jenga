@@ -7,6 +7,6 @@
 
 import UIKit
 
-public class SpacerCell: UITableViewCell {
+open class SpacerCell: UITableViewCell {
     
 }
