@@ -8,7 +8,9 @@
 import UIKit
 import Jenga
 
-class BindingViewController: UIViewController, DSLAutoTable {
+class BindingViewController: BaseViewController, DSLAutoTable {
+    
+    override var pageTitle: String { get { "状态绑定" } }
     
     @State var text = "objective-c"
     
@@ -46,6 +48,7 @@ class BindingViewController: UIViewController, DSLAutoTable {
             }
         }
         .header("Animal")
+        .hiddenWithEmpty(true)
         .headerHeight(UITableView.automaticDimension)
     }
     

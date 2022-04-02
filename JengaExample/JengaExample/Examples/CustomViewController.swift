@@ -8,24 +8,11 @@
 import UIKit
 import Jenga
 
-class CustomViewController: UIViewController, DSLAutoTable {
+class CustomViewController: BaseViewController, DSLAutoTable {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setup()
-    }
+    override var pageTitle: String { get { "自定义Cell" } }
     
-    private func setup() {
-        view.backgroundColor = .white
-        navigationItem.title = "设置"
-    }
-    
-    deinit { print("deinit", classForCoder) }
-}
-
-// DSL
-extension CustomViewController {
-    
+    // DSL
     @TableBuilder
     var tableBody: [Table] {
         
@@ -57,3 +44,4 @@ extension CustomViewController: BannerCellDelegate {
         UIApplication.shared.open(URL(string: "https://github.com/fanglinwei/TableKit")!)
     }
 }
+

@@ -11,6 +11,7 @@
 		B32FAB2B27F70095006A37BE /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB2A27F70095006A37BE /* Spacer.swift */; };
 		B32FAB2D27F70CAD006A37BE /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB2C27F70CAD006A37BE /* Table.swift */; };
 		B32FAB7227F7F3E2006A37BE /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB7127F7F3E2006A37BE /* Update.swift */; };
+		B32FAB7427F80A68006A37BE /* JengaHashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB7327F80A68006A37BE /* JengaHashable.swift */; };
 		B37BD5EF27F47538009C2244 /* Jenga.docc in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5B727F47538009C2244 /* Jenga.docc */; };
 		B37BD5F027F47538009C2244 /* Jenga.h in Headers */ = {isa = PBXBuildFile; fileRef = B37BD5B827F47538009C2244 /* Jenga.h */; };
 		B37BD5F127F47538009C2244 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5BB27F47538009C2244 /* Binding.swift */; };
@@ -60,6 +61,7 @@
 		B32FAB2A27F70095006A37BE /* Spacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
 		B32FAB2C27F70CAD006A37BE /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		B32FAB7127F7F3E2006A37BE /* Update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Update.swift; sourceTree = "<group>"; };
+		B32FAB7327F80A68006A37BE /* JengaHashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JengaHashable.swift; sourceTree = "<group>"; };
 		B37BD4A927F4606B009C2244 /* Jenga.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Jenga.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B37BD5B727F47538009C2244 /* Jenga.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Jenga.docc; sourceTree = "<group>"; };
 		B37BD5B827F47538009C2244 /* Jenga.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jenga.h; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				B37BD5D327F47538009C2244 /* TableCellHeightCalculator.swift */,
 				B37BD5D427F47538009C2244 /* TableCellRegisterer.swift */,
 				B32FAB7127F7F3E2006A37BE /* Update.swift */,
+				B32FAB7327F80A68006A37BE /* JengaHashable.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				B37BD61627F47538009C2244 /* Image.swift in Sources */,
 				B32FAB7227F7F3E2006A37BE /* Update.swift in Sources */,
 				B37BD61527F47538009C2244 /* AsyncImage.swift in Sources */,
+				B32FAB7427F80A68006A37BE /* JengaHashable.swift in Sources */,
 				B37BD61B27F47538009C2244 /* DSLAutoTable.swift in Sources */,
 				B37BD61A27F47538009C2244 /* TableDirector.swift in Sources */,
 				B37BD60C27F47538009C2244 /* RowSystem.swift in Sources */,

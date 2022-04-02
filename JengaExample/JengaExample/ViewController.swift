@@ -9,7 +9,7 @@ import UIKit
 import Jenga
 
 class ViewController: UIViewController, DSLAutoTable {
-
+    
     @TableBuilder
     var tableBody: [Table] {
         
@@ -17,12 +17,17 @@ class ViewController: UIViewController, DSLAutoTable {
             .onTap(on: self) { (self) in
                 self.navigationController?.pushViewController(SettingViewController(), animated: true)
             }
-
+        
         NavigationRow("自定义Cell")
             .onTap(on: self) { (self) in
                 self.navigationController?.pushViewController(CustomViewController(), animated: true)
             }
-
+        
+        NavigationRow("自动计算缓存行高")
+            .onTap(on: self) { (self) in
+                self.navigationController?.pushViewController(AutoHeightViewController(), animated: true)
+            }
+        
         NavigationRow("自定义TableView")
             .onTap(on: self) { (self) in
                 self.navigationController?.pushViewController(CustomTableViewController(), animated: true)
@@ -36,7 +41,7 @@ class ViewController: UIViewController, DSLAutoTable {
             .onTap(on: self) { (self) in
                 self.navigationController?.pushViewController(EmojiViewController(), animated: true)
             }
-
+        
         NavigationRow("测试")
             .onTap(on: self) { (self) in
                 self.navigationController?.pushViewController(TableViewController(), animated: true)

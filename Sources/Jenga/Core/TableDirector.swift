@@ -12,7 +12,7 @@ public class TableDirector: NSObject {
     
     public private(set) weak var delegate: UIScrollViewDelegate?
     
-    private(set) var rowHeightCalculator: RowHeightCalculator?
+    private(set) var rowHeightCalculator: RowHeightCalculator
     
     private var cellRegisterer: TableCellRegisterer?
     
@@ -20,18 +20,12 @@ public class TableDirector: NSObject {
         didSet { tableView.reloadData() }
     }
     
-    open var shouldUsePrototypeCellHeightCalculation: Bool = false {
-        didSet {
-            rowHeightCalculator = shouldUsePrototypeCellHeightCalculation ? TableCellHeightCalculator(tableView: tableView) : nil
-        }
-    }
-    
     public var isEmpty: Bool { sections.isEmpty }
     
     public init(_ tableView: UITableView,
                 delegate: UIScrollViewDelegate? = .none,
                 isRegisterCell: Bool = true,
-                rowheightCalculator: RowHeightCalculator?) {
+                rowheightCalculator: RowHeightCalculator) {
         self.tableView = tableView
         self.delegate = delegate
         self.rowHeightCalculator = rowheightCalculator
@@ -47,14 +41,11 @@ public class TableDirector: NSObject {
     
     public convenience init(_ tableView: UITableView,
                             delegate: UIScrollViewDelegate? = .none,
-                            isRegisterCell: Bool = true,
-                            shouldCellHeightCalculation: Bool = false) {
-        let heightCalculator: TableCellHeightCalculator? = shouldCellHeightCalculation ? TableCellHeightCalculator(tableView: tableView) : nil
-        
+                            isRegisterCell: Bool = true) {
         self.init(tableView,
                   delegate: delegate,
                   isRegisterCell: isRegisterCell,
-                  rowheightCalculator: heightCalculator
+                  rowheightCalculator: TableCellHeightCalculator(tableView: tableView)
         )
     }
     
@@ -72,7 +63,7 @@ public class TableDirector: NSObject {
         
         func reloadSection(_ section: Section) {
             guard let self = self else { return }
-            guard let index = self.sections.firstIndex(where: { $0 === section }) else { return }
+            guard let index = self.sections.firstIndex(where: { $0.hashValue == section.hashValue }) else { return }
             UIView.performWithoutAnimation {
                 self.tableView.reloadSections(IndexSet(integer: index), with: .none)
             }
@@ -241,43 +232,60 @@ extension TableDirector: UITableViewDelegate {
         let section = sections[indexPath.section]
         let row = section.rows[indexPath.row]
         
-        if !(row is RowSystem), rowHeightCalculator != nil {
+        if !(row is RowSystem) {
             cellRegisterer?.register(cellType: row.cellType, forCellReuseIdentifier: row.reuseIdentifier)
         }
-
-        return row.height
-        ?? row.estimatedHeight
-        ?? rowHeightCalculator?.estimatedHeight(forRow: row, at: indexPath)
+        
+        var calculatorHeight: CGFloat? = nil
+        let isCalculator = row.estimatedHeight == UITableView.highAutomaticDimension
+        || (row.estimatedHeight == nil && row.height == UITableView.highAutomaticDimension)
+        || (row.estimatedHeight == nil && row.height == nil && section.rowHeight == UITableView.highAutomaticDimension)
+        
+        if isCalculator {
+            calculatorHeight = rowHeightCalculator.estimatedHeight(forRow: row, at: indexPath)
+        }
+        
+        return calculatorHeight.nonEfficient
+        ?? row.estimatedHeight.nonEfficient
+        ?? row.height.nonEfficient
+        ?? section.rowHeight.nonEfficient
         ?? UITableView.automaticDimension
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let section = sections[indexPath.section]
         let row = section.rows[indexPath.row]
-        if !(row is RowSystem), rowHeightCalculator != nil {
-            cellRegisterer?.register(cellType: row.cellType, forCellReuseIdentifier: row.reuseIdentifier)
-       }
         
-        return row.height
-        ?? section.rowHeight
-        ?? rowHeightCalculator?.height(forRow: row, at: indexPath)
+        if !(row is RowSystem) {
+            cellRegisterer?.register(cellType: row.cellType, forCellReuseIdentifier: row.reuseIdentifier)
+        }
+        var calculatorHeight: CGFloat? = nil
+        let isCalculator = row.height == UITableView.highAutomaticDimension
+        || (row.height == nil && section.rowHeight == UITableView.highAutomaticDimension)
+        
+        if isCalculator {
+            calculatorHeight = rowHeightCalculator.height(forRow: row, at: indexPath)
+        }
+        return calculatorHeight.nonEfficient
+        ?? row.height.nonEfficient
+        ?? section.rowHeight.nonEfficient
         ?? UITableView.automaticDimension
     }
     
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let header = sections[section].header
         return header.height
-            ?? header.view?.frame.size.height
-            ?? (header.title.isNilOrEmpty ? UITableView.zero : nil)
-            ?? UITableView.automaticDimension
+        ?? header.view?.frame.size.height
+        ?? (header.title.isNilOrEmpty ? UITableView.zero : nil)
+        ?? UITableView.automaticDimension
     }
     
     public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         let footer = sections[section].footer
         return footer.height
-            ?? footer.view?.frame.size.height
-            ?? (footer.title.isNilOrEmpty ? UITableView.zero : nil)
-            ?? UITableView.automaticDimension
+        ?? footer.view?.frame.size.height
+        ?? (footer.title.isNilOrEmpty ? UITableView.zero : nil)
+        ?? UITableView.automaticDimension
     }
     
     

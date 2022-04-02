@@ -26,13 +26,23 @@ open class BacicSection: Section {
     deinit { log("deinit", "Section") }
 }
 
-class BrickSection: BacicSection {
+internal struct BrickSection: Section {
     
-    func append(_ row: Row) {
+    public var rows: [Row] = []
+    
+    public var header = HeaderFooter()
+    
+    public var footer = HeaderFooter()
+    
+    public var rowHeight: CGFloat?
+    
+    public var hiddenWithEmpty: Bool = false
+    
+    mutating func append(_ row: Row) {
         rows.append(row)
     }
     
-    func append(_ rows: [Row]) {
+    mutating func append(_ rows: [Row]) {
         self.rows.append(contentsOf: rows)
     }
 }

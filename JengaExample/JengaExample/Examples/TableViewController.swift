@@ -8,9 +8,9 @@
 import UIKit
 import Jenga
 
-class TableViewController: UIViewController, DSLAutoTable {
+class TableViewController: BaseViewController, DSLAutoTable {
     
-    deinit { print("deinit", classForCoder) }
+    override var pageTitle: String { get { "测试复用" } }
     
     @State var text = "OC"
     
@@ -22,17 +22,11 @@ class TableViewController: UIViewController, DSLAutoTable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 6) { [weak self] in
             self?.text = "Swift"
             self?.detailText = "17878787878"
         }
-    }
-    
-    private func setup() {
-        view.backgroundColor = .white
-        navigationItem.title = "设置"
     }
 }
 

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		B32FAB2327F5C4E2006A37BE /* EmojiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB2227F5C4E2006A37BE /* EmojiViewController.swift */; };
 		B32FAB2727F5C9DD006A37BE /* BindingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB2627F5C9DD006A37BE /* BindingViewController.swift */; };
+		B32FAB7627F82705006A37BE /* AutoHeightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB7527F82705006A37BE /* AutoHeightCell.swift */; };
+		B32FAB7927F82721006A37BE /* EmojiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB7827F82721006A37BE /* EmojiCell.swift */; };
+		B32FAB7B27F82787006A37BE /* AutoHeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB7A27F82787006A37BE /* AutoHeightViewController.swift */; };
+		B32FAB7D27F827BD006A37BE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB7C27F827BD006A37BE /* BaseViewController.swift */; };
 		B3496B3627F45338007D7A1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3496B3527F45338007D7A1D /* AppDelegate.swift */; };
 		B3496B3827F45338007D7A1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3496B3727F45338007D7A1D /* SceneDelegate.swift */; };
 		B3496B3A27F45338007D7A1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3496B3927F45338007D7A1D /* ViewController.swift */; };
@@ -47,6 +51,10 @@
 /* Begin PBXFileReference section */
 		B32FAB2227F5C4E2006A37BE /* EmojiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiViewController.swift; sourceTree = "<group>"; };
 		B32FAB2627F5C9DD006A37BE /* BindingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingViewController.swift; sourceTree = "<group>"; };
+		B32FAB7527F82705006A37BE /* AutoHeightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoHeightCell.swift; sourceTree = "<group>"; };
+		B32FAB7827F82721006A37BE /* EmojiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCell.swift; sourceTree = "<group>"; };
+		B32FAB7A27F82787006A37BE /* AutoHeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoHeightViewController.swift; sourceTree = "<group>"; };
+		B32FAB7C27F827BD006A37BE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B3496B3227F45338007D7A1D /* JengaExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JengaExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3496B3527F45338007D7A1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3496B3727F45338007D7A1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +89,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B32FAB7727F8270F006A37BE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B3496BA827F45767007D7A1D /* BannerCell.swift */,
+				B32FAB7527F82705006A37BE /* AutoHeightCell.swift */,
+				B32FAB7827F82721006A37BE /* EmojiCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		B3496B2927F45338007D7A1D = {
 			isa = PBXGroup;
 			children = (
@@ -125,13 +143,15 @@
 		B3496BA227F45669007D7A1D /* Examples */ = {
 			isa = PBXGroup;
 			children = (
-				B3496BA827F45767007D7A1D /* BannerCell.swift */,
+				B32FAB7727F8270F006A37BE /* Cell */,
 				B3496BA727F45767007D7A1D /* CustomTableViewController.swift */,
 				B3496BA927F45767007D7A1D /* CustomViewController.swift */,
 				B3496BA327F4567A007D7A1D /* TableViewController.swift */,
 				B3496BA527F456AF007D7A1D /* SettingViewController.swift */,
 				B32FAB2227F5C4E2006A37BE /* EmojiViewController.swift */,
 				B32FAB2627F5C9DD006A37BE /* BindingViewController.swift */,
+				B32FAB7A27F82787006A37BE /* AutoHeightViewController.swift */,
+				B32FAB7C27F827BD006A37BE /* BaseViewController.swift */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -244,13 +264,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3496BAB27F45767007D7A1D /* BannerCell.swift in Sources */,
+				B32FAB7627F82705006A37BE /* AutoHeightCell.swift in Sources */,
 				B3496BA627F456AF007D7A1D /* SettingViewController.swift in Sources */,
 				B3496BB327F45799007D7A1D /* NavigationRow2.swift in Sources */,
+				B32FAB7D27F827BD006A37BE /* BaseViewController.swift in Sources */,
 				B3496B3A27F45338007D7A1D /* ViewController.swift in Sources */,
 				B3496B3627F45338007D7A1D /* AppDelegate.swift in Sources */,
 				B32FAB2327F5C4E2006A37BE /* EmojiViewController.swift in Sources */,
+				B32FAB7927F82721006A37BE /* EmojiCell.swift in Sources */,
 				B3496B3827F45338007D7A1D /* SceneDelegate.swift in Sources */,
 				B37BD53C27F4671A009C2244 /* Icon.AsyncImage.swift in Sources */,
+				B32FAB7B27F82787006A37BE /* AutoHeightViewController.swift in Sources */,
 				B37BD42327F45ED0009C2244 /* Kingfisher.Extension.swift in Sources */,
 				B3496BAA27F45767007D7A1D /* CustomTableViewController.swift in Sources */,
 				B3496BB427F45799007D7A1D /* NavigationBadgeCell.swift in Sources */,

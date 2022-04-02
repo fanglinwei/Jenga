@@ -9,7 +9,9 @@ import UIKit
 import Jenga
 import Kingfisher
 
-class SettingViewController: UIViewController, DSLAutoTable {
+class SettingViewController: BaseViewController, DSLAutoTable {
+    
+    override var pageTitle: String { get { "设置" } }
     
     @State var text = "OC"
     
@@ -29,7 +31,6 @@ class SettingViewController: UIViewController, DSLAutoTable {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
             self?.text = "Swift"
@@ -37,13 +38,6 @@ class SettingViewController: UIViewController, DSLAutoTable {
             self?.detailText = "17878787878"
         }
     }
-    
-    private func setup() {
-        view.backgroundColor = .white
-        navigationItem.title = "设置"
-    }
-    
-    deinit { print("deinit", classForCoder) }
 }
 
 // DSL
@@ -55,6 +49,7 @@ extension SettingViewController {
         TableSection {
             NavigationRow("青少年模式")
             NavigationRow("关怀模式")
+                .height(52)
         }
         .headerHeight(20)
         
@@ -119,8 +114,8 @@ extension SettingViewController {
                     cell.backgroundColor = .green
                 }
         }
+        .rowHeight(UITableView.automaticDimension)
         .header("detailText")
-        .headerHeight(UITableView.automaticDimension)
         
         TableSection {
             

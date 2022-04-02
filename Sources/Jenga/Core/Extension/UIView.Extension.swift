@@ -25,8 +25,14 @@ extension UIView {
 extension UITableView {
 
     static var zero: CGFloat = 0.001
-
+    
     func setSectionHeaderTopPadding(_ value: CGFloat) {
         if #available(iOS 15.0, *) { sectionHeaderTopPadding = value }
     }
 }
+
+public extension UITableView {
+
+    static var highAutomaticDimension: CGFloat = -999
+}
+
