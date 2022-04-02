@@ -96,44 +96,35 @@ public struct TableFooter: Footer {
     }
 }
 
-public extension Header {
+extension TableHeader: Update { }
+extension TableFooter: Update { }
+
+public extension TableHeader {
     
     func height(_ value: @autoclosure () -> (CGFloat)) -> Self {
-        var temp = self
-        temp.header.height = value()
-        return temp
+        update { $0.header.height = value() }
     }
     
     func hiddenWithEmpty(_ value: Bool) -> Self {
-        var temp = self
-        temp.hiddenWithEmpty = value
-        return temp
+        update { $0.hiddenWithEmpty = value }
     }
     
     func rowHeight(_ value: @autoclosure () -> (RowHeight)) -> Self {
-        var temp = self
-        temp.rowHeight = value()
-        return temp
+        update { $0.rowHeight = value() }
     }
 }
 
-public extension Footer {
+public extension TableFooter {
 
     func height(_ value: @autoclosure () -> (CGFloat)) -> Self {
-        var temp = self
-        temp.footer.height = value()
-        return temp
+        update { $0.footer.height = value() }
     }
     
     func hiddenWithEmpty(_ value: Bool) -> Self {
-        var temp = self
-        temp.hiddenWithEmpty = value
-        return temp
+        update { $0.hiddenWithEmpty = value }
     }
     
     func rowHeight(_ value: @autoclosure () -> (RowHeight)) -> Self {
-        var temp = self
-        temp.rowHeight = value()
-        return temp
+        update { $0.rowHeight = value() }
     }
 }

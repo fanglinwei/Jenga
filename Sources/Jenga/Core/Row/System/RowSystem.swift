@@ -19,84 +19,82 @@ public protocol RowSystem: Row {
 }
 
 public extension RowSystem {
-        
+    
     func icon(_ value: Binding<Icon>) -> Self {
-        icon = value
-        return self
+        update { $0.icon = value }
     }
     
     func icon(_ value: Icon) -> Self {
-        icon = .constant(value)
-        return self
+        update { $0.icon = .constant(value) }
     }
     
     func detailText(_ value: Binding<DetailText>) -> Self {
-        detailText = value
-        return self
+        update { $0.detailText = value }
     }
     
     func detailText(_ value: DetailText) -> Self {
-        detailText = .constant(value)
-        return self
+        update { $0.detailText = .constant(value) }
     }
     
     func detailText(_ value: String) -> Self {
-        detailText = detailText.map { detailText in
-            var temp = detailText
-            temp.type = .value1
-            temp.text.string = value
-            return temp
+        update {
+            $0.detailText = detailText.map { detailText in
+                var temp = detailText
+                temp.type = .value1
+                temp.text.string = value
+                return temp
+            }
         }
-        return self
     }
     
     func detailText(_ value: Binding<String>) -> Self {
         var temp = detailText.wrappedValue
-        detailText = value.map { value  in
-            temp.type = .value1
-            temp.text.string = value
-            return temp
+        return update {
+            $0.detailText = value.map { value  in
+                temp.type = .value1
+                temp.text.string = value
+                return temp
+            }
         }
-        return self
     }
     
     func text<Value>(_ keyPath: WritableKeyPath<Text, Value>, _ value: Value) -> Self {
-        text = text.map { $0.with(keyPath, value) }
-        return self
+        update { $0.text = text.map { $0.with(keyPath, value) } }
     }
     
     func detail<Value>(_ keyPath: WritableKeyPath<Text, Value>, _ value: Value) -> Self {
-        detailText = detailText.map { detailText in
-            var temp = detailText
-            temp.text = temp.text.with(keyPath, value)
-            return temp
+        update {
+            $0.detailText = detailText.map { detailText in
+                var temp = detailText
+                temp.text = temp.text.with(keyPath, value)
+                return temp
+            }
         }
-        return self
     }
     
     func text<Value>(_ keyPath: WritableKeyPath<Text, Value>, _ binding: Binding<Value>) -> Self {
         let temp = text.wrappedValue
-        text = binding.map { temp.with(keyPath, $0) }
-        return self
+        return update { $0.text = binding.map { temp.with(keyPath, $0) } }
     }
     
     func detail<Value>(_ keyPath: WritableKeyPath<Text, Value>, _ binding: Binding<Value>) -> Self {
         var temp = detailText.wrappedValue
-        detailText = binding.map { value  in
-            temp.text = temp.text.with(keyPath, value)
-            return temp
+        return update {
+            $0.detailText = binding.map { value  in
+                temp.text = temp.text.with(keyPath, value)
+                return temp
+            }
         }
-        return self
     }
 }
 
 public protocol NavigationRowCompatible: RowSystem {
-
+    
     var accessoryButtonAction: RowAction? { get }
 }
 
-public protocol BadgeRowCompatible: RowSystem {
-
+public protocol BadgeRowCompatible: RowSystem, AnyObject {
+    
     var badgeValue: Binding<String?> { get set }
     var badgeColor: Binding<UIColor>? { get set }
 }
@@ -106,7 +104,7 @@ public protocol TapActionRowCompatible: RowSystem {
     var textAlignment: NSTextAlignment { get set}
 }
 
-public protocol OptionRowCompatible: RowSystem {
+public protocol OptionRowCompatible: RowSystem, AnyObject {
     
     var isSelected: Bool { get set }
 }

@@ -27,11 +27,11 @@ public struct TableSpacer: Spacer {
     }
 }
 
+extension TableSpacer: Update { }
+
 public extension TableSpacer {
     
     func color(_ value: UIColor) -> Self {
-        var temp = self
-        temp.color = value
-        return temp
+        update { $0.color = value }
     }
 }

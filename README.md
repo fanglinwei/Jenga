@@ -44,7 +44,7 @@ Repository: https://github.com/fanglinwei/Jenga
 
 将以下内容添加到你的 `Package.swift`:
 ```swift
-.package(url: "https://github.com/fanglinwei/Jenga", from: "version")
+.package(url: "https://github.com/fanglinwei/Jenga.git", from: "version")
 ```
 
 
@@ -175,12 +175,17 @@ class ViewController: UIViewController, DSLAutoTable {
         .header("Animal")
         .headerHeight(UITableView.automaticDimension)
     }
-
-// after 3s 显示小猫
-        text = "Swift"
-        detailText = "Jenga"
-        isShowCat = true
 ```
+
+更改状态
+
+```swift
+text = "Swift"
+detailText = "Jenga"
+isShowCat = true
+```
+
+
 
 预览
 

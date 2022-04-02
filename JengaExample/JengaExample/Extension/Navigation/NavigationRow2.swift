@@ -18,7 +18,7 @@ public class NavigationRow2<Cell: NavigationCell>: NavigationRow<Cell> {
 
 public class NavigationCell: UITableViewCell, ConfigurableCell {
     
-    private weak var row: Row?
+    private var row: Row?
     open func configure(with row: Row) {
         self.row = row
     }

@@ -106,13 +106,11 @@ public extension AsyncImage {
 public extension RowSystem {
     
     func icon(_ value: Binding<AsyncImage>) -> Self {
-        icon = value.map { .async($0) }
-        return self
+        update { $0.icon = value.map { .async($0) }}
     }
     
     func icon(_ value: AsyncImage) -> Self {
-        icon = .constant(.async(value))
-        return self
+        update { $0.icon = .constant(.async(value)) }
     }
 }
 
