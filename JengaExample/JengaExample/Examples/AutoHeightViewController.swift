@@ -19,7 +19,7 @@ class AutoHeightViewController: BaseViewController, DSLAutoTable {
     var tableContents: [Section] {
         TableSection.init(binding: $datas) {
             TableRow<AutoHeightCell>($0)
-//                .height(UITableView.highAutomaticDimension)
+                .height(UITableView.highAutomaticDimension)
         }
         .header("自动计算行高只有在自定义cell类型下才会生效")
         .headerHeight(20)
