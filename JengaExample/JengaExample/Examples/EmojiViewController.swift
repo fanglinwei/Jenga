@@ -15,7 +15,6 @@ class EmojiViewController: BaseViewController, DSLAutoTable {
     @State var emojis: [String] = ["🐶", "🐱", "🐭", "🦁", "🐼"]
     
     // DSL
-    @TableBuilder
     var tableBody: [Table] {
         
         TableSection {

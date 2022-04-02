@@ -11,7 +11,7 @@ public protocol DSLTable {
     
     var table: TableDirector { get }
     
-    var tableBody: [Table] { get }
+    @TableBuilder var tableBody: [Table] { get }
     
     func reloadTable()
 }

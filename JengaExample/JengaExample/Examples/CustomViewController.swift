@@ -13,7 +13,6 @@ class CustomViewController: BaseViewController, DSLAutoTable {
     override var pageTitle: String { get { "自定义Cell" } }
     
     // DSL
-    @TableBuilder
     var tableBody: [Table] {
         
         TableSection {

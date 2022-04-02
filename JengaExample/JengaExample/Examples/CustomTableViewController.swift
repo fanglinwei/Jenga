@@ -31,12 +31,7 @@ class CustomTableViewController: BaseViewController, DSLTable {
     private func setup() {
         view.addSubview(tableView)
     }
-}
 
-// DSL
-extension CustomTableViewController {
-    
-    @TableBuilder
     var tableBody: [Table] {
         
         TableSection(binding: $array) {

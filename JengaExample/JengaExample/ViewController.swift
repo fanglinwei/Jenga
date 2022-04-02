@@ -10,7 +10,6 @@ import Jenga
 
 class ViewController: UIViewController, DSLAutoTable {
     
-    @TableBuilder
     var tableBody: [Table] {
         
         NavigationRow("设置样式")

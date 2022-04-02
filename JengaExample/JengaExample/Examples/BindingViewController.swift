@@ -19,7 +19,6 @@ class BindingViewController: BaseViewController, DSLAutoTable {
     @State var isShowCat = false
     
     // DSL
-    @TableBuilder
     var tableBody: [Table] {
         
         TableSection {

@@ -15,7 +15,6 @@ class AutoHeightViewController: BaseViewController, DSLAutoTable {
     @State private var datas = contents
     
     // DSL
-    @TableBuilder
     var tableBody: [Table] {
         TableSection.init(binding: $datas) {
             TableRow<AutoHeightCell>($0)
