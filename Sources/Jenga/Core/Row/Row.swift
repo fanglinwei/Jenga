@@ -1,23 +1,13 @@
 import UIKit
 
-public protocol RowActionable: Update {
+public protocol RowActionable {
     
     var isSelectable: Bool { get set }
     
     var action: RowAction? { get set }
 }
 
-public protocol RowHashable {
-    
-    var hashValue: Int { get }
-}
-
-extension RowHashable {
-    
-    public var hashValue: Int { ObjectIdentifier(Self.Type.self).hashValue }
-}
-
-public protocol Row: RowHashable, RowActionable {
+public protocol Row: JengaHashable, RowActionable, Update {
     
     var cellType: UITableViewCell.Type { get }
     
@@ -43,10 +33,7 @@ public extension Row {
     func selectionStyle(_ value: UITableViewCell.SelectionStyle) -> Self {
         update { $0.selectionStyle = value }
     }
-}
 
-public extension RowActionable {
-    
     func onTap(_ value: RowAction?) -> Self {
         update { $0.action = value }
     }

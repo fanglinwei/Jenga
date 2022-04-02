@@ -21,9 +21,7 @@ open class TableCellHeightCalculator: RowHeightCalculator {
     open func height(forRow row: Row, at indexPath: IndexPath) -> CGFloat {
 
         guard let tableView = tableView else { return 0 }
-
         let hash = row.hashValue ^ Int(tableView.bounds.size.width).hashValue
-
         if let height = cachedHeights[hash] {
             return height
         }
@@ -54,7 +52,7 @@ open class TableCellHeightCalculator: RowHeightCalculator {
     open func estimatedHeight(forRow row: Row, at indexPath: IndexPath) -> CGFloat {
 
         guard let tableView = tableView else { return 0 }
-
+        
         let hash = row.hashValue ^ Int(tableView.bounds.size.width).hashValue
 
         if let height = cachedHeights[hash] {

@@ -71,7 +71,7 @@ public class TableDirector: NSObject {
         
         func reloadSection(_ section: Section) {
             guard let self = self else { return }
-            guard let index = self.sections.firstIndex(where: { $0 === section }) else { return }
+            guard let index = self.sections.firstIndex(where: { $0.hashValue == section.hashValue }) else { return }
             UIView.performWithoutAnimation {
                 self.tableView.reloadSections(IndexSet(integer: index), with: .none)
             }

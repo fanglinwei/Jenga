@@ -39,7 +39,7 @@ public struct HeaderFooter {
     }
 }
 
-public protocol Section: AnyObject, Update {
+public protocol Section: Update, JengaHashable {
     
     var rows: [Row] { get set }
     

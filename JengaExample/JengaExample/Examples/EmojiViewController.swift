@@ -16,6 +16,10 @@ class EmojiViewController: UIViewController, DSLAutoTable {
     @TableBuilder
     var tableContents: [Section] {
         
+        TableSection {
+            NavigationRow("123")
+        }
+        
         TableSection(binding: $emojis) {
             TableRow<EmojiCell>()
                 .data($0)

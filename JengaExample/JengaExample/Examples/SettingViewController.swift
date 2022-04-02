@@ -120,7 +120,6 @@ extension SettingViewController {
                 }
         }
         .header("detailText")
-        .headerHeight(UITableView.automaticDimension)
         
         TableSection {
             
