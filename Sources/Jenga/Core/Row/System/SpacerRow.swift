@@ -7,7 +7,7 @@
 
 import UIKit
 
-open class SpacerRow<T: SpacerCell>: Row {
+public struct SpacerRow<T: SpacerCell>: Row {
     
     let color: UIColor
     

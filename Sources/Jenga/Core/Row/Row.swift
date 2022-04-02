@@ -1,20 +1,20 @@
 import UIKit
 
-public protocol RowActionable: AnyObject {
+public protocol RowActionable: Update {
     
     var isSelectable: Bool { get set }
     
     var action: RowAction? { get set }
 }
 
-public protocol RowHashable: AnyObject {
+public protocol RowHashable {
     
     var hashValue: Int { get }
 }
 
 extension RowHashable {
     
-    public var hashValue: Int { ObjectIdentifier(self).hashValue }
+    public var hashValue: Int { ObjectIdentifier(Self.Type.self).hashValue }
 }
 
 public protocol Row: RowHashable, RowActionable {
@@ -31,44 +31,40 @@ public protocol Row: RowHashable, RowActionable {
 }
 
 public extension Row {
-    
+      
     func height(_ value: RowHeight?) -> Self {
-        height = value
-        return self
+        update { $0.height = value }
     }
     
     func estimatedHeight(_ value: RowHeight?) -> Self {
-        estimatedHeight = value
-        return self
+        update { $0.estimatedHeight = value }
     }
     
     func selectionStyle(_ value: UITableViewCell.SelectionStyle) -> Self {
-        selectionStyle = value
-        return self
+        update { $0.selectionStyle = value }
     }
 }
 
 public extension RowActionable {
     
-    
     func onTap(_ value: RowAction?) -> Self {
-        self.action = value
-        return self
+        update { $0.action = value }
     }
     
     func onTap<S>(on target: S, _ value: @escaping (S) -> Void) -> Self {
-        self.action = { value(target) }
-        return self
+        update { $0.action = { value(target) } }
     }
     
     func onTap<S>(on target: S, _ value: @escaping (S) -> Void) -> Self where S: AnyObject {
-        self.action = { [weak target]  in
-            guard let target = target else { return }
-            value(target)
+        update {
+            $0.action = { [weak target]  in
+                guard let target = target else { return }
+                value(target)
+            }
         }
-        return self
     }
 }
 
 public typealias RowHeight = CGFloat
 public typealias RowAction = () -> Void
+

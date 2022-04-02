@@ -23,7 +23,7 @@ open class TapActionCell: UITableViewCell, ConfigurableCell {
         textLabel?.textAlignment = .center
     }
     
-    private weak var row: TapActionRowCompatible?
+    private var row: TapActionRowCompatible?
     open func configure(with row: Row) {
         guard let row = row as? TapActionRowCompatible else {
             return

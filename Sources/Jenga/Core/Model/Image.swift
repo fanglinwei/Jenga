@@ -77,12 +77,14 @@ public extension IconImage {
 public extension RowSystem {
     
     func icon(_ value: Binding<IconImage>) -> Self {
-        icon = value.map { .image($0) }
+        var tempSelf = self
+        tempSelf.icon = value.map { .image($0) }
         return self
     }
     
     func icon(_ value: IconImage) -> Self {
-        icon = .constant(.image(value))
+        var tempSelf = self
+        tempSelf.icon = .constant(.image(value))
         return self
     }
 }
