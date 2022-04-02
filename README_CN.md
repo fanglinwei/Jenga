@@ -66,6 +66,17 @@ JengaProvider.setup()
 
 
 
+然后你只需要以下代码就可以构建UITableView
+
+```swift
+@TableBuilder
+var tableBody: [Table] {
+			rows...
+}
+```
+
+
+
 下面是一些简单示例. 支持所有设备和模拟器:
 
 
@@ -77,7 +88,7 @@ import Jenga
 class ViewController: UIViewController, DSLAutoTable {
 
     @TableBuilder
-    var tableContents: [Section] {
+    var tableBody: [Table] {
         TableSection {
             
             NavigationRow("设置样式")
@@ -104,7 +115,7 @@ class ViewController: UIViewController, DSLAutoTable {
 
 ```swift
 @TableBuilder
-    var tableContents: [Section] {
+    var tableBody: [Table] {
         
         TableSection {
             
@@ -132,6 +143,8 @@ class ViewController: UIViewController, DSLAutoTable {
 <div align="center">
 <img src="Resources/custom.png" alt="Stroke" width="40%" />
 </div>
+
+
 #### 状态以及绑定:
 
 ```swift
@@ -143,7 +156,7 @@ class ViewController: UIViewController, DSLAutoTable {
 
     // DSL
     @TableBuilder
-    var tableContents: [Section] {
+    var tableBody: [Table] {
         
         TableSection {
             NavigationRow($text)
@@ -173,12 +186,17 @@ class ViewController: UIViewController, DSLAutoTable {
         .header("Animal")
         .headerHeight(UITableView.automaticDimension)
     }
-
-				// after 3s 显示小猫
-        text = "Swift"
-        detailText = "Jenga"
-        isShowCat = true
 ```
+
+修改`State`状态
+
+```swift
+text = "Swift"
+detailText = "Jenga"
+isShowCat = true
+```
+
+
 
 预览
 
@@ -194,7 +212,7 @@ class ViewController: UIViewController, DSLAutoTable {
     
     // DSL
     @TableBuilder
-    var tableContents: [Section] {
+    var tableBody: [Table] {
         
         TableSection(binding: $emojis) {
             TableRow<EmojiCell>()
@@ -232,6 +250,28 @@ class ViewController: UIViewController, DSLAutoTable {
 <div align="center">
 <img src="Resources/section_binding.png" alt="Stroke" width="40%" />
 </div>
+
+
+#### 超级简单模式:
+
+```swift
+    @TableBuilder
+    var tableBody: [Table] {
+        
+        TableHeader("我是头部")
+        NavigationRow("设置样式")
+        NavigationRow("自定义Cell")
+        NavigationRow("自定义TableView")
+        TableFooter("我是底部")
+        
+        TableHeader("第二组")
+            .height(100)
+        NavigationRow("cell")
+    }
+```
+
+
+
 更多示例请查看工程应用.
 
 
@@ -255,26 +295,56 @@ class ViewController: UIViewController, DSLAutoTable {
 
 如果你不想使用`DSLAutoTable`和`DSLTable`协议
 
-```swift
-// 1. 创建 TableDirector
-lazy var table = TableDirector(tableView, delegate: self)
-    
-// 2. DSL描述tableContents
-		@TableBuilder
-    var tableContents: [Section] {
-        
-        TableSection(binding: $array) {
-            TableRow<EmojiCell>()
-                .data($0)
-                .height(44)
-        }
-        .headerHeight(UITableView.automaticDimension)
-    }
-// 3. reloadTable
-table.set(sections: tableContents)
-```
+1. ###### 创建 TableDirector
+
+   ```swift
+   lazy var table = TableDirector(tableView, delegate: self
+   ```
+
+2. ###### 使用TableBuilder描述Contents
+
+   ```swift
+       @TableBuilder
+       var tableBody: [Table]] {
+           
+           TableSection(binding: $array) {
+               TableRow<EmojiCell>()
+                   .data($0)
+                   .height(44)
+           }
+           .headerHeight(UITableView.automaticDimension)
+       }
+   ```
+
+3. ###### 刷新数据
+
+   ```swift
+   table.set(sections: tableContents)
+   ```
 
 好了 你的列表完成了
+
+#### 自动计算缓存行高:
+
+实现思路灵感来源于[FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)
+
+你可以设置高度为`UITableView.highAutomaticDimension`来开启自动计算缓存行高, `row`和`section`都可以
+
+在项目中查看`AutoHeightViewController`即可
+
+```swift
+// row
+NavigationRow()
+	.height(UITableView.highAutomaticDimension)
+
+// section
+TableSection {
+  rows...
+}
+.rowHeight(UITableView.highAutomaticDimension)
+```
+
+
 
 ## `RowSystem`的协议提供链式
 
@@ -293,18 +363,18 @@ table.set(sections: tableContents)
 | `onTap`                 | 点击事件              |
 | `customize`             | 自定义              |
 
-
-
 ## 贡献
 
 如果您需要实现特定功能或遇到错误，请打开issue。
 如果您自己扩展了Jenga的功能并希望其他人也使用它，请提交拉取请求。
 
-## 借鉴思路来源
-[LazyFish](https://github.com/zjam9333/LazyFish)
-[QuickTableViewController](https://github.com/bcylin/QuickTableViewController)
-[TableKit](https://github.com/maxsokolov/TableKit)
+## 思路来源
+- [LazyFish](https://github.com/zjam9333/LazyFish)
+- [QuickTableViewController](https://github.com/bcylin/QuickTableViewController)
+- [TableKit](https://github.com/maxsokolov/TableKit)
+- [FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)
 
 ## 协议
 
 Jenga 使用 MIT 协议. 有关更多信息，请参阅[LICENSE](LICENSE)文件.
+
