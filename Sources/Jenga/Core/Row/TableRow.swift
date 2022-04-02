@@ -7,7 +7,7 @@
 
 import UIKit
 // 自定义cell
-open class TableRow<Cell: ConfigurableCell>: Row, RowConfigurable {
+public struct TableRow<Cell: ConfigurableCell>: Row, RowConfigurable {
     
     public init(_ data: Cell.CellData) {
         self.item = .constant(data)
@@ -37,9 +37,12 @@ open class TableRow<Cell: ConfigurableCell>: Row, RowConfigurable {
     
     public var estimatedHeight: RowHeight?
     
-    open func configure(_ cell: UITableViewCell) {
+    private let _observer = _Observer()
+    private class _Observer { }
+    
+    public func configure(_ cell: UITableViewCell) {
         guard let item = item else { return }
-        item.append(observer: self) { [weak cell] changed in
+        item.append(observer: _observer) { [weak cell] changed in
             (cell as? Cell)?.configure(with: changed.new)
         }
         
@@ -47,37 +50,30 @@ open class TableRow<Cell: ConfigurableCell>: Row, RowConfigurable {
         customize?(cell, item.wrappedValue)
     }
     
-    open func recovery(_ cell: UITableViewCell) {
-        item?.remove(observer: self)
+    public func recovery(_ cell: UITableViewCell) {
+        item?.remove(observer: _observer)
     }
-    
-    deinit { log("deinit", "TableRow", cellType) }
 }
 
 public extension TableRow {
     
     func isSelectable(_ value: Bool) -> Self {
-        self.isSelectable = value
-        return self
+        update { $0.isSelectable = value }
     }
     
     func data(_ data: Cell.CellData) -> Self {
-        item = .constant(data)
-        return self
+        update { $0.item = .constant(data) }
     }
     
     func data(_ value: Binding<Cell.CellData>) -> Self {
-        item = value
-        return self
+        update { $0.item = value }
     }
     
     func customize(_ value: @escaping (Cell, Cell.CellData) -> Void) -> Self {
-        customize = value
-        return self
+        update { $0.customize = value }
     }
     
     func customize(_ value: @escaping (Cell) -> Void) -> Self {
-        customize = { (cell, _) in value(cell) }
-        return self
+        update { $0.customize = { (cell, _) in value(cell) } }
     }
 }
