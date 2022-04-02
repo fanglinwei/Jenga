@@ -2,12 +2,12 @@ import UIKit
 
 open class TapActionRow<T: TapActionCell>: BasicRow<T>, TapActionRowCompatible, Equatable {
 
+    public var textAlignment: NSTextAlignment = .center
+    
     public override var isSelectable: Bool {
         get { action != nil }
         set {}
     }
-    
-    public var textAlignment: NSTextAlignment = .center
     
     open override func configure(_ cell: UITableViewCell) {
         super.configure(cell)

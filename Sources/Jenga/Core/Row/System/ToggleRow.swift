@@ -17,14 +17,14 @@ open class ToggleRow<Cell: ToggleCell>: BasicRow<Cell>, ToggleRowCompatible, Equ
     
     public var onTap: ((Bool) -> Void)?
     
-    open override func configure(_ cell: UITableViewCell) {
-        super.configure(cell)
-        (cell as? Cell)?.configure(with: (isOn, onTap))
-    }
-    
     public override var isSelectable: Bool {
         get { false }
         set {}
+    }
+    
+    open override func configure(_ cell: UITableViewCell) {
+        super.configure(cell)
+        (cell as? Cell)?.configure(with: (isOn, onTap))
     }
     
     public static func == (lhs: ToggleRow, rhs: ToggleRow) -> Bool {
@@ -38,18 +38,18 @@ open class ToggleRow<Cell: ToggleCell>: BasicRow<Cell>, ToggleRowCompatible, Equ
 public extension ToggleRow {
     
     func isOn(_ value: Bool) -> Self {
-        self.isOn = .constant(value)
+        isOn = .constant(value)
         return self
     }
     
     /// Toggle click
     func onTap(_ value: @escaping (Bool) -> Void) -> Self {
-        self.onTap = value
+        onTap = value
         return self
     }
     
     func onTap<S>(on target: S, _ value: @escaping (S, Bool) -> Void) -> Self where S: AnyObject {
-        self.onTap = { [weak target] isOn in
+        onTap = { [weak target] isOn in
             guard let target = target else { return }
             value(target, isOn)
         }

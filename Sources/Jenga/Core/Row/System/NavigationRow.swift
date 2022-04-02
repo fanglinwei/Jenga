@@ -2,7 +2,7 @@ import UIKit
 
 open class NavigationRow<T: UITableViewCell>: BasicRow<T>, NavigationRowCompatible, Equatable {
         
-    public var accessoryButtonAction: RowAction?
+    private var _accessoryType: UITableViewCell.AccessoryType?
     
     public override var accessoryType: UITableViewCell.AccessoryType {
         get {
@@ -17,7 +17,7 @@ open class NavigationRow<T: UITableViewCell>: BasicRow<T>, NavigationRowCompatib
         set {}
     }
     
-    private var _accessoryType: UITableViewCell.AccessoryType?
+    public var accessoryButtonAction: RowAction?
     
     public override var isSelectable: Bool {
         get { action != nil }
