@@ -21,6 +21,7 @@ class AutoHeightViewController: BaseViewController, DSLAutoTable {
             TableRow<AutoHeightCell>($0)
                 .height(UITableView.highAutomaticDimension)
         }
+        .rowHeight(UITableView.automaticDimension)
         .header("自动计算行高只有在自定义cell类型下才会生效")
         .headerHeight(20)
     }

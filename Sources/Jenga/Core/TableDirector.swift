@@ -180,12 +180,14 @@ extension TableDirector: UITableViewDelegate {
         if !(row is RowSystem) {
             cellRegisterer?.register(cellType: row.cellType, forCellReuseIdentifier: row.reuseIdentifier)
             
-            let isCalculator = row.estimatedHeight.needCalculatorHeight
-            || (row.height.needCalculatorHeight && section.rowHeight.needCalculatorHeight)
+            let isCalculator = row.estimatedHeight == UITableView.highAutomaticDimension
+            || (row.estimatedHeight == nil && row.height == UITableView.highAutomaticDimension)
+            || (row.height == nil && section.rowHeight == UITableView.highAutomaticDimension)
             
             if isCalculator {
                 calculatorHeight = rowHeightCalculator.estimatedHeight(forRow: row, at: indexPath)
             }
+            print("estimatedHeight", isCalculator)
         }
         
         return calculatorHeight.nonEfficient
@@ -202,8 +204,8 @@ extension TableDirector: UITableViewDelegate {
         if !(row is RowSystem) {
             cellRegisterer?.register(cellType: row.cellType, forCellReuseIdentifier: row.reuseIdentifier)
   
-            let isCalculator = row.height.needCalculatorHeight
-            || (row.height == nil && section.rowHeight.needCalculatorHeight)
+            let isCalculator = row.height == UITableView.highAutomaticDimension
+            || (row.height == nil && section.rowHeight == UITableView.highAutomaticDimension)
             
             if isCalculator {
                 calculatorHeight = rowHeightCalculator.height(forRow: row, at: indexPath)
