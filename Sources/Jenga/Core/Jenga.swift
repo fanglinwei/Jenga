@@ -36,14 +36,6 @@ extension JengaProvider {
     }
 }
 
-public protocol RowHeightCalculator {
-    
-    func height(forRow row: Row, at indexPath: IndexPath) -> CGFloat
-    func estimatedHeight(forRow row: Row, at indexPath: IndexPath) -> CGFloat
-    
-    func invalidate()
-}
-
 extension JengaProvider {
         
     static func view(frame: CGRect) -> UITableView {

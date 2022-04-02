@@ -37,6 +37,7 @@ public struct TableRow<Cell: ConfigurableCell>: Row, RowConfigurable {
     
     public var estimatedHeight: RowHeight?
     
+    public var hashValue: Int { ObjectIdentifier(_observer).hashValue }
     private let _observer = _Observer()
     private class _Observer { }
     

@@ -23,6 +23,11 @@ class ViewController: UIViewController, DSLAutoTable {
                     self.navigationController?.pushViewController(CustomViewController(), animated: true)
                 }
 
+            NavigationRow("自定义Cell行高自动计算")
+                .onTap(on: self) { (self) in
+                    self.navigationController?.pushViewController(AutoHeightViewController(), animated: true)
+                }
+            
             NavigationRow("自定义TableView")
                 .onTap(on: self) { (self) in
                     self.navigationController?.pushViewController(CustomTableViewController(), animated: true)

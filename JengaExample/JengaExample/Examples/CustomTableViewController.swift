@@ -8,7 +8,9 @@
 import UIKit
 import Jenga
 
-class CustomTableViewController: UIViewController, DSLTable {
+class CustomTableViewController: BaseViewController, DSLTable {
+    
+    override var pageTitle: String { get { "自定义TableView" } }
     
     @State var array: [String] = (0 ... 100).map { "\($0)" }
         
@@ -27,12 +29,8 @@ class CustomTableViewController: UIViewController, DSLTable {
     }
     
     private func setup() {
-        view.backgroundColor = .white
-        navigationItem.title = "设置"
         view.addSubview(tableView)
     }
-    
-    deinit { print("deinit", classForCoder) }
 }
 
 // DSL

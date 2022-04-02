@@ -8,7 +8,9 @@
 import UIKit
 import Jenga
 
-class EmojiViewController: UIViewController, DSLAutoTable {
+class EmojiViewController: BaseViewController, DSLAutoTable {
+    
+    override var pageTitle: String { get { "分组绑定" } }
     
     @State var emojis: [String] = ["🐶", "🐱", "🐭", "🦁", "🐼"]
     

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 internal extension Collection {
     
@@ -28,5 +29,19 @@ internal extension Optional where Wrapped: Collection {
         guard let collection = self else { return nil }
         guard !collection.isEmpty else { return nil }
         return collection
+    }
+}
+
+extension Optional where Wrapped == CGFloat {
+    
+    var needCalculatorHeight: Bool {
+        guard let float = self else { return false }
+        return float == UITableView.highAutomaticDimension
+    }
+    
+    var nonEfficient: Wrapped? {
+        guard let float = self else { return nil }
+        guard float != UITableView.highAutomaticDimension else { return nil }
+        return float
     }
 }
