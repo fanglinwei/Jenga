@@ -32,7 +32,7 @@ internal extension Optional where Wrapped: Collection {
     }
 }
 
-extension Optional where Wrapped == CGFloat {
+internal extension Optional where Wrapped == CGFloat {
     
     var nonEfficient: Wrapped? {
         guard let float = self else { return nil }
