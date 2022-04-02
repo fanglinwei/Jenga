@@ -18,3 +18,12 @@ extension Update where Self: Any {
         return copy
     }
 }
+
+extension Update where Self: AnyObject {
+    
+    @inlinable
+    public func update(_ block: (Self) throws -> Void) rethrows -> Self {
+        try block(self)
+        return self
+    }
+}

@@ -35,7 +35,6 @@ open class OptionRow<T: UITableViewCell>: BasicRow<T>, OptionRowCompatible, Equa
 public extension OptionRow {
     
     func isSelected(_ value: Bool) -> Self {
-        self.isSelected = value
-        return self
+        update { $0.isSelected = value }
     }
 }
