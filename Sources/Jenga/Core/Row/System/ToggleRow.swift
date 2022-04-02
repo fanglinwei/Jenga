@@ -38,22 +38,20 @@ open class ToggleRow<Cell: ToggleCell>: BasicRow<Cell>, ToggleRowCompatible, Equ
 public extension ToggleRow {
     
     func isOn(_ value: Bool) -> Self {
-        isOn = .constant(value)
-        return self
+        update { $0.isOn = .constant(value) }
     }
     
     /// Toggle click
     func onTap(_ value: @escaping (Bool) -> Void) -> Self {
-        onTap = value
-        return self
+        update { $0.onTap = value }
     }
     
     func onTap<S>(on target: S, _ value: @escaping (S, Bool) -> Void) -> Self where S: AnyObject {
-        onTap = { [weak target] isOn in
-            guard let target = target else { return }
-            value(target, isOn)
+        update {
+            $0.onTap = { [weak target] isOn in
+                guard let target = target else { return }
+                value(target, isOn)
+            }
         }
-        return self
     }
-    
 }

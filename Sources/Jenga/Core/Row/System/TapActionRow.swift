@@ -22,7 +22,6 @@ open class TapActionRow<T: TapActionCell>: BasicRow<T>, TapActionRowCompatible, 
 public extension TapActionRow {
     
     func textAlignment(_ value: NSTextAlignment) -> Self {
-        textAlignment = value
-        return self
+        update { $0.textAlignment = value }
     }
 }
