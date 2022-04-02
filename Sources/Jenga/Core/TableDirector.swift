@@ -187,7 +187,6 @@ extension TableDirector: UITableViewDelegate {
             if isCalculator {
                 calculatorHeight = rowHeightCalculator.estimatedHeight(forRow: row, at: indexPath)
             }
-            print("estimatedHeight", isCalculator)
         }
         
         return calculatorHeight.nonEfficient
