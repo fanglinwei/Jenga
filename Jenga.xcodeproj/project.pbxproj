@@ -234,6 +234,7 @@
 				B37BD5D927F47538009C2244 /* Configurable.swift */,
 				B37BD5DA27F47538009C2244 /* Reusable.swift */,
 				B37BD5DD27F47538009C2244 /* Row.swift */,
+				B37BD5E027F47538009C2244 /* SpacerRow.swift */,
 				B37BD5DF27F47538009C2244 /* System */,
 			);
 			path = Row;
@@ -243,7 +244,6 @@
 			isa = PBXGroup;
 			children = (
 				B37BD5DC27F47538009C2244 /* RowSystem.swift */,
-				B37BD5E027F47538009C2244 /* SpacerRow.swift */,
 				B37BD5E127F47538009C2244 /* OptionRow.swift */,
 				B37BD5E227F47538009C2244 /* TapActionRow.swift */,
 				B37BD5E327F47538009C2244 /* NavigationRow.swift */,
