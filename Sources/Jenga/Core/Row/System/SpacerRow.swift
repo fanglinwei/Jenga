@@ -9,7 +9,7 @@ import UIKit
 
 public struct SpacerRow<T: SpacerCell>: Row {
     
-    let color: UIColor
+    public let color: UIColor
     
     public init(_ height: RowHeight = 10, color: UIColor = .clear) {
         self.height = height
