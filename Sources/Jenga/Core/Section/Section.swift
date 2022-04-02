@@ -39,7 +39,7 @@ public struct HeaderFooter {
     }
 }
 
-public protocol Section: AnyObject {
+public protocol Section: AnyObject, Update {
     
     var rows: [Row] { get set }
     
@@ -62,52 +62,42 @@ public extension Section {
 public extension Section {
     
     func header(_ value: @autoclosure () -> (HeaderFooter)) -> Self {
-        header = value()
-        return self
+        update { $0.header = value() }
     }
     
     func header(_ value: @autoclosure () -> (String?)) -> Self {
-        header.content = .string(value())
-        return self
+        update { $0.header.content = .string(value()) }
     }
 
     func header(_ value: @autoclosure () -> (UIView?)) -> Self {
-        header.content = .view(value())
-        return self
+        update { $0.header.content = .view(value()) }
     }
     
     func footer(_ value: @autoclosure () -> (HeaderFooter)) -> Self {
-        footer = value()
-        return self
+        update { $0.footer = value() }
     }
     
     func footer(_ value: @autoclosure () -> (String?)) -> Self {
-        footer.content = .string(value())
-        return self
+        update { $0.footer.content = .string(value()) }
     }
     
     func footer(_ value: @autoclosure () -> (UIView?)) -> Self {
-        footer.content = .view(value())
-        return self
+        update { $0.footer.content = .view(value()) }
     }
     
     func headerHeight(_ value: @autoclosure () -> (CGFloat)) -> Self {
-        header.height = value()
-        return self
+        update { $0.header.height = value() }
     }
     
     func footerHeight(_ value: @autoclosure () -> (CGFloat)) -> Self {
-        footer.height = value()
-        return self
+        update { $0.footer.height = value() }
     }
     
     func hiddenWithEmpty(_ value: Bool) -> Self {
-        hiddenWithEmpty = value
-        return self
+        update { $0.hiddenWithEmpty = value }
     }
     
     func rowHeight(_ value: @autoclosure () -> (RowHeight)) -> Self {
-        rowHeight = value()
-        return self
+        update { $0.rowHeight = value() }
     }
 }
