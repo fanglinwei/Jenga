@@ -13,17 +13,14 @@ class ViewController: UIViewController, DSLAutoTable {
     @TableBuilder
     var tableBody: [Table] {
         
-        TableHeader("伟大的LEE")
-        
+        TableHeader("我是头部")
         NavigationRow("设置样式")
         NavigationRow("自定义Cell")
         NavigationRow("自定义TableView")
+        TableFooter("我是底部")
         
-        TableFooter("小逼崽子")
-        
-        TableHeader("LEE")
+        TableHeader("第二组")
             .height(100)
-        
-        NavigationRow("测试")
+        NavigationRow("cell")
     }
 }

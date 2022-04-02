@@ -44,7 +44,7 @@ Repository: https://github.com/fanglinwei/Jenga
 
 将以下内容添加到你的 `Package.swift`:
 ```swift
-.package(url: "https://github.com/fanglinwei/Jenga.git", from: "version")
+.package(url: "https://github.com/fanglinwei/Jenga", from: "version")
 ```
 
 
@@ -66,6 +66,17 @@ JengaProvider.setup()
 
 
 
+然后你只需要以下代码就可以构建UITableView
+
+```swift
+@TableBuilder
+var tableBody: [Table] {
+			rows...
+}
+```
+
+
+
 下面是一些简单示例. 支持所有设备和模拟器:
 
 
@@ -77,7 +88,7 @@ import Jenga
 class ViewController: UIViewController, DSLAutoTable {
 
     @TableBuilder
-    var tableContents: [Section] {
+    var tableBody: [Table] {
         TableSection {
             
             NavigationRow("设置样式")
@@ -104,7 +115,7 @@ class ViewController: UIViewController, DSLAutoTable {
 
 ```swift
 @TableBuilder
-    var tableContents: [Section] {
+    var tableBody: [Table] {
         
         TableSection {
             
@@ -145,7 +156,7 @@ class ViewController: UIViewController, DSLAutoTable {
 
     // DSL
     @TableBuilder
-    var tableContents: [Section] {
+    var tableBody: [Table] {
         
         TableSection {
             NavigationRow($text)
@@ -177,7 +188,7 @@ class ViewController: UIViewController, DSLAutoTable {
     }
 ```
 
-更改状态
+修改`State`状态
 
 ```swift
 text = "Swift"
@@ -201,7 +212,7 @@ isShowCat = true
     
     // DSL
     @TableBuilder
-    var tableContents: [Section] {
+    var tableBody: [Table] {
         
         TableSection(binding: $emojis) {
             TableRow<EmojiCell>()
@@ -239,6 +250,28 @@ isShowCat = true
 <div align="center">
 <img src="Resources/section_binding.png" alt="Stroke" width="40%" />
 </div>
+
+
+#### 超级简单模式:
+
+```swift
+    @TableBuilder
+    var tableBody: [Table] {
+        
+        TableHeader("我是头部")
+        NavigationRow("设置样式")
+        NavigationRow("自定义Cell")
+        NavigationRow("自定义TableView")
+        TableFooter("我是底部")
+        
+        TableHeader("第二组")
+            .height(100)
+        NavigationRow("cell")
+    }
+```
+
+
+
 更多示例请查看工程应用.
 
 
@@ -272,7 +305,7 @@ isShowCat = true
 
    ```swift
        @TableBuilder
-       var tableContents: [Section] {
+       var tableBody: [Table]] {
            
            TableSection(binding: $array) {
                TableRow<EmojiCell>()
@@ -291,6 +324,28 @@ isShowCat = true
 
 好了 你的列表完成了
 
+#### 自动计算缓存行高:
+
+实现思路灵感来源于[FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)
+
+你可以设置高度为`UITableView.highAutomaticDimension`来开启自动计算缓存行高, `row`和`section`都可以
+
+在项目中查看`AutoHeightViewController`即可
+
+```swift
+// row
+NavigationRow()
+	.height(UITableView.highAutomaticDimension)
+
+// section
+TableSection {
+  rows...
+}
+.rowHeight(UITableView.highAutomaticDimension)
+```
+
+
+
 ## `RowSystem`的协议提供链式
 
 | Row                     | 描述               |
@@ -308,17 +363,16 @@ isShowCat = true
 | `onTap`                 | 点击事件              |
 | `customize`             | 自定义              |
 
-
-
 ## 贡献
 
 如果您需要实现特定功能或遇到错误，请打开issue。
 如果您自己扩展了Jenga的功能并希望其他人也使用它，请提交拉取请求。
 
-## 借鉴思路来源
+## 思路来源
 - [LazyFish](https://github.com/zjam9333/LazyFish)
 - [QuickTableViewController](https://github.com/bcylin/QuickTableViewController)
 - [TableKit](https://github.com/maxsokolov/TableKit)
+- [FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)
 
 ## 协议
 

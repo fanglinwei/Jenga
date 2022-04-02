@@ -19,6 +19,7 @@ class AutoHeightViewController: BaseViewController, DSLAutoTable {
     var tableBody: [Table] {
         TableSection.init(binding: $datas) {
             TableRow<AutoHeightCell>($0)
+                .height(UITableView.highAutomaticDimension)
         }
         .rowHeight(UITableView.highAutomaticDimension)
         .headerHeight(20)
