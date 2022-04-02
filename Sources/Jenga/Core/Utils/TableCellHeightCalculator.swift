@@ -45,11 +45,15 @@ open class TableCellHeightCalculator: RowHeightCalculator {
         
         cell.prepareForReuse()
         (row as? RowConfigurable)?.configure(cell)
-        cell.bounds = CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: cell.bounds.height)
         /* ======================================================================================= */
+        // insetGrouped
+        let insetGroupedWidth = tableView.subviews.first { "\($0.classForCoder)" == "UITableViewWrapperView" }?.frame.width
+        // sectionIndex
+        let rightSystemViewsWidth = tableView.subviews.first { "\($0.classForCoder)" == "UITableViewIndex" }?.frame.width ?? 0
         // 计算行高参考: https://github.com/forkingdog/UITableView-FDTemplateLayoutCell
-        let contentViewWidth = tableView.frame.width
-        cell.bounds = CGRect(x: 0, y: 0, width: contentViewWidth, height: cell.bounds.height)
+        let contentViewWidth = insetGroupedWidth ?? (tableView.frame.width - rightSystemViewsWidth)
+        cell.bounds = CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: cell.bounds.height)
+        
         let widthConstraint = NSLayoutConstraint(item: cell.contentView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: contentViewWidth)
         cell.contentView.addConstraint(widthConstraint)
         var edgeConstraints: [NSLayoutConstraint] = []
