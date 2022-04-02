@@ -37,6 +37,7 @@ extension Optional where Wrapped == CGFloat {
     var nonEfficient: Wrapped? {
         guard let float = self else { return nil }
         guard float != UITableView.highAutomaticDimension else { return nil }
+        guard float != 0 else { return nil }
         return float
     }
 }

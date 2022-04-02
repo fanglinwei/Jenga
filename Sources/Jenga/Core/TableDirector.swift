@@ -176,17 +176,17 @@ extension TableDirector: UITableViewDelegate {
         let section = sections[indexPath.section]
         let row = section.rows[indexPath.row]
         
-        var calculatorHeight: CGFloat? = nil
         if !(row is RowSystem) {
             cellRegisterer?.register(cellType: row.cellType, forCellReuseIdentifier: row.reuseIdentifier)
-            
-            let isCalculator = row.estimatedHeight == UITableView.highAutomaticDimension
-            || (row.estimatedHeight == nil && row.height == UITableView.highAutomaticDimension)
-            || (row.estimatedHeight == nil && row.height == nil && section.rowHeight == UITableView.highAutomaticDimension)
-            
-            if isCalculator {
-                calculatorHeight = rowHeightCalculator.estimatedHeight(forRow: row, at: indexPath)
-            }
+        }
+        
+        var calculatorHeight: CGFloat? = nil
+        let isCalculator = row.estimatedHeight == UITableView.highAutomaticDimension
+        || (row.estimatedHeight == nil && row.height == UITableView.highAutomaticDimension)
+        || (row.estimatedHeight == nil && row.height == nil && section.rowHeight == UITableView.highAutomaticDimension)
+        
+        if isCalculator {
+            calculatorHeight = rowHeightCalculator.estimatedHeight(forRow: row, at: indexPath)
         }
         
         return calculatorHeight.nonEfficient
@@ -199,16 +199,16 @@ extension TableDirector: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let section = sections[indexPath.section]
         let row = section.rows[indexPath.row]
-        var calculatorHeight: CGFloat? = nil
+        
         if !(row is RowSystem) {
             cellRegisterer?.register(cellType: row.cellType, forCellReuseIdentifier: row.reuseIdentifier)
-  
-            let isCalculator = row.height == UITableView.highAutomaticDimension
-            || (row.height == nil && section.rowHeight == UITableView.highAutomaticDimension)
-            
-            if isCalculator {
-                calculatorHeight = rowHeightCalculator.height(forRow: row, at: indexPath)
-            }
+        }
+        var calculatorHeight: CGFloat? = nil
+        let isCalculator = row.height == UITableView.highAutomaticDimension
+        || (row.height == nil && section.rowHeight == UITableView.highAutomaticDimension)
+        
+        if isCalculator {
+            calculatorHeight = rowHeightCalculator.height(forRow: row, at: indexPath)
         }
         return calculatorHeight.nonEfficient
         ?? row.height.nonEfficient

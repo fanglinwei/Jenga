@@ -10,7 +10,7 @@ import Jenga
 
 class AutoHeightViewController: BaseViewController, DSLAutoTable {
     
-    override var pageTitle: String { get { "自定义计算行高" } }
+    override var pageTitle: String { get { "自动计算缓存行高" } }
     
     @State private var datas = contents
     
@@ -19,11 +19,49 @@ class AutoHeightViewController: BaseViewController, DSLAutoTable {
     var tableContents: [Section] {
         TableSection.init(binding: $datas) {
             TableRow<AutoHeightCell>($0)
-                .height(UITableView.highAutomaticDimension)
         }
-        .rowHeight(UITableView.automaticDimension)
-        .header("自动计算行高只有在自定义cell类型下才会生效")
+        .rowHeight(UITableView.highAutomaticDimension)
         .headerHeight(20)
+        
+        // 系统样式暴力测试
+        TableSection {
+            NavigationRow("Value1")
+                .detailText("Value1")
+            
+            NavigationRow("SubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitle")
+                .detailText(.subtitle("SubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitle"))
+                .customize { cell in
+                    cell.textLabel?.numberOfLines = 0
+                    cell.detailTextLabel?.numberOfLines = 0
+                }
+            
+            NavigationRow("Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2")
+                .detailText(.value2("Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2"))
+                .customize { cell in
+                    cell.textLabel?.numberOfLines = 0
+                    cell.detailTextLabel?.numberOfLines = 0
+                }
+            
+            NavigationRow("修改样式")
+                .detailText(.subtitle("123123"))
+                .text(\.font, .systemFont(ofSize: 20, weight: .semibold))
+                .text(\.color, .orange)
+                .detail(\.font, .systemFont(ofSize: 11, weight: .light))
+                .detail(\.color, .blue)
+                .detail(\.edgeInsets, .init(top: 20, left: 30, bottom: 0, right: 0))
+                .accessoryType(.disclosureIndicator)
+                .customize { cell in
+                    cell.backgroundColor = .green
+                }
+            
+            ToggleRow("Switch", isOn: .constant(false))
+                .detailText(.subtitle("SubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitle"))
+                .customize { cell in
+                    cell.detailTextLabel?.numberOfLines = 0
+                }
+        }
+        .rowHeight(UITableView.highAutomaticDimension)
+        .header("detailText")
     }
 }
 

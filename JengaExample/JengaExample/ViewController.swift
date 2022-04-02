@@ -23,7 +23,7 @@ class ViewController: UIViewController, DSLAutoTable {
                     self.navigationController?.pushViewController(CustomViewController(), animated: true)
                 }
 
-            NavigationRow("自定义Cell行高自动计算")
+            NavigationRow("自动计算缓存行高")
                 .onTap(on: self) { (self) in
                     self.navigationController?.pushViewController(AutoHeightViewController(), animated: true)
                 }

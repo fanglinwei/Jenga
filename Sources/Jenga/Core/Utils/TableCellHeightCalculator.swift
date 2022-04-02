@@ -36,8 +36,16 @@ open class TableCellHeightCalculator: RowHeightCalculator {
         
         var prototypeCell = prototypes[row.reuseIdentifier]
         if prototypeCell == nil {
-            
-            prototypeCell = tableView.dequeueReusableCell(withIdentifier: row.reuseIdentifier)
+            if let row = row as? RowSystem {
+                prototypeCell =
+                tableView.dequeueReusableCell(withIdentifier: row.reuseIdentifier) ??
+                row.cellType.init(style: row.cellStyle, reuseIdentifier: row.reuseIdentifier)
+                
+            } else {
+
+                prototypeCell =
+                tableView.dequeueReusableCell(withIdentifier: row.reuseIdentifier)
+            }
             prototypes[row.reuseIdentifier] = prototypeCell
         }
         
@@ -46,12 +54,29 @@ open class TableCellHeightCalculator: RowHeightCalculator {
         cell.prepareForReuse()
         (row as? RowConfigurable)?.configure(cell)
         /* ======================================================================================= */
+        // 计算行高参考: https://github.com/forkingdog/UITableView-FDTemplateLayoutCell
         // insetGrouped
         let insetGroupedWidth = tableView.subviews.first { "\($0.classForCoder)" == "UITableViewWrapperView" }?.frame.width
         // sectionIndex
-        let rightSystemViewsWidth = tableView.subviews.first { "\($0.classForCoder)" == "UITableViewIndex" }?.frame.width ?? 0
-        // 计算行高参考: https://github.com/forkingdog/UITableView-FDTemplateLayoutCell
-        let contentViewWidth = insetGroupedWidth ?? (tableView.frame.width - rightSystemViewsWidth)
+        var rightSystemViewsWidth = tableView.subviews.first { "\($0.classForCoder)" == "UITableViewIndex" }?.frame.width ?? 0
+        if let accessoryView = cell.accessoryView {
+            rightSystemViewsWidth += 16 + accessoryView.frame.width
+        } else {
+            switch cell.accessoryType {
+            case .none:                          rightSystemViewsWidth += 0
+            case .checkmark:                     rightSystemViewsWidth += 40
+            case .detailButton:                  rightSystemViewsWidth += 48
+            case .disclosureIndicator:           rightSystemViewsWidth += 34
+            case .detailDisclosureButton:        rightSystemViewsWidth += 68
+            @unknown default:                    rightSystemViewsWidth += 0
+            }
+        }
+
+        if (UIScreen.main.scale >= 3 && UIScreen.main.bounds.size.width >= 414) {
+            rightSystemViewsWidth += 4
+        }
+        
+        let contentViewWidth = (insetGroupedWidth ?? tableView.frame.width) - rightSystemViewsWidth
         cell.bounds = CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: cell.bounds.height)
         
         let widthConstraint = NSLayoutConstraint(item: cell.contentView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: contentViewWidth)
