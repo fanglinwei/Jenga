@@ -13,8 +13,6 @@ public struct AsyncImage: Jenga.AsyncImage {
     
     public var downloadURL: URL { source.downloadURL }
     
-    
-    /// The initializer is kept private until v2.0 when `methodSignature` is removed.
     public init(_ source: Resource, placeholder: Placeholder? = .none, options: KingfisherOptionsInfo = []) {
         self.source = source
         self.placeholder = placeholder
@@ -49,6 +47,7 @@ public struct AsyncImage: Jenga.AsyncImage {
     }
 }
 
+extension AsyncImage: Update { }
 public extension AsyncImage {
     
     static func async(_ source: Resource, placeholder: Placeholder? = .none, options: KingfisherOptionsInfo = []) -> Self {
@@ -56,50 +55,46 @@ public extension AsyncImage {
     }
     
     func placeholder(_ value: Placeholder?) -> Self {
-        var temp = self
-        temp.placeholder = value
-        return temp
+        update { $0.placeholder = value }
     }
     
     func by(size: CGSize) -> Self {
-        var temp = self
-        temp.processor = RoundCornerImageProcessor(
-            radius: processor.radius,
-            targetSize: size,
-            roundingCorners: processor.roundingCorners,
-            backgroundColor: processor.backgroundColor
-        )
-        return temp
+        update {
+            $0.processor = RoundCornerImageProcessor(
+                radius: processor.radius,
+                targetSize: size,
+                roundingCorners: processor.roundingCorners,
+                backgroundColor: processor.backgroundColor
+            )
+        }
     }
     
     func by(const: CGFloat) -> Self {
-        by(size: CGSize.init(width: const, height: const))
+        by(size: CGSize(width: const, height: const))
     }
     
     func by(roundingCorners value: RectCorner) -> Self {
-        var temp = self
-        temp.processor = RoundCornerImageProcessor(
-            radius: processor.radius,
-            targetSize: processor.targetSize,
-            roundingCorners: value,
-            backgroundColor: processor.backgroundColor
-        )
-        return temp
+        update {
+            $0.processor = RoundCornerImageProcessor(
+                radius: processor.radius,
+                targetSize: processor.targetSize,
+                roundingCorners: value,
+                backgroundColor: processor.backgroundColor
+            )
+        }
     }
-}
-
-public extension AsyncImage {
     
     func by(cornerRadius value: CGFloat? = nil) -> Self {
-        var temp = self
         let radius: RoundCornerImageProcessor.Radius = value != nil ? .point(value!) : .widthFraction(0.5)
-        temp.processor = RoundCornerImageProcessor(
-            radius: radius,
-            targetSize: processor.targetSize,
-            roundingCorners: processor.roundingCorners,
-            backgroundColor: processor.backgroundColor
-        )
-        return temp
+        
+        return update {
+            $0.processor = RoundCornerImageProcessor(
+                radius: radius,
+                targetSize: processor.targetSize,
+                roundingCorners: processor.roundingCorners,
+                backgroundColor: processor.backgroundColor
+            )
+        }
     }
 }
 
