@@ -10,7 +10,7 @@ import UIKit
 public protocol TextKey {
     associatedtype Value
     static var defaultValue: Value { get }
-    static func systemRowText(with label: UILabel?, didChanged value: Value)
+    static func perform(with label: UILabel?, didChanged value: Value)
 }
 
 public struct TextValues: Equatable {
@@ -61,7 +61,7 @@ private struct OptionsKeys: Hashable {
             guard let value = value as? T.Value else {
                 return
             }
-            type.systemRowText(with: label, didChanged: value)
+            type.perform(with: label, didChanged: value)
         }
     }
     
@@ -105,35 +105,35 @@ extension TextValues {
     
     private struct StringKey: TextKey {
         static let defaultValue: String? = nil
-        static func systemRowText(with label: UILabel?, didChanged value: String?) {
+        static func perform(with label: UILabel?, didChanged value: String?) {
             label?.text = value
         }
     }
 
     private struct AttributedStringKey: TextKey {
         static let defaultValue: NSAttributedString? = nil
-        static func systemRowText(with label: UILabel?, didChanged value: NSAttributedString?) {
+        static func perform(with label: UILabel?, didChanged value: NSAttributedString?) {
             label?.attributedText = value
         }
     }
 
     private struct FontKey: TextKey {
         static let defaultValue: UIFont? = nil
-        static func systemRowText(with label: UILabel?, didChanged value: UIFont?) {
+        static func perform(with label: UILabel?, didChanged value: UIFont?) {
             label?.font = value
         }
     }
 
     private struct TextColorKey: TextKey {
         static let defaultValue: UIColor? = nil
-        static func systemRowText(with label: UILabel?, didChanged value: UIColor?) {
+        static func perform(with label: UILabel?, didChanged value: UIColor?) {
             label?.textColor = value
         }
     }
     
     private struct NumberOfLinesKey: TextKey {
         static let defaultValue: Int = 1
-        static func systemRowText(with label: UILabel?, didChanged value: Int) {
+        static func perform(with label: UILabel?, didChanged value: Int) {
             label?.numberOfLines = value
         }
     }

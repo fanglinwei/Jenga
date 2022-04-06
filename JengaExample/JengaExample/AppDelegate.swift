@@ -44,12 +44,8 @@ struct JengaProvider: Jenga.JengaProvider {
         }
         return tableView
     }
-    
-    func systemRowText(with label: UILabel?, didChanged textValues: TextValues) {
-        label?.edgeInsets = textValues.edgeInsets
-    }
 }
-
+/// 扩展TextValues属性
 extension TextValues {
     
     var edgeInsets: UIEdgeInsets {
@@ -60,7 +56,7 @@ extension TextValues {
     private struct EdgeInsetKey: TextKey {
         static let defaultValue: UIEdgeInsets = .zero
         
-        static func systemRowText(with label: UILabel?, didChanged textValues: UIEdgeInsets) {
+        static func perform(with label: UILabel?, didChanged textValues: UIEdgeInsets) {
             label?.edgeInsets = textValues
         }
     }
