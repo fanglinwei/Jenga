@@ -46,7 +46,7 @@ struct JengaProvider: Jenga.JengaProvider {
     }
     
     func systemRowText(with label: UILabel?, didChanged textValues: TextValues) {
-        label.edgeInsets = textValues.edgeInsets
+        label?.edgeInsets = textValues.edgeInsets
     }
 }
 
