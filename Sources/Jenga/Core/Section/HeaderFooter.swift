@@ -48,7 +48,7 @@ public enum HeaderFooterModel {
             case let .view(value, _):
                 self = .view(value, height: newValue)
             case .clean:
-                break
+                self = .string(nil, height: newValue)
             }
         }
     }

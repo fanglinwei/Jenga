@@ -162,6 +162,7 @@ extension SettingViewController {
                     self.isRed.toggle()
                 }
         }
+        .headerHeight(30)
 //        .header("Badge")
         .rowHeight(52)
     }
