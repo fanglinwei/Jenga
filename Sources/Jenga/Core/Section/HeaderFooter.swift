@@ -7,48 +7,46 @@
 
 import UIKit
 
-public struct HeaderFooterModel {
+public enum HeaderFooterModel {
     
-    var height: CGFloat?
-    var content: Content
+    case string(String?, height: CGFloat? = nil)
+    case view(UIView?, height: CGFloat? = nil)
+    case clean
     
     var title: String? {
-        switch content {
-        case .string(let value):     return value
-        case .view:                  return nil
-        case .clean:                 return nil
+        switch self {
+        case let .string(value, _):      return value
+        case .view:                      return nil
+        case .clean:                     return nil
         }
     }
     
     var view: UIView? {
-        switch content {
-        case .string:               return nil
-        case .view(let value):      return value
-        case .clean:                return nil
+        switch self {
+        case .string:                    return nil
+        case let .view(value, _):        return value
+        case .clean:                     return nil
         }
     }
     
-    enum Content {
-        case string(String?)
-        case view(UIView?)
-        case clean
-    }
-    
-    init( content: Content = .string(nil), height: CGFloat? = UITableView.zero) {
-        self.height = height
-        self.content = content
-    }
-    
-    public static var clean: HeaderFooterModel {
-        .init(content: .clean, height: UITableView.zero)
-    }
-    
-    public static func string(_ value: String?) -> Self {
-        .init(content: .string(value))
-    }
-    
-    public static func view(_ value: UIView?) -> Self {
-        .init(content: .view(value))
+    var height: CGFloat? {
+        get {
+            switch self {
+            case let .string(_, height):     return height
+            case let .view(_, height):       return height
+            case .clean:                     return UITableView.zero
+            }
+        }
+        set {
+            switch self {
+            case let .string(value, _):
+                self = .string(value, height: newValue)
+            case let .view(value, _):
+                self = .view(value, height: newValue)
+            case .clean:
+                break
+            }
+        }
     }
 }
 
@@ -66,7 +64,7 @@ public protocol Footer: HeaderFooter { }
 
 public struct TableHeader: Header {
     
-    public var model = HeaderFooterModel()
+    public var model = HeaderFooterModel.string(nil, height: nil)
     
     public var rowHeight: CGFloat?
     
@@ -75,15 +73,15 @@ public struct TableHeader: Header {
     public init() {}
     
     public init(_ height: CGFloat) {
-        model = .init(height: height)
+        model = .string(nil, height: height)
     }
     
     public init(_ value: @autoclosure () -> (String)) {
-        model.content = .string(value())
+        model = .string(value())
     }
     
     public init(_ value: @autoclosure () -> (UIView)) {
-        model.content = .view(value())
+        model = .view(value())
     }
     
     public init(_ value: @autoclosure () -> (HeaderFooterModel)) {
@@ -93,7 +91,7 @@ public struct TableHeader: Header {
 
 public struct TableFooter: Footer {
     
-    public var model = HeaderFooterModel()
+    public var model = HeaderFooterModel.string(nil, height: nil)
     
     public var rowHeight: CGFloat?
     
@@ -102,15 +100,15 @@ public struct TableFooter: Footer {
     public init() {}
     
     public init(_ height: CGFloat) {
-        model = .init(height: height)
+        model = .string(nil, height: height)
     }
     
     public init(_ value: @autoclosure () -> (String)) {
-        model.content = .string(value())
+        model = .string(value())
     }
     
     public init(_ value: @autoclosure () -> (UIView)) {
-        model.content = .view(value())
+        model = .view(value())
     }
     
     public init(_ value: @autoclosure () -> (HeaderFooterModel)) {

@@ -34,11 +34,11 @@ public extension Section {
     }
     
     func header(_ value: @autoclosure () -> (String)) -> Self {
-        update { $0.header.content = .string(value()) }
+        update { $0.header = .string(value()) }
     }
     
     func header(_ value: @autoclosure () -> (UIView)) -> Self {
-        update { $0.header.content = .view(value()) }
+        update { $0.header = .view(value()) }
     }
     
     func footer(_ value: @autoclosure () -> (HeaderFooterModel)) -> Self {
@@ -46,11 +46,11 @@ public extension Section {
     }
     
     func footer(_ value: @autoclosure () -> (String)) -> Self {
-        update { $0.footer.content = .string(value()) }
+        update { $0.footer = .string(value()) }
     }
     
     func footer(_ value: @autoclosure () -> (UIView)) -> Self {
-        update { $0.footer.content = .view(value()) }
+        update { $0.footer = .view(value()) }
     }
     
     func headerHeight(_ value: @autoclosure () -> (CGFloat)) -> Self {

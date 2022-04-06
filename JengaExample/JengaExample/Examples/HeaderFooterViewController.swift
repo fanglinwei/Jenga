@@ -50,6 +50,11 @@ extension HeaderFooterViewController {
         NavigationRow("关怀模式")
         TableFooter(.clean)
         
+        TableHeader(.string("123"))
+            .height(100)
+        NavigationRow("青少年模式")
+        NavigationRow("关怀模式")
+        
         TableSection {
             NavigationRow("编辑").icon(.image(named: "编辑"))
             NavigationRow("打卡").icon(.image(named: "打卡"))
@@ -83,6 +88,7 @@ extension HeaderFooterViewController {
                 }
         }
         .header("async icon")
+        .headerHeight(100)
     }
 }
 
