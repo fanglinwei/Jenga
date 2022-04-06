@@ -19,7 +19,7 @@ open class BasicRow<T: UITableViewCell>: RowSystem, RowConfigurable {
     
     // MARK: - Row
     /// The text of the row.
-    public var text: Binding<Text>
+    public var text: Binding<TextValues>
     
     /// The detail text of the row.
     public var detailText: Binding<DetailText> = .constant(.none)
@@ -67,7 +67,7 @@ open class BasicRow<T: UITableViewCell>: RowSystem, RowConfigurable {
         cell.imageView?.image = nil
         cell.imageView?.highlightedImage = nil
         // 再设置内容
-        JengaProvider.defaultHandle?(cell, self)
+        JengaEnvironment.provider.default(with: cell, self)
         
         defaultSetup(with: cell)
         guard let cell = cell as? T else { return }
@@ -102,7 +102,9 @@ extension BasicRow {
             text.attributedString.map { cell.textLabel?.attributedText = $0 }
             text.color.map { cell.textLabel?.textColor = $0 }
             text.font.map { cell.textLabel?.font = $0 }
-            cell.textLabel?.edgeInsets = text.edgeInsets
+            cell.textLabel.map {
+                JengaEnvironment.provider.systemRowText(with: $0, didChanged: text)
+            }
         }
         
         // 绑定子标题
@@ -114,11 +116,14 @@ extension BasicRow {
                 cell.detailTextLabel?.text = nil
                 
             case .subtitle, .value1, .value2:
-                change.new.text.string.map { cell.detailTextLabel?.text = $0 }
-                change.new.text.attributedString.map { cell.detailTextLabel?.attributedText = $0 }
-                change.new.text.color.map { cell.detailTextLabel?.textColor = $0 }
-                change.new.text.font.map { cell.detailTextLabel?.font = $0 }
-                cell.detailTextLabel?.edgeInsets = change.new.text.edgeInsets
+                let text = change.new.text
+                text.string.map { cell.detailTextLabel?.text = $0 }
+                text.attributedString.map { cell.detailTextLabel?.attributedText = $0 }
+                text.color.map { cell.detailTextLabel?.textColor = $0 }
+                text.font.map { cell.detailTextLabel?.font = $0 }
+                cell.detailTextLabel.map {
+                    JengaEnvironment.provider.systemRowText(with: $0, didChanged: text)
+                }
             }
         }
         

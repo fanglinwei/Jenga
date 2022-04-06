@@ -4,7 +4,7 @@ import UIKit
 public protocol RowSystem: Row {
     
     /// The text of the row.
-    var text: Binding<Text> { get set }
+    var text: Binding<TextValues> { get set }
     /// The detail text of the row.
     var detailText: Binding<DetailText> { get set }
     
@@ -58,11 +58,11 @@ public extension RowSystem {
         }
     }
     
-    func text<Value>(_ keyPath: WritableKeyPath<Text, Value>, _ value: Value) -> Self {
+    func text<Value>(_ keyPath: WritableKeyPath<TextValues, Value>, _ value: Value) -> Self {
         update { $0.text = text.map { $0.with(keyPath, value) } }
     }
     
-    func detail<Value>(_ keyPath: WritableKeyPath<Text, Value>, _ value: Value) -> Self {
+    func detail<Value>(_ keyPath: WritableKeyPath<TextValues, Value>, _ value: Value) -> Self {
         update {
             $0.detailText = detailText.map { detailText in
                 var temp = detailText
@@ -72,12 +72,12 @@ public extension RowSystem {
         }
     }
     
-    func text<Value>(_ keyPath: WritableKeyPath<Text, Value>, _ binding: Binding<Value>) -> Self {
+    func text<Value>(_ keyPath: WritableKeyPath<TextValues, Value>, _ binding: Binding<Value>) -> Self {
         let temp = text.wrappedValue
         return update { $0.text = binding.map { temp.with(keyPath, $0) } }
     }
     
-    func detail<Value>(_ keyPath: WritableKeyPath<Text, Value>, _ binding: Binding<Value>) -> Self {
+    func detail<Value>(_ keyPath: WritableKeyPath<TextValues, Value>, _ binding: Binding<Value>) -> Self {
         var temp = detailText.wrappedValue
         return update {
             $0.detailText = binding.map { value  in

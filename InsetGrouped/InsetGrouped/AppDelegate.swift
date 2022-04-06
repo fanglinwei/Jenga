@@ -14,9 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        JengaProvider.setup()
+        JengaEnvironment.setup()
         
-        JengaProvider.autoTable { frame in
+        JengaEnvironment.autoTable { frame in
             let tableView: UITableView
             if #available(iOS 13.0, *) {
                 tableView = UITableView(frame: frame, style: .insetGrouped)

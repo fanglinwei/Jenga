@@ -14,8 +14,8 @@ public struct HeaderFooterModel {
     
     var title: String? {
         switch content {
-        case .string(let value):    return value
-        case .view:                 return nil
+        case .string(let value):     return value
+        case .view:                  return nil
         case .clean:                 return nil
         }
     }
@@ -24,7 +24,7 @@ public struct HeaderFooterModel {
         switch content {
         case .string:               return nil
         case .view(let value):      return value
-        case .clean:                 return nil
+        case .clean:                return nil
         }
     }
     
@@ -90,7 +90,7 @@ public struct TableHeader: Header {
     public init(_ value: @autoclosure () -> (String)) {
         model.content = .string(value())
     }
-
+    
     public init(_ value: @autoclosure () -> (UIView)) {
         model.content = .view(value())
     }
@@ -119,7 +119,7 @@ public struct TableFooter: Footer {
     public init(_ value: @autoclosure () -> (String)) {
         model.content = .string(value())
     }
-
+    
     public init(_ value: @autoclosure () -> (UIView)) {
         model.content = .view(value())
     }
@@ -144,7 +144,7 @@ public extension TableHeader {
 }
 
 public extension TableFooter {
-
+    
     func height(_ value: @autoclosure () -> (CGFloat)) -> Self {
         update { $0.model.height = value() }
     }

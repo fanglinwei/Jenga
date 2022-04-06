@@ -64,5 +64,5 @@ extension UILabel {
             let swizzledSelector = #selector(UILabel.jenga_drawText)
             swizzled_method(originalSelector, swizzledSelector)
         }
-    } ()
+    }()
 }
