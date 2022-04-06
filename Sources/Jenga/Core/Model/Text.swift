@@ -36,7 +36,7 @@ public struct TextValues: Equatable {
         lhs.string == rhs.string && lhs.attributedString == rhs.attributedString
     }
     
-    func perform(_ label: UILabel?) {
+    internal func perform(_ label: UILabel?) {
         options.forEach { $0.key.perform(with: label, didChanged: $0.value) }
     }
 }
