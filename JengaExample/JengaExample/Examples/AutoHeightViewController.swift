@@ -29,17 +29,13 @@ class AutoHeightViewController: BaseViewController, DSLAutoTable {
             
             NavigationRow("SubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitle")
                 .detailText(.subtitle("SubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitle"))
-                .customize { cell in
-                    cell.textLabel?.numberOfLines = 0
-                    cell.detailTextLabel?.numberOfLines = 0
-                }
+                .detail(\.numberOfLines, 0)
+                .text(\.numberOfLines, 0)
             
             NavigationRow("Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2")
                 .detailText(.value2("Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2Value2"))
-                .customize { cell in
-                    cell.textLabel?.numberOfLines = 0
-                    cell.detailTextLabel?.numberOfLines = 0
-                }
+                .detail(\.numberOfLines, 0)
+                .text(\.numberOfLines, 0)
             
             NavigationRow("修改样式")
                 .detailText(.subtitle("123123"))
@@ -55,9 +51,7 @@ class AutoHeightViewController: BaseViewController, DSLAutoTable {
             
             ToggleRow("Switch", isOn: .constant(false))
                 .detailText(.subtitle("SubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitle"))
-                .customize { cell in
-                    cell.detailTextLabel?.numberOfLines = 0
-                }
+                .detail(\.numberOfLines, 0)
         }
         .rowHeight(UITableView.highAutomaticDimension)
         .header("detailText")

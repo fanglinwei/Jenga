@@ -11,8 +11,6 @@ import Jenga
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         JengaEnvironment.setup(JengaProvider())
         return true
@@ -47,7 +45,7 @@ struct JengaProvider: Jenga.JengaProvider {
         return tableView
     }
     
-    func systemRowText(with label: UILabel, didChanged textValues: TextValues) {
+    func systemRowText(with label: UILabel?, didChanged textValues: TextValues) {
         label.edgeInsets = textValues.edgeInsets
     }
 }

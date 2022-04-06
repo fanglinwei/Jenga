@@ -31,7 +31,7 @@ public protocol JengaProvider {
     
     func defaultTableView(with frame: CGRect) -> UITableView
     
-    func systemRowText(with label: UILabel, didChanged textValues: TextValues)
+    func systemRowText(with label: UILabel?, didChanged textValues: TextValues)
 }
 
 public extension JengaProvider {
@@ -48,7 +48,7 @@ public extension JengaProvider {
         return tableView
     }
     
-    func systemRowText(with label: UILabel, didChanged textValues: TextValues) { }
+    func systemRowText(with label: UILabel?, didChanged textValues: TextValues) { }
 }
 
 

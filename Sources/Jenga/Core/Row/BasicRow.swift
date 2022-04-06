@@ -103,9 +103,7 @@ extension BasicRow {
             text.color.map { cell.textLabel?.textColor = $0 }
             text.font.map { cell.textLabel?.font = $0 }
             cell.textLabel?.numberOfLines = text.numberOfLines
-            cell.textLabel.map {
-                JengaEnvironment.provider.systemRowText(with: $0, didChanged: text)
-            }
+            JengaEnvironment.provider.systemRowText(with: cell.textLabel, didChanged: text)
         }
         
         // 绑定子标题
@@ -123,9 +121,7 @@ extension BasicRow {
                 text.color.map { cell.detailTextLabel?.textColor = $0 }
                 text.font.map { cell.detailTextLabel?.font = $0 }
                 cell.detailTextLabel?.numberOfLines = text.numberOfLines
-                cell.detailTextLabel.map {
-                    JengaEnvironment.provider.systemRowText(with: $0, didChanged: text)
-                }
+                JengaEnvironment.provider.systemRowText(with: cell.detailTextLabel, didChanged: text)
             }
         }
         
