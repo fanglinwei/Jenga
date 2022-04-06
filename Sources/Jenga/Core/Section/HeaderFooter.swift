@@ -34,22 +34,21 @@ public struct HeaderFooterModel {
         case clean
     }
     
-    public init() {
-        self.height = nil
-        self.content = .string(nil)
-    }
-    
-    public static func height(_ value: CGFloat) -> Self {
-        var temp = self.init()
-        temp.height = value
-        return temp
+    init( content: Content = .string(nil), height: CGFloat? = nil) {
+        self.height = height
+        self.content = content
     }
     
     public static var clean: HeaderFooterModel {
-        var temp = self.init()
-        temp.height = UITableView.zero
-        temp.content = .clean
-        return temp
+        .init(content: .clean, height: UITableView.zero)
+    }
+    
+    public static func string(_ value: String?) -> Self {
+        .init(content: .string(value))
+    }
+    
+    public static func view(_ value: UIView?) -> Self {
+        .init(content: .view(value))
     }
 }
 
@@ -60,8 +59,6 @@ public protocol HeaderFooter {
     var rowHeight: CGFloat? { get set }
     
     var hiddenWithEmpty: Bool { get set }
-    
-    static var clean: Self { get }
 }
 
 public protocol Header: HeaderFooter { }
@@ -75,16 +72,10 @@ public struct TableHeader: Header {
     
     public var hiddenWithEmpty: Bool = false
     
-    public static var clean: Self {
-        var temp = self.init()
-        temp.model = .clean
-        return temp
-    }
-    
     public init() {}
     
     public init(_ height: CGFloat) {
-        model = .height(height)
+        model = .init(height: height)
     }
     
     public init(_ value: @autoclosure () -> (String)) {
@@ -93,6 +84,10 @@ public struct TableHeader: Header {
     
     public init(_ value: @autoclosure () -> (UIView)) {
         model.content = .view(value())
+    }
+    
+    public init(_ value: @autoclosure () -> (HeaderFooterModel)) {
+        model = value()
     }
 }
 
@@ -104,16 +99,10 @@ public struct TableFooter: Footer {
     
     public var hiddenWithEmpty: Bool = false
     
-    public static var clean: Self {
-        var temp = self.init()
-        temp.model = .clean
-        return temp
-    }
-    
     public init() {}
     
     public init(_ height: CGFloat) {
-        model = .height(height)
+        model = .init(height: height)
     }
     
     public init(_ value: @autoclosure () -> (String)) {
@@ -122,6 +111,10 @@ public struct TableFooter: Footer {
     
     public init(_ value: @autoclosure () -> (UIView)) {
         model.content = .view(value())
+    }
+    
+    public init(_ value: @autoclosure () -> (HeaderFooterModel)) {
+        model = value()
     }
 }
 

@@ -45,10 +45,10 @@ extension HeaderFooterViewController {
     @TableBuilder
     var tableBody: [Table] {
         
-        TableHeader.clean
+        TableHeader(.clean)
         NavigationRow("青少年模式")
         NavigationRow("关怀模式")
-        TableFooter.clean
+        TableFooter(.clean)
         
         TableSection {
             NavigationRow("编辑").icon(.image(named: "编辑"))
