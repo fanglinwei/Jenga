@@ -34,7 +34,7 @@ public struct HeaderFooterModel {
         case clean
     }
     
-    init( content: Content = .string(nil), height: CGFloat? = nil) {
+    init( content: Content = .string(nil), height: CGFloat? = UITableView.zero) {
         self.height = height
         self.content = content
     }
