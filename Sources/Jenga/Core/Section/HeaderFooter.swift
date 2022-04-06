@@ -9,6 +9,10 @@ import UIKit
 
 public enum HeaderFooterModel {
     
+    public static var defultHeader: HeaderFooterModel { .clean }
+
+    public static var defultFooter: HeaderFooterModel { .clean }
+    
     case string(String?, height: CGFloat? = nil)
     case view(UIView?, height: CGFloat? = nil)
     case clean
@@ -64,7 +68,7 @@ public protocol Footer: HeaderFooter { }
 
 public struct TableHeader: Header {
     
-    public var model = HeaderFooterModel.string(nil, height: nil)
+    public var model: HeaderFooterModel = .defultHeader
     
     public var rowHeight: CGFloat?
     
@@ -91,7 +95,7 @@ public struct TableHeader: Header {
 
 public struct TableFooter: Footer {
     
-    public var model = HeaderFooterModel.string(nil, height: nil)
+    public var model: HeaderFooterModel = .defultFooter
     
     public var rowHeight: CGFloat?
     
