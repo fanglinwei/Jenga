@@ -276,7 +276,7 @@ extension TableDirector: UITableViewDelegate {
         let header = sections[section].header
         return header.height
         ?? header.view?.frame.size.height
-        ?? (header.title.isNilOrEmpty ? UITableView.zero : nil)
+//        ?? (header.title.isNilOrEmpty ? UITableView.zero : nil)
         ?? UITableView.automaticDimension
     }
     
@@ -284,7 +284,7 @@ extension TableDirector: UITableViewDelegate {
         let footer = sections[section].footer
         return footer.height
         ?? footer.view?.frame.size.height
-        ?? (footer.title.isNilOrEmpty ? UITableView.zero : nil)
+//        ?? (footer.title.isNilOrEmpty ? UITableView.zero : nil)
         ?? UITableView.automaticDimension
     }
     
