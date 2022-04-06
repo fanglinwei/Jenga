@@ -59,5 +59,9 @@ extension TextValues {
     
     private struct EdgeInsetKey: TextKey {
         static let defaultValue: UIEdgeInsets = .zero
+        
+        static func systemRowText(with label: UILabel?, didChanged textValues: UIEdgeInsets) {
+            label?.edgeInsets = textValues
+        }
     }
 }

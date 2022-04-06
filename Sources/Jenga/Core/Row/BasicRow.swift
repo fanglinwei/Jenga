@@ -96,14 +96,7 @@ extension BasicRow {
         // 绑定标题
         text.append(observer: self) { [weak cell] change in
             guard let cell = cell else { return }
-            let text = change.new
-            
-            text.string.map { cell.textLabel?.text = $0 }
-            text.attributedString.map { cell.textLabel?.attributedText = $0 }
-            text.color.map { cell.textLabel?.textColor = $0 }
-            text.font.map { cell.textLabel?.font = $0 }
-            cell.textLabel?.numberOfLines = text.numberOfLines
-            JengaEnvironment.provider.systemRowText(with: cell.textLabel, didChanged: text)
+            change.new.perform(cell.textLabel)
         }
         
         // 绑定子标题
@@ -115,13 +108,7 @@ extension BasicRow {
                 cell.detailTextLabel?.text = nil
                 
             case .subtitle, .value1, .value2:
-                let text = change.new.text
-                text.string.map { cell.detailTextLabel?.text = $0 }
-                text.attributedString.map { cell.detailTextLabel?.attributedText = $0 }
-                text.color.map { cell.detailTextLabel?.textColor = $0 }
-                text.font.map { cell.detailTextLabel?.font = $0 }
-                cell.detailTextLabel?.numberOfLines = text.numberOfLines
-                JengaEnvironment.provider.systemRowText(with: cell.detailTextLabel, didChanged: text)
+                change.new.text.perform(cell.detailTextLabel)
             }
         }
         
