@@ -102,6 +102,7 @@ extension BasicRow {
             text.attributedString.map { cell.textLabel?.attributedText = $0 }
             text.color.map { cell.textLabel?.textColor = $0 }
             text.font.map { cell.textLabel?.font = $0 }
+            cell.textLabel?.numberOfLines = text.numberOfLines
             cell.textLabel.map {
                 JengaEnvironment.provider.systemRowText(with: $0, didChanged: text)
             }
@@ -121,6 +122,7 @@ extension BasicRow {
                 text.attributedString.map { cell.detailTextLabel?.attributedText = $0 }
                 text.color.map { cell.detailTextLabel?.textColor = $0 }
                 text.font.map { cell.detailTextLabel?.font = $0 }
+                cell.detailTextLabel?.numberOfLines = text.numberOfLines
                 cell.detailTextLabel.map {
                     JengaEnvironment.provider.systemRowText(with: $0, didChanged: text)
                 }
