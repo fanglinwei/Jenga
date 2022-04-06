@@ -58,14 +58,18 @@ open class BasicRow<T: UITableViewCell>: RowSystem, RowConfigurable {
     /// Additional customization during cell configuration.
     public var customize: ((T) -> Void)?
     
-    open func configure(_ cell: UITableViewCell) {
-        // 先清理内容 (样式也需要还原 最好扩展一套默认样式的配置 每次赋值前还原到默认样式)
+    open func reset(_ cell: UITableViewCell) {
         cell.textLabel?.text = nil
         cell.textLabel?.attributedText = nil
         cell.detailTextLabel?.text = nil
         cell.detailTextLabel?.attributedText = nil
         cell.imageView?.image = nil
         cell.imageView?.highlightedImage = nil
+    }
+    
+    open func configure(_ cell: UITableViewCell) {
+        // 先清理内容 (样式也需要还原 最好扩展一套默认样式的配置 每次赋值前还原到默认样式)
+        reset(cell)
         // 再设置内容
         JengaEnvironment.provider.default(with: cell, self)
         
