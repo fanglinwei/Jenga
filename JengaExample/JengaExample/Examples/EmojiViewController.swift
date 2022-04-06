@@ -51,4 +51,4 @@ class EmojiViewController: BaseViewController, DSLAutoTable {
     }
 }
 
-let randomEmojis = ["🥕", "🍋", "🍉", "🍇", "🥑"]
+private let randomEmojis = ["🥕", "🍋", "🍉", "🍇", "🥑"]

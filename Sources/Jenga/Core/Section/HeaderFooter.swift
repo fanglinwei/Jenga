@@ -7,16 +7,16 @@
 
 import UIKit
 
-public struct HeaderFooter {
+public struct HeaderFooterModel {
     
     var height: CGFloat?
-    var content: Content?
+    var content: Content
     
     var title: String? {
         switch content {
-        case .string(let value):    return value
-        case .view:                 return nil
-        case .none:                 return nil
+        case .string(let value):     return value
+        case .view:                  return nil
+        case .clean:                 return nil
         }
     }
     
@@ -24,75 +24,104 @@ public struct HeaderFooter {
         switch content {
         case .string:               return nil
         case .view(let value):      return value
-        case .none:                 return nil
+        case .clean:                return nil
         }
     }
     
     enum Content {
         case string(String?)
         case view(UIView?)
+        case clean
     }
     
     public init() {
         self.height = nil
-        self.content = nil
+        self.content = .string(nil)
+    }
+    
+    public static func height(_ value: CGFloat) -> Self {
+        var temp = self.init()
+        temp.height = value
+        return temp
+    }
+    
+    public static var clean: HeaderFooterModel {
+        var temp = self.init()
+        temp.height = UITableView.zero
+        temp.content = .clean
+        return temp
     }
 }
 
-
-public protocol Header {
+public protocol HeaderFooter {
     
-    var header: HeaderFooter { get set }
-    
-    var rowHeight: CGFloat? { get set }
-    
-    var hiddenWithEmpty: Bool { get set }
-}
-
-public protocol Footer {
-    
-    var footer: HeaderFooter { get set }
+    var model: HeaderFooterModel { get set }
     
     var rowHeight: CGFloat? { get set }
     
     var hiddenWithEmpty: Bool { get set }
+    
+    static var clean: Self { get }
 }
+
+public protocol Header: HeaderFooter { }
+public protocol Footer: HeaderFooter { }
 
 public struct TableHeader: Header {
     
-    public var header = HeaderFooter()
+    public var model = HeaderFooterModel()
     
     public var rowHeight: CGFloat?
     
     public var hiddenWithEmpty: Bool = false
     
-    public init() { }
-    
-    public init(_ value: @autoclosure () -> (String?)) {
-        header.content = .string(value())
+    public static var clean: Self {
+        var temp = self.init()
+        temp.model = .clean
+        return temp
     }
-
-    public init(_ value: @autoclosure () -> (UIView?)) {
-        header.content = .view(value())
+    
+    public init() {}
+    
+    public init(_ height: CGFloat) {
+        model = .height(height)
+    }
+    
+    public init(_ value: @autoclosure () -> (String)) {
+        model.content = .string(value())
+    }
+    
+    public init(_ value: @autoclosure () -> (UIView)) {
+        model.content = .view(value())
     }
 }
 
 public struct TableFooter: Footer {
     
-    public var footer = HeaderFooter()
+    public var model = HeaderFooterModel()
     
     public var rowHeight: CGFloat?
     
     public var hiddenWithEmpty: Bool = false
     
-    public init() { }
-    
-    public init(_ value: @autoclosure () -> (String?)) {
-        footer.content = .string(value())
+    public static var clean: Self {
+        var temp = self.init()
+        temp.model = .clean
+        return temp
     }
-
-    public init(_ value: @autoclosure () -> (UIView?)) {
-        footer.content = .view(value())
+    
+    public init() {}
+    
+    public init(_ height: CGFloat) {
+        model = .height(height)
+    }
+    
+    public init(_ value: @autoclosure () -> (String)) {
+        model.content = .string(value())
+    }
+    
+    public init(_ value: @autoclosure () -> (UIView)) {
+        model.content = .view(value())
     }
 }
 
@@ -102,7 +131,7 @@ extension TableFooter: Update { }
 public extension TableHeader {
     
     func height(_ value: @autoclosure () -> (CGFloat)) -> Self {
-        update { $0.header.height = value() }
+        update { $0.model.height = value() }
     }
     
     func hiddenWithEmpty(_ value: Bool) -> Self {
@@ -115,9 +144,9 @@ public extension TableHeader {
 }
 
 public extension TableFooter {
-
+    
     func height(_ value: @autoclosure () -> (CGFloat)) -> Self {
-        update { $0.footer.height = value() }
+        update { $0.model.height = value() }
     }
     
     func hiddenWithEmpty(_ value: Bool) -> Self {

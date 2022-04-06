@@ -40,7 +40,14 @@ class ViewController: UIViewController, DSLAutoTable {
             .onTap(on: self) { (self) in
                 self.navigationController?.pushViewController(EmojiViewController(), animated: true)
             }
-        
+        NavigationRow("State Binding")
+            .onTap(on: self) { (self) in
+                self.navigationController?.pushViewController(StateViewController(), animated: true)
+            }
+        NavigationRow("HeaderFooter")
+            .onTap(on: self) { (self) in
+                self.navigationController?.pushViewController(HeaderFooterViewController(), animated: true)
+            }
         NavigationRow("测试")
             .onTap(on: self) { (self) in
                 self.navigationController?.pushViewController(TableViewController(), animated: true)

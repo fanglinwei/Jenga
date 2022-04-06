@@ -11,22 +11,8 @@ import Jenga
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        JengaProvider.setup()
-        
-        JengaProvider.autoTable { frame in
-            let tableView: UITableView
-            if #available(iOS 13.0, *) {
-                tableView = UITableView(frame: frame, style: .insetGrouped)
-            } else {
-                tableView = UITableView(frame: frame, style: .grouped)
-            }
-            tableView.separatorStyle = .none
-            return tableView
-        }
-        
+        JengaEnvironment.setup(JengaProvider())
         return true
     }
 
@@ -47,3 +33,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+struct JengaProvider: Jenga.JengaProvider {
+    
+    func defaultTableView(with frame: CGRect) -> UITableView {
+        let tableView: UITableView
+        if #available(iOS 13.0, *) {
+            tableView = UITableView(frame: frame, style: .insetGrouped)
+        } else {
+            tableView = UITableView(frame: frame, style: .grouped)
+        }
+        return tableView
+    }
+}
+/// 扩展TextValues属性
+extension TextValues {
+    
+    var edgeInsets: UIEdgeInsets {
+        get { self[option: EdgeInsetKey.self] }
+        set { self[option: EdgeInsetKey.self] = newValue }
+    }
+    
+    private struct EdgeInsetKey: TextKey {
+        static let defaultValue: UIEdgeInsets = .zero
+        
+        static func perform(with label: UILabel?, didChanged textValues: UIEdgeInsets) {
+            label?.edgeInsets = textValues
+        }
+    }
+}

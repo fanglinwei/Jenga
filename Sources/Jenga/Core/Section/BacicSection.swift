@@ -15,9 +15,9 @@ open class BacicSection: Section {
     
     open var rows: [Row]
     
-    open var header = HeaderFooter()
+    open var header = HeaderFooterModel()
     
-    open var footer = HeaderFooter()
+    open var footer = HeaderFooterModel()
     
     open var rowHeight: CGFloat?
     
@@ -30,9 +30,9 @@ internal struct BrickSection: Section {
     
     public var rows: [Row] = []
     
-    public var header = HeaderFooter()
+    public var header = HeaderFooterModel()
     
-    public var footer = HeaderFooter()
+    public var footer = HeaderFooterModel()
     
     public var rowHeight: CGFloat?
     

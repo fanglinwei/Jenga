@@ -10,35 +10,33 @@ import UIKit
 public typealias RowBuilder = ArrayBuilder<Row>
 public typealias TableBuilder = ArrayBuilder<Table>
 
-public enum JengaProvider { }
+public enum JengaEnvironment { }
 
-extension JengaProvider {
+extension JengaEnvironment {
     
-    public static var isEnabledLog = true
+    internal static var provider: JengaProvider = Provider()
     
-    public static func setup()  {
+    public static var isEnabledLog: Bool = true
+    
+    public static func setup(_ provider: JengaProvider?) {
         UIViewController.swizzled
-    }
-    
-    // 全局样式配置 不配置使用系统样式
-    public typealias DefaultCellHandle = (UITableViewCell, _ style: RowSystem) -> Void
-    public typealias TableViewHandle = (CGRect) -> UITableView
-    
-    internal static var defaultHandle: DefaultCellHandle?
-    internal static var autoTable: TableViewHandle = { view(frame: $0) }
-    
-    public static func `default`(block: @escaping DefaultCellHandle) {
-        self.defaultHandle = block
-    }
-    
-    public static func autoTable(block: @escaping TableViewHandle) {
-        self.autoTable = block
+        guard let provider = provider else { return }
+        self.provider = provider
     }
 }
 
-extension JengaProvider {
-        
-    static func view(frame: CGRect) -> UITableView {
+public protocol JengaProvider {
+    
+    func `default`(with cell: UITableViewCell, _ style: RowSystem)
+    
+    func defaultTableView(with frame: CGRect) -> UITableView
+}
+
+public extension JengaProvider {
+    
+    func `default`(with cell: UITableViewCell, _ style: RowSystem) { }
+    
+    func defaultTableView(with frame: CGRect) -> UITableView {
         let tableView: UITableView
         if #available(iOS 13.0, *) {
             tableView = UITableView(frame: frame, style: .insetGrouped)
@@ -46,5 +44,13 @@ extension JengaProvider {
             tableView = UITableView(frame: frame, style: .grouped)
         }
         return tableView
+    }
+}
+
+
+internal extension JengaEnvironment {
+    
+    struct Provider: JengaProvider {
+        
     }
 }

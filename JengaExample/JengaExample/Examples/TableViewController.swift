@@ -70,20 +70,32 @@ extension TableViewController {
         
         NavigationRow("🤣")
         NavigationRow("😄")
-        NavigationRow("🤣")
+        NavigationRow("测试标题")
+            .detailText(.subtitle("Fang"))
+            .detail(\.edgeInsets, .init(top: 20, left: 0, bottom: 20, right: 20))
+            .icon(.image(named: "赞评"))
+            .height(UITableView.automaticDimension)
         
         TableSpacer(30)
         
         NavigationRow("😄")
-        NavigationRow("🤣")
+        NavigationRow("测试标题")
+            .detailText("Fang")
+            .detail(\.color, .red)
         NavigationRow("😄")
-        NavigationRow("🤣")
+        NavigationRow("测试标题")
+            .detailText("Fang")
+            .detail(\.color, .blue)
         NavigationRow("😄")
-        NavigationRow("🤣")
+        NavigationRow("测试标题")
+            .detailText("Fang")
+            .detail(\.color, .green)
         NavigationRow("😄")
-        NavigationRow("🤣")
+        NavigationRow("测试标题")
+            .detailText("Fang")
         NavigationRow("😄")
-        NavigationRow("🤣")
+        NavigationRow("测试标题")
+            .detailText("Fang")
         NavigationRow("😄")
         NavigationRow("🤣")
         NavigationRow("😄")
@@ -111,7 +123,6 @@ extension TableViewController {
                 NavigationRow("🐶")
             }
         }
-        .headerHeight(20)
         
         TableSection {
             
@@ -128,6 +139,5 @@ extension TableViewController {
                     self.isOn.toggle()
                 }
         }
-        .headerHeight(20)
     }
 }

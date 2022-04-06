@@ -32,7 +32,6 @@ class CustomViewController: BaseViewController, DSLAutoTable {
                     print(cell, value)
                 }
         }
-        .headerHeight(20)
     }
 }
 

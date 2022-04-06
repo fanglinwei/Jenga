@@ -48,6 +48,7 @@ public struct AsyncImage: Jenga.AsyncImage {
 }
 
 extension AsyncImage: Update { }
+
 public extension AsyncImage {
     
     static func async(_ source: Resource, placeholder: Placeholder? = .none, options: KingfisherOptionsInfo = []) -> Self {

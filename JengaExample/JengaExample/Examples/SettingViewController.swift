@@ -51,7 +51,6 @@ extension SettingViewController {
             NavigationRow("关怀模式")
                 .height(52)
         }
-        .headerHeight(20)
         
         TableSection {
             NavigationRow("编辑").icon(.image(named: "编辑"))
@@ -62,7 +61,6 @@ extension SettingViewController {
                 .onTap { }
         }
         .header("icon")
-        .headerHeight(UITableView.automaticDimension)
         
         TableSection {
             NavigationRow("网易云音乐")
@@ -87,7 +85,6 @@ extension SettingViewController {
                 }
         }
         .header("async icon")
-        .headerHeight(UITableView.automaticDimension)
         
         TableSection {
             NavigationRow("Value1")
@@ -114,7 +111,6 @@ extension SettingViewController {
                     cell.backgroundColor = .green
                 }
         }
-        .rowHeight(UITableView.automaticDimension)
         .header("detailText")
         
         TableSection {
@@ -126,8 +122,6 @@ extension SettingViewController {
         }
         .header("Toggle")
         .rowHeight(52)
-        .headerHeight(UITableView.automaticDimension)
-        
         
         if isOn2 {
             TableSection {
@@ -135,7 +129,6 @@ extension SettingViewController {
                 NavigationRow("😄")
             }
             .rowHeight(52)
-            .headerHeight(20)
         }
         
         TableSection {
@@ -147,7 +140,6 @@ extension SettingViewController {
         }
         .header("Tap")
         .rowHeight(52)
-        .headerHeight(UITableView.automaticDimension)
         
         TableSection {
 //            NavigationBadgeRow("小红点")
@@ -172,7 +164,6 @@ extension SettingViewController {
         }
 //        .header("Badge")
         .rowHeight(52)
-        .headerHeight(UITableView.automaticDimension)
     }
 }
 

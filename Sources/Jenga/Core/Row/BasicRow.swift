@@ -19,7 +19,7 @@ open class BasicRow<T: UITableViewCell>: RowSystem, RowConfigurable {
     
     // MARK: - Row
     /// The text of the row.
-    public var text: Binding<Text>
+    public var text: Binding<TextValues>
     
     /// The detail text of the row.
     public var detailText: Binding<DetailText> = .constant(.none)
@@ -58,16 +58,20 @@ open class BasicRow<T: UITableViewCell>: RowSystem, RowConfigurable {
     /// Additional customization during cell configuration.
     public var customize: ((T) -> Void)?
     
-    open func configure(_ cell: UITableViewCell) {
-        // 先清理内容 (样式也需要还原 最好扩展一套默认样式的配置 每次赋值前还原到默认样式)
+    open func reset(_ cell: UITableViewCell) {
         cell.textLabel?.text = nil
         cell.textLabel?.attributedText = nil
         cell.detailTextLabel?.text = nil
         cell.detailTextLabel?.attributedText = nil
         cell.imageView?.image = nil
         cell.imageView?.highlightedImage = nil
+    }
+    
+    open func configure(_ cell: UITableViewCell) {
+        // 先清理内容 (样式也需要还原 最好扩展一套默认样式的配置 每次赋值前还原到默认样式)
+        reset(cell)
         // 再设置内容
-        JengaProvider.defaultHandle?(cell, self)
+        JengaEnvironment.provider.default(with: cell, self)
         
         defaultSetup(with: cell)
         guard let cell = cell as? T else { return }
@@ -96,13 +100,7 @@ extension BasicRow {
         // 绑定标题
         text.append(observer: self) { [weak cell] change in
             guard let cell = cell else { return }
-            let text = change.new
-            
-            text.string.map { cell.textLabel?.text = $0 }
-            text.attributedString.map { cell.textLabel?.attributedText = $0 }
-            text.color.map { cell.textLabel?.textColor = $0 }
-            text.font.map { cell.textLabel?.font = $0 }
-            cell.textLabel?.edgeInsets = text.edgeInsets
+            change.new.perform(cell.textLabel)
         }
         
         // 绑定子标题
@@ -114,11 +112,7 @@ extension BasicRow {
                 cell.detailTextLabel?.text = nil
                 
             case .subtitle, .value1, .value2:
-                change.new.text.string.map { cell.detailTextLabel?.text = $0 }
-                change.new.text.attributedString.map { cell.detailTextLabel?.attributedText = $0 }
-                change.new.text.color.map { cell.detailTextLabel?.textColor = $0 }
-                change.new.text.font.map { cell.detailTextLabel?.font = $0 }
-                cell.detailTextLabel?.edgeInsets = change.new.text.edgeInsets
+                change.new.text.perform(cell.detailTextLabel)
             }
         }
         

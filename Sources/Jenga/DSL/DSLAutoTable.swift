@@ -15,7 +15,7 @@ public extension DSLAutoTable where Self: UIViewController {
     var tableView: UITableView {
         get {
             guard let value: UITableView = get(&TableViewKey) else {
-                let temp = JengaProvider.autoTable(.zero)
+                let temp = JengaEnvironment.provider.defaultTableView(with: .zero)
                 set(retain: &TableViewKey, temp)
                 return temp
             }

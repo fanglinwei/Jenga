@@ -4,7 +4,7 @@ import UIKit
 public struct DetailText: Equatable {
     
     var type: `Type` = .none
-    var text: Text
+    var text: TextValues
     
     public enum `Type` {
         case none
