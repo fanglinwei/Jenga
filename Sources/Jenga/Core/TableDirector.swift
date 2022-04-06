@@ -115,13 +115,13 @@ extension TableDirector {
             case let body as Header:
                 close()
                 section = BrickSection()
-                section?.header = body.header
+                section?.header = body.model
                 section?.rowHeight = body.rowHeight
                 section?.hiddenWithEmpty = body.hiddenWithEmpty
                 
             case let body as Footer:
                 section = section ?? BrickSection()
-                section?.footer = body.footer
+                section?.footer = body.model
                 section?.rowHeight = body.rowHeight
                 section?.hiddenWithEmpty = body.hiddenWithEmpty
                 close()
@@ -276,7 +276,6 @@ extension TableDirector: UITableViewDelegate {
         let header = sections[section].header
         return header.height
         ?? header.view?.frame.size.height
-//        ?? (header.title.isNilOrEmpty ? UITableView.zero : nil)
         ?? UITableView.automaticDimension
     }
     
@@ -284,7 +283,6 @@ extension TableDirector: UITableViewDelegate {
         let footer = sections[section].footer
         return footer.height
         ?? footer.view?.frame.size.height
-//        ?? (footer.title.isNilOrEmpty ? UITableView.zero : nil)
         ?? UITableView.automaticDimension
     }
     

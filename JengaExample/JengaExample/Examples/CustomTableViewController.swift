@@ -39,7 +39,6 @@ class CustomTableViewController: BaseViewController, DSLTable {
                 .data($0)
                 .height(44)
         }
-        .headerHeight(UITableView.automaticDimension)
     }
 }
 

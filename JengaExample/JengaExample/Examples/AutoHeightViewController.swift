@@ -21,7 +21,6 @@ class AutoHeightViewController: BaseViewController, DSLAutoTable {
                 .height(UITableView.highAutomaticDimension)
         }
         .rowHeight(UITableView.highAutomaticDimension)
-        .headerHeight(20)
         
         // 系统样式暴力测试
         TableSection {

@@ -14,6 +14,7 @@
 		B32FAB7B27F82787006A37BE /* AutoHeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB7A27F82787006A37BE /* AutoHeightViewController.swift */; };
 		B32FAB7D27F827BD006A37BE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB7C27F827BD006A37BE /* BaseViewController.swift */; };
 		B32FABA227FD3649006A37BE /* StateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FABA127FD3649006A37BE /* StateViewController.swift */; };
+		B32FABA427FD4F08006A37BE /* HeaderFooterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FABA327FD4F08006A37BE /* HeaderFooterViewController.swift */; };
 		B3496B3627F45338007D7A1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3496B3527F45338007D7A1D /* AppDelegate.swift */; };
 		B3496B3827F45338007D7A1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3496B3727F45338007D7A1D /* SceneDelegate.swift */; };
 		B3496B3A27F45338007D7A1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3496B3927F45338007D7A1D /* ViewController.swift */; };
@@ -57,6 +58,7 @@
 		B32FAB7A27F82787006A37BE /* AutoHeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoHeightViewController.swift; sourceTree = "<group>"; };
 		B32FAB7C27F827BD006A37BE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B32FABA127FD3649006A37BE /* StateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateViewController.swift; sourceTree = "<group>"; };
+		B32FABA327FD4F08006A37BE /* HeaderFooterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFooterViewController.swift; sourceTree = "<group>"; };
 		B3496B3227F45338007D7A1D /* JengaExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JengaExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3496B3527F45338007D7A1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3496B3727F45338007D7A1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				B32FAB7A27F82787006A37BE /* AutoHeightViewController.swift */,
 				B32FAB7C27F827BD006A37BE /* BaseViewController.swift */,
 				B32FABA127FD3649006A37BE /* StateViewController.swift */,
+				B32FABA327FD4F08006A37BE /* HeaderFooterViewController.swift */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				B32FAB2327F5C4E2006A37BE /* EmojiViewController.swift in Sources */,
 				B32FAB7927F82721006A37BE /* EmojiCell.swift in Sources */,
 				B3496B3827F45338007D7A1D /* SceneDelegate.swift in Sources */,
+				B32FABA427FD4F08006A37BE /* HeaderFooterViewController.swift in Sources */,
 				B37BD53C27F4671A009C2244 /* Icon.AsyncImage.swift in Sources */,
 				B32FAB7B27F82787006A37BE /* AutoHeightViewController.swift in Sources */,
 				B37BD42327F45ED0009C2244 /* Kingfisher.Extension.swift in Sources */,

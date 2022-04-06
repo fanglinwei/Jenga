@@ -111,7 +111,6 @@ extension TableViewController {
                 NavigationRow("🐶")
             }
         }
-        .headerHeight(20)
         
         TableSection {
             
@@ -128,6 +127,5 @@ extension TableViewController {
                     self.isOn.toggle()
                 }
         }
-        .headerHeight(20)
     }
 }
