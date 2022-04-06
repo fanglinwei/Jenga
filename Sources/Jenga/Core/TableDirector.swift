@@ -52,8 +52,8 @@ public class TableDirector: NSObject {
     private var tableBody: [Table]?
     public func setup(_ tableBody: [Table]) {
         self.tableBody = tableBody
-        
-        self.sections = assemble(with: tableBody) .filter { !($0.isEmpty && $0.hiddenWithEmpty) }
+        let sections = assemble(with: tableBody)
+        self.sections = sections.filter { !($0.isEmpty && $0.hiddenWithEmpty) }
         reload()
         
         weak var `self` = self
