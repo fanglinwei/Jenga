@@ -7,7 +7,7 @@ public protocol RowActionable {
     var action: RowAction? { get set }
 }
 
-public protocol Row: JengaHashable, RowActionable, Update {
+public protocol Row: JengaHashable, RowActionable, Reform {
     
     var cellType: UITableViewCell.Type { get }
     
@@ -23,27 +23,27 @@ public protocol Row: JengaHashable, RowActionable, Update {
 public extension Row {
       
     func height(_ value: RowHeight?) -> Self {
-        update { $0.height = value }
+        reform { $0.height = value }
     }
     
     func estimatedHeight(_ value: RowHeight?) -> Self {
-        update { $0.estimatedHeight = value }
+        reform { $0.estimatedHeight = value }
     }
     
     func selectionStyle(_ value: UITableViewCell.SelectionStyle) -> Self {
-        update { $0.selectionStyle = value }
+        reform { $0.selectionStyle = value }
     }
 
     func onTap(_ value: RowAction?) -> Self {
-        update { $0.action = value }
+        reform { $0.action = value }
     }
     
     func onTap<S>(on target: S, _ value: @escaping (S) -> Void) -> Self {
-        update { $0.action = { value(target) } }
+        reform { $0.action = { value(target) } }
     }
     
     func onTap<S>(on target: S, _ value: @escaping (S) -> Void) -> Self where S: AnyObject {
-        update {
+        reform {
             $0.action = { [weak target]  in
                 guard let target = target else { return }
                 value(target)

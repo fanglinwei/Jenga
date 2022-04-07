@@ -90,7 +90,7 @@ open class BasicRow<T: UITableViewCell>: RowSystem, RowConfigurable {
 public extension BasicRow {
     
     func customize(_ value: @escaping ((T) -> Void)) -> Self {
-        update { $0.customize = value }
+        reform { $0.customize = value }
     }
 }
 

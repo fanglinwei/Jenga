@@ -16,3 +16,4 @@ extension TableSpacer: Table { }
 
 extension BasicRow: Table { }
 extension TableRow: Table { }
+extension SpacerRow: Table { }
