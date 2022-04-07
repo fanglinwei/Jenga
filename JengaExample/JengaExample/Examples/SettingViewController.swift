@@ -13,19 +13,13 @@ class SettingViewController: BaseViewController, DSLAutoTable {
     
     override var pageTitle: String { get { "设置" } }
     
-    @State var text = "OC"
-    
-    @State var detailText1 = "OC"
-    
-    @State var text2 = "OC"
-    
-    @State var detailText = "+86"
+    @State var detailText = "OC"
     
     @State var isRed = true
     
     @State var badgeValue: Int = 0
     
-    @State var isOn2 = true
+    @State var isOn = true
     
     var id: Int = 0
         
@@ -33,9 +27,7 @@ class SettingViewController: BaseViewController, DSLAutoTable {
         super.viewDidLoad()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
-            self?.text = "Swift"
-            self?.detailText1 = "Swift"
-            self?.detailText = "17878787878"
+            self?.detailText = "Swift"
         }
     }
 }
@@ -97,7 +89,7 @@ extension SettingViewController {
                 .detailText(.value2("Value2"))
             
             NavigationRow("数据绑定")
-                .detailText($detailText1.map { .value1($0)} )
+                .detailText($detailText.map { .value1($0)} )
             
             NavigationRow("修改样式")
                 .detailText(.subtitle("123123"))
@@ -115,14 +107,14 @@ extension SettingViewController {
         
         TableSection {
             
-            ToggleRow("Switch 2", isOn: $isOn2)
+            ToggleRow("Switch 2", isOn: $isOn)
                 .onTap(on: self) { (self, isOn) in
                     self.reloadTable()
                 }
         }
         .header("Toggle")
         
-        if isOn2 {
+        if isOn {
             TableSection {
                 NavigationRow("🤣")
                 NavigationRow("😄")
