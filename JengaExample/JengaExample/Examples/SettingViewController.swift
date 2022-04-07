@@ -121,25 +121,14 @@ extension SettingViewController {
                 }
         }
         .header("Toggle")
-        .rowHeight(52)
         
         if isOn2 {
             TableSection {
                 NavigationRow("🤣")
                 NavigationRow("😄")
             }
-            .rowHeight(52)
+            .headerHeight(UITableView.automaticDimension)
         }
-        
-        TableSection {
-            TapActionRow("Tap Action")
-                .textAlignment(.left)
-                .onTap(on: self) { (self) in
-                    
-                }
-        }
-        .header("Tap")
-        .rowHeight(52)
         
         TableSection {
             NavigationBadgeRow("小红点")
