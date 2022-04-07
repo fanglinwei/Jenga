@@ -328,7 +328,7 @@ isShowCat = true
 
 实现思路灵感来源于[FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)
 
-你可以设置高度为`UITableView.highAutomaticDimension`来开启自动计算缓存行高, `row`和`section`都可以
+你可以设置高度为`UITableView.highAutomaticDimension`来开启自动计算并且缓存行高
 
 在项目中查看`AutoHeightViewController`即可
 
