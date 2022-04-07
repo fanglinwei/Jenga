@@ -8,12 +8,12 @@
 import UIKit
 import Jenga
 
-open class NavigationBadgeRow<Cell: NavigationBadgeCell>: NavigationRow<Cell>, BadgeRowCompatible {
+class NavigationBadgeRow<Cell: NavigationBadgeCell>: NavigationRow<Cell>, BadgeRowCompatible {
     
-    public var badgeValue: Binding<String?> = .constant(nil)
-    public var badgeColor: Binding<UIColor>?
+    var badgeValue: Binding<String?> = .constant(nil)
+    var badgeColor: Binding<UIColor>?
     
-    open override func configure(_ cell: UITableViewCell) {
+    override func configure(_ cell: UITableViewCell) {
         super.configure(cell)
         (cell as? Cell)?.configure(with: self)
     }

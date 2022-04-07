@@ -23,7 +23,7 @@ class SettingViewController: BaseViewController, DSLAutoTable {
     
     @State var isRed = true
     
-    @State var badgeValue: String? = "1"
+    @State var badgeValue: Int = 0
     
     @State var isOn2 = true
     
@@ -146,11 +146,6 @@ extension SettingViewController {
                 .badgeValue($isRed)
                 .badgeColor(.blue)
                 .accessoryType(.disclosureIndicator)
-
-            NavigationBadgeRow("数字")
-                .badgeValue($badgeValue)
-                .badgeColor(.red)
-                .accessoryType(.disclosureIndicator)
             
             NavigationBadgeRow("小红点")
                 .detailText("子标题")
@@ -158,21 +153,37 @@ extension SettingViewController {
                 .badgeColor(.blue)
                 .accessoryType(.disclosureIndicator)
 
-            NavigationBadgeRow("数字")
-                .detailText("子标题")
-                .badgeValue($badgeValue)
-                .badgeColor(.red)
-                .accessoryType(.disclosureIndicator)
-
-            TapActionRow("Tap Action")
-                .textAlignment(.left)
+            TapActionRow("切换红点")
+                .textAlignment(.center)
                 .onTap(on: self) { (self) in
                     self.isRed.toggle()
                 }
+            
+            NavigationBadgeRow("数字")
+                .badgeValue($badgeValue.map { "\(max($0, 0))" } )
+                .badgeColor(.red)
+                .accessoryType(.disclosureIndicator)
+            
+            NavigationBadgeRow("数字")
+                .detailText("子标题")
+                .badgeValue($badgeValue.map { "\(max($0, 0))" } )
+                .badgeColor(.red)
+                .accessoryType(.disclosureIndicator)
+            
+            TapActionRow("+")
+                .textAlignment(.center)
+                .onTap(on: self) { (self) in
+                    self.badgeValue += 1
+                }
+            
+            TapActionRow("-")
+                .textAlignment(.center)
+                .onTap(on: self) { (self) in
+                    self.badgeValue -= 1
+                }
         }
-        .headerHeight(30)
+        .headerHeight(UITableView.automaticDimension)
         .header("Badge")
-        .rowHeight(52)
     }
 }
 

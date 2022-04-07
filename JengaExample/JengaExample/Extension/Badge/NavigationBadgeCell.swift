@@ -73,6 +73,8 @@ public class NavigationBadgeCell: UITableViewCell, ConfigurableCell {
         self.row = row
         row.badgeValue.append(observer: row) { [weak self] change in
             self?.badgeView.badgeValue = change.new
+            self?.setNeedsLayout()
+            self?.badgeView.setNeedsLayout()
         }
         row.badgeColor?.append(observer: row) { [weak self] change in
             self?.badgeView.badgeColor = change.new
