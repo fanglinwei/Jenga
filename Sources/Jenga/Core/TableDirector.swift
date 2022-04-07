@@ -1,13 +1,7 @@
-//
-//  TableDirector.swift
-//  TableDirector
-//
-//  Created by 方林威 on 2022/2/23.
-//
-
 import UIKit
 
 public class TableDirector: NSObject {
+    
     public let tableView: UITableView
     
     public private(set) weak var delegate: UIScrollViewDelegate?
@@ -100,7 +94,7 @@ extension TableDirector {
         var result: [Section] = []
         var section: BrickSection?
         
-        func close( ) {
+        func close() {
             guard let temp = section else { return }
             result.append(temp)
             section = nil
@@ -315,6 +309,7 @@ extension TableDirector: UITableViewDelegate {
             DispatchQueue.main.async {
                 aavigation.accessoryButtonAction?()
             }
+            
         default:
             break
         }

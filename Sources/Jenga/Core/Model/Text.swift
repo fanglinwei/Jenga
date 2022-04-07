@@ -1,15 +1,11 @@
-//
-//  Text.swift
-//  TableKit
-//
-//  Created by 方林威 on 2022/3/23.
-//
-
 import UIKit
 
 public protocol TextKey {
+    
     associatedtype Value
+    
     static var defaultValue: Value { get }
+    
     static func perform(with label: UILabel?, didChanged value: Value)
 }
 

@@ -26,5 +26,6 @@ public protocol ConfigurableCell: UITableViewCell {
 extension ConfigurableCell {
     
     public func recovery(_ cell: CellData) {
+        
     }
 }

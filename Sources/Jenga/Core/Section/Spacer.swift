@@ -1,10 +1,3 @@
-//
-//  Spacer.swift
-//  Jenga
-//
-//  Created by 方林威 on 2022/4/1.
-//
-
 import UIKit
 
 public protocol Spacer {
@@ -13,7 +6,6 @@ public protocol Spacer {
     
     var color: UIColor { get set }
 }
-
 
 public struct TableSpacer: Spacer {
     

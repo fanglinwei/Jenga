@@ -1,10 +1,3 @@
-//
-//  TableRow.swift
-//  Zunion
-//
-//  Created by 方林威 on 2022/2/24.
-//
-
 import UIKit
 // 自定义cell
 public struct TableRow<Cell: ConfigurableCell>: Row, RowConfigurable {

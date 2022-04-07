@@ -1,10 +1,3 @@
-//
-//  SpacerRow.swift
-//  Zunion
-//
-//  Created by 方林威 on 2022/3/7.
-//
-
 import UIKit
 
 public struct SpacerRow<T: SpacerCell>: Row {

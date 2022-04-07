@@ -2,7 +2,9 @@ import Foundation
 import UIKit
 
 public struct BindingWrapper<Base> {
+    
     public let base: Base
+    
     public init(_ base: Base) {
         self.base = base
     }
@@ -24,7 +26,7 @@ extension BindingCompatible {
 }
 
 extension BindingCompatibleValue {
-    /// Gets a namespace holder for Kingfisher compatible types.
+    
     public var binding: BindingWrapper<Self> {
         get { return BindingWrapper(self) }
         set { }
@@ -60,12 +62,12 @@ fileprivate extension UIControl {
     }
     
     func action(for event: Event = .touchUpInside, _ action: @escaping ActionBlock) -> Self {
-        zk_actionBlock = action
-        addTarget(self, action: #selector(zk_selfTapAction), for: event)
+        jenga_actionBlock = action
+        addTarget(self, action: #selector(jenga_selfTapAction), for: event)
         return self
     }
     
-    private var zk_actionBlock: ActionBlock? {
+    private var jenga_actionBlock: ActionBlock? {
         set {
             let n = newValue
             objc_setAssociatedObject(self, &AssociatedKey.blockKey, n, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
@@ -77,8 +79,8 @@ fileprivate extension UIControl {
     }
     
     @objc
-    private func zk_selfTapAction() {
-        zk_actionBlock?()
+    private func jenga_selfTapAction() {
+        jenga_actionBlock?()
     }
 }
 
@@ -122,7 +124,7 @@ public extension UITextField {
         static var editKey: Int = 0
     }
     
-    private var zk_textBlock: EditChangedBlock? {
+    private var jenga_textBlock: EditChangedBlock? {
         set {
             let n = newValue
             objc_setAssociatedObject(self, &AssociatedKey.editKey, n, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
@@ -135,12 +137,12 @@ public extension UITextField {
     
     @objc
     func selfTextDidChanged() {
-        zk_textBlock?(text ?? "")
+        jenga_textBlock?(text ?? "")
     }
     
     func editingChanged(change: @escaping (String) -> Void) {
         self.addTarget(self, action: #selector(selfTextDidChanged), for: .editingChanged)
-        zk_textBlock = change
+        jenga_textBlock = change
     }
 }
 

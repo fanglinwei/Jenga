@@ -80,17 +80,14 @@ public extension TableSection {
     }
     
     /// map  binding EnumeratedSequence on target
-    convenience init<T, S>(
-        binding: Binding<EnumeratedSequence<[T]>>,
-        on target: S,
-        builder: @escaping (S, Binding<EnumeratedSequence<[T]>.Iterator.Element>) -> Row) where S: AnyObject {
-            self.init()
-            binding.append(observer: self) { [weak self, weak target] changed in
-                guard let self = self else { return }
-                guard let target = target else { return }
-                self.rows = changed.new.map { builder(target, .constant($0)) }
-                self.didUpdate?(self)
-            }
+    convenience init<T, S>(binding: Binding<EnumeratedSequence<[T]>>, on target: S, builder: @escaping (S, Binding<EnumeratedSequence<[T]>.Iterator.Element>) -> Row) where S: AnyObject {
+        self.init()
+        binding.append(observer: self) { [weak self, weak target] changed in
+            guard let self = self else { return }
+            guard let target = target else { return }
+            self.rows = changed.new.map { builder(target, .constant($0)) }
+            self.didUpdate?(self)
         }
+    }
 }
 
