@@ -10,39 +10,8 @@ import Jenga
 
 class HeaderFooterViewController: BaseViewController, DSLAutoTable {
     
-    override var pageTitle: String { get { "设置" } }
+    override var pageTitle: String { get { "HeaderFooter" } }
     
-    @State var text = "OC"
-    
-    @State var detailText1 = "OC"
-    
-    @State var text2 = "OC"
-    
-    @State var detailText = "+86"
-    
-    @State var isRed = true
-    
-    @State var badgeValue: String? = "1"
-    
-    @State var isOn2 = true
-    
-    var id: Int = 0
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
-            self?.text = "Swift"
-            self?.detailText1 = "Swift"
-            self?.detailText = "17878787878"
-        }
-    }
-}
-
-// DSL
-extension HeaderFooterViewController {
-    
-    @TableBuilder
     var tableBody: [Table] {
         
         TableHeader(.clean)
