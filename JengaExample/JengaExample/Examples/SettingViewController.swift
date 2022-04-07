@@ -142,19 +142,27 @@ extension SettingViewController {
         .rowHeight(52)
         
         TableSection {
-//            NavigationBadgeRow("小红点")
-//                .badgeValue($isRed)
-//                .badgeColor(.blue)
-//                .onTap {
-//
-//                }
-//
-//            NavigationBadgeRow("数字")
-//                .badgeValue($badgeValue)
-//                .badgeColor(.red)
-//                .onTap {
-//
-//                }
+            NavigationBadgeRow("小红点")
+                .badgeValue($isRed)
+                .badgeColor(.blue)
+                .accessoryType(.disclosureIndicator)
+
+            NavigationBadgeRow("数字")
+                .badgeValue($badgeValue)
+                .badgeColor(.red)
+                .accessoryType(.disclosureIndicator)
+            
+            NavigationBadgeRow("小红点")
+                .detailText("子标题")
+                .badgeValue($isRed)
+                .badgeColor(.blue)
+                .accessoryType(.disclosureIndicator)
+
+            NavigationBadgeRow("数字")
+                .detailText("子标题")
+                .badgeValue($badgeValue)
+                .badgeColor(.red)
+                .accessoryType(.disclosureIndicator)
 
             TapActionRow("Tap Action")
                 .textAlignment(.left)
@@ -163,7 +171,7 @@ extension SettingViewController {
                 }
         }
         .headerHeight(30)
-//        .header("Badge")
+        .header("Badge")
         .rowHeight(52)
     }
 }

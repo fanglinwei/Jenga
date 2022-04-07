@@ -26,14 +26,18 @@ public class NavigationBadgeCell: UITableViewCell, ConfigurableCell {
     }
     
     private func setup() {
-        
         contentView.addSubview(badgeView)
-        badgeView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        badgeView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
     }
     
     public override func layoutSubviews() {
         super.layoutSubviews()
+        let badgeSize = badgeView.sizeThatFits(contentView.bounds.size)
+        let offset: CGFloat = badgeView.badgeValue == "" ? 0 : 2
+        badgeView.frame = .init(x: contentView.bounds.width - badgeSize.width - offset,
+                                y: (contentView.bounds.height - badgeSize.height) * 0.5,
+                                width: badgeSize.width,
+                                height: badgeSize.height
+        )
         guard let row = row  else { return }
         switch row.cellStyle {
         case .value1 where row.accessoryType == .disclosureIndicator:
@@ -42,8 +46,8 @@ public class NavigationBadgeCell: UITableViewCell, ConfigurableCell {
             let x: CGFloat
             if let badge = badgeView.badgeValue {
                 
-                let offset: CGFloat = badge == "" ? 20 : 18
-                x = contentView.bounds.width - frame.width - offset
+                let offset: CGFloat = badge == "" ? 0 : -5
+                x = badgeView.frame.minX - frame.width + offset
                     
             } else {
                 x = frame.minX
@@ -105,7 +109,7 @@ fileprivate class BadgeView: UIView {
     
     /// 显示badgeValue的Label
     open var badgeLabel: UILabel = {
-        let badgeLabel = UILabel.init(frame: CGRect.zero)
+        let badgeLabel = UILabel(frame: CGRect.zero)
         badgeLabel.backgroundColor = .clear
         badgeLabel.textColor = .white
         badgeLabel.font = UIFont.systemFont(ofSize: 13.0)
@@ -116,9 +120,9 @@ fileprivate class BadgeView: UIView {
     /// Initializer
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubview(imageView)
-        self.addSubview(badgeLabel)
-        self.imageView.backgroundColor = badgeColor
+        addSubview(imageView)
+        addSubview(badgeLabel)
+        imageView.backgroundColor = badgeColor
     }
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -140,7 +144,12 @@ fileprivate class BadgeView: UIView {
         
         if badgeValue == "" {
             let w : CGFloat = 6
-            imageView.frame = CGRect(origin: CGPoint(x: (bounds.size.width - w) / 2.0, y: (bounds.size.height - w) / 2.0), size: CGSize.init(width: w, height: w))
+            imageView.frame = CGRect(
+                x: (bounds.size.width - w) * 0.5,
+                y: (bounds.size.height - w) * 0.5,
+                width: w,
+                height: w
+            )
         } else {
             imageView.frame = bounds
         }
