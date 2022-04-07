@@ -107,7 +107,7 @@ extension SettingViewController {
         
         TableSection {
             
-            ToggleRow("Switch 2", isOn: $isOn)
+            ToggleRow("Switch", isOn: $isOn)
                 .onTap(on: self) { (self, isOn) in
                     self.reloadTable()
                 }
