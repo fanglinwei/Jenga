@@ -52,8 +52,8 @@ public class TableDirector: NSObject {
     private var tableBody: [Table]?
     public func setup(_ tableBody: [Table]) {
         self.tableBody = tableBody
-        
-        self.sections = assemble(with: tableBody) .filter { !($0.isEmpty && $0.hiddenWithEmpty) }
+        let sections = assemble(with: tableBody)
+        self.sections = sections.filter { !($0.isEmpty && $0.hiddenWithEmpty) }
         reload()
         
         weak var `self` = self
@@ -115,13 +115,13 @@ extension TableDirector {
             case let body as Header:
                 close()
                 section = BrickSection()
-                section?.header = body.model
+                section?.header = body.content
                 section?.rowHeight = body.rowHeight
                 section?.hiddenWithEmpty = body.hiddenWithEmpty
                 
             case let body as Footer:
                 section = section ?? BrickSection()
-                section?.footer = body.model
+                section?.footer = body.content
                 section?.rowHeight = body.rowHeight
                 section?.hiddenWithEmpty = body.hiddenWithEmpty
                 close()
@@ -161,7 +161,7 @@ extension TableDirector: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         func cell(for row: Row) -> UITableViewCell {
-            if let row = row as? RowSystem {
+            if let row = row as? SystemRow {
                 let cell =
                 tableView.dequeueReusableCell(withIdentifier: row.reuseIdentifier) ??
                 row.cellType.init(style: row.cellStyle, reuseIdentifier: row.reuseIdentifier)
@@ -232,7 +232,7 @@ extension TableDirector: UITableViewDelegate {
         let section = sections[indexPath.section]
         let row = section.rows[indexPath.row]
         
-        if !(row is RowSystem) {
+        if !(row is SystemRow) {
             cellRegisterer?.register(cellType: row.cellType, forCellReuseIdentifier: row.reuseIdentifier)
         }
         
@@ -256,7 +256,7 @@ extension TableDirector: UITableViewDelegate {
         let section = sections[indexPath.section]
         let row = section.rows[indexPath.row]
         
-        if !(row is RowSystem) {
+        if !(row is SystemRow) {
             cellRegisterer?.register(cellType: row.cellType, forCellReuseIdentifier: row.reuseIdentifier)
         }
         var calculatorHeight: CGFloat? = nil
@@ -285,7 +285,6 @@ extension TableDirector: UITableViewDelegate {
         ?? footer.view?.frame.size.height
         ?? UITableView.automaticDimension
     }
-    
     
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].header.title

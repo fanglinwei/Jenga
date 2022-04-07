@@ -34,10 +34,10 @@ open class NavigationRow<T: UITableViewCell>: BasicRow<T>, NavigationRowCompatib
 extension NavigationRow {
     
     public func accessoryButtonAction(_ value: RowAction?) -> Self {
-        update { $0.accessoryButtonAction = value }
+        reform { $0.accessoryButtonAction = value }
     }
     
     public func accessoryType(_ value: UITableViewCell.AccessoryType) -> Self {
-        update { $0._accessoryType = value }
+        reform { $0._accessoryType = value }
     }
 }

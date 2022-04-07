@@ -59,7 +59,7 @@ public struct IconImage: Image {
     }
 }
 
-extension IconImage: Update { }
+extension IconImage: Reform { }
 
 public extension IconImage {
     
@@ -76,13 +76,13 @@ public extension IconImage {
     }
 }
 
-public extension RowSystem {
+public extension SystemRow {
     
     func icon(_ value: Binding<IconImage>) -> Self {
-        update { $0.icon = value.map { .image($0) } }
+        reform { $0.icon = value.map { .image($0) } }
     }
     
     func icon(_ value: IconImage) -> Self {
-        update { $0.icon = .constant(.image(value)) }
+        reform { $0.icon = .constant(.image(value)) }
     }
 }

@@ -27,6 +27,7 @@ class StateViewController: BaseViewController, DSLAutoTable {
             }
             NavigationRow("年龄").detailText("\(people.age)")
         }
+        .footerHeight(UITableView.automaticDimension)
         
         TapActionRow("点击")
             .onTap(on: self) { (self) in

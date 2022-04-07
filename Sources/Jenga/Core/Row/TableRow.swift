@@ -59,22 +59,22 @@ public struct TableRow<Cell: ConfigurableCell>: Row, RowConfigurable {
 public extension TableRow {
     
     func isSelectable(_ value: Bool) -> Self {
-        update { $0.isSelectable = value }
+        reform { $0.isSelectable = value }
     }
     
     func data(_ data: Cell.CellData) -> Self {
-        update { $0.item = .constant(data) }
+        reform { $0.item = .constant(data) }
     }
     
     func data(_ value: Binding<Cell.CellData>) -> Self {
-        update { $0.item = value }
+        reform { $0.item = value }
     }
     
     func customize(_ value: @escaping (Cell, Cell.CellData) -> Void) -> Self {
-        update { $0.customize = value }
+        reform { $0.customize = value }
     }
     
     func customize(_ value: @escaping (Cell) -> Void) -> Self {
-        update { $0.customize = { (cell, _) in value(cell) } }
+        reform { $0.customize = { (cell, _) in value(cell) } }
     }
 }

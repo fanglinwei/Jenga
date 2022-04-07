@@ -7,22 +7,22 @@
 
 import Foundation
 
-public protocol Update {}
+public protocol Reform {}
 
-extension Update where Self: Any {
+extension Reform where Self: Any {
     
     @inlinable
-    public func update(_ block: (inout Self) throws -> Void) rethrows -> Self {
+    public func reform(_ block: (inout Self) throws -> Void) rethrows -> Self {
         var copy = self
         try block(&copy)
         return copy
     }
 }
 
-extension Update where Self: AnyObject {
+extension Reform where Self: AnyObject {
     
     @inlinable
-    public func update(_ block: (Self) throws -> Void) rethrows -> Self {
+    public func reform(_ block: (Self) throws -> Void) rethrows -> Self {
         try block(self)
         return self
     }

@@ -13,19 +13,13 @@ class SettingViewController: BaseViewController, DSLAutoTable {
     
     override var pageTitle: String { get { "设置" } }
     
-    @State var text = "OC"
-    
-    @State var detailText1 = "OC"
-    
-    @State var text2 = "OC"
-    
-    @State var detailText = "+86"
+    @State var detailText = "OC"
     
     @State var isRed = true
     
-    @State var badgeValue: String? = "1"
+    @State var badgeValue: Int = 0
     
-    @State var isOn2 = true
+    @State var isOn = true
     
     var id: Int = 0
         
@@ -33,9 +27,7 @@ class SettingViewController: BaseViewController, DSLAutoTable {
         super.viewDidLoad()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
-            self?.text = "Swift"
-            self?.detailText1 = "Swift"
-            self?.detailText = "17878787878"
+            self?.detailText = "Swift"
         }
     }
 }
@@ -97,7 +89,7 @@ extension SettingViewController {
                 .detailText(.value2("Value2"))
             
             NavigationRow("数据绑定")
-                .detailText($detailText1.map { .value1($0)} )
+                .detailText($detailText.map { .value1($0)} )
             
             NavigationRow("修改样式")
                 .detailText(.subtitle("123123"))
@@ -115,55 +107,64 @@ extension SettingViewController {
         
         TableSection {
             
-            ToggleRow("Switch 2", isOn: $isOn2)
+            ToggleRow("Switch", isOn: $isOn)
                 .onTap(on: self) { (self, isOn) in
                     self.reloadTable()
                 }
         }
         .header("Toggle")
-        .rowHeight(52)
         
-        if isOn2 {
+        if isOn {
             TableSection {
                 NavigationRow("🤣")
                 NavigationRow("😄")
             }
-            .rowHeight(52)
+            .headerHeight(UITableView.automaticDimension)
         }
         
         TableSection {
-            TapActionRow("Tap Action")
-                .textAlignment(.left)
-                .onTap(on: self) { (self) in
-                    
-                }
-        }
-        .header("Tap")
-        .rowHeight(52)
-        
-        TableSection {
-//            NavigationBadgeRow("小红点")
-//                .badgeValue($isRed)
-//                .badgeColor(.blue)
-//                .onTap {
-//
-//                }
-//
-//            NavigationBadgeRow("数字")
-//                .badgeValue($badgeValue)
-//                .badgeColor(.red)
-//                .onTap {
-//
-//                }
+            NavigationBadgeRow("小红点")
+                .badgeValue($isRed)
+                .badgeColor(.blue)
+                .accessoryType(.disclosureIndicator)
+            
+            NavigationBadgeRow("小红点")
+                .detailText("子标题")
+                .badgeValue($isRed)
+                .badgeColor(.blue)
+                .accessoryType(.disclosureIndicator)
 
-            TapActionRow("Tap Action")
-                .textAlignment(.left)
+            TapActionRow("切换红点")
+                .textAlignment(.center)
                 .onTap(on: self) { (self) in
                     self.isRed.toggle()
                 }
+            
+            NavigationBadgeRow("数字")
+                .badgeValue($badgeValue.map { "\(max($0, 0))" } )
+                .badgeColor(.red)
+                .accessoryType(.disclosureIndicator)
+            
+            NavigationBadgeRow("数字")
+                .detailText("子标题")
+                .badgeValue($badgeValue.map { "\(max($0, 0))" } )
+                .badgeColor(.red)
+                .accessoryType(.disclosureIndicator)
+            
+            TapActionRow("+")
+                .textAlignment(.center)
+                .onTap(on: self) { (self) in
+                    self.badgeValue += 1
+                }
+            
+            TapActionRow("-")
+                .textAlignment(.center)
+                .onTap(on: self) { (self) in
+                    self.badgeValue -= 1
+                }
         }
-//        .header("Badge")
-        .rowHeight(52)
+        .headerHeight(UITableView.automaticDimension)
+        .header("Badge")
     }
 }
 

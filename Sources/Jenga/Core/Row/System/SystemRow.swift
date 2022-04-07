@@ -1,7 +1,7 @@
 import UIKit
 
 // 系统样式
-public protocol RowSystem: Row {
+public protocol SystemRow: Row {
     
     /// The text of the row.
     var text: Binding<TextValues> { get set }
@@ -18,26 +18,26 @@ public protocol RowSystem: Row {
     var accessoryType: UITableViewCell.AccessoryType { get }
 }
 
-public extension RowSystem {
+public extension SystemRow {
     
     func icon(_ value: Binding<Icon>) -> Self {
-        update { $0.icon = value }
+        reform { $0.icon = value }
     }
     
     func icon(_ value: Icon) -> Self {
-        update { $0.icon = .constant(value) }
+        reform { $0.icon = .constant(value) }
     }
     
     func detailText(_ value: Binding<DetailText>) -> Self {
-        update { $0.detailText = value }
+        reform { $0.detailText = value }
     }
     
     func detailText(_ value: DetailText) -> Self {
-        update { $0.detailText = .constant(value) }
+        reform { $0.detailText = .constant(value) }
     }
     
     func detailText(_ value: String) -> Self {
-        update {
+        reform {
             $0.detailText = detailText.map { detailText in
                 var temp = detailText
                 temp.type = .value1
@@ -49,7 +49,7 @@ public extension RowSystem {
     
     func detailText(_ value: Binding<String>) -> Self {
         var temp = detailText.wrappedValue
-        return update {
+        return reform {
             $0.detailText = value.map { value  in
                 temp.type = .value1
                 temp.text.string = value
@@ -59,11 +59,11 @@ public extension RowSystem {
     }
     
     func text<Value>(_ keyPath: WritableKeyPath<TextValues, Value>, _ value: Value) -> Self {
-        update { $0.text = text.map { $0.with(keyPath, value) } }
+        reform { $0.text = text.map { $0.with(keyPath, value) } }
     }
     
     func detail<Value>(_ keyPath: WritableKeyPath<TextValues, Value>, _ value: Value) -> Self {
-        update {
+        reform {
             $0.detailText = detailText.map { detailText in
                 var temp = detailText
                 temp.text = temp.text.with(keyPath, value)
@@ -74,12 +74,12 @@ public extension RowSystem {
     
     func text<Value>(_ keyPath: WritableKeyPath<TextValues, Value>, _ binding: Binding<Value>) -> Self {
         let temp = text.wrappedValue
-        return update { $0.text = binding.map { temp.with(keyPath, $0) } }
+        return reform { $0.text = binding.map { temp.with(keyPath, $0) } }
     }
     
     func detail<Value>(_ keyPath: WritableKeyPath<TextValues, Value>, _ binding: Binding<Value>) -> Self {
         var temp = detailText.wrappedValue
-        return update {
+        return reform {
             $0.detailText = binding.map { value  in
                 temp.text = temp.text.with(keyPath, value)
                 return temp
@@ -88,28 +88,28 @@ public extension RowSystem {
     }
 }
 
-public protocol NavigationRowCompatible: RowSystem {
+public protocol NavigationRowCompatible: SystemRow {
     
     var accessoryButtonAction: RowAction? { get }
 }
 
-public protocol BadgeRowCompatible: RowSystem, AnyObject {
+public protocol BadgeRowCompatible: SystemRow, AnyObject {
     
     var badgeValue: Binding<String?> { get set }
     var badgeColor: Binding<UIColor>? { get set }
 }
 
-public protocol TapActionRowCompatible: RowSystem {
+public protocol TapActionRowCompatible: SystemRow {
     
     var textAlignment: NSTextAlignment { get set}
 }
 
-public protocol OptionRowCompatible: RowSystem, AnyObject {
+public protocol OptionRowCompatible: SystemRow, AnyObject {
     
     var isSelected: Bool { get set }
 }
 
-public protocol ToggleRowCompatible: RowSystem {
+public protocol ToggleRowCompatible: SystemRow {
     
     var isOn: Binding<Bool> { get set }
     var onTap: ((Bool) -> Void)? { get }

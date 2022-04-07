@@ -47,7 +47,7 @@ public struct AsyncImage: Jenga.AsyncImage {
     }
 }
 
-extension AsyncImage: Update { }
+extension AsyncImage: Reform { }
 
 public extension AsyncImage {
     
@@ -56,11 +56,11 @@ public extension AsyncImage {
     }
     
     func placeholder(_ value: Placeholder?) -> Self {
-        update { $0.placeholder = value }
+        reform { $0.placeholder = value }
     }
     
     func by(size: CGSize) -> Self {
-        update {
+        reform {
             $0.processor = RoundCornerImageProcessor(
                 radius: processor.radius,
                 targetSize: size,
@@ -75,7 +75,7 @@ public extension AsyncImage {
     }
     
     func by(roundingCorners value: RectCorner) -> Self {
-        update {
+        reform {
             $0.processor = RoundCornerImageProcessor(
                 radius: processor.radius,
                 targetSize: processor.targetSize,
@@ -88,7 +88,7 @@ public extension AsyncImage {
     func by(cornerRadius value: CGFloat? = nil) -> Self {
         let radius: RoundCornerImageProcessor.Radius = value != nil ? .point(value!) : .widthFraction(0.5)
         
-        return update {
+        return reform {
             $0.processor = RoundCornerImageProcessor(
                 radius: radius,
                 targetSize: processor.targetSize,
@@ -99,14 +99,14 @@ public extension AsyncImage {
     }
 }
 
-public extension RowSystem {
+public extension SystemRow {
     
     func icon(_ value: Binding<AsyncImage>) -> Self {
-        update { $0.icon = value.map { .async($0) }}
+        reform { $0.icon = value.map { .async($0) }}
     }
     
     func icon(_ value: AsyncImage) -> Self {
-        update { $0.icon = .constant(.async(value)) }
+        reform { $0.icon = .constant(.async(value)) }
     }
 }
 

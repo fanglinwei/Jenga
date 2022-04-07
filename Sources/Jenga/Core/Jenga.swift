@@ -27,14 +27,14 @@ extension JengaEnvironment {
 
 public protocol JengaProvider {
     
-    func `default`(with cell: UITableViewCell, _ style: RowSystem)
+    func `default`(with cell: UITableViewCell, _ style: SystemRow)
     
     func defaultTableView(with frame: CGRect) -> UITableView
 }
 
 public extension JengaProvider {
     
-    func `default`(with cell: UITableViewCell, _ style: RowSystem) { }
+    func `default`(with cell: UITableViewCell, _ style: SystemRow) { }
     
     func defaultTableView(with frame: CGRect) -> UITableView {
         let tableView: UITableView

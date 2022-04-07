@@ -12,6 +12,7 @@ import Jenga
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        JengaEnvironment.isEnabledLog = true
         JengaEnvironment.setup(JengaProvider())
         return true
     }
@@ -45,6 +46,7 @@ struct JengaProvider: Jenga.JengaProvider {
         return tableView
     }
 }
+
 /// 扩展TextValues属性
 extension TextValues {
     
