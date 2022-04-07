@@ -6,18 +6,21 @@
 [![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-4BC51D.svg?style=flat")](https://swift.org/package-manager/)&nbsp;
 [![Cocoapods](https://img.shields.io/cocoapods/v/Jenga.svg)](https://cocoapods.org)
 
-## 特性
+## [🇨🇳天朝子民](README_CN.md)
 
-- [x] 使用DSL链式语法构建列表 流畅的编码体验 优雅自然的样式设置.
-- [x] 丰富的Cell支持.
-- [x] 支持系统设置样式类型
-- [x] 支持自定义Cell类型.
-- [x] 支持`state`和`binding`
-- [x] 支持自动计算行高
-- [x] 更多新特性的不断加入.
+A library for building `UITableView` declaratively written in `Swift ResultBuilder`, just like `SwiftUI` API form, can reduce the amount of code by 80% to build tableView.
+
+## Features
+
+- [x] Use declarative chaining syntax to build lists Smooth coding experience Elegant and natural styling.
+- [x] Rich Cell type support, support system setting styles and custom types.
+- [x] Support `@propertyWrapper`, use `state` and `binding` to bind UI state
+- [x] Support automatic calculation and row height
+- [x] Support automatic registration of Cell
+- [x] Continue to add more new features.
 
 
-## 截屏
+## Screenshot
 
 <img src="Resources/simple.png" alt="Simple" width="80%" />
 
@@ -25,7 +28,7 @@
 <img src="Resources/setting.png" alt="Setting" width="40%" />
 </div>
 
-## 安装
+## Installation
 
 #### CocoaPods - Podfile
 
@@ -35,22 +38,21 @@ pod 'Jenga'
 
 #### [Swift Package Manager for Apple platforms](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app)
 
-选择 Xcode 菜单 `File > Swift Packages > Add Package Dependency` 输入仓库地址.  
+Select Xcode menu `File > Swift Packages > Add Package Dependency` and enter repository URL with GUI.  
 ```
 Repository: https://github.com/fanglinwei/Jenga
 ```
 
 #### [Swift Package Manager](https://swift.org/package-manager/)
 
-将以下内容添加到你的 `Package.swift`:
+Add the following to the dependencies of your `Package.swift`:
 ```swift
 .package(url: "https://github.com/fanglinwei/Jenga", from: "version")
 ```
 
+## Usage
 
-## 使用
-
-首先导入
+First make sure to import the framework:
 
 ```swift
 import Jenga
@@ -58,15 +60,16 @@ import Jenga
 
 
 
-初始化
+How to initialize:
 
 ```swift
-JengaProvider.setup()
+JengaEnvironment.isEnabledLog = true  //日志
+JengaEnvironment.setup(JengaProvider())
 ```
 
 
 
-然后你只需要以下代码就可以构建UITableView
+Then you just need short code to build UITableView
 
 ```swift
 @TableBuilder
@@ -77,10 +80,10 @@ var tableBody: [Table] {
 
 
 
-下面是一些简单示例. 支持所有设备和模拟器:
+Here are some usage examples. All devices are also available as simulators:
 
 
-#### 使用`DSLAutoTable`快速构建:
+#### `DSLAutoTable` is recommended for fast builds:
 
 ```swift
 import Jenga
@@ -105,13 +108,13 @@ class ViewController: UIViewController, DSLAutoTable {
 }
 ```
 
-预览
+preview:
 
 <div align="center">
 <img src="Resources/quick.png" alt="Stroke" width="40%" />
 </div>
 
-#### 自定义Cell:
+#### Custom Cell:
 
 ```swift
 @TableBuilder
@@ -138,14 +141,14 @@ class ViewController: UIViewController, DSLAutoTable {
     }
 ```
 
-预览
+preview:
 
 <div align="center">
 <img src="Resources/custom.png" alt="Stroke" width="40%" />
 </div>
 
 
-#### 状态以及绑定:
+#### `State` and `Binding`:
 
 ```swift
     @State var text = "objective-c"
@@ -188,7 +191,7 @@ class ViewController: UIViewController, DSLAutoTable {
     }
 ```
 
-修改`State`状态
+Modify `State` to update UI
 
 ```swift
 text = "Swift"
@@ -198,7 +201,7 @@ isShowCat = true
 
 
 
-预览
+preview:
 
 <div align="center">
 <img src="Resources/binding_1.png" alt="Stroke" width="40%" />
@@ -245,14 +248,14 @@ isShowCat = true
 ```
 
 
-预览
+preview:
 
 <div align="center">
 <img src="Resources/section_binding.png" alt="Stroke" width="40%" />
 </div>
 
 
-#### 超级简单模式:
+#### It is also possible not to use TableSection, but I am still weighing the pros and cons of this API approach:
 
 ```swift
     @TableBuilder
@@ -270,38 +273,38 @@ isShowCat = true
     }
 ```
 
-
-
-更多示例请查看工程应用.
-
-
-
-如果你想自定义创建的`TableView`
+#### 自定义`DSLAutoTable`创建的`TableView`
 
 ```swift
-        JengaProvider.autoTable { frame in
-            let tableView: UITableView
-            if #available(iOS 13.0, *) {
-                tableView = UITableView(frame: frame, style: .insetGrouped)
-            } else {
-                tableView = UITableView(frame: frame, style: .grouped)
-            }
-            tableView.separatorStyle = .none
-            return tableView
+struct JengaProvider: Jenga.JengaProvider {
+    
+    func defaultTableView(with frame: CGRect) -> UITableView {
+        let tableView: UITableView
+        if #available(iOS 13.0, *) {
+            tableView = UITableView(frame: frame, style: .insetGrouped)
+        } else {
+            tableView = UITableView(frame: frame, style: .grouped)
         }
+        return tableView
+    }
+}
+
+JengaEnvironment.setup(JengaProvider())
 ```
 
 
 
-如果你不想使用`DSLAutoTable`和`DSLTable`协议
+If you want to listen to `UIScrollViewDelegate` or create your own TableView, you can't use `DSLAutoTable` protocol
 
-1. ###### 创建 TableDirector
+Just view `CustomTableViewController` in Demo
+
+1. ######  TableDirector
 
    ```swift
-   lazy var table = TableDirector(tableView, delegate: self
+   lazy var table = TableDirector(tableView, delegate: self)
    ```
 
-2. ###### 使用TableBuilder描述Contents
+2. ###### Describe TableBody using @TableBuilder
 
    ```swift
        @TableBuilder
@@ -316,21 +319,23 @@ isShowCat = true
        }
    ```
 
-3. ###### 刷新数据
+3. ###### Update TableBody
 
    ```swift
-   table.set(sections: tableContents)
+   table.set(sections: tableBody)
    ```
 
-好了 你的列表完成了
+Done, your table is ready.
 
-#### 自动计算缓存行高:
+For more examples, see the sample application.
 
-实现思路灵感来源于[FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)
+## Cell height calculating strategy:
 
-你可以设置高度为`UITableView.highAutomaticDimension`来开启自动计算并且缓存行高
+Implementation ideas come from[FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)
 
-在项目中查看`AutoHeightViewController`即可
+You can set height to `UITableView.highAutomaticDimension` to enable automatic calculation and cache row height
+
+Just view `AutoHeightViewController` in Demo
 
 ```swift
 // row
@@ -346,7 +351,7 @@ TableSection {
 
 
 
-## `RowSystem`的协议提供链式
+## `SystemRow` protocol provides chaining
 
 | Row                     | 描述               |
 | :---------------------- | ------------------ |
@@ -363,18 +368,18 @@ TableSection {
 | `onTap`                 | 点击事件              |
 | `customize`             | 自定义              |
 
-## 贡献
+## Contributing
 
-如果您需要实现特定功能或遇到错误，请打开issue。
-如果您自己扩展了Jenga的功能并希望其他人也使用它，请提交拉取请求。
+If you have the need for a specific feature that you want implemented or if you experienced a bug, please open an issue.
+If you extended the functionality of Jenga yourself and want others to use it too, please submit a pull request.
 
-## 思路来源
+## Thanks for inspiration
 - [LazyFish](https://github.com/zjam9333/LazyFish)
 - [QuickTableViewController](https://github.com/bcylin/QuickTableViewController)
 - [TableKit](https://github.com/maxsokolov/TableKit)
 - [FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)
 
-## 协议
+## License
 
-Jenga 使用 MIT 协议. 有关更多信息，请参阅[LICENSE](LICENSE)文件.
+Jenga is under MIT license. See the [LICENSE](LICENSE) file for more info.
 

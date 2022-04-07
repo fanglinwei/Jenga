@@ -6,14 +6,15 @@
 [![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-4BC51D.svg?style=flat")](https://swift.org/package-manager/)&nbsp;
 [![Cocoapods](https://img.shields.io/cocoapods/v/Jenga.svg)](https://cocoapods.org)
 
+一个基于用 Swift ResultBuilder 编写的使用声明式构建`UITableView`的库, 就像SwiftUI一样的API形式, 能减少80%的代码量构建tableView.
+
 ## 特性
 
-- [x] 使用DSL链式语法构建列表 流畅的编码体验 优雅自然的样式设置.
-- [x] 丰富的Cell支持.
-- [x] 支持系统设置样式类型
-- [x] 支持自定义Cell类型.
-- [x] 支持`state`和`binding`
+- [x] 使用声明式链式语法构建列表 流畅的编码体验 优雅自然的样式设置.
+- [x] 丰富的 Cell 类型支持，支持系统设置样式和自定义类型。
+- [x] 支持@propertyWrapper，使用`state`和`binding`绑定UI状态
 - [x] 支持自动计算行高
+- [x] 支持自动注册Cell
 - [x] 更多新特性的不断加入.
 
 
@@ -61,12 +62,13 @@ import Jenga
 初始化
 
 ```swift
-JengaProvider.setup()
+JengaEnvironment.isEnabledLog = true  //日志
+JengaEnvironment.setup(JengaProvider())
 ```
 
 
 
-然后你只需要以下代码就可以构建UITableView
+然后你只需要简短的代码就可以构建UITableView
 
 ```swift
 @TableBuilder
@@ -80,7 +82,7 @@ var tableBody: [Table] {
 下面是一些简单示例. 支持所有设备和模拟器:
 
 
-#### 使用`DSLAutoTable`快速构建:
+#### 推荐使用`DSLAutoTable`进行快速构建:
 
 ```swift
 import Jenga
@@ -188,7 +190,7 @@ class ViewController: UIViewController, DSLAutoTable {
     }
 ```
 
-修改`State`状态
+修改`State`更新UI:
 
 ```swift
 text = "Swift"
@@ -252,7 +254,7 @@ isShowCat = true
 </div>
 
 
-#### 超级简单模式:
+#### 也可以不使用 TableSection，但我仍在权衡这种 API 方法的优缺点
 
 ```swift
     @TableBuilder
@@ -272,33 +274,35 @@ isShowCat = true
 
 
 
-更多示例请查看工程应用.
-
-
-
-如果你想自定义创建的`TableView`
+#### 自定义`DSLAutoTable`创建的`TableView`
 
 ```swift
-        JengaProvider.autoTable { frame in
-            let tableView: UITableView
-            if #available(iOS 13.0, *) {
-                tableView = UITableView(frame: frame, style: .insetGrouped)
-            } else {
-                tableView = UITableView(frame: frame, style: .grouped)
-            }
-            tableView.separatorStyle = .none
-            return tableView
+struct JengaProvider: Jenga.JengaProvider {
+    
+    func defaultTableView(with frame: CGRect) -> UITableView {
+        let tableView: UITableView
+        if #available(iOS 13.0, *) {
+            tableView = UITableView(frame: frame, style: .insetGrouped)
+        } else {
+            tableView = UITableView(frame: frame, style: .grouped)
         }
+        return tableView
+    }
+}
+
+JengaEnvironment.setup(JengaProvider())
 ```
 
 
 
-如果你不想使用`DSLAutoTable`和`DSLTable`协议
+如果你想要监听`UIScrollViewDelegate`或者自行创建TableView, 可以不使用`DSLAutoTable`协议
+
+在Demo中查看`CustomTableViewController`即可
 
 1. ###### 创建 TableDirector
 
    ```swift
-   lazy var table = TableDirector(tableView, delegate: self
+   lazy var table = TableDirector(tableView, delegate: self)
    ```
 
 2. ###### 使用TableBuilder描述Contents
@@ -316,21 +320,23 @@ isShowCat = true
        }
    ```
 
-3. ###### 刷新数据
+3. ###### 更新TableBody
 
    ```swift
-   table.set(sections: tableContents)
+   table.set(sections: tableBody)
    ```
 
 好了 你的列表完成了
 
+更多示例请查看工程应用.
+
 #### 自动计算缓存行高:
 
-实现思路灵感来源于[FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)
+实现思路来源于[FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)
 
-你可以设置高度为`UITableView.highAutomaticDimension`来开启自动计算缓存行高, `row`和`section`都可以
+你可以设置高度为`UITableView.highAutomaticDimension`来开启自动计算并且缓存行高
 
-在项目中查看`AutoHeightViewController`即可
+在Demo中查看`AutoHeightViewController`即可
 
 ```swift
 // row
@@ -346,7 +352,7 @@ TableSection {
 
 
 
-## `RowSystem`的协议提供链式
+## `SystemRow`的协议提供链式
 
 | Row                     | 描述               |
 | :---------------------- | ------------------ |
