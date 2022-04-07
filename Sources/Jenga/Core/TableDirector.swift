@@ -161,7 +161,7 @@ extension TableDirector: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         func cell(for row: Row) -> UITableViewCell {
-            if let row = row as? RowSystem {
+            if let row = row as? SystemRow {
                 let cell =
                 tableView.dequeueReusableCell(withIdentifier: row.reuseIdentifier) ??
                 row.cellType.init(style: row.cellStyle, reuseIdentifier: row.reuseIdentifier)
@@ -232,7 +232,7 @@ extension TableDirector: UITableViewDelegate {
         let section = sections[indexPath.section]
         let row = section.rows[indexPath.row]
         
-        if !(row is RowSystem) {
+        if !(row is SystemRow) {
             cellRegisterer?.register(cellType: row.cellType, forCellReuseIdentifier: row.reuseIdentifier)
         }
         
@@ -256,7 +256,7 @@ extension TableDirector: UITableViewDelegate {
         let section = sections[indexPath.section]
         let row = section.rows[indexPath.row]
         
-        if !(row is RowSystem) {
+        if !(row is SystemRow) {
             cellRegisterer?.register(cellType: row.cellType, forCellReuseIdentifier: row.reuseIdentifier)
         }
         var calculatorHeight: CGFloat? = nil

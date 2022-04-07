@@ -99,7 +99,7 @@ public extension AsyncImage {
     }
 }
 
-public extension RowSystem {
+public extension SystemRow {
     
     func icon(_ value: Binding<AsyncImage>) -> Self {
         reform { $0.icon = value.map { .async($0) }}

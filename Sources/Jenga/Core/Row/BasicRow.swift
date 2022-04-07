@@ -7,7 +7,7 @@
 
 import UIKit
 
-open class BasicRow<T: UITableViewCell>: RowSystem, RowConfigurable {
+open class BasicRow<T: UITableViewCell>: SystemRow, RowConfigurable {
     
     public init(_ binding: Binding<String>) {
         self.text = binding.map { .init(string: $0) }

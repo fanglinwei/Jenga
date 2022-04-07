@@ -36,7 +36,7 @@ open class TableCellHeightCalculator: RowHeightCalculator {
         
         var prototypeCell = prototypes[row.reuseIdentifier]
         if prototypeCell == nil {
-            if let row = row as? RowSystem {
+            if let row = row as? SystemRow {
                 prototypeCell =
                 tableView.dequeueReusableCell(withIdentifier: row.reuseIdentifier) ??
                 row.cellType.init(style: row.cellStyle, reuseIdentifier: row.reuseIdentifier)

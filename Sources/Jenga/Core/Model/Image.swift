@@ -76,7 +76,7 @@ public extension IconImage {
     }
 }
 
-public extension RowSystem {
+public extension SystemRow {
     
     func icon(_ value: Binding<IconImage>) -> Self {
         reform { $0.icon = value.map { .image($0) } }

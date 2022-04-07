@@ -38,7 +38,7 @@
 		B37BD60927F47538009C2244 /* BasicRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5D827F47538009C2244 /* BasicRow.swift */; };
 		B37BD60A27F47538009C2244 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5D927F47538009C2244 /* Configurable.swift */; };
 		B37BD60B27F47538009C2244 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5DA27F47538009C2244 /* Reusable.swift */; };
-		B37BD60C27F47538009C2244 /* RowSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5DC27F47538009C2244 /* RowSystem.swift */; };
+		B37BD60C27F47538009C2244 /* SystemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5DC27F47538009C2244 /* SystemRow.swift */; };
 		B37BD60D27F47538009C2244 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5DD27F47538009C2244 /* Row.swift */; };
 		B37BD60F27F47538009C2244 /* SpacerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5E027F47538009C2244 /* SpacerRow.swift */; };
 		B37BD61027F47538009C2244 /* OptionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5E127F47538009C2244 /* OptionRow.swift */; };
@@ -88,7 +88,7 @@
 		B37BD5D827F47538009C2244 /* BasicRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicRow.swift; sourceTree = "<group>"; };
 		B37BD5D927F47538009C2244 /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		B37BD5DA27F47538009C2244 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
-		B37BD5DC27F47538009C2244 /* RowSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowSystem.swift; sourceTree = "<group>"; };
+		B37BD5DC27F47538009C2244 /* SystemRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemRow.swift; sourceTree = "<group>"; };
 		B37BD5DD27F47538009C2244 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		B37BD5E027F47538009C2244 /* SpacerRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacerRow.swift; sourceTree = "<group>"; };
 		B37BD5E127F47538009C2244 /* OptionRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionRow.swift; sourceTree = "<group>"; };
@@ -252,7 +252,7 @@
 		B37BD5DF27F47538009C2244 /* System */ = {
 			isa = PBXGroup;
 			children = (
-				B37BD5DC27F47538009C2244 /* RowSystem.swift */,
+				B37BD5DC27F47538009C2244 /* SystemRow.swift */,
 				B37BD5E127F47538009C2244 /* OptionRow.swift */,
 				B37BD5E227F47538009C2244 /* TapActionRow.swift */,
 				B37BD5E327F47538009C2244 /* NavigationRow.swift */,
@@ -370,7 +370,7 @@
 				B32FAB7427F80A68006A37BE /* JengaHashable.swift in Sources */,
 				B37BD61B27F47538009C2244 /* DSLAutoTable.swift in Sources */,
 				B37BD61A27F47538009C2244 /* TableDirector.swift in Sources */,
-				B37BD60C27F47538009C2244 /* RowSystem.swift in Sources */,
+				B37BD60C27F47538009C2244 /* SystemRow.swift in Sources */,
 				B37BD60927F47538009C2244 /* BasicRow.swift in Sources */,
 				B37BD61427F47538009C2244 /* Icon.swift in Sources */,
 				B37BD5FB27F47538009C2244 /* Jenga.swift in Sources */,

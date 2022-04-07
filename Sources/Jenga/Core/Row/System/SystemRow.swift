@@ -1,7 +1,7 @@
 import UIKit
 
 // 系统样式
-public protocol RowSystem: Row {
+public protocol SystemRow: Row {
     
     /// The text of the row.
     var text: Binding<TextValues> { get set }
@@ -18,7 +18,7 @@ public protocol RowSystem: Row {
     var accessoryType: UITableViewCell.AccessoryType { get }
 }
 
-public extension RowSystem {
+public extension SystemRow {
     
     func icon(_ value: Binding<Icon>) -> Self {
         reform { $0.icon = value }
@@ -88,28 +88,28 @@ public extension RowSystem {
     }
 }
 
-public protocol NavigationRowCompatible: RowSystem {
+public protocol NavigationRowCompatible: SystemRow {
     
     var accessoryButtonAction: RowAction? { get }
 }
 
-public protocol BadgeRowCompatible: RowSystem, AnyObject {
+public protocol BadgeRowCompatible: SystemRow, AnyObject {
     
     var badgeValue: Binding<String?> { get set }
     var badgeColor: Binding<UIColor>? { get set }
 }
 
-public protocol TapActionRowCompatible: RowSystem {
+public protocol TapActionRowCompatible: SystemRow {
     
     var textAlignment: NSTextAlignment { get set}
 }
 
-public protocol OptionRowCompatible: RowSystem, AnyObject {
+public protocol OptionRowCompatible: SystemRow, AnyObject {
     
     var isSelected: Bool { get set }
 }
 
-public protocol ToggleRowCompatible: RowSystem {
+public protocol ToggleRowCompatible: SystemRow {
     
     var isOn: Binding<Bool> { get set }
     var onTap: ((Bool) -> Void)? { get }
