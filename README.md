@@ -8,7 +8,7 @@
 
 ## [🇨🇳天朝子民](README_CN.md)
 
-A library for building `UITableView` declaratively written in `Swift ResultBuilder`, just like `SwiftUI` API form, can reduce the amount of code by 80% to build tableView.
+This framework allows you to build Table views using UIKit with syntax similar to SwiftUI. You can think about this as an improved `UITableView`.
 
 ## Features
 

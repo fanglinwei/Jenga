@@ -6,7 +6,7 @@
 [![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-4BC51D.svg?style=flat")](https://swift.org/package-manager/)&nbsp;
 [![Cocoapods](https://img.shields.io/cocoapods/v/Jenga.svg)](https://cocoapods.org)
 
-一个基于用 Swift ResultBuilder 编写的使用声明式构建`UITableView`的库, 就像SwiftUI一样的API形式, 能减少80%的代码量构建tableView.
+该框架允许您使用 UIKit 构建 Table 视图，其语法类似于 SwiftUI。 您可以将其视为改进的 `UITableView`。
 
 ## 特性
 
