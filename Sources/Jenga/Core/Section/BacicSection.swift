@@ -1,10 +1,3 @@
-//
-//  BacicSection.swift
-//  Zunion
-//
-//  Created by 方林威 on 2022/3/2.
-//
-
 import UIKit
 
 open class BacicSection: Section {

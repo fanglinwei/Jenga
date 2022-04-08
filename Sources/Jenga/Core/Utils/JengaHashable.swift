@@ -1,10 +1,3 @@
-//
-//  JengaHashable.swift
-//  Jenga
-//
-//  Created by 方林威 on 2022/4/2.
-//
-
 import Foundation
 
 public protocol JengaHashable {

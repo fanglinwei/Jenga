@@ -1,10 +1,3 @@
-//
-//  HeaderFooter.swift
-//  Jenga
-//
-//  Created by 方林威 on 2022/4/1.
-//
-
 import UIKit
 
 public enum HeaderFooter {

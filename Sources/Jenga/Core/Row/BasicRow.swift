@@ -1,10 +1,3 @@
-//
-//  SystemRow.swift
-//  Zunion
-//
-//  Created by 方林威 on 2022/2/24.
-//
-
 import UIKit
 
 open class BasicRow<T: UITableViewCell>: SystemRow, RowConfigurable {

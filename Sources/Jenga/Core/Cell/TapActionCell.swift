@@ -1,6 +1,5 @@
 import UIKit
 
-/// A `UITableViewCell` subclass with the title text center aligned.
 open class TapActionCell: UITableViewCell, ConfigurableCell {
 
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

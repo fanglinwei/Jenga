@@ -1,17 +1,8 @@
-//
-//  BindingConvertible.swift
-//  TableKit
-//
-//  Created by 方林威 on 2022/3/23.
-//
-
 import Foundation
 import CoreGraphics
 
 @dynamicMemberLookup
 public protocol BindingConvertible {
-    // Kinda like objects being able to vend a WOAssociation
-    // `State` is a BindingConvertible.
     
     associatedtype Value
     
@@ -145,7 +136,6 @@ public extension BindingConvertible {
         )
     }
     
-    
     func join<T, R>(_ rhs: Binding<T>, transform: @escaping (Value, T) -> R) -> Binding<R> {
         join(rhs).map(transform)
     }
@@ -189,6 +179,7 @@ extension Binding: Equatable where Value: Equatable {
 // MARK: math
 
 extension Binding where Value == CGFloat {
+    
     public static func + (lhs: Binding<Value>, rhs: Value) -> Binding<Value> {
         return lhs.map { a in
             return a + rhs

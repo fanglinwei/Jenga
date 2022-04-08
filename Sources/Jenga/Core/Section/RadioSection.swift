@@ -66,9 +66,11 @@ open class RadioSection: BacicSection {
             switch element {
             case let target where target === option:
                 toggledIndexes.insert(index)
+                
             case _ where element.isSelected:
                 toggledIndexes.insert(index)
                 element.isSelected = false
+                
             default:
                 break
             }

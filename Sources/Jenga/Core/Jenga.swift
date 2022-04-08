@@ -1,10 +1,3 @@
-//
-//  TableKit.swift
-//  Zunionv 
-//
-//  Created by 方林威 on 2022/2/25.
-//
-
 import UIKit
 
 public typealias RowBuilder = ArrayBuilder<Row>

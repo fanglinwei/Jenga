@@ -1,13 +1,7 @@
-//
-//  Binding.swift
-//  TableKit
-//
-//  Created by 方林威 on 2022/3/23.
-//
-
 import Foundation
 
 public struct Binding<Value>: BindingConvertible {
+   
     public typealias AppendObserver = (_ target: AnyObject?, _ changeHandler: @escaping Changed<Value>.Handler) -> Void
     public typealias RemoveObserver = (AnyObject) -> Void
     
@@ -54,7 +48,6 @@ public struct Binding<Value>: BindingConvertible {
     }
 }
 
-
 extension Binding: CustomStringConvertible, CustomDebugStringConvertible {
     
     public var description: String {
@@ -67,34 +60,37 @@ extension Binding: CustomStringConvertible, CustomDebugStringConvertible {
 }
 
 extension Binding: Sequence where Value: MutableCollection, Value.Index: Hashable {
-  public typealias Element     = Binding<Value.Element>
-  public typealias Iterator    = IndexingIterator<Binding<Value>>
-  public typealias SubSequence = Slice<Binding<Value>>
+
+    public typealias Element     = Binding<Value.Element>
+    public typealias Iterator    = IndexingIterator<Binding<Value>>
+    public typealias SubSequence = Slice<Binding<Value>>
 }
 
 extension Binding: Collection where Value: MutableCollection, Value.Index: Hashable {
-  public typealias Index   = Value.Index
-  public typealias Indices = Value.Indices
-  
-  public var startIndex : Value.Index   { return wrappedValue.startIndex }
-  public var endIndex   : Value.Index   { return wrappedValue.endIndex   }
-  public var indices    : Value.Indices { return wrappedValue.indices    }
-
-  public func index(after i: Value.Index) -> Value.Index {
-    return wrappedValue.index(after: i)
-  }
-  public func formIndex(after i: inout Value.Index) {
-    return wrappedValue.formIndex(after: &i)
-  }
-  
-  public subscript(_ index: Value.Index) -> Binding<Value.Element> {
-      return Binding<Value.Element>(
-          get: { wrappedValue[index] },
-          set: { wrappedValue[index] = $0 }, appendObserver: { target, observer in
-              append(observer: target) { changed in
-                  observer(Changed<Value.Element>(old: changed.old[index], new: changed.new[index]))
-              }
-          },
-          removeObserver: remove)
-  }
+    public typealias Index   = Value.Index
+    public typealias Indices = Value.Indices
+    
+    public var startIndex : Value.Index   { return wrappedValue.startIndex }
+    public var endIndex   : Value.Index   { return wrappedValue.endIndex   }
+    public var indices    : Value.Indices { return wrappedValue.indices    }
+    
+    public func index(after i: Value.Index) -> Value.Index {
+        return wrappedValue.index(after: i)
+    }
+    public func formIndex(after i: inout Value.Index) {
+        return wrappedValue.formIndex(after: &i)
+    }
+    
+    public subscript(_ index: Value.Index) -> Binding<Value.Element> {
+        return Binding<Value.Element>(
+            get: { wrappedValue[index] },
+            set: { wrappedValue[index] = $0 },
+            appendObserver: { target, observer in
+                append(observer: target) { changed in
+                    observer(Changed<Value.Element>(old: changed.old[index], new: changed.new[index]))
+                }
+            },
+            removeObserver: remove
+        )
+    }
 }

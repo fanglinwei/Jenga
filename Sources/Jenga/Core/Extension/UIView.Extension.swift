@@ -1,11 +1,3 @@
-//
-//  UIView.Extension.swift
-//  Jenga
-//
-//  Created by 方林威 on 2022/3/30.
-//  Copyright © 2022 LEE. All rights reserved.
-//
-
 import UIKit
 
 extension UIView {
