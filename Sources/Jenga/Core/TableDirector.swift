@@ -305,9 +305,9 @@ extension TableDirector: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         let row = sections[indexPath.section].rows[indexPath.row]
         switch row {
-        case let aavigation as NavigationRowCompatible:
+        case let navigation as NavigationRowCompatible:
             DispatchQueue.main.async {
-                aavigation.accessoryButtonAction?()
+                navigation.accessoryButtonAction?()
             }
             
         default:
