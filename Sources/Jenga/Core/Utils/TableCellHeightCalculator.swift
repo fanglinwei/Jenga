@@ -49,9 +49,9 @@ open class TableCellHeightCalculator: RowHeightCalculator {
         /* ======================================================================================= */
         // 计算行高参考: https://github.com/forkingdog/UITableView-FDTemplateLayoutCell
         // insetGrouped
-        let insetGroupedWidth = tableView.subviews.first { "\($0.classForCoder)" == "UITableViewWrapperView" }?.frame.width
+        let insetGroupedWidth = tableView.wrapperView?.frame.width
         // sectionIndex
-        var rightSystemViewsWidth = tableView.subviews.first { "\($0.classForCoder)" == "UITableViewIndex" }?.frame.width ?? 0
+        var rightSystemViewsWidth = tableView.indexView?.frame.width ?? 0
         if let accessoryView = cell.accessoryView {
             rightSystemViewsWidth += 16 + accessoryView.frame.width
         } else {

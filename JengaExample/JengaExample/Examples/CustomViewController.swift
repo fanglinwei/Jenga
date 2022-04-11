@@ -18,7 +18,7 @@ class CustomViewController: BaseViewController, DSLAutoTable {
         TableSection {
             
             TableRow<BannerCell>("image1")
-                .height(1184 / 2256 * (UIScreen.main.bounds.width - 32))
+                .height(1184 / 2256 * (UIScreen.main.bounds.width - 40))
                 .customize { [weak self] cell in
                     cell.delegate = self
                 }
@@ -26,7 +26,7 @@ class CustomViewController: BaseViewController, DSLAutoTable {
             SpacerRow(10)
             
             TableRow<BannerCell>()
-                .height(1540 / 2078 * (UIScreen.main.bounds.width - 32))
+                .height(1540 / 2078 * (UIScreen.main.bounds.width - 40))
                 .data("image2")
                 .customize { (cell, value) in
                     print(cell, value)

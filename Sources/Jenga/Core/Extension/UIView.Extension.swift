@@ -26,5 +26,8 @@ extension UITableView {
 public extension UITableView {
 
     static var highAutomaticDimension: CGFloat = -999
+    
+    var wrapperView: UIView? { subviews.first { "\($0.classForCoder)" == "UITableViewWrapperView" } }
+    
+    var indexView: UIView? { subviews.first { "\($0.classForCoder)" == "UITableViewIndex" } }
 }
-
