@@ -39,7 +39,7 @@ class CustomViewController: BaseViewController, DSLAutoTable {
 extension CustomViewController: BannerCellDelegate {
     
     func bannerOpenAction() {
-        UIApplication.shared.open(URL(string: "https://github.com/fanglinwei/TableKit")!)
+        UIApplication.shared.open(URL(string: "https://github.com/fanglinwei/Jenga")!)
     }
 }
 
