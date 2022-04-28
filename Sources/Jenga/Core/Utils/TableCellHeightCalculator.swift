@@ -114,7 +114,7 @@ open class TableCellHeightCalculator: RowHeightCalculator {
             return height
         }
         
-        if let estimatedHeight = row.estimatedHeight , estimatedHeight > 0 {
+        if let estimatedHeight = row.estimatedHeight?.value , estimatedHeight > 0 {
             return estimatedHeight
         }
         

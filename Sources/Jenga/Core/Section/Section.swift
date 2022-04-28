@@ -8,7 +8,7 @@ public protocol Section: Reform, JengaHashable {
     
     var footer: HeaderFooter { get set }
     
-    var rowHeight: CGFloat? { get set }
+    var rowHeight: RowHeight? { get set }
     
     var hiddenWithEmpty: Bool { get set }
 }
@@ -60,5 +60,9 @@ public extension Section {
     
     func rowHeight(_ value: @autoclosure () -> (RowHeight)) -> Self {
         reform { $0.rowHeight = value() }
+    }
+    
+    func rowHeight(_ value: @autoclosure () -> (CGFloat)) -> Self {
+        reform { $0.rowHeight = .constant(value()) }
     }
 }

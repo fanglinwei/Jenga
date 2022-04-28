@@ -22,9 +22,9 @@ public struct SpacerRow<T: SpacerCell>: Row {
     
     public var accessoryType: UITableViewCell.AccessoryType = .none
     
-    public init(_ height: RowHeight = 10, color: UIColor = .clear) {
-        self.height = height
+    public init(_ height: CGFloat = 10, color: UIColor = .clear) {
+        self.height = .constant(height)
         self.color = color
-        self.estimatedHeight = height
+        self.estimatedHeight = .constant(height)
     }
 }

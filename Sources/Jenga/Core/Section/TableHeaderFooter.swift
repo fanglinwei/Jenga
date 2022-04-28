@@ -51,7 +51,7 @@ public protocol TableHeaderFooter {
     
     var content: HeaderFooter { get set }
     
-    var rowHeight: CGFloat? { get set }
+    var rowHeight: RowHeight? { get set }
     
     var hiddenWithEmpty: Bool { get set }
 }
@@ -63,7 +63,7 @@ public struct TableHeader: Header {
     
     public var content: HeaderFooter = .defultHeader
     
-    public var rowHeight: CGFloat?
+    public var rowHeight: RowHeight?
     
     public var hiddenWithEmpty: Bool = false
     
@@ -90,7 +90,7 @@ public struct TableFooter: Footer {
     
     public var content: HeaderFooter = .defultFooter
     
-    public var rowHeight: CGFloat?
+    public var rowHeight: RowHeight?
     
     public var hiddenWithEmpty: Bool = false
     
@@ -124,6 +124,10 @@ public extension TableHeader {
     
     func hiddenWithEmpty(_ value: Bool) -> Self {
         reform { $0.hiddenWithEmpty = value }
+    }
+    
+    func rowHeight(_ value: @autoclosure () -> (CGFloat)) -> Self {
+        reform { $0.rowHeight = .constant(value()) }
     }
     
     func rowHeight(_ value: @autoclosure () -> (RowHeight)) -> Self {

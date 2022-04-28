@@ -12,7 +12,7 @@ open class BacicSection: Section {
     
     open var footer = HeaderFooter.defultFooter
     
-    open var rowHeight: CGFloat?
+    open var rowHeight: RowHeight?
     
     open var hiddenWithEmpty: Bool = false
     
@@ -27,7 +27,7 @@ internal struct BrickSection: Section {
     
     public var footer = HeaderFooter.defultFooter
     
-    public var rowHeight: CGFloat?
+    public var rowHeight: RowHeight?
     
     public var hiddenWithEmpty: Bool = false
     

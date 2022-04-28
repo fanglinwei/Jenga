@@ -231,18 +231,18 @@ extension TableDirector: UITableViewDelegate {
         }
         
         var calculatorHeight: CGFloat? = nil
-        let isCalculator = row.estimatedHeight == UITableView.highAutomaticDimension
-        || (row.estimatedHeight == nil && row.height == UITableView.highAutomaticDimension)
-        || (row.estimatedHeight == nil && row.height == nil && section.rowHeight == UITableView.highAutomaticDimension)
+        let isCalculator = (row.estimatedHeight?.isHighAutomaticDimension ?? false)
+        || (row.estimatedHeight == nil && (row.height?.isHighAutomaticDimension ?? false))
+        || (row.estimatedHeight == nil && row.height == nil && (section.rowHeight?.isHighAutomaticDimension ?? false))
         
         if isCalculator {
             calculatorHeight = rowHeightCalculator.estimatedHeight(forRow: row, at: indexPath)
         }
         
         return calculatorHeight.nonEfficient
-        ?? row.estimatedHeight.nonEfficient
-        ?? row.height.nonEfficient
-        ?? section.rowHeight.nonEfficient
+        ?? (row.estimatedHeight?.value).nonEfficient
+        ?? (row.height?.value).nonEfficient
+        ?? (section.rowHeight?.value).nonEfficient
         ?? UITableView.automaticDimension
     }
     
@@ -254,15 +254,15 @@ extension TableDirector: UITableViewDelegate {
             cellRegisterer?.register(cellType: row.cellType, forCellReuseIdentifier: row.reuseIdentifier)
         }
         var calculatorHeight: CGFloat? = nil
-        let isCalculator = row.height == UITableView.highAutomaticDimension
-        || (row.height == nil && section.rowHeight == UITableView.highAutomaticDimension)
+        let isCalculator = (row.height?.isHighAutomaticDimension ?? false)
+        || (row.height == nil && (section.rowHeight?.isHighAutomaticDimension ?? false))
         
         if isCalculator {
             calculatorHeight = rowHeightCalculator.height(forRow: row, at: indexPath)
         }
         return calculatorHeight.nonEfficient
-        ?? row.height.nonEfficient
-        ?? section.rowHeight.nonEfficient
+        ?? (row.height?.value).nonEfficient
+        ?? (section.rowHeight?.value).nonEfficient
         ?? UITableView.automaticDimension
     }
     

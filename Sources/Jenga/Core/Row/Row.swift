@@ -26,6 +26,10 @@ public extension Row {
         reform { $0.height = value }
     }
     
+    func height(_ value: @autoclosure () -> (CGFloat)) -> Self {
+        reform { $0.height = .constant(value()) }
+    }
+    
     func estimatedHeight(_ value: RowHeight?) -> Self {
         reform { $0.estimatedHeight = value }
     }
@@ -52,6 +56,27 @@ public extension Row {
     }
 }
 
-public typealias RowHeight = CGFloat
+public enum RowHeight {
+    case constant(CGFloat)
+    case automaticDimension
+    case highAutomaticDimension
+    
+    public var value: CGFloat {
+        switch self {
+        case .constant(let cGFloat):            return cGFloat
+        case .automaticDimension:               return UITableView.automaticDimension
+        case .highAutomaticDimension:           return UITableView.automaticDimension
+        }
+    }
+    
+    var isHighAutomaticDimension: Bool {
+        switch self {
+        case .constant:                        return false
+        case .automaticDimension:              return false
+        case .highAutomaticDimension:          return true
+        }
+    }
+}
+
 public typealias RowAction = () -> Void
 

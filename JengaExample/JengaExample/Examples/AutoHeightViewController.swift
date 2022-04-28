@@ -18,9 +18,9 @@ class AutoHeightViewController: BaseViewController, DSLAutoTable {
     var tableBody: [Table] {
         TableSection.init(binding: $datas) {
             TableRow<AutoHeightCell>($0)
-                .height(UITableView.highAutomaticDimension)
+                .height(.highAutomaticDimension)
         }
-        .rowHeight(UITableView.highAutomaticDimension)
+        .rowHeight(.highAutomaticDimension)
         
         // 系统样式暴力测试
         TableSection {
@@ -53,7 +53,7 @@ class AutoHeightViewController: BaseViewController, DSLAutoTable {
                 .detailText(.subtitle("SubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitle"))
                 .detail(\.numberOfLines, 0)
         }
-        .rowHeight(UITableView.highAutomaticDimension)
+        .rowHeight(.highAutomaticDimension)
         .header("detailText")
     }
 }

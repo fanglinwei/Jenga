@@ -2,18 +2,18 @@ import UIKit
 
 public protocol Spacer {
     
-    var height: RowHeight { get }
+    var height: CGFloat { get }
     
     var color: UIColor { get set }
 }
 
 public struct TableSpacer: Spacer {
     
-    public let height: RowHeight
+    public let height: CGFloat
     
     public var color: UIColor = .clear
     
-    public init(_ height: RowHeight = 10, color: UIColor = .clear) {
+    public init(_ height: CGFloat = 10, color: UIColor = .clear) {
         self.height = height
         self.color = color
     }
