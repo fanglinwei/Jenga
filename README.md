@@ -117,7 +117,7 @@ preview:
 #### Custom Cell:
 
 ```swift
-@TableBuilder
+    @TableBuilder
     var tableBody: [Table] {
         
         TableSection {
