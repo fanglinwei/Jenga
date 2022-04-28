@@ -72,10 +72,10 @@ JengaEnvironment.setup(JengaProvider())
 Then you just need short code to build UITableView
 
 ```swift
-@TableBuilder
-var tableBody: [Table] {
-			rows...
-}
+	@TableBuilder
+	var tableBody: [Table] {
+		rows...
+	}
 ```
 
 
@@ -117,7 +117,7 @@ preview:
 #### Custom Cell:
 
 ```swift
-@TableBuilder
+    @TableBuilder
     var tableBody: [Table] {
         
         TableSection {
@@ -273,7 +273,7 @@ preview:
     }
 ```
 
-#### 自定义`DSLAutoTable`创建的`TableView`
+#### Custom `DSLAutoTable` to create `TableView`
 
 ```swift
 struct JengaProvider: Jenga.JengaProvider {
@@ -353,20 +353,23 @@ TableSection {
 
 ## `SystemRow` protocol provides chaining
 
-| Row                     | 描述               |
+| modify                  | description        |
 | :---------------------- | ------------------ |
-| `text`                  | 标题               |
-| `detailText`            | 子标题(默认value1) |
-| `detailText(.subtitle)` | 子标题subtitle     |
-| `detailText(.value1)`   | 子标题value1       |
-| `detailText(.value2)`   | 子标题value2       |
-| `detailText(.none)`     | 子标题空样式       |
-| `isOn`                  | 开关               |
-| `height`                | 行高               |
-| `estimatedHeight`       | 预估行高               |
-| `selectionStyle`        | 选中样式               |
-| `onTap`                 | 点击事件              |
-| `customize`             | 自定义              |
+| `text`                  |                    |
+| `detailText`            | UITableViewCell.CellStyle.value1      |     
+| `detailText(.subtitle)` | UITableViewCell.CellStyle.subtitle    |
+| `detailText(.value1)`   | UITableViewCell.CellStyle.value1      |
+| `detailText(.value2)`   | UITableViewCell.CellStyle.value2      |
+| `detailText(.none)`     | no detailText      |
+| `isOn`                  | switch             |
+| `height`                | constant(CGFloat), automaticDimension, highAutomaticDimension          |
+| `estimatedHeight`       |                    |
+| `selectionStyle`        |                    |
+| `onTap`                 | cell didSelected   |
+| `customize`             | modify cell        |
+| `textAlignment`         | TapActionRow  text alignment |
+| `accessoryType`         | NavigationRow  accessoryType |
+
 
 ## Contributing
 
