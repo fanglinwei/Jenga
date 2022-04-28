@@ -173,7 +173,7 @@ preview:
         }
         .header("Toggle")
         .rowHeight(52)
-        .headerHeight(UITableView.automaticDimension)
+        .headerHeight(.automaticDimension)
         
         TableSection(binding: $isHiddenCat) { isOn in
             NavigationRow("🐶")
@@ -187,7 +187,7 @@ preview:
             }
         }
         .header("Animal")
-        .headerHeight(UITableView.automaticDimension)
+        .headerHeight(.automaticDimension)
     }
 ```
 
@@ -222,7 +222,7 @@ preview:
                 .data($0)
                 .height(44)
         }
-        .headerHeight(UITableView.automaticDimension)
+        .headerHeight(.automaticDimension)
         
         TableSection {
             TapActionRow("Random")
@@ -243,7 +243,7 @@ preview:
                     _ = self.emojis.popLast()
                 }
         }
-        .headerHeight(UITableView.automaticDimension)
+        .headerHeight(.automaticDimension)
     }
 ```
 
@@ -315,7 +315,7 @@ Just view `CustomTableViewController` in Demo
                    .data($0)
                    .height(44)
            }
-           .headerHeight(UITableView.automaticDimension)
+           .headerHeight(.automaticDimension)
        }
    ```
 
@@ -333,20 +333,20 @@ For more examples, see the sample application.
 
 Implementation ideas come from[FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)
 
-You can set height to `UITableView.highAutomaticDimension` to enable automatic calculation and cache row height
+You can set height to `RowHeight.highAutomaticDimension` to enable automatic calculation and cache row height
 
 Just view `AutoHeightViewController` in Demo
 
 ```swift
 // row
 NavigationRow()
-	.height(UITableView.highAutomaticDimension)
+	.height(.highAutomaticDimension)
 
 // section
 TableSection {
   rows...
 }
-.rowHeight(UITableView.highAutomaticDimension)
+.rowHeight(.highAutomaticDimension)
 ```
 
 

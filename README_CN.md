@@ -172,7 +172,7 @@ class ViewController: UIViewController, DSLAutoTable {
         }
         .header("Toggle")
         .rowHeight(52)
-        .headerHeight(UITableView.automaticDimension)
+        .headerHeight(.automaticDimension)
         
         TableSection(binding: $isHiddenCat) { isOn in
             NavigationRow("🐶")
@@ -186,7 +186,7 @@ class ViewController: UIViewController, DSLAutoTable {
             }
         }
         .header("Animal")
-        .headerHeight(UITableView.automaticDimension)
+        .headerHeight(.automaticDimension)
     }
 ```
 
@@ -221,7 +221,7 @@ isShowCat = true
                 .data($0)
                 .height(44)
         }
-        .headerHeight(UITableView.automaticDimension)
+        .headerHeight(.automaticDimension)
         
         TableSection {
             TapActionRow("Random")
@@ -242,7 +242,7 @@ isShowCat = true
                     _ = self.emojis.popLast()
                 }
         }
-        .headerHeight(UITableView.automaticDimension)
+        .headerHeight(.automaticDimension)
     }
 ```
 
@@ -316,7 +316,7 @@ JengaEnvironment.setup(JengaProvider())
                    .data($0)
                    .height(44)
            }
-           .headerHeight(UITableView.automaticDimension)
+           .headerHeight(.automaticDimension)
        }
    ```
 
@@ -334,20 +334,20 @@ JengaEnvironment.setup(JengaProvider())
 
 实现思路来源于[FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)
 
-你可以设置高度为`UITableView.highAutomaticDimension`来开启自动计算并且缓存行高
+你可以设置高度为`RowHeight.highAutomaticDimension`来开启自动计算并且缓存行高
 
 在Demo中查看`AutoHeightViewController`即可
 
 ```swift
 // row
 NavigationRow()
-	.height(UITableView.highAutomaticDimension)
+	.height(.highAutomaticDimension)
 
 // section
 TableSection {
   rows...
 }
-.rowHeight(UITableView.highAutomaticDimension)
+.rowHeight(.highAutomaticDimension)
 ```
 
 
