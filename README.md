@@ -355,7 +355,7 @@ TableSection {
 
 | Row                     | 描述               |
 | :---------------------- | ------------------ |
-| `text`                  | 标题                |
+| `text`                  |                    |
 | `detailText`            | UITableViewCell.CellStyle.value1      |     
 | `detailText(.subtitle)` | UITableViewCell.CellStyle.subtitle     |
 | `detailText(.value1)`   | UITableViewCell.CellStyle.value1      |
