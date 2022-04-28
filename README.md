@@ -72,10 +72,10 @@ JengaEnvironment.setup(JengaProvider())
 Then you just need short code to build UITableView
 
 ```swift
-@TableBuilder
-var tableBody: [Table] {
-			rows...
-}
+	@TableBuilder
+	var tableBody: [Table] {
+		rows...
+	}
 ```
 
 
