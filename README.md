@@ -362,7 +362,9 @@ TableSection {
 | `detailText(.value2)`   | UITableViewCell.CellStyle.value2      |
 | `detailText(.none)`     | no detailText      |
 | `isOn`                  | switch             |
-| `height`                | constant(CGFloat), automaticDimension, highAutomaticDimension          |
+| `height`                | constant(CGFloat), 
+automaticDimension, 
+highAutomaticDimension          |
 | `estimatedHeight`       |                    |
 | `selectionStyle`        |                    |
 | `onTap`                 | cell didSelected   |
