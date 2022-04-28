@@ -71,10 +71,10 @@ JengaEnvironment.setup(JengaProvider())
 然后你只需要简短的代码就可以构建UITableView
 
 ```swift
-@TableBuilder
-var tableBody: [Table] {
-			rows...
-}
+	@TableBuilder
+	var tableBody: [Table] {
+		rows...
+	}
 ```
 
 
@@ -116,7 +116,7 @@ class ViewController: UIViewController, DSLAutoTable {
 #### 自定义Cell:
 
 ```swift
-@TableBuilder
+    @TableBuilder
     var tableBody: [Table] {
         
         TableSection {
