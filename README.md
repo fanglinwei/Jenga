@@ -353,13 +353,13 @@ TableSection {
 
 ## `SystemRow` protocol provides chaining
 
-| Row                     | 描述               |
+| modify                  | description        |
 | :---------------------- | ------------------ |
 | `text`                  |                    |
 | `detailText`            | UITableViewCell.CellStyle.value1      |     
-| `detailText(.subtitle)` | UITableViewCell.CellStyle.subtitle     |
+| `detailText(.subtitle)` | UITableViewCell.CellStyle.subtitle    |
 | `detailText(.value1)`   | UITableViewCell.CellStyle.value1      |
-| `detailText(.value2)`   | UITableViewCell.CellStyle.value2       |
+| `detailText(.value2)`   | UITableViewCell.CellStyle.value2      |
 | `detailText(.none)`     | no detailText      |
 | `isOn`                  | switch             |
 | `height`                | rowHeight          |
