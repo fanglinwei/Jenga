@@ -31,6 +31,7 @@
 		B3496BB327F45799007D7A1D /* NavigationRow2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3496BAF27F45799007D7A1D /* NavigationRow2.swift */; };
 		B3496BB427F45799007D7A1D /* NavigationBadgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3496BB127F45799007D7A1D /* NavigationBadgeCell.swift */; };
 		B3496BB527F45799007D7A1D /* NavigationBadgeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3496BB227F45799007D7A1D /* NavigationBadgeRow.swift */; };
+		B372D8F02859C49D0054BCA8 /* ViewRowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B372D8EF2859C49D0054BCA8 /* ViewRowViewController.swift */; };
 		B37BD42127F45D76009C2244 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B37BD42027F45D76009C2244 /* Kingfisher */; };
 		B37BD42327F45ED0009C2244 /* Kingfisher.Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD42227F45ED0009C2244 /* Kingfisher.Extension.swift */; };
 		B37BD53C27F4671A009C2244 /* Icon.AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD53B27F4671A009C2244 /* Icon.AsyncImage.swift */; };
@@ -79,6 +80,7 @@
 		B3496BAF27F45799007D7A1D /* NavigationRow2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationRow2.swift; sourceTree = "<group>"; };
 		B3496BB127F45799007D7A1D /* NavigationBadgeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBadgeCell.swift; sourceTree = "<group>"; };
 		B3496BB227F45799007D7A1D /* NavigationBadgeRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBadgeRow.swift; sourceTree = "<group>"; };
+		B372D8EF2859C49D0054BCA8 /* ViewRowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRowViewController.swift; sourceTree = "<group>"; };
 		B37BD42227F45ED0009C2244 /* Kingfisher.Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kingfisher.Extension.swift; sourceTree = "<group>"; };
 		B37BD53B27F4671A009C2244 /* Icon.AsyncImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.AsyncImage.swift; sourceTree = "<group>"; };
 		B37BD53D27F4679C009C2244 /* Jenga.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Jenga.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +164,7 @@
 				B32FAB7C27F827BD006A37BE /* BaseViewController.swift */,
 				B32FABA127FD3649006A37BE /* StateViewController.swift */,
 				B32FABA327FD4F08006A37BE /* HeaderFooterViewController.swift */,
+				B372D8EF2859C49D0054BCA8 /* ViewRowViewController.swift */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -228,7 +231,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					B3496B3127F45338007D7A1D = {
 						CreatedOnToolsVersion = 13.3;
@@ -291,6 +294,7 @@
 				B37BD53C27F4671A009C2244 /* Icon.AsyncImage.swift in Sources */,
 				B32FAB7B27F82787006A37BE /* AutoHeightViewController.swift in Sources */,
 				B37BD42327F45ED0009C2244 /* Kingfisher.Extension.swift in Sources */,
+				B372D8F02859C49D0054BCA8 /* ViewRowViewController.swift in Sources */,
 				B3496BAA27F45767007D7A1D /* CustomTableViewController.swift in Sources */,
 				B3496BB427F45799007D7A1D /* NavigationBadgeCell.swift in Sources */,
 				B3496BB527F45799007D7A1D /* NavigationBadgeRow.swift in Sources */,
@@ -373,7 +377,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -427,7 +431,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -453,7 +457,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -485,7 +489,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
