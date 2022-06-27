@@ -12,7 +12,7 @@
 		B32FAB2D27F70CAD006A37BE /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB2C27F70CAD006A37BE /* Table.swift */; };
 		B32FAB7227F7F3E2006A37BE /* Reform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB7127F7F3E2006A37BE /* Reform.swift */; };
 		B32FAB7427F80A68006A37BE /* JengaHashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB7327F80A68006A37BE /* JengaHashable.swift */; };
-		B372D8EE2859C4760054BCA8 /* WrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B372D8ED2859C4760054BCA8 /* WrapperView.swift */; };
+		B372D8EE2859C4760054BCA8 /* WrapperRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B372D8ED2859C4760054BCA8 /* WrapperRow.swift */; };
 		B37BD5EF27F47538009C2244 /* Jenga.docc in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5B727F47538009C2244 /* Jenga.docc */; };
 		B37BD5F027F47538009C2244 /* Jenga.h in Headers */ = {isa = PBXBuildFile; fileRef = B37BD5B827F47538009C2244 /* Jenga.h */; };
 		B37BD5F127F47538009C2244 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5BB27F47538009C2244 /* Binding.swift */; };
@@ -54,7 +54,7 @@
 		B37BD61927F47538009C2244 /* DSLTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5EC27F47538009C2244 /* DSLTable.swift */; };
 		B37BD61A27F47538009C2244 /* TableDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5ED27F47538009C2244 /* TableDirector.swift */; };
 		B37BD61B27F47538009C2244 /* DSLAutoTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BD5EE27F47538009C2244 /* DSLAutoTable.swift */; };
-		B3FDB6342859CB0C0088D970 /* WrapperViewRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FDB6332859CB0C0088D970 /* WrapperViewRowCell.swift */; };
+		B3FDB6342859CB0C0088D970 /* WrapperRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FDB6332859CB0C0088D970 /* WrapperRowCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +63,7 @@
 		B32FAB2C27F70CAD006A37BE /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		B32FAB7127F7F3E2006A37BE /* Reform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reform.swift; sourceTree = "<group>"; };
 		B32FAB7327F80A68006A37BE /* JengaHashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JengaHashable.swift; sourceTree = "<group>"; };
-		B372D8ED2859C4760054BCA8 /* WrapperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrapperView.swift; sourceTree = "<group>"; };
+		B372D8ED2859C4760054BCA8 /* WrapperRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrapperRow.swift; sourceTree = "<group>"; };
 		B37BD4A927F4606B009C2244 /* Jenga.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Jenga.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B37BD5B727F47538009C2244 /* Jenga.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Jenga.docc; sourceTree = "<group>"; };
 		B37BD5B827F47538009C2244 /* Jenga.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jenga.h; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 		B37BD5EC27F47538009C2244 /* DSLTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSLTable.swift; sourceTree = "<group>"; };
 		B37BD5ED27F47538009C2244 /* TableDirector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDirector.swift; sourceTree = "<group>"; };
 		B37BD5EE27F47538009C2244 /* DSLAutoTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSLAutoTable.swift; sourceTree = "<group>"; };
-		B3FDB6332859CB0C0088D970 /* WrapperViewRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperViewRowCell.swift; sourceTree = "<group>"; };
+		B3FDB6332859CB0C0088D970 /* WrapperRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperRowCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,7 +200,7 @@
 				B37BD5C327F47538009C2244 /* TapActionCell.swift */,
 				B37BD5C427F47538009C2244 /* SpacerCell.swift */,
 				B37BD5C527F47538009C2244 /* ToggleCell.swift */,
-				B3FDB6332859CB0C0088D970 /* WrapperViewRowCell.swift */,
+				B3FDB6332859CB0C0088D970 /* WrapperRowCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -243,7 +243,7 @@
 		B37BD5D627F47538009C2244 /* Row */ = {
 			isa = PBXGroup;
 			children = (
-				B372D8ED2859C4760054BCA8 /* WrapperView.swift */,
+				B372D8ED2859C4760054BCA8 /* WrapperRow.swift */,
 				B37BD5D727F47538009C2244 /* TableRow.swift */,
 				B37BD5D827F47538009C2244 /* BasicRow.swift */,
 				B37BD5D927F47538009C2244 /* Configurable.swift */,
@@ -364,7 +364,7 @@
 				B37BD61127F47538009C2244 /* TapActionRow.swift in Sources */,
 				B37BD60027F47538009C2244 /* UIView.Extension.swift in Sources */,
 				B37BD60527F47538009C2244 /* TableCellHeightCalculator.swift in Sources */,
-				B372D8EE2859C4760054BCA8 /* WrapperView.swift in Sources */,
+				B372D8EE2859C4760054BCA8 /* WrapperRow.swift in Sources */,
 				B37BD5FC27F47538009C2244 /* BacicSection.swift in Sources */,
 				B37BD5F827F47538009C2244 /* TapActionCell.swift in Sources */,
 				B37BD61827F47538009C2244 /* DetailText.swift in Sources */,
@@ -380,7 +380,7 @@
 				B37BD60C27F47538009C2244 /* SystemRow.swift in Sources */,
 				B37BD60927F47538009C2244 /* BasicRow.swift in Sources */,
 				B37BD61427F47538009C2244 /* Icon.swift in Sources */,
-				B3FDB6342859CB0C0088D970 /* WrapperViewRowCell.swift in Sources */,
+				B3FDB6342859CB0C0088D970 /* WrapperRowCell.swift in Sources */,
 				B37BD5FB27F47538009C2244 /* Jenga.swift in Sources */,
 				B37BD5EF27F47538009C2244 /* Jenga.docc in Sources */,
 				B37BD5FF27F47538009C2244 /* Section.swift in Sources */,

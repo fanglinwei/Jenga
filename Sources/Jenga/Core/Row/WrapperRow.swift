@@ -7,8 +7,8 @@
 
 import UIKit
 // 自定义cell
-public struct WrapperView<View>: Row, RowConfigurable where View: TableRowView {
-    public typealias Cell = WrapperViewRowCell<View>
+public struct WrapperRow<View>: Row, RowConfigurable where View: TableRowView {
+    public typealias Cell = WrapperRowCell<View>
     public typealias Data = View.Data
     
     public init(_ data: Data) {
@@ -65,7 +65,7 @@ public struct WrapperView<View>: Row, RowConfigurable where View: TableRowView {
     }
 }
 
-public extension WrapperView {
+public extension WrapperRow {
 
     func edgeInsets(_ value: UIEdgeInsets) -> Self {
         reform { $0.edgeInsets = value }
@@ -92,7 +92,7 @@ public extension WrapperView {
     }
 }
 
-extension WrapperView: Table { }
+extension WrapperRow: Table { }
 
 extension UILabel: TableRowView {
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class WrapperViewRowCell<View: TableRowView>: UITableViewCell {
+public class WrapperRowCell<View: TableRowView>: UITableViewCell {
     public let view: View
     
     public var edgeInsets: UIEdgeInsets = .zero {
@@ -43,7 +43,7 @@ public class WrapperViewRowCell<View: TableRowView>: UITableViewCell {
     }
 }
 
-extension WrapperViewRowCell: ConfigurableCell {
+extension WrapperRowCell: ConfigurableCell {
     
     public func configure(with data: View.Data) {
         view.configure(with: data)
