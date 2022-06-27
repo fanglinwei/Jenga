@@ -7,8 +7,9 @@
 
 import UIKit
 // 自定义cell
-public struct ViewRow<View, Data>: Row, RowConfigurable where View: UIView {
-    public typealias Cell = ViewRowCell<View, Data>
+public struct WrapperView<View>: Row, RowConfigurable where View: TableRowView {
+    public typealias Cell = WrapperViewRowCell<View>
+    public typealias Data = View.Data
     
     public init(_ data: Data) {
         self.item = .constant(data)
@@ -64,7 +65,7 @@ public struct ViewRow<View, Data>: Row, RowConfigurable where View: UIView {
     }
 }
 
-public extension ViewRow {
+public extension WrapperView {
 
     func edgeInsets(_ value: UIEdgeInsets) -> Self {
         reform { $0.edgeInsets = value }
@@ -91,13 +92,32 @@ public extension ViewRow {
     }
 }
 
-extension ViewRow: Table { }
+extension WrapperView: Table { }
 
-public typealias TableViewRow<View> = ViewRow<View, TableViewRowData> where View: UIView
+extension UILabel: TableRowView {
+    
+    public func configure(with data: TableViewRowData) {
+        text = "\(data)"
+    }
+}
+
+extension UIButton: TableRowView {
+    
+    public func configure(with data: TableViewRowData) {
+        setTitle("\(data)", for: .normal)
+    }
+}
+
+extension UISwitch: TableRowView {
+    
+    public func configure(with data: Bool) {
+        isOn = data
+    }
+}
 
 public protocol TableViewRowData {}
 extension String: TableViewRowData {}
 extension Int: TableViewRowData {}
 extension Double: TableViewRowData {}
 extension Float: TableViewRowData {}
-
+extension Bool: TableViewRowData {}

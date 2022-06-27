@@ -10,17 +10,17 @@ import Jenga
 
 class ViewRowViewController: BaseViewController, DSLAutoTable {
     
-    override var pageTitle: String { get { "ViewRow" } }
+    override var pageTitle: String { get { "WrapperView" } }
     
     @State private var string: String = "123"
     
     var tableBody: [Table] {
         
         TableSection {
-            ViewRow<BannerView, Int>(123)
+            WrapperView<BannerView>(123)
                 .height(1184 / 2256 * (UIScreen.main.bounds.width - 40))
             
-            TableViewRow<UILabel>("123")
+            WrapperView<UILabel>("456")
                 .customize { label, data in
                     label.text = "\(data)"
                     label.numberOfLines = 0

@@ -1,5 +1,5 @@
 //
-//  ViewRowCell.swift
+//  WrapperViewRowCell.swift
 //  Jenga
 //
 //  Created by 方林威 on 2022/6/15.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class ViewRowCell<View: UIView, Data>: UITableViewCell {
+public class WrapperViewRowCell<View: TableRowView>: UITableViewCell {
     public let view: View
     
     public var edgeInsets: UIEdgeInsets = .zero {
@@ -43,14 +43,7 @@ public class ViewRowCell<View: UIView, Data>: UITableViewCell {
     }
 }
 
-extension ViewRowCell where View: UIView {
-    
-    public func configure(with data: Data) {
-        print(data)
-    }
-}
-
-extension ViewRowCell where View: TableRowView {
+extension WrapperViewRowCell: ConfigurableCell {
     
     public func configure(with data: View.Data) {
         view.configure(with: data)
