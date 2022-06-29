@@ -363,7 +363,7 @@ TableSection {
 | `detailText(.none)`     | no detailText      |
 | `isOn`                  | switch             |
 | `height`                | constant(CGFloat), automaticDimension, highAutomaticDimension          |
-| `estimatedHeight`       |                    |
+| `estimatedHeight`       | constant(CGFloat), automaticDimension, highAutomaticDimension          |
 | `selectionStyle`        |                    |
 | `onTap`                 | cell didSelected   |
 | `customize`             | modify cell        |
