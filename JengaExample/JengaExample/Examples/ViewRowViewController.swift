@@ -33,6 +33,8 @@ fileprivate class BannerView: UIView, TableRowView {
     
     private lazy var coverImageView = UIImageView(image: UIImage(named: "image1")!)
     
+    private lazy var button = UIButton()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -45,11 +47,17 @@ fileprivate class BannerView: UIView, TableRowView {
     
     private func setup() {
         addSubview(coverImageView)
+        addSubview(button)
+        
+        button.setTitle("点击", for: .normal)
+        button.setTitleColor(.red, for: .normal)
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         coverImageView.frame = bounds
+        button.frame = CGRect.init(x: 0, y: 50, width: 50, height: 30)
     }
     
     typealias Data = Int
@@ -57,6 +65,11 @@ fileprivate class BannerView: UIView, TableRowView {
     func configure(with data: Data) {
         print("===============")
         print(data)
+    }
+    
+    @objc
+    private func buttonAction() {
+        print("123")
     }
 }
 

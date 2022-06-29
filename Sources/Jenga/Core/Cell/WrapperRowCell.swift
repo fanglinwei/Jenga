@@ -29,12 +29,12 @@ public class WrapperRowCell<View: TableRowView>: UITableViewCell {
     }
     
     func setup() {
-        addSubview(view)
+        contentView.addSubview(view)
     }
     
     open override func layoutSubviews() {
         super.layoutSubviews()
-        view.frameWithoutTransform = bounds.inset(by: edgeInsets)
+        view.frameWithoutTransform = contentView.bounds.inset(by: edgeInsets)
     }
     
     open override func sizeThatFits(_ size: CGSize) -> CGSize {
