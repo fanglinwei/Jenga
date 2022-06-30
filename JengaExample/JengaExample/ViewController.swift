@@ -52,6 +52,10 @@ class ViewController: UIViewController, DSLAutoTable {
             .onTap(on: self) { (self) in
                 self.navigationController?.pushViewController(ViewRowViewController(), animated: true)
             }
+        NavigationRow("OnTap 泛型支持")
+            .onTap(on: self) { (self) in
+                self.navigationController?.pushViewController(OnTapViewController(), animated: true)
+            }
         NavigationRow("测试")
             .onTap(on: self) { (self) in
                 self.navigationController?.pushViewController(TableViewController(), animated: true)

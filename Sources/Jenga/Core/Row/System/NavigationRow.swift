@@ -17,7 +17,7 @@ open class NavigationRow<T: UITableViewCell>: BasicRow<T>, NavigationRowCompatib
         set {}
     }
     
-    public var accessoryButtonAction: RowAction?
+    public var accessoryButtonAction: (() -> Void)?
     
     public override var isSelectable: Bool {
         get { action != nil }
@@ -33,7 +33,7 @@ open class NavigationRow<T: UITableViewCell>: BasicRow<T>, NavigationRowCompatib
 
 extension NavigationRow {
     
-    public func accessoryButtonAction(_ value: RowAction?) -> Self {
+    public func accessoryButtonAction(_ value: (() -> Void)?) -> Self {
         reform { $0.accessoryButtonAction = value }
     }
     

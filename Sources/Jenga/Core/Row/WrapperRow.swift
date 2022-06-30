@@ -90,6 +90,29 @@ public extension WrapperRow {
     func customize(_ value: @escaping (View) -> Void) -> Self {
         reform { $0.customize = { (view, _) in value(view) } }
     }
+    
+    
+    func onTap(_ value: @escaping ((View) -> Void)) -> Self {
+        reform {
+            $0.action = { cell in
+                guard let cell = cell as? Cell else {
+                    return
+                }
+                value(cell.view)
+            }
+        }
+    }
+    
+    func onTap(_ value: @escaping ((View, Data) -> Void)) -> Self {
+        reform {
+            $0.action = { cell in
+                guard let cell = cell as? Cell, let data = item?.wrappedValue else {
+                    return
+                }
+                value(cell.view, data)
+            }
+        }
+    }
 }
 
 extension WrapperRow: Table { }

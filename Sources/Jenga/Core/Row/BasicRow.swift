@@ -85,6 +85,17 @@ public extension BasicRow {
     func customize(_ value: @escaping ((T) -> Void)) -> Self {
         reform { $0.customize = value }
     }
+    
+    func onTap(_ value: @escaping ((T) -> Void)) -> Self {
+        reform {
+            $0.action = { cell in
+                guard let cell = cell as? T else {
+                    return
+                }
+                value(cell)
+            }
+        }
+    }
 }
 
 extension BasicRow {

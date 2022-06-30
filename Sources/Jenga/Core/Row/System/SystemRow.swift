@@ -90,7 +90,7 @@ public extension SystemRow {
 
 public protocol NavigationRowCompatible: SystemRow {
     
-    var accessoryButtonAction: RowAction? { get }
+    var accessoryButtonAction: (() -> Void)? { get }
 }
 
 public protocol BadgeRowCompatible: SystemRow, AnyObject {

@@ -19,6 +19,9 @@ class ViewRowViewController: BaseViewController, DSLAutoTable {
         TableSection {
             WrapperRow<BannerView>(123)
                 .height(1184 / 2256 * (UIScreen.main.bounds.width - 40))
+                .onTap { (view, data) in
+                    print(view, data)
+                }
             
             WrapperRow<UILabel>("456")
                 .customize { label, data in
@@ -51,7 +54,6 @@ fileprivate class BannerView: UIView, TableRowView {
         
         button.setTitle("点击", for: .normal)
         button.setTitleColor(.red, for: .normal)
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
     
     override func layoutSubviews() {
@@ -65,11 +67,6 @@ fileprivate class BannerView: UIView, TableRowView {
     func configure(with data: Data) {
         print("===============")
         print(data)
-    }
-    
-    @objc
-    private func buttonAction() {
-        print("123")
     }
 }
 

@@ -5,6 +5,9 @@ public protocol RowActionable {
     var isSelectable: Bool { get set }
     
     var action: RowAction? { get set }
+    
+    func onTap<S>(on target: S, _ value: @escaping (S) -> Void) -> Self
+    func onTap<S>(on target: S, _ value: @escaping (S) -> Void) -> Self where S: AnyObject
 }
 
 public protocol Row: JengaHashable, RowActionable, Reform {
@@ -37,18 +40,18 @@ public extension Row {
     func selectionStyle(_ value: UITableViewCell.SelectionStyle) -> Self {
         reform { $0.selectionStyle = value }
     }
-
-    func onTap(_ value: RowAction?) -> Self {
-        reform { $0.action = value }
-    }
     
+    func onTap(_ value: @escaping (() -> Void)) -> Self {
+        reform { $0.action = { _ in value() } }
+    }
+
     func onTap<S>(on target: S, _ value: @escaping (S) -> Void) -> Self {
-        reform { $0.action = { value(target) } }
+        reform { $0.action = { _ in value(target) } }
     }
     
     func onTap<S>(on target: S, _ value: @escaping (S) -> Void) -> Self where S: AnyObject {
         reform {
-            $0.action = { [weak target]  in
+            $0.action = { [weak target] _  in
                 guard let target = target else { return }
                 value(target)
             }
@@ -78,5 +81,5 @@ public enum RowHeight {
     }
 }
 
-public typealias RowAction = () -> Void
+public typealias RowAction = (UITableViewCell) -> Void
 

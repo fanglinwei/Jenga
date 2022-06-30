@@ -26,8 +26,12 @@ class CustomViewController: BaseViewController, DSLAutoTable {
             SpacerRow(10)
             
             TableRow<BannerCell>()
+                .isSelectable(true)
                 .height(1540 / 2078 * (UIScreen.main.bounds.width - 40))
                 .data("image2")
+                .onTap { cell in
+                    print(cell)
+                }
                 .customize { (cell, value) in
                     print(cell, value)
                 }

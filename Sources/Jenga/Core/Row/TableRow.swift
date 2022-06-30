@@ -70,4 +70,26 @@ public extension TableRow {
     func customize(_ value: @escaping (Cell) -> Void) -> Self {
         reform { $0.customize = { (cell, _) in value(cell) } }
     }
+    
+    func onTap(_ value: @escaping ((Cell) -> Void)) -> Self {
+        reform {
+            $0.action = { cell in
+                guard let cell = cell as? Cell else {
+                    return
+                }
+                value(cell)
+            }
+        }
+    }
+    
+    func onTap(_ value: @escaping ((Cell, Cell.CellData) -> Void)) -> Self {
+        reform {
+            $0.action = { cell in
+                guard let cell = cell as? Cell, let data = item?.wrappedValue else {
+                    return
+                }
+                value(cell, data)
+            }
+        }
+    }
 }

@@ -2,7 +2,7 @@ import UIKit
 
 /// TODO: 功能待开发
 open class OptionRow<T: UITableViewCell>: BasicRow<T>, OptionRowCompatible, Equatable {
-    
+    public typealias OptionRowAction = (() -> Void)
     public init(text: Binding<String>, isSelected: Bool = false) {
         super.init(text)
         self.isSelected = isSelected
@@ -14,10 +14,12 @@ open class OptionRow<T: UITableViewCell>: BasicRow<T>, OptionRowCompatible, Equa
                 return
             }
             DispatchQueue.main.async {
-                self.action?()
+                self.optionRowAction?()
             }
         }
     }
+    
+    public var optionRowAction: OptionRowAction?
     
     public override var accessoryType: UITableViewCell.AccessoryType {
         get { isSelected ? .checkmark : .none }
@@ -36,5 +38,22 @@ public extension OptionRow {
     
     func isSelected(_ value: Bool) -> Self {
         reform { $0.isSelected = value }
+    }
+    
+    func onTap(_ value: OptionRowAction?) -> Self {
+        reform { $0.optionRowAction = value }
+    }
+    
+    func onTap<S>(on target: S, _ value: @escaping (S) -> Void) -> Self {
+        reform { $0.optionRowAction = { value(target) } }
+    }
+    
+    func onTap<S>(on target: S, _ value: @escaping (S) -> Void) -> Self where S: AnyObject {
+        reform {
+            $0.optionRowAction = { [weak target] in
+                guard let target = target else { return }
+                value(target)
+            }
+        }
     }
 }

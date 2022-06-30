@@ -205,16 +205,22 @@ extension TableDirector: UITableViewDelegate {
         case let (_, option as OptionRowCompatible):
             option.isSelected = !option.isSelected
             tableView.reloadData()
-            
+
         case (_, is TapActionRowCompatible):
             tableView.deselectRow(at: indexPath, animated: true)
             DispatchQueue.main.async {
-                row.action?()
+                guard let cell = tableView.cellForRow(at: indexPath) else {
+                    return
+                }
+                row.action?(cell)
             }
             
         case let (_, row) where row.isSelectable:
             DispatchQueue.main.async {
-                row.action?()
+                guard let cell = tableView.cellForRow(at: indexPath) else {
+                    return
+                }
+                row.action?(cell)
             }
             
         default:
