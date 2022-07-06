@@ -39,6 +39,7 @@ struct JengaProvider: Jenga.JengaProvider {
     func defaultTableView(with frame: CGRect) -> UITableView {
         let tableView: UITableView
         if #available(iOS 13.0, *) {
+            // https://github.com/JarhomChen/TableViewOfInsetGrouped
             tableView = UITableView(frame: frame, style: .insetGrouped)
         } else {
             tableView = UITableView(frame: frame, style: .grouped)
