@@ -45,7 +45,7 @@ Repository: https://github.com/fanglinwei/Jenga
 
 将以下内容添加到你的 `Package.swift`:
 ```swift
-.package(url: "https://github.com/fanglinwei/Jenga", from: "version")
+.package(url: "https://github.com/fanglinwei/Jenga.git", from: "version")
 ```
 
 

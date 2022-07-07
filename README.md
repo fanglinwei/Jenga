@@ -47,7 +47,7 @@ Repository: https://github.com/fanglinwei/Jenga
 
 Add the following to the dependencies of your `Package.swift`:
 ```swift
-.package(url: "https://github.com/fanglinwei/Jenga", from: "version")
+.package(url: "https://github.com/fanglinwei/Jenga.git", from: "version")
 ```
 
 ## Usage
