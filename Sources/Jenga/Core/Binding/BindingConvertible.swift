@@ -229,3 +229,9 @@ public extension Binding where Value: Sequence {
     }
 }
 
+public extension Binding where Value: Collection {
+    
+    var isEmpty: Bool {
+        wrappedValue.isEmpty
+    }
+}
