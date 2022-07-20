@@ -4,7 +4,7 @@ import UIKit
 public struct DetailText: Equatable {
     
     public var type: `Type` = .none
-    public var text: TextValues
+    public var text: TextValues = .init()
     
     public enum `Type` {
         case none
@@ -22,10 +22,7 @@ public struct DetailText: Equatable {
         }
     }
     
-    public init(_ type: `Type` = .none, _ string: String? = .none) {
-        self.type = type
-        self.text = .init(string: string)
-    }
+    public init() { }
 }
 
 public extension DetailText {
@@ -42,5 +39,10 @@ public extension DetailText {
     
     static func value2(_ value: String) -> DetailText {
         return .init(.value2, value)
+    }
+    
+    private init(_ type: `Type`, _ string: String?) {
+        self.type = type
+        self.text.string = string
     }
 }

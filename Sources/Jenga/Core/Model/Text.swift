@@ -11,7 +11,9 @@ public protocol TextKey {
 
 public struct TextValues: Equatable {
     
-    private var options = [OptionsKeys: Any]()
+    private var options: [OptionsKeys: Any] = [:]
+    
+    public init() { }
     
     public init(string value: String?) {
         self.string = value
