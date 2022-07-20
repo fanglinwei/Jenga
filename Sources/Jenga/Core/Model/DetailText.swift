@@ -3,8 +3,8 @@ import UIKit
 /// An enum that represents a detail text with `UITableViewCell.CellStyle`.
 public struct DetailText: Equatable {
     
-    var type: `Type` = .none
-    var text: TextValues
+    public var type: `Type` = .none
+    public var text: TextValues
     
     public enum `Type` {
         case none

@@ -86,6 +86,10 @@ public extension SystemRow {
             }
         }
     }
+    
+    func detail(_ value: DetailText.`Type`) -> Self {
+        reform { $0.detailText = detailText.map { .init(value, $0.text.string) } }
+    }
 }
 
 public protocol NavigationRowCompatible: SystemRow {
