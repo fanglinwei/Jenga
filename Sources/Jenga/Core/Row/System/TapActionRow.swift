@@ -1,6 +1,6 @@
 import UIKit
 
-open class TapActionRow<T: TapActionCell>: BasicRow<T>, TapActionRowCompatible, Equatable {
+open class TapActionRow<T: TapActionCell>: BasicRow<T>, TapActionRowCompatible {
 
     public var textAlignment: NSTextAlignment = .center
     
@@ -12,10 +12,6 @@ open class TapActionRow<T: TapActionCell>: BasicRow<T>, TapActionRowCompatible, 
     open override func configure(_ cell: UITableViewCell) {
         super.configure(cell)
         (cell as? T)?.configure(with: self)
-    }
-    
-    public static func == (lhs: TapActionRow, rhs: TapActionRow) -> Bool {
-        return lhs.text == rhs.text && lhs.detailText == rhs.detailText
     }
 }
 

@@ -60,6 +60,9 @@ class ViewController: UIViewController, DSLAutoTable {
             .onTap(on: self) { (self) in
                 self.navigationController?.pushViewController(TableViewController(), animated: true)
             }
+        NavigationRow("多开关复用测试")
+            .onTap(on: self) { (self) in
+                self.navigationController?.pushViewController(SwitchViewController(), animated: true)
+            }
     }
 }
-

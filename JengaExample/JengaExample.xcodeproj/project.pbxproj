@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B315C57F28A3C4CA0018658C /* SwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B315C57E28A3C4CA0018658C /* SwitchViewController.swift */; };
 		B32FAB2327F5C4E2006A37BE /* EmojiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB2227F5C4E2006A37BE /* EmojiViewController.swift */; };
 		B32FAB2727F5C9DD006A37BE /* BindingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB2627F5C9DD006A37BE /* BindingViewController.swift */; };
 		B32FAB7627F82705006A37BE /* AutoHeightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FAB7527F82705006A37BE /* AutoHeightCell.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B315C57E28A3C4CA0018658C /* SwitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchViewController.swift; sourceTree = "<group>"; };
 		B32FAB2227F5C4E2006A37BE /* EmojiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiViewController.swift; sourceTree = "<group>"; };
 		B32FAB2627F5C9DD006A37BE /* BindingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingViewController.swift; sourceTree = "<group>"; };
 		B32FAB7527F82705006A37BE /* AutoHeightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoHeightCell.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				B32FABA327FD4F08006A37BE /* HeaderFooterViewController.swift */,
 				B372D8EF2859C49D0054BCA8 /* ViewRowViewController.swift */,
 				B3436762286D895E003C213E /* OnTapViewController.swift */,
+				B315C57E28A3C4CA0018658C /* SwitchViewController.swift */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				B3496BA427F4567A007D7A1D /* TableViewController.swift in Sources */,
 				B331732527FD7D2C008DFF5E /* UILabel.Inset.swift in Sources */,
 				B3496BAC27F45767007D7A1D /* CustomViewController.swift in Sources */,
+				B315C57F28A3C4CA0018658C /* SwitchViewController.swift in Sources */,
 				B32FAB2727F5C9DD006A37BE /* BindingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

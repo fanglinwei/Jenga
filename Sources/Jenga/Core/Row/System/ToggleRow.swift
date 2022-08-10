@@ -1,7 +1,7 @@
 import UIKit
 
 /// A class that represents a row with a switch.
-open class ToggleRow<Cell: ToggleCell>: BasicRow<Cell>, ToggleRowCompatible, Equatable {
+open class ToggleRow<Cell: ToggleCell>: BasicRow<Cell>, ToggleRowCompatible {
     
     public init(_ text: Binding<String>, isOn: Binding<Bool>) {
         self.isOn = isOn
@@ -22,16 +22,13 @@ open class ToggleRow<Cell: ToggleCell>: BasicRow<Cell>, ToggleRowCompatible, Equ
         set {}
     }
     
+    public override var reuseIdentifier: String {
+        Cell.reuseIdentifier + "\(hashValue)"
+    }
+    
     open override func configure(_ cell: UITableViewCell) {
         super.configure(cell)
         (cell as? Cell)?.configure(with: (isOn, onTap))
-    }
-    
-    public static func == (lhs: ToggleRow, rhs: ToggleRow) -> Bool {
-        return lhs.text == rhs.text &&
-        lhs.detailText == rhs.detailText &&
-        lhs.isOn == rhs.isOn &&
-        lhs.icon == rhs.icon
     }
 }
 

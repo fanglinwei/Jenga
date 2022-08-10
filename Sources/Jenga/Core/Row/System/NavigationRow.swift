@@ -1,6 +1,6 @@
 import UIKit
 
-open class NavigationRow<T: UITableViewCell>: BasicRow<T>, NavigationRowCompatible, Equatable {
+open class NavigationRow<T: UITableViewCell>: BasicRow<T>, NavigationRowCompatible {
         
     private var _accessoryType: UITableViewCell.AccessoryType?
     
@@ -22,12 +22,6 @@ open class NavigationRow<T: UITableViewCell>: BasicRow<T>, NavigationRowCompatib
     public override var isSelectable: Bool {
         get { action != nil }
         set {}
-    }
-    
-    public static func == (lhs: NavigationRow, rhs: NavigationRow) -> Bool {
-        return lhs.text == rhs.text &&
-               lhs.detailText == rhs.detailText &&
-               lhs.icon == rhs.icon
     }
 }
 

@@ -1,7 +1,7 @@
 import UIKit
 
 /// TODO: 功能待开发
-open class OptionRow<T: UITableViewCell>: BasicRow<T>, OptionRowCompatible, Equatable {
+open class OptionRow<T: UITableViewCell>: BasicRow<T>, OptionRowCompatible {
     public typealias OptionRowAction = (() -> Void)
     public init(text: Binding<String>, isSelected: Bool = false) {
         super.init(text)
@@ -24,13 +24,6 @@ open class OptionRow<T: UITableViewCell>: BasicRow<T>, OptionRowCompatible, Equa
     public override var accessoryType: UITableViewCell.AccessoryType {
         get { isSelected ? .checkmark : .none }
         set {}
-    }
-    
-    public static func == (lhs: OptionRow, rhs: OptionRow) -> Bool {
-        return lhs.text == rhs.text &&
-        lhs.detailText == rhs.detailText &&
-        lhs.isSelected == rhs.isSelected &&
-        lhs.icon == rhs.icon
     }
 }
 
