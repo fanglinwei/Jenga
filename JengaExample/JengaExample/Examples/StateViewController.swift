@@ -13,6 +13,7 @@ class StateViewController: BaseViewController, DSLAutoTable {
     override var pageTitle: String { get { "状态绑定" } }
     
     @State var people: People = .init(name: "Jack", height: 185, weight: 130, gender: true, age: 28)
+    @State private var disabled = false
     
     // DSL
     var tableBody: [Table] {
@@ -33,6 +34,21 @@ class StateViewController: BaseViewController, DSLAutoTable {
             .onTap(on: self) { (self) in
                 self.people.gender.toggle()
             }
+        
+        
+        TableSection {
+            TapActionRow("测试点击")
+                .onTap(on: self) { (self) in
+                    print("测试点击")
+                }
+                .disabled($disabled)
+            
+            TapActionRow($disabled.map { $0 ? "开启" : "禁用"})
+                .onTap(on: self) { (self) in
+                    self.disabled.toggle()
+                }
+        }
+        .header("禁用")
     }
 }
 

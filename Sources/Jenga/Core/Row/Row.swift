@@ -46,15 +46,13 @@ public extension Row {
     }
 
     func onTap<S>(on target: S, _ value: @escaping (S) -> Void) -> Self {
-        reform { $0.action = { _ in value(target) } }
+        onTap { value(target) }
     }
     
     func onTap<S>(on target: S, _ value: @escaping (S) -> Void) -> Self where S: AnyObject {
-        reform {
-            $0.action = { [weak target] _  in
-                guard let target = target else { return }
-                value(target)
-            }
+        onTap { [weak target] in
+            guard let target = target else { return }
+            value(target)
         }
     }
 }

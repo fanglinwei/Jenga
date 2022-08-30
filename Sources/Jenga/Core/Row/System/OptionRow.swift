@@ -38,15 +38,13 @@ public extension OptionRow {
     }
     
     func onTap<S>(on target: S, _ value: @escaping (S) -> Void) -> Self {
-        reform { $0.optionRowAction = { value(target) } }
+        onTap { value(target) }
     }
     
     func onTap<S>(on target: S, _ value: @escaping (S) -> Void) -> Self where S: AnyObject {
-        reform {
-            $0.optionRowAction = { [weak target] in
-                guard let target = target else { return }
-                value(target)
-            }
+        onTap { [weak target] in
+            guard let target = target else { return }
+            value(target)
         }
     }
 }

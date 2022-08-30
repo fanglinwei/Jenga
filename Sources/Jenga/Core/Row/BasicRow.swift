@@ -20,7 +20,7 @@ open class BasicRow<T: UITableViewCell>: SystemRow, RowConfigurable {
     public var icon: Binding<Icon>?
     
     /// A closure that will be invoked when the `isSelected` is changed.
-    public var action: RowAction?
+    open var action: RowAction?
     
     // MARK: - RowStyle
     
@@ -28,28 +28,28 @@ open class BasicRow<T: UITableViewCell>: SystemRow, RowConfigurable {
     public let cellType: UITableViewCell.Type = T.self
     
     /// Returns the reuse identifier of the table view cell to display the row.
-    public var reuseIdentifier: String {
+    open var reuseIdentifier: String {
         T.reuseIdentifier + detailText.wrappedValue.style.stringValue
     }
     
-    public var selectionStyle: UITableViewCell.SelectionStyle = .none
+    open var selectionStyle: UITableViewCell.SelectionStyle = .none
     
     /// Returns the table view cell style for the specified detail text.
-    public var cellStyle: UITableViewCell.CellStyle { detailText.wrappedValue.style }
+    open var cellStyle: UITableViewCell.CellStyle { detailText.wrappedValue.style }
     
     /// The icon of the row.
-    public var height: RowHeight?
+    open var height: RowHeight?
     
-    public var estimatedHeight: RowHeight?
+    open var estimatedHeight: RowHeight?
     
     /// `OptionRow` is always selectable.
-    public var isSelectable: Bool = true
+    open var isSelectable: Bool = true
     
     /// Returns `.checkmark` when the row is selected, otherwise returns `.none`.
-    public var accessoryType: UITableViewCell.AccessoryType = .none
+    open var accessoryType: UITableViewCell.AccessoryType = .none
     
     /// Additional customization during cell configuration.
-    public var customize: ((T) -> Void)?
+    open var customize: ((T) -> Void)?
     
     open func reset(_ cell: UITableViewCell) {
         cell.textLabel?.text = nil

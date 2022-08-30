@@ -44,11 +44,9 @@ public extension ToggleRow {
     }
     
     func onTap<S>(on target: S, _ value: @escaping (S, Bool) -> Void) -> Self where S: AnyObject {
-        reform {
-            $0.onTap = { [weak target] isOn in
-                guard let target = target else { return }
-                value(target, isOn)
-            }
+        onTap { [weak target] (isOn: Bool) in
+            guard let target = target else { return }
+            value(target, isOn)
         }
     }
 }

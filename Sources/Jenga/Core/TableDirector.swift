@@ -48,7 +48,6 @@ public class TableDirector: NSObject {
         self.tableBody = tableBody
         let sections = assemble(with: tableBody)
         self.sections = sections.filter { !($0.isEmpty && $0.hiddenWithEmpty) }
-        reload()
         
         weak var `self` = self
         func reloadAll() {
