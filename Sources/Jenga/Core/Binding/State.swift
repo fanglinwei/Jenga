@@ -27,7 +27,7 @@ public struct State<Value>: BindingConvertible {
     public var projectedValue: Binding<Value> {
         Binding(
             get: { location.value },
-            set: { location.value = $0 },
+            set: { wrappedValue = $0 },
             appendObserver: append,
             removeObserver: remove
         )
