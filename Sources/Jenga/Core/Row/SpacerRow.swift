@@ -1,7 +1,7 @@
 import UIKit
 
-public struct SpacerRow<T: SpacerCell>: Row {
-    
+public struct SpacerRow<Cell: SpacerCell>: Row, RowConfigurable {
+
     public var height: RowHeight?
     
     public let color: UIColor
@@ -12,9 +12,9 @@ public struct SpacerRow<T: SpacerCell>: Row {
     
     public var action: RowAction?
     
-    public let cellType: UITableViewCell.Type = T.self
+    public let cellType: UITableViewCell.Type = Cell.self
     
-    public var reuseIdentifier: String { T.reuseIdentifier }
+    public var reuseIdentifier: String { Cell.reuseIdentifier }
     
     public var selectionStyle: UITableViewCell.SelectionStyle = .none
     
@@ -26,5 +26,13 @@ public struct SpacerRow<T: SpacerCell>: Row {
         self.height = .constant(height)
         self.color = color
         self.estimatedHeight = .constant(height)
+    }
+    
+    public func configure(_ cell: UITableViewCell) {
+        (cell as? Cell)?.configure(with: color)
+    }
+    
+    public func recovery(_ cell: UITableViewCell) {
+        
     }
 }
