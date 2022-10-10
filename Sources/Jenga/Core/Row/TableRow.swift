@@ -55,6 +55,10 @@ public extension TableRow {
         reform { $0.isSelectable = value }
     }
     
+    func selectionStyle(_ value: UITableViewCell.SelectionStyle) -> Self {
+        reform { $0.selectionStyle = value }
+    }
+    
     func data(_ data: Cell.CellData) -> Self {
         reform { $0.item = .constant(data) }
     }

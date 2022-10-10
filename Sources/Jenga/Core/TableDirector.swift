@@ -158,8 +158,8 @@ extension TableDirector: UITableViewDataSource {
                 let cell =
                 tableView.dequeueReusableCell(withIdentifier: row.reuseIdentifier) ??
                 row.cellType.init(style: row.cellStyle, reuseIdentifier: row.reuseIdentifier)
-                (row as? RowConfigurable)?.configure(cell)
                 cell.selectionStyle = row.selectionStyle
+                (row as? RowConfigurable)?.configure(cell)
                 return cell
                 
             } else {
@@ -167,8 +167,8 @@ extension TableDirector: UITableViewDataSource {
                 
                 let cell =
                 tableView.dequeueReusableCell(withIdentifier: row.reuseIdentifier, for: indexPath)
-                (row as? RowConfigurable)?.configure(cell)
                 cell.selectionStyle = row.selectionStyle
+                (row as? RowConfigurable)?.configure(cell)
                 return cell
             }
         }

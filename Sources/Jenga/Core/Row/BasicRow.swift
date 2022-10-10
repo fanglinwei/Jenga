@@ -82,6 +82,10 @@ open class BasicRow<T: UITableViewCell>: SystemRow, RowConfigurable {
 
 public extension BasicRow {
     
+    func selectionStyle(_ value: UITableViewCell.SelectionStyle) -> Self {
+        reform { $0.selectionStyle = value }
+    }
+    
     func customize(_ value: @escaping ((T) -> Void)) -> Self {
         reform { $0.customize = value }
     }
