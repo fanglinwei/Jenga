@@ -28,17 +28,17 @@ public extension SystemRow {
         reform { $0.icon = .constant(value) }
     }
     
-    func detailText(_ value: Binding<DetailText>) -> Self {
-        reform { $0.detailText = value }
-    }
-    
     func detailText(_ value: DetailText) -> Self {
-        reform { $0.detailText = .constant(value) }
+        reform {
+            $0.detailText = detailText.map(value) { detailText, value in
+                return value
+            }
+        }
     }
     
     func detailText(_ value: String) -> Self {
         reform {
-            $0.detailText = detailText.map { detailText in
+            $0.detailText = detailText.map(value) { detailText, value in
                 var temp = detailText
                 temp.type = .value1
                 temp.text.string = value
@@ -47,10 +47,10 @@ public extension SystemRow {
         }
     }
     
-    func detailText(_ value: Binding<String>) -> Self {
-        var temp = detailText.wrappedValue
-        return reform {
-            $0.detailText = value.map { value  in
+    func detailText(_ binding: Binding<String>) -> Self {
+        reform {
+            $0.detailText = detailText.join(binding) { detail, value in
+                var temp = detail
                 temp.type = .value1
                 temp.text.string = value
                 return temp
@@ -58,13 +58,21 @@ public extension SystemRow {
         }
     }
     
+    func detailText(_ binding: Binding<DetailText>) -> Self {
+        reform {
+            $0.detailText = detailText.join(binding) { detail, value in
+                return value
+            }
+        }
+    }
+    
     func text<Value>(_ keyPath: WritableKeyPath<TextValues, Value>, _ value: Value) -> Self {
-        reform { $0.text = text.map { $0.with(keyPath, value) } }
+        reform { $0.text = text.map(value) { $0.with(keyPath, $1) } }
     }
     
     func detail<Value>(_ keyPath: WritableKeyPath<TextValues, Value>, _ value: Value) -> Self {
         reform {
-            $0.detailText = detailText.map { detailText in
+            $0.detailText = detailText.map(value) { detailText, value in
                 var temp = detailText
                 temp.text = temp.text.with(keyPath, value)
                 return temp
@@ -73,14 +81,17 @@ public extension SystemRow {
     }
     
     func text<Value>(_ keyPath: WritableKeyPath<TextValues, Value>, _ binding: Binding<Value>) -> Self {
-        let temp = text.wrappedValue
-        return reform { $0.text = binding.map { temp.with(keyPath, $0) } }
+        reform {
+            $0.text = text.join(binding) { text, value in
+                text.with(keyPath, value)
+            }
+        }
     }
     
     func detail<Value>(_ keyPath: WritableKeyPath<TextValues, Value>, _ binding: Binding<Value>) -> Self {
-        var temp = detailText.wrappedValue
-        return reform {
-            $0.detailText = binding.map { value  in
+        reform {
+            $0.detailText = detailText.join(binding) { detail, value in
+                var temp = detail
                 temp.text = temp.text.with(keyPath, value)
                 return temp
             }
@@ -89,7 +100,7 @@ public extension SystemRow {
     
     func detail(_ value: DetailText.`Type`) -> Self {
         reform {
-            $0.detailText = detailText.map { detailText in
+            $0.detailText = detailText.map(value) { detailText, value in
                 var temp = detailText
                 temp.type = value
                 return temp
