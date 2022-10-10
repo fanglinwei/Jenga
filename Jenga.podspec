@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "Jenga"
-s.version      = "1.1.9"
+s.version      = "1.2.0"
 s.summary      = "像SwiftUI一样使用DSL代码搭建UITableView"
 
 s.homepage     = "https://github.com/fanglinwei/Jenga"
