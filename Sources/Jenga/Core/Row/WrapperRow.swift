@@ -37,6 +37,8 @@ public struct WrapperRow<View>: Row, RowConfigurable where View: TableRowView {
     
     public var customize: ((View, Data) -> Void)?
     
+    private var customizeCell: ((Cell, Data) -> Void)?
+    
     public var action: RowAction?
     
     public var height: RowHeight?
@@ -58,6 +60,7 @@ public struct WrapperRow<View>: Row, RowConfigurable where View: TableRowView {
         cell.edgeInsets = edgeInsets
         guard let item = item else { return }
         customize?(cell.view, item.wrappedValue)
+        customizeCell?(cell, item.wrappedValue)
     }
     
     public func recovery(_ cell: UITableViewCell) {
@@ -91,6 +94,13 @@ public extension WrapperRow {
         reform { $0.customize = { (view, _) in value(view) } }
     }
     
+    func customizeCell(_ value: @escaping (Cell, Data) -> Void) -> Self {
+        reform { $0.customizeCell = value }
+    }
+
+    func customizeCell(_ value: @escaping (Cell) -> Void) -> Self {
+        reform { $0.customizeCell = { (cell, _) in value(cell) } }
+    }
     
     func onTap(_ value: @escaping ((View) -> Void)) -> Self {
         reform {
